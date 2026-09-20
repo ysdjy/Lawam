@@ -1,0 +1,77 @@
+diff --git a/research/action_critical_reliability_probe/scripts/s1_rollouts.py b/research/action_critical_reliability_probe/scripts/s1_rollouts.py
+index 0385eae..2f3ac94 100644
+--- a/research/action_critical_reliability_probe/scripts/s1_rollouts.py
++++ b/research/action_critical_reliability_probe/scripts/s1_rollouts.py
+@@ -26,6 +26,23 @@ CKPT = pc.REPO_ROOT / "results/Checkpoints/libero/lawam_libero_sft_release/final
+ MAX_STEPS = 250
+ 
+ 
++def obs_record_bodies_only(env, obs, objects: list[str]):
++    """`sim_common.obs_record` restricted to the obj_of_interest entries that resolve to a rigid body.
++
++    Some LIBERO tasks (e.g. libero_goal t5 "push the plate to the front of the stove") list a goal REGION
++    among obj_of_interest; it has no body and `body_pos` raises. Rather than duplicating the record format
++    or editing the shared read-only helper, narrow `obj_of_interest` for the duration of the call so that
++    `sim_common.obs_record` stays the single source of truth, then restore it immediately.
++    """
++    e = sc.raw_env(env)
++    original = e.obj_of_interest
++    try:
++        e.obj_of_interest = objects
++        return sc.obs_record(env, obs)
++    finally:
++        e.obj_of_interest = original
++
++
+ def main() -> None:
+     ap = argparse.ArgumentParser()
+     ap.add_argument("--run_dir", default=str(pc.run_dir()))
+@@ -52,7 +69,21 @@ def main() -> None:
+     assert client._expected_action_chunk_length(20.0) == sc.CHUNK_LEN
+     env, desc = sc.make_env(task, args.seed)
+     e = sc.raw_env(env)
+-    objects = list(e.obj_of_interest)
++    # Some LIBERO tasks list a goal REGION (a site, e.g. "main_table_stove_front_region") among
++    # obj_of_interest; those have no rigid body and cannot be logged with body_pos. Keep only the
++    # entries that resolve to a body, and record which were skipped. For tasks whose obj_of_interest
++    # are all bodies this is a no-op (verified against the previously collected tasks).
++    objects, skipped_objects = [], []
++    for n in list(e.obj_of_interest):
++        try:
++            sc.body_pos(env, n)
++            objects.append(n)
++        except KeyError:
++            skipped_objects.append(n)
++    if not objects:
++        raise RuntimeError(f"no obj_of_interest of {task.name} resolves to a body: {list(e.obj_of_interest)}")
++    if skipped_objects:
++        print(f"[s1_rollouts] non-body obj_of_interest skipped: {skipped_objects}", flush=True)
+ 
+     for ep in range(lo, hi + 1):
+         ep_dir = out_root / f"ep{ep:03d}"
+@@ -81,7 +112,7 @@ def main() -> None:
+                 grip = invert_gripper_action(_binarize_gripper_open(
+                     np.asarray(raw["open_gripper"], dtype=np.float32).reshape(-1)))
+                 delta = np.concatenate([wv, rot, grip]).astype(np.float64)
+-                rec = sc.obs_record(env, obs)
++                rec = obs_record_bodies_only(env, obs, objects)
+                 rec.update({
+                     "step": step,
+                     "is_boundary": bool(is_boundary),
+@@ -101,7 +132,7 @@ def main() -> None:
+             error = repr(exc)
+         ex, img, wrist = sc.policy_example(obs, desc)
+         frames.append(img.copy()); wrists.append(wrist.copy()); states.append(ex["state"][0].copy())
+-        recs.append({**sc.obs_record(env, obs), "step": step, "is_boundary": False, "final": True})
++        recs.append({**obs_record_bodies_only(env, obs, objects), "step": step, "is_boundary": False, "final": True})
+         np.savez_compressed(ep_dir / "steps.npz", primary=np.stack(frames), wrist=np.stack(wrists),
+                             state=np.stack(states), actions=np.asarray(actions))
+         with open(ep_dir / "records.jsonl", "w") as f:
+@@ -112,6 +143,7 @@ def main() -> None:
+             "episode_idx": ep, "init_state_idx": ep, "env_seed": args.seed, "success": success,
+             "num_actions": len(actions), "chunk_boundaries": boundaries, "error": error,
+             "objects_of_interest": objects, "object_init_pos": {n: v.tolist() for n, v in obj0.items()},
++            "non_body_obj_of_interest_skipped": skipped_objects,
+             "wall_sec": time.time() - t0,
+         })
+         print(f"{args.suite} t{args.task_id} ep{ep}: success={success} steps={len(actions)} "

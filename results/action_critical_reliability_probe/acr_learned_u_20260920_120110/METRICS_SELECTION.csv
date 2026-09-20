@@ -1,0 +1,2 @@
+status,reason,gate,see
+NOT_RUN,"Steps 5-7 (re-introducing the frozen S, U_hat x S analysis and the equal-budget causal execution test) were not executed. PROTOCOL_G2.yaml gates them on the learned-U result, and G2 AUDIT 2 returned Case G2-A: the learned estimator does not beat the free statistic ||H_pred - h_t|| on any held-out task. No selection metrics exist for this run and none were fabricated.",G2 AUDIT 2 / PROTOCOL_G2.yaml:decision,AUDIT_G2.md and REPORT_G2.md section 12

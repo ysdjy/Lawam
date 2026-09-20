@@ -1,0 +1,158 @@
+### PROTOCOL_G2.yaml — pre-registration for the Learned-U (G2) round
+### Written after G2 AUDIT 0 and BEFORE any U data of the new tasks was collected or inspected.
+### Amendments are appended with a reason; nothing is edited silently.
+
+run_id: acr_learned_u_20260920_120110
+branch: research/action-critical-reliability-probe
+head_commit: 4f9c641
+prior_run: results/action_critical_reliability_probe/acr_20260919_203850   # READ-ONLY
+lawam_state_dict_sha256: 37a53b8c799c39725a18900eeaa687d1d2cebc24fca28d8e1f2881ca2870b523
+
+question:
+  fixed_text: >
+    Without access to the real future H_real, can the per-token future-prediction unreliability U_j be
+    predicted from information that already exists before the chunk is executed, and does U_hat x S retain
+    the token-selection advantage that oracle U x S showed over U alone?
+  allowed_conclusions: [G2-A SIMPLE BASELINE SUFFICIENT, G2-B TASK-SPECIFIC ONLY,
+                        G2-C U LEARNABLE BUT UxS VALUE NOT PRESERVED, G2-D LEARNED-U MECHANISM SUPPORTED,
+                        INSUFFICIENT EVIDENCE]
+  forbidden_this_round: [training LaWM, training the action head, training Qwen or LAM, training an S
+                         predictor, building any side-channel or reliability gate, RL, OOD/G3 experiments,
+                         any claim of improved robot performance]
+
+# ---------------------------------------------------------------- task selection (fixed before collection)
+task_selection:
+  criteria_used: ["simulator builds and resets", "baseline LaWAM executes the task online",
+                  "task type differs from the others", "no known asset error"]
+  criteria_explicitly_not_used: ["how predictable U turns out to be", "any U or S statistic"]
+  excluded_known_bad: [{suite: libero_goal, task_id: 0, reason: "missing asset region wooden_cabinet_1_middle_region"}]
+  training_pool:            # Split A operates inside these
+    - {suite: libero_spatial, task_id: 0, language: "pick up the black bowl between the plate and the ramekin and place it on the plate"}
+    - {suite: libero_spatial, task_id: 7, language: "pick up the black bowl on the stove and place it on the plate"}
+    - {suite: libero_object,  task_id: 3, language: "pick up the bbq sauce and place it in the basket"}
+    - {suite: libero_object,  task_id: 6, language: "pick up the butter and place it in the basket"}
+  task_holdout_B1:          # unseen task, SEEN suite
+    - {suite: libero_spatial, task_id: 9, language: "pick up the black bowl on the wooden cabinet and place it on the plate"}
+  task_holdout_B2:          # unseen task AND unseen suite, and a non-prehensile skill
+    - {suite: libero_goal, task_id: 5, language: "push the plate to the front of the stove"}
+  task_holdout_C:           # the prior run's 3 tasks: unseen by the predictor AND already have frozen S
+    - {suite: libero_spatial, task_id: 2}
+    - {suite: libero_object,  task_id: 0}
+    - {suite: libero_goal,    task_id: 8}
+  fallback_order_if_a_task_fails_to_run:   # applied in order, decided before collection
+    libero_spatial: [1, 8, 6]
+    libero_object: [2, 9, 5]
+    libero_goal: [9, 2, 6]
+  note: >
+    Holdout C is the decisive evaluation set for Steps 5-7: its 90 states already carry S, attention,
+    consequence chunks and executed consequences computed under the frozen settings of the prior run, so
+    no S setting can drift between rounds and no S is recomputed after seeing U_hat.
+
+# ---------------------------------------------------------------- data collection
+collection:
+  episodes_per_task: 10                     # independent resets, init_state indices 0-9
+  keep_failed_episodes: true                # failures are informative for U and must not be filtered out
+  phases_per_episode: [approach, pre_grasp, manipulation]
+  phase_definition: "identical to research/action_critical_reliability_probe/scripts/s2_select_states.py (amendment A5 rule)"
+  missing_phase_policy: "record as missing; never substitute another episode or another step"
+  reused_code_verbatim: [s1_rollouts.py, s2_select_states.py, s3_replay_futures.py]
+  u_extraction: >
+    g2_extract_u.py imports lam_features() and per_token_u() directly from m3_uncertainty.py so that the
+    feature encoder and the U definition are literally the same objects as in the prior run. The expensive
+    256-token error decomposition and the consequence sampling of m3 are NOT re-run here (not needed for U
+    learning); Steps 5-7 use holdout C, where they already exist.
+  expected_states: ~180 (6 tasks x 10 episodes x <=3 phases)
+
+# ---------------------------------------------------------------- splits (fixed before any training)
+splits:
+  minimum_independent_unit: episode        # token-level or state-level random splitting is FORBIDDEN
+  split_A_episode_holdout:
+    scope: the 4 training-pool tasks
+    rule: "per task, episodes 0-5 = train, 6-7 = validation, 8-9 = test; episode-disjoint by construction"
+    purpose: "generalisation to unseen resets of a seen task"
+  split_B1_task_holdout_seen_suite: {tasks: [libero_spatial t9], all_episodes: test_only}
+  split_B2_task_and_suite_holdout: {tasks: [libero_goal t5], all_episodes: test_only}
+  split_C_prior_run_tasks: {tasks: [libero_spatial t2, libero_object t0, libero_goal t8], all_episodes: test_only}
+  immutability: "after DATA_SPLIT.md is written, no split may be changed for any reason, including poor results"
+
+# ---------------------------------------------------------------- inputs
+inputs:
+  allowed_per_token: [h_t_j, H_pred_j, "H_pred_j - h_t_j", z_broadcast]
+  allowed_optional_global: [mean-pooled h_vlm]      # only if the first version clearly fails; must be logged
+  forbidden: [H_real, any future observation, future robot state, future object state, oracle U,
+              anything at or after t+H, token index, positional id, task id, instruction text embedding]
+  reason_no_token_index: >
+    G2 AUDIT 0 re-confirmed that the action head consumes the future as an unordered bag (permutation
+    changes the action by ~4e-7). The predictor must therefore be content-based and permutation-equivariant,
+    not a memoriser of "token 37 is usually wrong".
+  v1_feature_vector: "x_j = [h_t_j (768), H_pred_j (768), H_pred_j - h_t_j (768), z (32)] -> 2336 dims"
+
+# ---------------------------------------------------------------- mandatory simple baselines
+baselines_no_training:
+  B0_constant: "mean oracle U of the training split (per-state constant)"
+  B1_pred_norm: "||H_pred_j||"
+  B2_change_norm: "||H_pred_j - h_t_j||"
+  B3_cosine: "1 - cos(H_pred_j, h_t_j)"
+  B4_linear_stats: >
+    least-squares linear regression on simple per-token statistics
+    [||H_pred_j||, ||h_t_j||, ||H_pred_j - h_t_j||, cos-distance, mean/std of H_pred_j], fitted on the
+    training episodes only
+  requirement: >
+    TOKEN-NORM BASELINE IS MANDATORY. The prior run measured Spearman(U, token norm) ~ -0.55, so if a
+    learned model does not clearly beat B1/B2/B4 the answer is G2-A and no complex estimator is justified.
+
+# ---------------------------------------------------------------- model
+model_v1:
+  type: shared-token MLP (same weights for all 256 tokens; no token index, no attention)
+  architecture: "Linear(2336->h) -> LayerNorm -> GELU -> Linear(h->h) -> LayerNorm -> GELU -> Linear(h->1)"
+  parameter_budget: 1-3 M
+  target: log(U_l2 + 1e-6)              # long-tailed; evaluation is always mapped back / rank-based
+  loss: Huber (fallback MSE), no ranking loss in v1
+  reason_no_ranking_loss: >
+    The question is whether U itself is predictable, not whether a top-64 selector can be trained directly.
+    A ranking objective would confound "U is predictable" with "a task-specific top-64 classifier exists".
+  optimiser: AdamW, early stopping on validation Spearman, seed-averaged over 3 seeds
+  frozen: "every LaWAM parameter has requires_grad=False; the state_dict sha256 above is re-verified after training"
+  escalation_rule: "a larger or attention-based model may only be tried after a new audit entry explains why the MLP failed"
+
+# ---------------------------------------------------------------- evaluation
+evaluation:
+  unit_of_statistics: state          # never treat 256 tokens as 256 independent samples
+  confidence_intervals: "bootstrap over EPISODES, 2000 resamples, paired where comparing predictors"
+  per_state_metrics: [spearman_U_hat_vs_U_oracle, pearson, token_MAE, token_RMSE,
+                      top64_recall, top64_precision, ndcg_at_64, auroc_top_quartile_U, calibration]
+  reported_breakdowns: [by phase (approach / pre_grasp / manipulation), by split (A / B1 / B2 / C)]
+  permutation_equivariance_audit:
+    test: "permute h_t and H_pred with the same permutation; require U_hat(perm) == permute(U_hat)"
+    tolerance: 1e-5
+    on_failure: "halt; the predictor is using position"
+
+# ---------------------------------------------------------------- steps 5-7
+selection_and_causal_test:
+  S_source: "frozen S of the prior run (holdout C states), recomputed by nobody; epsilon/directions/seeds/metric unchanged"
+  selectors_compared: [random, top_token_norm, top_change_norm, top_U_hat, top_S, top_U_hat_x_S,
+                       top_U_oracle, top_U_oracle_x_S, attention, attention_x_U_hat]
+  token_budget: 64 of 256
+  oracle_replacement_note: >
+    Selected tokens are replaced by their true H_real values. This is an offline evaluation instrument for
+    ranking quality only, NOT a deployment proposal.
+  execution: "same snapshots, same flow-noise seeds [101,202,303], executed chunks, eef/object consequences"
+  primary_quantities:
+    oracle_margin: "Recovery(U_oracle x S) - Recovery(U_oracle)"
+    learned_margin: "Recovery(U_hat x S) - Recovery(U_hat)"
+    margin_retention: "learned_margin / oracle_margin"
+  decision_requirement: "the 95% episode-bootstrap CI of learned_margin must exclude 0; margin_retention is reported as measured, with no pre-set target"
+
+# ---------------------------------------------------------------- decision tree
+decision:
+  G2-A: "U_hat does not clearly beat B1/B2/B4 -> no complex reliability estimator is warranted; stop the side-channel line"
+  G2-B: "U_hat works on held-out episodes but collapses on held-out tasks (B1/B2/C) -> reliability is task-specific; not a general latent property"
+  G2-C: "U_hat predicts U but U_hat x S no longer beats U_hat -> the oracle mechanism does not survive learning; stop the ACR main line"
+  G2-D: "U_hat generalises, beats the simple baselines, and U_hat x S beats U_hat with a CI excluding 0 in the equal-budget causal test"
+  after_G2-D: "the next gate is G3 (failure / OOD enrichment). It is NOT entered this round; it is only written into LONG_TERM_PLAN_G2.md"
+
+engineering:
+  forbidden: [git reset --hard, git clean -fd, git checkout -- ., overwriting the prior run, editing prior
+              REPORT.md, deleting failed samples, automatic push, modifying the LaWAM checkpoint,
+              reinstalling CUDA/torch, downloading further large models]
+  u_predictor_checkpoint: "saved under results/.../models/, always separate from the LaWAM checkpoint"
