@@ -1,0 +1,137 @@
+{
+  "run_id": "acr_20260919_203850",
+  "timestamp": "2026-09-20T00:59:32",
+  "tolerances": {
+    "exact": 0.0,
+    "batch": 1e-05
+  },
+  "per_state": [
+    {
+      "state": "t02_ep000@8",
+      "E1_fastpath_vs_predict_action_maxabs": 0.0,
+      "E1_shared_h_t1_pred_maxabs": 0.0,
+      "E2_batched_vs_single_maxabs": {
+        "B2": 5.960464477539062e-07,
+        "B8": 4.76837158203125e-07,
+        "B32": 4.76837158203125e-07
+      },
+      "E3_repeat_floor_maxabs": 0.0,
+      "E4_inbatch_baseline_rows_agree_maxabs": 0.0,
+      "E4_inbatch_baseline_vs_B1_maxabs": 8.344650268554688e-07,
+      "E4_perturbed_rows_change_vs_inbatch_baseline": [
+        0.00016748905181884766,
+        6.097555160522461e-05
+      ],
+      "E5_bf16_effective_delta": [
+        {
+          "eps_requested": 0.271,
+          "eps_effective_norm": 0.2709999978542328,
+          "relative_error": 7.917960260390439e-09
+        },
+        {
+          "eps_requested": 0.812,
+          "eps_effective_norm": 0.8119999766349792,
+          "relative_error": 2.8774656166281015e-08
+        },
+        {
+          "eps_requested": 2.706,
+          "eps_effective_norm": 2.7060000896453857,
+          "relative_error": 3.312837612020227e-08
+        }
+      ],
+      "future_dtype": "torch.float32",
+      "h_t1_pred_shape": [
+        1,
+        256,
+        768
+      ]
+    },
+    {
+      "state": "t02_ep011@24",
+      "E1_fastpath_vs_predict_action_maxabs": 0.0,
+      "E1_shared_h_t1_pred_maxabs": 0.0,
+      "E2_batched_vs_single_maxabs": {
+        "B2": 4.76837158203125e-07,
+        "B8": 4.76837158203125e-07,
+        "B32": 4.76837158203125e-07
+      },
+      "E3_repeat_floor_maxabs": 0.0,
+      "E4_inbatch_baseline_rows_agree_maxabs": 0.0,
+      "E4_inbatch_baseline_vs_B1_maxabs": 2.980232238769531e-07,
+      "E4_perturbed_rows_change_vs_inbatch_baseline": [
+        0.00018157809972763062,
+        0.00019556283950805664
+      ],
+      "E5_bf16_effective_delta": [
+        {
+          "eps_requested": 0.271,
+          "eps_effective_norm": 0.2709999978542328,
+          "relative_error": 7.917960260390439e-09
+        },
+        {
+          "eps_requested": 0.812,
+          "eps_effective_norm": 0.8119999766349792,
+          "relative_error": 2.8774656166281015e-08
+        },
+        {
+          "eps_requested": 2.706,
+          "eps_effective_norm": 2.7060000896453857,
+          "relative_error": 3.312837612020227e-08
+        }
+      ],
+      "future_dtype": "torch.float32",
+      "h_t1_pred_shape": [
+        1,
+        256,
+        768
+      ]
+    },
+    {
+      "state": "t02_ep019@56",
+      "E1_fastpath_vs_predict_action_maxabs": 0.0,
+      "E1_shared_h_t1_pred_maxabs": 0.0,
+      "E2_batched_vs_single_maxabs": {
+        "B2": 4.76837158203125e-07,
+        "B8": 3.5762786865234375e-07,
+        "B32": 4.76837158203125e-07
+      },
+      "E3_repeat_floor_maxabs": 0.0,
+      "E4_inbatch_baseline_rows_agree_maxabs": 0.0,
+      "E4_inbatch_baseline_vs_B1_maxabs": 4.76837158203125e-07,
+      "E4_perturbed_rows_change_vs_inbatch_baseline": [
+        3.9637088775634766e-05,
+        3.6597251892089844e-05
+      ],
+      "E5_bf16_effective_delta": [
+        {
+          "eps_requested": 0.271,
+          "eps_effective_norm": 0.2709999680519104,
+          "relative_error": 1.1788962958767941e-07
+        },
+        {
+          "eps_requested": 0.812,
+          "eps_effective_norm": 0.8119999766349792,
+          "relative_error": 2.8774656166281015e-08
+        },
+        {
+          "eps_requested": 2.706,
+          "eps_effective_norm": 2.7060000896453857,
+          "relative_error": 3.312837612020227e-08
+        }
+      ],
+      "future_dtype": "torch.float32",
+      "h_t1_pred_shape": [
+        1,
+        256,
+        768
+      ]
+    }
+  ],
+  "E6_validation": {
+    "wrong_future_shape": "ValueError: [branch_diagnostic] future_override shape (1, 128, 768) != expected (1, 256, 768).",
+    "nonfinite_future": "ValueError: [branch_diagnostic] future_override contains non-finite values.",
+    "wrong_noise_shape": "ValueError: [branch_diagnostic] initial_noise shape (1, 7, 32) != expected (1, 50, 32)."
+  },
+  "failures": [],
+  "passed": true
+}

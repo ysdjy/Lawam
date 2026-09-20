@@ -508,6 +508,21 @@ class LatentWorldPolicyBackend(nn.Module):
             decoded = decoded[:, 0, :, :] if decoded.shape[1] == 1 else decoded[:, -1, :, :]
         return decoded
 
+    @staticmethod
+    def _validate_override_tensor(value, *, name: str, reference: torch.Tensor) -> torch.Tensor:
+        """[branch_diagnostic] shape/dtype/device/finite validation for override tensors."""
+        if not torch.is_tensor(value):
+            value = torch.as_tensor(value)
+        if tuple(value.shape) != tuple(reference.shape):
+            raise ValueError(
+                f"[branch_diagnostic] {name} shape {tuple(value.shape)} != expected {tuple(reference.shape)}."
+            )
+        if not torch.is_floating_point(value):
+            raise TypeError(f"[branch_diagnostic] {name} must be a floating tensor, got {value.dtype}.")
+        if not torch.isfinite(value).all():
+            raise ValueError(f"[branch_diagnostic] {name} contains non-finite values.")
+        return value.to(device=reference.device, dtype=reference.dtype)
+
     @classmethod
     def build(
         cls,
@@ -798,8 +813,20 @@ class LatentWorldPolicyBackend(nn.Module):
         num_inference_steps: Optional[int] = None,
         return_intermediates: bool = False,
         return_padded: bool = False,
+        latent_override: Optional[torch.Tensor] = None,
+        future_override: Optional[torch.Tensor] = None,
+        initial_noise: Optional[torch.Tensor] = None,
+        return_diagnostics: bool = False,
     ) -> Union[torch.Tensor, Tuple[torch.Tensor, Dict[str, torch.Tensor]]]:
+        """
+        [branch_diagnostic] Optional research hooks (all default off; default path unchanged):
+          latent_override : [B, 1, code_dim] replaces the VLM-predicted latent action before the LaWM decoder.
+          future_override : [B, K, D] replaces the future feature fed to the flow head (bypasses LaWM).
+          initial_noise   : [B, action_horizon, action_dim] explicit flow initial noise.
+          return_diagnostics: also return raw z / features / noise actually used (CPU float32).
+        """
         flow_stage_dtype = torch.float32
+        lam_stage_dtype = torch.bfloat16
         prepared_batch = cast(
             LatentWorldPolicyInferBatch,
             self._prepare_infer_batch(batch=batch),
@@ -817,10 +844,29 @@ class LatentWorldPolicyBackend(nn.Module):
         )
         attn_flow = prepared_batch["attention_mask"] == 1
 
+        # ---- [branch_diagnostic] optional interventions (no-ops when None)
+        latent_used = shared.pred_action_emb
+        h_t1_pred_used = shared.h_t1_pred
+        if latent_override is not None:
+            latent_used = self._validate_override_tensor(
+                latent_override, name="latent_override", reference=shared.pred_action_emb
+            )
+            with _cuda_autocast(lam_stage_dtype):
+                h_t1_pred_used = self._decode_future_tokens_strict_single_query(
+                    h_t=shared.h_t,
+                    pred_action_emb=latent_used,
+                    source="LatentWorldPolicyBackend.predict_action[latent_override]",
+                )
+        future_used = h_t1_pred_used
+        if future_override is not None:
+            future_used = self._validate_override_tensor(
+                future_override, name="future_override", reference=shared.h_t1_pred
+            )
+
         with _cuda_autocast(flow_stage_dtype):
-            actions = self.flow.sample_actions_cfg(
+            flow_out = self.flow.sample_actions_cfg(
                 h_t=shared.h_t,
-                h_t1_star=shared.h_t1_pred,
+                h_t1_star=future_used,
                 h_vlm=shared.h_vlm,
                 state=prepared_batch["state"],
                 state_mask=prepared_batch["state_mask"],
@@ -830,7 +876,30 @@ class LatentWorldPolicyBackend(nn.Module):
                 num_inference_steps=num_inference_steps,
                 attention_mask=attn_flow,
                 return_padded=bool(return_padded),
+                initial_noise=initial_noise,
+                return_noise=bool(return_diagnostics),
             )
+        noise_used = None
+        if bool(return_diagnostics):
+            actions, noise_used = flow_out
+        else:
+            actions = flow_out
+
+        if bool(return_diagnostics):
+            diagnostics = {
+                "pred_latent": shared.pred_action_emb.detach().float().cpu(),
+                "latent_used": latent_used.detach().float().cpu(),
+                "h_t": shared.h_t_original.detach().float().cpu(),
+                "h_t1_pred": shared.h_t1_pred.detach().float().cpu(),
+                "h_t1_pred_used": h_t1_pred_used.detach().float().cpu(),
+                "future_used": future_used.detach().float().cpu(),
+                "initial_noise": noise_used.detach().float().cpu(),
+                "h_vlm_shape": tuple(int(x) for x in shared.h_vlm.shape),
+                "h_vlm_dtype": str(shared.h_vlm.dtype),
+                "latent_override_applied": latent_override is not None,
+                "future_override_applied": future_override is not None,
+            }
+            return actions, diagnostics
 
         if not return_intermediates:
             return actions

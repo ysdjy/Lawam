@@ -1,0 +1,180 @@
+### Pre-registered protocol — Action-Critical Reliability probe
+### Written after AUDIT 0 (environment_audit.md) and BEFORE any sensitivity / uncertainty run.
+### Any later change must be appended to AUDIT_LOG.md with the reason, never silently edited.
+
+run_id: acr_20260919_203850
+repo_commit: 7d27b9607c22034934a4b70347f8bfaba92bf692
+checkpoint: results/Checkpoints/libero/lawam_libero_sft_release/final_model/pytorch_model.pt
+
+research_question:
+  fixed_text: >
+    In LaWAM's predicted future latent H_pred, (i) does the downstream action head respond to different
+    future tokens differently (Downstream Action Sensitivity S), (ii) is the future-prediction
+    unreliability U complementary to S, and (iii) does a joint quantity R = f(U, S) explain downstream
+    action error / execution risk better than U or S alone?
+  out_of_scope_this_round: [latent semantics per dimension, latent alignment across stages, decoding latents
+    to human semantics, where attention should look, multi-candidate action generation, any training,
+    any new loss, any architecture change]
+  allowed_conclusions: [SUPPORTED, NOT SUPPORTED, INSUFFICIENT EVIDENCE, PIVOT TO FUTURE UTILIZATION]
+
+interface_constants:   # verified in AUDIT 0 on the loaded checkpoint
+  N_future_tokens: 256
+  D_feature: 768
+  action_chunk_len: 8            # floor(horizon_sec 0.4 * action_hz 20)
+  action_dim_used: 7             # of 32 returned; 0:2 translation, 3:5 rotation, 6 gripper
+  num_inference_steps: 10
+  cfg_guidance_scale: 1.0        # CFG path inactive
+  use_state: false
+  future_read_by_dit_blocks: [2, 6, 10, 14]
+  future_supervision_index: 7    # H_pred targets o_{t+7}
+  action_repeat_floor_maxabs: 0.0
+  unit_conversion:
+    normalized_to_raw_xyz: 0.9375          # (max-min)/2 for translation dims
+    raw_to_meters_per_step: 0.05           # robosuite OSC_POSE output_max
+    normalized_action_to_mm_per_step: 46.875
+    normalized_action_to_mm_per_chunk_upper_bound: 375.0   # 8 steps, worst case all aligned
+
+# ---------------------------------------------------------------- Step 1: S (gate)
+step1_sensitivity:
+  pilot_states:
+    tasks:
+      - {suite: libero_spatial, task_id: 2}     # reusable online rollouts exist from run bd_20260914_093902
+      - {suite: libero_object, task_id: 0}      # new rollouts required
+    episodes_per_task: 5                        # independent env resets (distinct init_state indices)
+    phases_per_episode: 3
+    phase_definition:                            # derived from the ACTUAL executed trajectory, not assumed
+      approach:      "first chunk boundary at which the gripper is still open and the eef is >6 cm from the target object"
+      pre_grasp:     "last chunk boundary before the first commanded gripper-close in the episode"
+      manipulation:  "first chunk boundary at which the target object is lifted >2 cm above its initial z"
+      fallback: "if a phase is undefined for an episode, record it as missing; do not substitute another episode"
+    require_successful_episode: true             # pilot uses on-distribution successful rollouts
+    saved_per_state: [o_t primary, o_t wrist, instruction, state7, h_vlm shape, z, h_t, H_pred,
+                      baseline action chunk A0, full simulator snapshot, phase label, episode/step index]
+
+  perturbation:
+    form: "h_j' = h_j + eps * u, u a random unit vector in R^768, single token j replaced, all other tokens unchanged"
+    applied_via: future_override            # existing hook; no model change
+    epsilon_grid_rule: "fraction of the mean H_pred per-token L2 norm measured in AUDIT 0 (27.06)"
+    epsilon_fractions: [0.01, 0.03, 0.10]
+    epsilon_values_abs: [0.271, 0.812, 2.706]
+    locality_justification: >
+      A genuine semantic change of one token (H_pred vs h_t, or two real alternative futures u_A/u_B in the
+      prior run) is ~10-13 in L2. The largest epsilon is therefore ~21-27% of a real semantic difference,
+      and the smallest ~2%. Perturbations are NOT enlarged later to make effects visible.
+    directions_per_token: 3                  # same norm, different random unit directions, fixed seeds
+    direction_seed_rule: "seed = hash(state_id, token_j, dir_k) via numpy default_rng; stored"
+    tokens: all 256
+    fixed_across_all_conditions: [observation, instruction, state, h_vlm, z, h_t, CFG scale,
+                                  num_inference_steps, flow initial noise]
+    flow_initial_noise: "one fixed tensor per state per noise-seed; seeds [101, 202, 303]; seed 101 primary"
+
+  distance_metrics_D:   # between perturbed chunk A_j and baseline chunk A0, both normalized units
+    - name: l2_norm_all7          # sqrt(mean over 8x7 of squared diff)
+    - name: maxabs_all7
+    - name: translation_l2        # dims 0:2
+    - name: rotation_l2           # dims 3:5
+    - name: gripper_absdiff       # dim 6
+    - name: translation_mm_equiv  # sum over 8 steps of |delta| * 46.875 mm, per axis, then L2
+  S_definition: "S_j = D(A_j, A0) / ||delta||  (delta = eps*u), reported per metric, per epsilon, averaged over directions (mean and std)"
+
+  controls:
+    A_repeat: "identical inputs, identical noise, 5 repeats -> numerical floor (expected 0.0 from AUDIT 0)"
+    B_random_equal_norm: "perturbation of the same total norm spread uniformly over all 256 tokens; and a random token-permutation of H_pred"
+    C_global: "H_pred scaled by (1 +- s) and H_pred replaced by all-zeros / by h_t, to bound total conditioning sensitivity"
+    D_batch_equivalence: "batched flow-only fast path must reproduce the full predict_action path; max-abs difference recorded; if > 1e-6 the fast path is not used"
+    E_gradient_crosscheck: "optional autograd ||dA/dh_j|| on a subset of states; finite difference remains primary"
+
+  audit1_decision_rules:   # declared before running
+    case_A_weak_future_utilization:
+      trigger: >
+        at eps_mid, max over tokens of l2_norm_all7 < 1e-3 (i.e. < ~0.4 mm commanded displacement over the
+        chunk) AND the control-C global perturbation action change is below the flow-noise nuisance scale
+        (max-abs ~0.015 measured in AUDIT 0).
+      consequence: "stop the U x S main line; run only a minimal future-utilization diagnostic; report PIVOT TO FUTURE UTILIZATION"
+    case_B_uniform_sensitivity:
+      trigger: "p95(S)/median(S) < 2 at eps_mid, or Spearman rank correlation of S across epsilon levels < 0.3, or across directions < 0.3"
+      consequence: "token-level Action-Critical Reliability not supported; do not build token-level machinery"
+    proceed_to_step2:
+      requires: "S measurable above floor, non-uniform across tokens (p95/median >= 2), rank-stable (Spearman >= 0.3 across both epsilon and directions)"
+
+# ---------------------------------------------------------------- Step 2: U (only if Step 1 passes)
+step2_uncertainty:
+  definition: "oracle diagnostic U from the REAL future observation; no uncertainty network is trained"
+  real_future: "o_{t+7} obtained by executing the baseline action chunk from the exact saved snapshot"
+  encoder: "lam.extract_vision_features, identical flip/resize/ImageNet normalization as h_t (same helper)"
+  metrics: [U_mse_per_token, U_cosine_per_token, U_normalized_mse_per_token]
+  floors: ["repeat the same execution from the same snapshot 3x -> U noise floor",
+           "u(o_7) vs u(replayed o_7) as in the prior run"]
+  forbidden: ["real future may never enter the policy input", "pixel-space error may not be used as the primary U"]
+
+# ---------------------------------------------------------------- Step 3: complementarity
+step3_complementarity:
+  statistics: [U distribution, S distribution, Spearman(U,S), Pearson(U,S), top-quartile overlap]
+  quantile_thresholds_fixed_now: {high: 0.75, low: 0.25}    # top/bottom 25%, per state, declared in advance
+  grouping: "per state and per phase; token-level correlations reported with state as the resampling unit"
+  redundancy_criterion: "|Spearman(U,S)| >= 0.8 within states => U and S treated as redundant"
+
+# ---------------------------------------------------------------- Step 4: prediction of consequence
+step4_consequence:
+  level1_action_deviation: "E_action = D(pi(H_pred), pi(H_real)) with all other inputs and the flow noise identical"
+  level2_environment: [eef deviation at t+7, target object pose deviation, task progress, short-horizon success,
+                       full-task success on a subset only]
+  predictors: [U_only, S_only, R_mul (U*S), R_linear (a*U + b*S + c*U*S, fitted on a train split only),
+               attention_only, attention_x_U]
+  evaluation: [Spearman, Pearson, R2 where applicable, AUROC/AUPRC for the top-quartile risk classification]
+  resampling: "bootstrap 2000x with the EPISODE as the resampling unit (tokens are not independent)"
+  split_rule: "R_linear fitted on the pilot tasks / earlier episodes only, evaluated on held-out episodes"
+  attention_baseline: "per-token cross-attention mass on the H_pred half in blocks 2/6/10/14, averaged over heads, action tokens and the 10 flow steps; extraction hook default-off with an equivalence regression test"
+  success_criterion_reporting: "no minimum improvement is declared in advance; effect sizes and CIs are reported as measured"
+
+# ---------------------------------------------------------------- Step 5: confirmation
+step5_confirm:
+  tasks: ">= 3 suites among libero_spatial / libero_object / libero_goal"
+  episodes_per_task: ">= 10 independent resets"
+  keep_failures: true
+  rule: "no state is dropped after seeing its U/S values; exclusions only for infrastructure faults, each logged"
+
+# ---------------------------------------------------------------- amendments (append-only)
+amendments:
+  - id: A1
+    date: 2026-09-20
+    stage: before any S measurement
+    change: >
+      Sensitivity is always computed against a baseline row placed INSIDE the same batch, and the
+      cross-batch-size tolerance in the equivalence test is 1e-5 instead of 0.
+    reason: >
+      phase0_batch_noise.json: identical rows within one batch are bit-identical (spread exactly 0.0,
+      independent of position and batch size), but the same input at a different batch size shifts by
+      ~5e-7 (reduction order). Single-token perturbations move the action chunk by only ~1e-6..1e-4, so a
+      cross-batch-size baseline would contaminate small S values; an in-batch baseline has a floor of 0.0.
+  - id: A2
+    date: 2026-09-20
+    stage: before any S measurement
+    change: "S is normalised by the EFFECTIVE delta norm ||round_bf16(h_j + eps*u) - h_j||, not by the requested eps."
+    reason: "The future tensor is bf16; measured effective norms match the request to <1e-3 relative, but the actual delta is what the model saw."
+  - id: A3
+    date: 2026-09-20
+    stage: structural finding during phase 0
+    change: "Added a 'future token permutation' control to the reported results and a per-token positional-information note."
+    reason: >
+      Permuting the 256 future tokens changes the action chunk by exactly 0.0: the DiT cross-attention adds
+      no positional embedding to condition tokens, so the action head consumes H_pred as an unordered bag.
+      Token-level S therefore reflects token CONTENT only, never token position; any later token-level
+      mechanism would have to act through content as well.
+  - id: A4
+    date: 2026-09-20
+    stage: planned for step 4 (declared before U exists)
+    change: >
+      Added the 'error-direction decomposition' analysis: perturb token j by its own realised error
+      (H_real_j - H_pred_j) one token at a time, and compare the sum of the resulting action deviations
+      with the deviation caused by replacing the whole future by H_real.
+    reason: >
+      This is the most direct test of the hypothesis: it measures how much of the actual downstream action
+      error each token's actual error is responsible for, which is exactly what U x S is supposed to predict.
+
+engineering_rules:
+  allowed_code_changes: [diagnostic hooks default-off, attention extraction, offline analysis scripts]
+  forbidden: [checkpoint modification, any training, new losses, architecture changes, reward changes,
+              enlarging perturbations to strengthen an effect, changing baselines]
+  regression_requirement: "every new hook must reproduce the default path exactly (max-abs 0.0) with a stored test"
+  stop_rule: "if an infrastructure fault is found, scientific analysis halts until the fault is fixed and re-verified"

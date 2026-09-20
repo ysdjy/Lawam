@@ -249,3 +249,11 @@ tmp/
 *.log
 qwen3_weights
 .codex_*
+
+# local model weights / downloaded backbones (never committed)
+weights/
+
+# results/ is ignored above; a small set of text deliverables under
+# results/action_critical_reliability_probe/ and results/branch_diagnostic/ is force-added
+# on purpose (reports, protocols, metrics, figures). Raw arrays, rollouts, videos and
+# checkpoints stay ignored.

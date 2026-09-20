@@ -580,7 +580,11 @@ class ConditionalFlowMatchingHead(nn.Module):
         num_inference_steps: Optional[int] = None,
         attention_mask: Optional[torch.Tensor] = None,
         return_padded: bool = False,
+        initial_noise: Optional[torch.Tensor] = None,
+        return_noise: bool = False,
     ) -> torch.Tensor:
+        # [branch_diagnostic] `initial_noise` / `return_noise` are opt-in research hooks (default off).
+        # When `initial_noise` is None the sampling path below is byte-for-byte the original one.
         device = h_t.device
         model_dtype = self._compute_dtype()
         h_t = self._cast_if_needed(h_t, model_dtype)
@@ -620,11 +624,24 @@ class ConditionalFlowMatchingHead(nn.Module):
             num_inference_steps = int(getattr(self.config, "num_inference_steps", self.config.num_steps))
         if cfg_scale is None:
             cfg_scale = float(self.config.cfg_guidance_scale)
-        x_t = self.sample_noise(
-            shape=(batch_size, action_horizon, self.config.action_dim),
-            device=device,
-            dtype=model_dtype,
-        )
+        if initial_noise is None:
+            x_t = self.sample_noise(
+                shape=(batch_size, action_horizon, self.config.action_dim),
+                device=device,
+                dtype=model_dtype,
+            )
+        else:
+            expected_shape = (batch_size, action_horizon, int(self.config.action_dim))
+            if not torch.is_tensor(initial_noise):
+                initial_noise = torch.as_tensor(initial_noise)
+            if tuple(initial_noise.shape) != expected_shape:
+                raise ValueError(
+                    f"[branch_diagnostic] initial_noise shape {tuple(initial_noise.shape)} != expected {expected_shape}."
+                )
+            if not torch.isfinite(initial_noise).all():
+                raise ValueError("[branch_diagnostic] initial_noise contains non-finite values.")
+            x_t = initial_noise.to(device=device, dtype=model_dtype).clone()
+        noise_used = x_t.detach().clone() if return_noise else None
         x_t = x_t * time_valid.unsqueeze(-1).to(dtype=x_t.dtype)
 
         dt = 1.0 / float(num_inference_steps)
@@ -784,4 +801,6 @@ class ConditionalFlowMatchingHead(nn.Module):
             x_t = x_t + dt * pred_velocity
             x_t = x_t * time_valid.unsqueeze(-1).to(dtype=x_t.dtype)
 
+        if return_noise:
+            return x_t[:, :output_horizon, :], noise_used
         return x_t[:, :output_horizon, :]

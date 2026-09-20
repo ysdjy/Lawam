@@ -1,0 +1,65 @@
+# Pre-registered protocol for the LaWAM two-branch diagnostic (written BEFORE any B0/B1/B2 model condition was run).
+# All thresholds below are fixed here and must not be tuned after seeing model results.
+run_id_file: research/branch_diagnostic/.current_run_id
+checkpoint: results/Checkpoints/libero/lawam_libero_sft_release/final_model/pytorch_model.pt
+task_suite: libero_spatial
+task_id: 2   # "pick up the black bowl from table center and place it on the plate"
+instruction_unchanged: true
+
+time_alignment:
+  obs_time: t (policy query step k of the original rollout, image = the online image the policy saw)
+  executed_control_interval: actions a_t .. a_{t+7} (8 actions, 20 Hz, 0.4 s, whole chunk executed as in the official client)
+  training_future_frame: t+7  # lerobot video delta indices [0, 7] for num_frames=2, sec_chunk=0.4 @ 20 Hz
+  comparison_frame_primary: observation after 7 executed actions (o_7)
+  comparison_frame_secondary: observation after 8 executed actions (o_8)
+  note: backend variable h_t1_gt at inference == h_t (single frame); never used as a future.
+
+snapshot_rule:   # applied to policy-query steps of the ORIGINAL rollout; earliest passing step is taken
+  gripper_open_qpos_min: 0.035
+  no_close_action_before: true
+  bowl_displacement_max_m: 0.002
+  eef_bowl_horizontal_max_m: 0.08
+  eef_above_bowl_min_m: 0.10
+  eef_above_bowl_max_m: 0.24
+
+branches:
+  A: pre-grasp hover above the +y rim of the bowl (bowl_xy + 0.055*(0,+1), z = rim_top + 0.035)
+  B: pre-grasp hover above the -y rim of the bowl (bowl_xy + 0.055*(0,-1), z = rim_top + 0.035)
+  chunk: 8 scripted OSC_POSE delta actions, P-gain 12, |a| <= 0.9, zero rotation, gripper open
+  continuation: fixed scripted finish-approach / descend / close / lift / carry / lower / release
+  reference_qualification:
+    both_branches_full_task_success: true
+    chunk_replay_eef_maxdiff_max: 1.0e-6
+    chunk_bowl_displacement_max_m: 0.005
+    min_eef_separation_at_t7_m: 0.03
+
+conditions:
+  R:  replay recorded reference actions A/B from the restored snapshot (open loop) + continuation
+  B0: original policy, explicit initial noise, no override
+  B1: latent_override = teacher z_X (X in A,B) from LAM on frames (o_0, o_7^X) via backend._run_lam_teacher
+  B2: future_override = u_X = lam.extract_vision_features(o_7^X) (bypasses LaWM)
+  fixed_across_conditions: [snapshot, o_0 image, wrist image, state, instruction, h_vlm (recomputed from identical inputs, deterministic), action post-processing, initial noise per seed]
+  noise_seeds: [101, 202, 303]   # CPU torch.Generator, shape [1,50,32]; tensors + sha256 saved
+  chunk_executed_without_requery: true
+  continuation_after_model_chunk: scripted continuation of the branch matching the executed label (skipped when OTHER/FAIL); reported separately as full_task_success
+
+labels:
+  executed_branch:  # from eef position after 7 executed actions (p), reference p_A, p_B at t7
+    s_e: dot(p - (p_A+p_B)/2, p_A - p_B) / |p_A - p_B|^2
+    A_if: s_e >= 0.25
+    B_if: s_e <= -0.25
+    OTHER_if: otherwise, or perpendicular distance to the A-B segment > 0.08 m
+    FAIL_if: execution error, early termination, or bowl displaced > 0.01 m during the chunk
+  predicted_branch:  # from predicted future feature f (256x768) vs u_A, u_B (DINOv3 penultimate-layer LAM features of o_7^A, o_7^B)
+    d_X: mean squared error between f and u_X (global; and ROI = tokens within 2 tokens of projected eef / bowl pixels)
+    s_f: (d_B - d_A) / (d_A + d_B)
+    A_if: s_f >= 0.05
+    B_if: s_f <= -0.05
+    UNKNOWN_if: |s_f| < 0.05, or |d_A - d_B| below 3x the render-noise floor (feature MSE between replay-twice frames)
+  full_chain_success: input branch i AND predicted == i AND executed == i
+
+sample_plan:
+  pilot_states: 5 (first 5 qualified states by episode index)
+  confirmation_states: 20 (next 20 qualified states, distinct reset episodes, disjoint from pilot)
+  core_executions_per_state: {R: 2, B0: 3, B1: 6, B2: 6}
+  bootstrap: paired over states, 2000 resamples, for B1/B2 branch-following rates

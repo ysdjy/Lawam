@@ -28,8 +28,11 @@ def _to_msgpackable(value: Any) -> Any:
 def map_policy_infer_output(
     actions: torch.Tensor,
     intermediates: Dict[str, Any] | None = None,
+    diagnostics: Dict[str, Any] | None = None,
 ) -> Dict[str, Any]:
     output: Dict[str, Any] = {"normalized_actions": actions.detach().cpu().numpy()}
     if intermediates is not None:
         output["intermediates"] = _to_msgpackable(intermediates)
+    if diagnostics is not None:  # [branch_diagnostic]
+        output["diagnostics"] = _to_msgpackable(diagnostics)
     return output

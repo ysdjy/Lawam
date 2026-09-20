@@ -40,7 +40,12 @@ class LatentWorldPolicyRunner:
         return_intermediates: bool = False,
         guidance_scale: float | None = None,
         num_inference_steps: int | None = None,
+        latent_override=None,
+        future_override=None,
+        initial_noise=None,
+        return_diagnostics: bool = False,
     ) -> Dict[str, Any]:
+        # [branch_diagnostic] the four extra kwargs are opt-in research hooks (default None/False).
         if len(examples) == 0:
             raise ValueError("`infer_step` requires at least one example.")
         batch = self.infer_batch_builder.build_infer_batch(examples)
@@ -78,10 +83,18 @@ class LatentWorldPolicyRunner:
             return_intermediates=bool(return_intermediates),
             guidance_scale=guidance_scale,
             num_inference_steps=num_inference_steps,
+            latent_override=latent_override,
+            future_override=future_override,
+            initial_noise=initial_noise,
+            return_diagnostics=bool(return_diagnostics),
         )
         intermediates = None
+        diagnostics = None
         if isinstance(actions, tuple):
-            actions, intermediates = actions
+            if bool(return_diagnostics):
+                actions, diagnostics = actions
+            else:
+                actions, intermediates = actions
         if not torch.is_tensor(actions):
             actions = torch.as_tensor(actions)
         actual_len = int(actions.shape[1])
@@ -91,7 +104,7 @@ class LatentWorldPolicyRunner:
                 f"actual_len={actual_len}, expected_len={expected_len}, "
                 f"horizon_sec={horizon_sec}, action_hz={hz_values}."
             )
-        return map_policy_infer_output(actions, intermediates=intermediates)
+        return map_policy_infer_output(actions, intermediates=intermediates, diagnostics=diagnostics)
 
     @torch.inference_mode()
     def infer_step_with_aligned_targets_from_train_batch(

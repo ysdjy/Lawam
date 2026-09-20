@@ -1,0 +1,227 @@
+{
+  "run_id": "acr_20260919_203850",
+  "env": {
+    "python": "/home/zbh/anaconda3/envs/libero310/bin/python",
+    "torch": "2.7.1+cpu",
+    "numpy": "1.26.4",
+    "transformers": "4.57.6",
+    "cuda_visible_devices": "",
+    "mujoco": "3.3.2",
+    "robosuite": "1.4.0"
+  },
+  "libero_home": "/home/zbh/LIBERO",
+  "constants": {
+    "NUM_STEPS_WAIT": 10,
+    "CHUNK_LEN": 8,
+    "FUTURE_IDX": 7,
+    "LIBERO_ENV_RESOLUTION": 256
+  },
+  "suites": {
+    "libero_spatial": {
+      "n_tasks": 10,
+      "tasks": [
+        {
+          "id": 0,
+          "name": "pick_up_the_black_bowl_between_the_plate_and_the_ramekin_and_place_it_on_the_plate",
+          "language": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 1,
+          "name": "pick_up_the_black_bowl_next_to_the_ramekin_and_place_it_on_the_plate",
+          "language": "pick up the black bowl next to the ramekin and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 2,
+          "name": "pick_up_the_black_bowl_from_table_center_and_place_it_on_the_plate",
+          "language": "pick up the black bowl from table center and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 3,
+          "name": "pick_up_the_black_bowl_on_the_cookie_box_and_place_it_on_the_plate",
+          "language": "pick up the black bowl on the cookie box and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 4,
+          "name": "pick_up_the_black_bowl_in_the_top_drawer_of_the_wooden_cabinet_and_place_it_on_the_plate",
+          "language": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 5,
+          "name": "pick_up_the_black_bowl_on_the_ramekin_and_place_it_on_the_plate",
+          "language": "pick up the black bowl on the ramekin and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 6,
+          "name": "pick_up_the_black_bowl_next_to_the_cookie_box_and_place_it_on_the_plate",
+          "language": "pick up the black bowl next to the cookie box and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 7,
+          "name": "pick_up_the_black_bowl_on_the_stove_and_place_it_on_the_plate",
+          "language": "pick up the black bowl on the stove and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 8,
+          "name": "pick_up_the_black_bowl_next_to_the_plate_and_place_it_on_the_plate",
+          "language": "pick up the black bowl next to the plate and place it on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 9,
+          "name": "pick_up_the_black_bowl_on_the_wooden_cabinet_and_place_it_on_the_plate",
+          "language": "pick up the black bowl on the wooden cabinet and place it on the plate",
+          "n_init_states": 50
+        }
+      ]
+    },
+    "libero_object": {
+      "n_tasks": 10,
+      "tasks": [
+        {
+          "id": 0,
+          "name": "pick_up_the_alphabet_soup_and_place_it_in_the_basket",
+          "language": "pick up the alphabet soup and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 1,
+          "name": "pick_up_the_cream_cheese_and_place_it_in_the_basket",
+          "language": "pick up the cream cheese and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 2,
+          "name": "pick_up_the_salad_dressing_and_place_it_in_the_basket",
+          "language": "pick up the salad dressing and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 3,
+          "name": "pick_up_the_bbq_sauce_and_place_it_in_the_basket",
+          "language": "pick up the bbq sauce and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 4,
+          "name": "pick_up_the_ketchup_and_place_it_in_the_basket",
+          "language": "pick up the ketchup and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 5,
+          "name": "pick_up_the_tomato_sauce_and_place_it_in_the_basket",
+          "language": "pick up the tomato sauce and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 6,
+          "name": "pick_up_the_butter_and_place_it_in_the_basket",
+          "language": "pick up the butter and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 7,
+          "name": "pick_up_the_milk_and_place_it_in_the_basket",
+          "language": "pick up the milk and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 8,
+          "name": "pick_up_the_chocolate_pudding_and_place_it_in_the_basket",
+          "language": "pick up the chocolate pudding and place it in the basket",
+          "n_init_states": 50
+        },
+        {
+          "id": 9,
+          "name": "pick_up_the_orange_juice_and_place_it_in_the_basket",
+          "language": "pick up the orange juice and place it in the basket",
+          "n_init_states": 50
+        }
+      ]
+    },
+    "libero_goal": {
+      "n_tasks": 10,
+      "tasks": [
+        {
+          "id": 0,
+          "name": "open_the_middle_drawer_of_the_cabinet",
+          "language": "open the middle drawer of the cabinet",
+          "n_init_states": 50
+        },
+        {
+          "id": 1,
+          "name": "put_the_bowl_on_the_stove",
+          "language": "put the bowl on the stove",
+          "n_init_states": 50
+        },
+        {
+          "id": 2,
+          "name": "put_the_wine_bottle_on_top_of_the_cabinet",
+          "language": "put the wine bottle on top of the cabinet",
+          "n_init_states": 50
+        },
+        {
+          "id": 3,
+          "name": "open_the_top_drawer_and_put_the_bowl_inside",
+          "language": "open the top drawer and put the bowl inside",
+          "n_init_states": 50
+        },
+        {
+          "id": 4,
+          "name": "put_the_bowl_on_top_of_the_cabinet",
+          "language": "put the bowl on top of the cabinet",
+          "n_init_states": 50
+        },
+        {
+          "id": 5,
+          "name": "push_the_plate_to_the_front_of_the_stove",
+          "language": "push the plate to the front of the stove",
+          "n_init_states": 50
+        },
+        {
+          "id": 6,
+          "name": "put_the_cream_cheese_in_the_bowl",
+          "language": "put the cream cheese in the bowl",
+          "n_init_states": 50
+        },
+        {
+          "id": 7,
+          "name": "turn_on_the_stove",
+          "language": "turn on the stove",
+          "n_init_states": 50
+        },
+        {
+          "id": 8,
+          "name": "put_the_bowl_on_the_plate",
+          "language": "put the bowl on the plate",
+          "n_init_states": 50
+        },
+        {
+          "id": 9,
+          "name": "put_the_wine_bottle_on_the_rack",
+          "language": "put the wine bottle on the rack",
+          "n_init_states": 50
+        }
+      ]
+    }
+  },
+  "restore_check": {
+    "suite": "libero_spatial",
+    "task_id": 2,
+    "task_description": "pick up the black bowl from table center and place it on the plate",
+    "replay_len": 8,
+    "eef_maxabs_diff_after_restore": 0.0,
+    "qpos_maxabs_diff_after_restore": 0.0,
+    "snapshot_digest": "5210ab5ba7818ef4",
+    "rerender_same_state_maxabs_pixel_diff": 58.0,
+    "wall_sec": 1.1
+  }
+}
