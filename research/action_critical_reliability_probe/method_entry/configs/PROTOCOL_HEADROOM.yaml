@@ -1,0 +1,165 @@
+### PROTOCOL_HEADROOM.yaml — Method-Design Entry: the one-chunk task-level headroom test
+### Frozen BEFORE any continuation rollout. Append-only amendments, each with a reason.
+
+run_id: acr_headroom_20260920_194346
+branch: research/action-critical-reliability-probe
+head_commit: 60a9ae2
+lawam_state_dict_sha256: 37a53b8c799c39725a18900eeaa687d1d2cebc24fca28d8e1f2881ca2870b523
+source_run_READ_ONLY: results/action_critical_reliability_probe/acr_g3_practical_20260920_134247
+
+# ---------------------------------------------------------------- closed questions
+frozen_not_reopened:
+  from_G3: >
+    Under stress the future-error consequence doubles (0.82 -> 1.87/1.70 mm; treatment/nuisance
+    1.77 -> 3.15/3.57) and D x S (0.822) beats D 0.736 / S 0.787 / D x attention 0.701 / attention 0.432,
+    statistically indistinguishable from oracle U x S 0.821; D x S - D = +0.122 [+0.084,+0.162] (+0.231 mm).
+  closed_topics: [how U should be defined, learned U, new uncertainty estimators, why D correlates with U,
+                  whether D is uncertainty, new S definitions, new formulas such as D^2*S or D*S^2,
+                  new attention variants, new proxies, new stress families, failure predictors,
+                  any further gap validation]
+
+question:
+  only_question: >
+    If the future information that D x S identifies is actually corrected, is there any room for the robot's
+    FINAL task outcome to improve?
+  allowed_conclusions: [H-PASS, H-PARTIAL, H-NO-HEADROOM, H-HARMFUL]
+  forbidden_this_round: [training an S predictor, training a U predictor, modifying LaWAM, new gates,
+                         new adapters, new cross-attention, new losses, RL, finetuning the action head,
+                         finetuning LaWM, designing the final method, starting Method Design]
+
+# ---------------------------------------------------------------- data (reused, never recollected)
+data:
+  states: "the 120 frozen C2 states: 2 stress conditions x 6 tasks x 10 episodes x the approach-phase state"
+  reused_from:
+    manifest: c2/states_manifest.jsonl
+    S: "c2/sensitivity/<sid>.npz  (frozen; NEVER recomputed)"
+    D_U_Hreal: "confirm/treatment_chunks/<condition>/<sid>.npz"
+    attention: "c2/attention/<sid>.npz"
+    reference_chunks: "c2/c2_chunks/<sid>.npz  (the frozen C2 action chunks used for the equivalence audit)"
+    snapshots: "named in the manifest; restored exactly for every variant"
+  no_recollection: "no new rollouts for state selection, no new S, no new state selection"
+
+# ---------------------------------------------------------------- the four variants
+variants:
+  A_baseline: "the policy's own H_pred"
+  B_top_D_repair: "top 64 of 256 tokens by D_j = ||H_pred_j - h_t_j||, those tokens H_pred_j -> H_real_j"
+  C_top_DS_repair: "top 64 by the frozen R_j = D_j * S_j, those tokens H_pred_j -> H_real_j"
+  D_full_oracle: "H_pred -> H_real entirely; the task-level headroom ceiling"
+  token_budget: 64                       # of 256, frozen; never changed for any reason
+  construction_rule: >
+    Built EXACTLY as g3_c2_chunks.py built them, so the first chunk reproduces the frozen C2 chunk
+    bit-for-bit: the unrepaired tokens come from the live full-precision H_pred, the repaired tokens from
+    the stored H_real. (Rebuilding the whole future from the float16 archive is forbidden: float16 storage
+    of bf16 features is lossy below the float16 subnormal threshold and shifts actions by ~1e-4 — measured,
+    see AUDIT 0.)
+  oracle_status: >
+    H_real is an OFFLINE ORACLE INTERVENTION, not a deployable method. H_real is the future the BASELINE
+    rollout actually reached, so after a different action chunk it is no longer strictly the counterfactual
+    future of that chunk. This experiment is therefore an "oracle future-feature intervention / headroom
+    diagnostic", NOT "the performance of a perfect world model" and NOT an upper bound on perfect future
+    prediction.
+
+# ---------------------------------------------------------------- the continuation
+continuation:
+  intervention: "ONLY the first action chunk at the critical state carries a repaired future"
+  after_that: "the unmodified LaWAM policy runs normally — no repair, no H_real, no D x S intervention"
+  until: "task success, or the original max episode length (250 steps total, counted as in the source rollout)"
+  stress: "persists unchanged from the intervention chunk to the end of the episode
+           (A: 80 px occlusion with the episode's frozen anchor; B: 24 px diagonal shift)"
+  start: "every variant restores the SAME exact simulator snapshot independently; variants are never chained"
+  first_observation: "the frame stored with the state (as in every previous round), so the first chunk is
+                      comparable with the frozen C2 chunk; later steps use live perturbed observations"
+
+# ---------------------------------------------------------------- randomness pairing
+noise_pairing:
+  mechanism: >
+    The websocket transport object is wrapped research-side (no repository file is modified) so every policy
+    query carries an explicit `initial_noise` tensor, and the first query additionally carries
+    `future_override`. Verified: identical noise reproduces the action exactly (0.0), different noise
+    changes it (4.6e-3), and future_override changes it (2.7e-2).
+  schedule: "per state, a deterministic tensor schedule noise[0..K-1], K = 40 >= max queries per episode,
+             generated from seed = sha256(state_id | schedule_id)"
+  rule: "the four variants of one state use the IDENTICAL schedule, so any difference in the final outcome
+         comes from the first-chunk intervention rather than from sampler randomness"
+  if_impossible: "stop and record the limitation — NOT applicable, the mechanism above is verified"
+
+# ---------------------------------------------------------------- scale
+scale:
+  main: "120 states x 4 variants x 1 matched schedule = 480 continuation rollouts"
+  robustness_subset:                     # fixed here, before any result exists
+    rule: "2 stress conditions x 6 tasks x episodes {0, 5} = 24 states"
+    extra_schedules: 3
+    rollouts: 288
+  total: 768
+  no_extra_repeats: "no 120 x 4 x 3 sweep; no additional tasks are added if results are weak"
+
+# ---------------------------------------------------------------- endpoints
+endpoints:
+  primary: "final task success (0/1), from the simulator's native success signal"
+  secondary: "remaining_steps_to_success, counted from the intervention state, for episodes that succeed"
+  forbidden_metrics: >
+    No invented task-progress score: no distance-to-goal, no object-progress score, no custom composite
+    reward. LIBERO's own success signal only.
+  key_contrasts: ["Success(DxS) - Success(baseline)", "Success(DxS) - Success(D)",
+                  "Success(full oracle) - Success(baseline)"]
+
+analysis:
+  pairing: "the four variants of a snapshot are PAIRED data, never independent samples"
+  binary: "paired success difference + McNemar test + episode-level paired bootstrap CI"
+  steps: "paired bootstrap over episodes"
+  unit_of_statistics: "episode / snapshot, never action step"
+  case_counts_required:
+    case1_rescue: "baseline fail, D x S success"
+    case2_damage: "baseline success, D x S fail"
+    case3_oracle_headroom: "baseline fail, full oracle success"
+    case4_beyond_one_chunk: "baseline fail, full oracle also fail"
+  breakdowns_required: [overall, by stress condition, by suite, by task,
+                        by the source episode's original outcome (success / failure)]
+  note: "the 32 states from originally-failed episodes are reported separately AND within the whole set;
+         the failure subset is never reported alone"
+
+# ---------------------------------------------------------------- decision
+decision:
+  H-PASS: >
+    (1) the full-oracle intervention gives a stable task-level improvement over baseline, AND
+    (2) the D x S repair shows a positive success / completion-time signal; ideally (3) D x S beats D.
+    => task-level headroom exists; proceed to Method Design (NOT started in this round).
+  H-PARTIAL: >
+    the full oracle clearly improves outcomes but the D x S repair does not => there is method space, but
+    repairing the top-64 D x S tokens is not by itself enough to change outcomes.
+  H-NO-HEADROOM: >
+    the full H_real intervention improves neither success nor completion time and produces no stable rescue
+    case => the exploitable task-level headroom of this future-conditioning pathway is weak. Report and stop.
+  H-HARMFUL: >
+    the interventions stably REDUCE success => oracle intervention and action generation are
+    distribution/counterfactually mismatched; stop using token repair as a basis for method design.
+
+engineering:
+  forbidden_rescues: [changing top-64 to top-32 or top-128, changing the D x S formula, changing the phase,
+                      changing the stress severity, training an S predictor, designing a new repair,
+                      inventing a new proxy, adding tasks, tuning flow seeds, revisiting learned U]
+  code_location: research/action_critical_reliability_probe/method_entry/
+  repository_files: "no repository file is modified; the websocket transport is wrapped, not patched"
+  stop_rule: "after REPORT_HEADROOM.md, stop immediately and report; do not start Method Design"
+
+# ================================================================ AMENDMENTS (append-only)
+amendments:
+  - id: H-A1
+    date: 2026-09-20
+    stage: before any continuation rollout, before H AUDIT 1
+    change: "Corrects the stated REASON in variants.construction_rule. The rule itself is unchanged."
+    what_was_wrong: >
+      The rule said float16 storage is lossy 'below the float16 subnormal threshold' and assumed H_pred is
+      bf16. Both are wrong. Measured: H_pred (and h_t, z) are **float32**, not bfloat16 — the LAM decoder's
+      final operations are autocast-exempt. The archive loss is ordinary float16 rounding: the feature
+      values reach +-14.5, and float16 has 10 mantissa bits, so in [8,16) its ULP is 7.8e-3 and half-ULP
+      rounding gives the observed maximum error of 3.906e-3 (median over 120 states: 3.900e-3).
+    consequence_for_the_rule: >
+      None — the rule stands and is now better justified: variants B/C must be built on the live
+      full-precision H_pred. float32 is lossless for a float32 tensor, so the dump in hpred_fp32/ IS the
+      live tensor. Variant A sends no override at all.
+    consequence_for_the_frozen_C2_result: >
+      C2's repaired variants spliced in h_real from the float16 archive, so the repaired tokens carry a
+      <=3.9e-3 per-element quantisation. It is immaterial next to the size of the repair itself
+      (||H_pred_j - H_real_j|| ~ 7-11 per token), and to reproduce C2 bit-for-bit the headroom test uses the
+      SAME float16-derived h_real. Recorded, not silently changed.

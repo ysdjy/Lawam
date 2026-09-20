@@ -1,0 +1,247 @@
+{
+  "n_states": 120,
+  "schedule": 0,
+  "success_rate": {
+    "baseline": 0.7916666666666666,
+    "top-D repair": 0.7666666666666667,
+    "top-(D x S) repair": 0.7583333333333333,
+    "full oracle": 0.75
+  },
+  "n_success": {
+    "baseline": 95,
+    "top-D repair": 92,
+    "top-(D x S) repair": 91,
+    "full oracle": 90
+  },
+  "contrasts_primary": {
+    "DxS - baseline": {
+      "success_rate_a": 0.7583333333333333,
+      "success_rate_b": 0.7916666666666666,
+      "paired_diff": -0.03333333333333333,
+      "ci": [
+        -0.08333333333333333,
+        0.008333333333333333
+      ],
+      "n_a_only": 2,
+      "n_b_only": 6,
+      "mcnemar_p": 0.2890625
+    },
+    "DxS - topD": {
+      "success_rate_a": 0.7583333333333333,
+      "success_rate_b": 0.7666666666666667,
+      "paired_diff": -0.008333333333333333,
+      "ci": [
+        -0.058333333333333334,
+        0.041666666666666664
+      ],
+      "n_a_only": 4,
+      "n_b_only": 5,
+      "mcnemar_p": 1.0
+    },
+    "full_oracle - baseline": {
+      "success_rate_a": 0.75,
+      "success_rate_b": 0.7916666666666666,
+      "paired_diff": -0.041666666666666664,
+      "ci": [
+        -0.09187499999999998,
+        0.008333333333333333
+      ],
+      "n_a_only": 3,
+      "n_b_only": 8,
+      "mcnemar_p": 0.2265625
+    },
+    "topD - baseline": {
+      "success_rate_a": 0.7666666666666667,
+      "success_rate_b": 0.7916666666666666,
+      "paired_diff": -0.025,
+      "ci": [
+        -0.06666666666666667,
+        0.016666666666666666
+      ],
+      "n_a_only": 2,
+      "n_b_only": 5,
+      "mcnemar_p": 0.453125
+    },
+    "full_oracle - DxS": {
+      "success_rate_a": 0.75,
+      "success_rate_b": 0.7583333333333333,
+      "paired_diff": -0.008333333333333333,
+      "ci": [
+        -0.06666666666666667,
+        0.05
+      ],
+      "n_a_only": 6,
+      "n_b_only": 7,
+      "mcnemar_p": 1.0
+    }
+  },
+  "secondary_remaining_steps": {
+    "DxS vs baseline": {
+      "n_pairs": 89,
+      "mean_diff_steps": -0.6741573033707865,
+      "median_diff_steps": 0.0,
+      "ci": [
+        -3.4952247191011234,
+        2.146629213483143
+      ],
+      "frac_a_faster": 0.43820224719101125
+    },
+    "DxS vs topD": {
+      "n_pairs": 87,
+      "mean_diff_steps": 1.1954022988505748,
+      "median_diff_steps": 1.0,
+      "ci": [
+        -0.5520114942528735,
+        2.8275862068965516
+      ],
+      "frac_a_faster": 0.3218390804597701
+    },
+    "full_oracle vs baseline": {
+      "n_pairs": 87,
+      "mean_diff_steps": -2.0114942528735633,
+      "median_diff_steps": 0.0,
+      "ci": [
+        -4.43735632183908,
+        0.25316091954022835
+      ],
+      "frac_a_faster": 0.4367816091954023
+    }
+  },
+  "case_counts": {
+    "case1_rescue_DxS": 2,
+    "case2_damage_DxS": 6,
+    "case3_oracle_rescue": 3,
+    "case4_oracle_also_fail": 22,
+    "rescue_topD": 2,
+    "damage_topD": 5,
+    "damage_oracle": 8,
+    "n_baseline_fail": 25
+  },
+  "by_condition": {
+    "A_occlusion_medium": {
+      "_n": 60,
+      "baseline": 0.8833333333333333,
+      "top-D repair": 0.85,
+      "top-(D x S) repair": 0.8333333333333334,
+      "full oracle": 0.8166666666666667
+    },
+    "B_camera_shift_strong": {
+      "_n": 60,
+      "baseline": 0.7,
+      "top-D repair": 0.6833333333333333,
+      "top-(D x S) repair": 0.6833333333333333,
+      "full oracle": 0.6833333333333333
+    }
+  },
+  "by_suite": {
+    "libero_goal": {
+      "_n": 40,
+      "baseline": 0.55,
+      "top-D repair": 0.525,
+      "top-(D x S) repair": 0.575,
+      "full oracle": 0.55
+    },
+    "libero_object": {
+      "_n": 40,
+      "baseline": 0.825,
+      "top-D repair": 0.825,
+      "top-(D x S) repair": 0.75,
+      "full oracle": 0.775
+    },
+    "libero_spatial": {
+      "_n": 40,
+      "baseline": 1.0,
+      "top-D repair": 0.95,
+      "top-(D x S) repair": 0.95,
+      "full oracle": 0.925
+    }
+  },
+  "by_task": {
+    "libero_goal_t5": {
+      "_n": 20,
+      "baseline": 0.25,
+      "top-D repair": 0.2,
+      "top-(D x S) repair": 0.25,
+      "full oracle": 0.15
+    },
+    "libero_goal_t8": {
+      "_n": 20,
+      "baseline": 0.85,
+      "top-D repair": 0.85,
+      "top-(D x S) repair": 0.9,
+      "full oracle": 0.95
+    },
+    "libero_object_t0": {
+      "_n": 20,
+      "baseline": 0.9,
+      "top-D repair": 0.9,
+      "top-(D x S) repair": 0.75,
+      "full oracle": 0.8
+    },
+    "libero_object_t6": {
+      "_n": 20,
+      "baseline": 0.75,
+      "top-D repair": 0.75,
+      "top-(D x S) repair": 0.75,
+      "full oracle": 0.75
+    },
+    "libero_spatial_t2": {
+      "_n": 20,
+      "baseline": 1.0,
+      "top-D repair": 1.0,
+      "top-(D x S) repair": 1.0,
+      "full oracle": 1.0
+    },
+    "libero_spatial_t7": {
+      "_n": 20,
+      "baseline": 1.0,
+      "top-D repair": 0.9,
+      "top-(D x S) repair": 0.9,
+      "full oracle": 0.85
+    }
+  },
+  "by_source_episode_outcome": {
+    "source_failure": {
+      "_n": 32,
+      "baseline": 0.28125,
+      "top-D repair": 0.28125,
+      "top-(D x S) repair": 0.21875,
+      "full oracle": 0.28125
+    },
+    "source_success": {
+      "_n": 88,
+      "baseline": 0.9772727272727273,
+      "top-D repair": 0.9431818181818182,
+      "top-(D x S) repair": 0.9545454545454546,
+      "full oracle": 0.9204545454545454
+    }
+  },
+  "robustness_subset": {
+    "schedules": [
+      1,
+      2,
+      3
+    ],
+    "n_state_schedule_pairs": 72,
+    "success_rate": {
+      "baseline": 0.6944444444444444,
+      "top-D repair": 0.7083333333333334,
+      "top-(D x S) repair": 0.6944444444444444,
+      "full oracle": 0.6527777777777778
+    },
+    "DxS_minus_baseline": {
+      "paired_diff": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ]
+    },
+    "oracle_minus_baseline": {
+      "paired_diff": -0.041666666666666664,
+      "ci": [
+        -0.08333333333333333,
+        0.0
+      ]
+    }
+  }
+}

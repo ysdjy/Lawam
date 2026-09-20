@@ -1,0 +1,27 @@
+# code_changes.patch — headroom round (acr_headroom_20260920_194346)
+#
+# `git diff` is EMPTY: no tracked repository file was modified.
+#
+# In particular the inference interface was NOT patched. The continuation noise schedule and the
+# first-chunk future repair are injected by WRAPPING the websocket transport object research-side
+# (h_feasibility.NoiseScheduledClient), which adds `initial_noise` / `future_override` to the outgoing
+# message. Both fields already exist on `LatentWorldPolicyRunner.infer_step`, and the server forwards
+# **msg to predict_action, so nothing in deployment/ or examples/ needed changing.
+#
+# All code written for this round is new and lives in
+#   research/action_critical_reliability_probe/method_entry/
+#     configs/PROTOCOL_HEADROOM.yaml
+#     scripts/h_feasibility.py
+#     scripts/h_dump_hpred.py
+#     scripts/h_audit1_equivalence.py
+#     scripts/h_continuation.py
+#     scripts/h_analyze.py
+#
+# It reuses, unmodified:
+#   research/action_critical_reliability_probe/scripts/{probe_common,probe_model,model_common,sim_common}.py
+#   research/action_critical_reliability_probe/practical_significance/scripts/g3_perturb.py
+#   research/action_critical_reliability_probe/learned_u/scripts/g2_dataset.py
+#
+# The model diff this branch carries against upstream main is unchanged from every previous round:
+# 4 files, +113/-9, the default-off diagnostic hooks. No LaWAM parameter was trained or modified;
+# state_dict sha256 37a53b8c...b523.

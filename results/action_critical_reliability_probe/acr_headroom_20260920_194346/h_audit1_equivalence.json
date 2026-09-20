@@ -1,0 +1,100 @@
+{
+  "n_states": 6,
+  "tolerance_chunk": 1e-05,
+  "E1_E3": [
+    {
+      "state_id": "A_occlusion_medium_libero_goal_t05_ep000_s0024_approach",
+      "condition": "A_occlusion_medium",
+      "suite": "libero_goal",
+      "E1_A_baseline_maxabs_vs_C2": 1.7881393432617188e-07,
+      "E1_B_top_D_maxabs_vs_C2": 2.384185791015625e-07,
+      "E1_C_top_DS_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_D_full_oracle_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E3_same_schedule_maxabs": 0.0,
+      "E3_different_schedule_maxabs": 0.018257200717926025
+    },
+    {
+      "state_id": "A_occlusion_medium_libero_object_t00_ep000_s0024_approach",
+      "condition": "A_occlusion_medium",
+      "suite": "libero_object",
+      "E1_A_baseline_maxabs_vs_C2": 1.7881393432617188e-07,
+      "E1_B_top_D_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_C_top_DS_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_D_full_oracle_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E3_same_schedule_maxabs": 0.0,
+      "E3_different_schedule_maxabs": 0.012913048267364502
+    },
+    {
+      "state_id": "A_occlusion_medium_libero_spatial_t02_ep000_s0024_approach",
+      "condition": "A_occlusion_medium",
+      "suite": "libero_spatial",
+      "E1_A_baseline_maxabs_vs_C2": 2.384185791015625e-07,
+      "E1_B_top_D_maxabs_vs_C2": 2.384185791015625e-07,
+      "E1_C_top_DS_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_D_full_oracle_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E3_same_schedule_maxabs": 0.0,
+      "E3_different_schedule_maxabs": 0.018988966941833496
+    },
+    {
+      "state_id": "B_camera_shift_strong_libero_goal_t05_ep000_s0136_approach",
+      "condition": "B_camera_shift_strong",
+      "suite": "libero_goal",
+      "E1_A_baseline_maxabs_vs_C2": 2.384185791015625e-07,
+      "E1_B_top_D_maxabs_vs_C2": 1.7881393432617188e-07,
+      "E1_C_top_DS_maxabs_vs_C2": 1.7881393432617188e-07,
+      "E1_D_full_oracle_maxabs_vs_C2": 1.7881393432617188e-07,
+      "E3_same_schedule_maxabs": 0.0,
+      "E3_different_schedule_maxabs": 0.0653153657913208
+    },
+    {
+      "state_id": "B_camera_shift_strong_libero_object_t00_ep000_s0024_approach",
+      "condition": "B_camera_shift_strong",
+      "suite": "libero_object",
+      "E1_A_baseline_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_B_top_D_maxabs_vs_C2": 1.7881393432617188e-07,
+      "E1_C_top_DS_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_D_full_oracle_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E3_same_schedule_maxabs": 0.0,
+      "E3_different_schedule_maxabs": 0.0267905592918396
+    },
+    {
+      "state_id": "B_camera_shift_strong_libero_spatial_t02_ep000_s0016_approach",
+      "condition": "B_camera_shift_strong",
+      "suite": "libero_spatial",
+      "E1_A_baseline_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_B_top_D_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E1_C_top_DS_maxabs_vs_C2": 2.384185791015625e-07,
+      "E1_D_full_oracle_maxabs_vs_C2": 1.1920928955078125e-07,
+      "E3_same_schedule_maxabs": 0.0,
+      "E3_different_schedule_maxabs": 0.014471769332885742
+    }
+  ],
+  "E2_snapshot_restore": [
+    {
+      "state_id": "A_occlusion_medium_libero_goal_t05_ep000_s0024_approach",
+      "restore_repeat_eef_maxabs_m": 0.0
+    },
+    {
+      "state_id": "A_occlusion_medium_libero_object_t00_ep000_s0024_approach",
+      "restore_repeat_eef_maxabs_m": 0.0
+    },
+    {
+      "state_id": "A_occlusion_medium_libero_spatial_t02_ep000_s0024_approach",
+      "restore_repeat_eef_maxabs_m": 0.0
+    },
+    {
+      "state_id": "B_camera_shift_strong_libero_goal_t05_ep000_s0136_approach",
+      "restore_repeat_eef_maxabs_m": 0.0
+    },
+    {
+      "state_id": "B_camera_shift_strong_libero_object_t00_ep000_s0024_approach",
+      "restore_repeat_eef_maxabs_m": 0.0
+    },
+    {
+      "state_id": "B_camera_shift_strong_libero_spatial_t02_ep000_s0016_approach",
+      "restore_repeat_eef_maxabs_m": 0.0
+    }
+  ],
+  "failures": [],
+  "passed": true
+}

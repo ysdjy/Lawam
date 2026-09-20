@@ -1,0 +1,10 @@
+{
+  "state_id": "A_occlusion_medium_libero_goal_t05_ep000_s0024_approach",
+  "condition": "A_occlusion_medium",
+  "F1_same_noise_reproducible_maxabs": 0.0,
+  "F2_different_noise_changes_action_maxabs": 0.004622817039489746,
+  "F3_future_override_changes_action_maxabs": 0.026992440223693848,
+  "F4_self_future_override_maxabs": 5.716085433959961e-05,
+  "passed": false,
+  "note": "F1/F4 must be exactly 0; F2/F3 must be non-zero, proving the injected fields are used."
+}
