@@ -255,3 +255,35 @@ amendments:
       evidence must be the executed consequence of pi(H_pred) vs pi(H_real) at fixed flow noise from the
       identical snapshot. U is reported as a diagnostic, split into occluded-token U and non-occluded-token
       U, and no new occluder is designed in response.
+
+  - id: G3-A5
+    date: 2026-09-20
+    stage: after G3 AUDIT 2, BEFORE any C2 ranking result exists
+    decided_by: user
+    change: "Stage C2 runs on a pre-registered SUBSET, not on all 477 confirm states."
+    subset_rule:
+      conditions: [A_occlusion_medium, B_camera_shift_strong]        # the two frozen stress conditions
+      tasks: "the same 6 confirm tasks (spatial 2,7 / object 0,6 / goal 8,5)"
+      episodes: "all 10 independent resets per task per condition"
+      states_per_episode: "exactly ONE — the approach-phase state"
+      expected_total: "~120 states (2 conditions x 6 tasks x 10 episodes)"
+      missing_phase_policy: "if an episode has no approach state it is recorded as missing, never substituted"
+      reason: "compute control; a full 477-state S sweep costs ~10.5 h. The rule is mechanical and fixed
+               before any ranking number exists, so it cannot select favourable states."
+    S_parameters: "IDENTICAL to round 1 m2_sensitivity.py — epsilon [0.271, 0.812, 2.706], 3 directions,
+                   flow-noise seed 101, metric l2_norm_all7, batch 32 with an in-batch baseline.
+                   No S parameter is tuned."
+    selectors: [B_top_D, C_top_S, D_top_D_times_S, E_top_attention, F_top_D_times_attention,
+                G_top_U_oracle, H_top_U_times_S_oracle]
+    floor_baseline: "A_random is also executed as the pre-existing floor (it is already in
+                     PROTOCOL_G3.yaml:ranking.selectors); it is not a new selector."
+    token_budget: 64
+    only_question: >
+      Under stress, does D x S still stably beat D, S, attention and D x attention, and does it stay close
+      to the oracle U x S?
+    forbidden: [new formulas, new proxies, new stress families, failure predictors, extending the stress,
+                re-analysing U/D/failure relations]
+    on_completion: >
+      Gap Validation STOPS regardless of the outcome. If C2 passes, the next stage is Method Design and it
+      is NOT started here. If C2 fails, the D x S mechanism does not generalise to difficult conditions and
+      is NOT rescued with a new formula. Report to the user first; do not continue automatically.

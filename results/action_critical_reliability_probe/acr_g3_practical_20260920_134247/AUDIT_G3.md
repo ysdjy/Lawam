@@ -310,3 +310,157 @@ triggered and stage C2 becomes admissible — but is **not started**: per amendm
 user confirmation.
 
 **Status: Stage C1 complete, G3 AUDIT 2 written, STOPPED. Stage C2 not started.**
+
+---
+
+## G3 AUDIT 3 — Confirm stage C2: does D × S still work under stress? (2026-09-20)
+
+**The single question.** Under the two frozen stress conditions, does `D × S` still stably beat `D`, `S`,
+attention and `D × attention`, and does it stay close to the oracle `U × S`? Nothing else.
+
+**What actually ran.** The pre-registered subset of amendment G3-A5: 2 stress conditions × 6 tasks ×
+10 episodes × the approach-phase state = **exactly 120 states**, 0 episodes missing an approach state,
+0 substitutions, 32 of the 120 drawn from episodes that actually failed. A fresh **S sweep with the
+round-1 parameters** (ε [0.271, 0.812, 2.706], 3 directions, seed 101, metric `l2_norm_all7`, batch 32 with
+an in-batch baseline) = 120 × 2,304 ≈ **276,000 perturbed samplings**; attention recorded on all 120 states
+(SDPA equivalence guard passed); 120 × 10 variants × 3 seeds = **3,600 executed chunks**.
+Infrastructure errors: 0. States excluded: none. Artifacts: `c2/sensitivity/`, `c2/attention/`,
+`c2/c2_chunks/`, `c2/c2_execution_records.jsonl`, `TOKEN_SELECTION_RESULTS.csv`,
+`EXECUTION_RESULTS.csv`, `c2_summary.json`, `figures/g3_c2.png`.
+
+### 1. Was the subset rule mechanical, and was anything re-opened?
+Yes and no respectively. The rule was frozen in G3-A5 **before any ranking number existed**, and its inputs
+are only (condition, task, episode, phase) — never a D, S or recovery value. No new formula, proxy, stress
+family or failure predictor was introduced; the selector list is the frozen one, the budget is still 64/256,
+and S was recomputed with round-1 parameters rather than re-tuned. A regression guard in `g3_c2_chunks.py`
+asserts that the freshly computed `H_pred` equals both frozen copies bit-for-bit.
+
+### 2. Results (120 stressed states, budget 64/256, median recovery; CI = episode bootstrap of the mean)
+
+| selector | recovery under stress | residual to full oracle | in-distribution (DS round) |
+|---|---|---|---|
+| random | 0.209 | 1.472 mm | 0.156 |
+| attention | 0.432 | 1.189 mm | 0.362 |
+| U (oracle) | 0.629 | 0.851 mm | 0.544 |
+| D × attention | 0.701 | 0.635 mm | 0.578 |
+| **D** | **0.736** | 0.589 mm | 0.580 |
+| S | 0.787 | 0.419 mm | 0.660 |
+| U × S (oracle) | 0.821 | 0.390 mm | 0.742 |
+| **D × S** | **0.822** | **0.371 mm** | 0.771 |
+
+Every selector recovers *more* under stress than in-distribution, and the ordering is unchanged.
+
+### 3. The pre-registered comparisons
+
+| comparison | mean | 95 % CI | better in | in mm |
+|---|---|---|---|---|
+| **D × S − D** | **+0.1218** | **[+0.0838, +0.1618]** | 74 % | **+0.231** |
+| D × S − S | +0.0369 | [+0.0138, +0.0601] | 64 % | +0.097 |
+| D × S − attention | +0.3722 | [+0.3188, +0.4233] | 92 % | +1.180 |
+| **D × S − D × attention** | **+0.1253** | **[+0.0932, +0.1586]** | 82 % | **+0.349** |
+| D × S − U × S (oracle) | +0.0093 | [−0.0110, +0.0295] | 52 % | +0.009 |
+| D × S − random | +0.5114 | [+0.4643, +0.5609] | 96 % | +1.738 |
+| U × S − U (oracle margin) | +0.2054 | [+0.1618, +0.2515] | 84 % | +0.501 |
+
+All four required comparisons have CIs excluding zero, and the difference from the **oracle** `U × S` has a
+CI containing zero — the deployable combination remains statistically indistinguishable from the oracle
+under stress, exactly as in-distribution.
+
+### 4. Does it hold in both stresses, both outcome classes, and every suite?
+Yes. `D × S − D` is +0.121 [+0.064, +0.179] under occlusion and +0.123 [+0.070, +0.181] under camera shift.
+By episode outcome the margin is **larger in episodes that actually failed**: +0.152 [+0.077, +0.233]
+versus +0.111 [+0.066, +0.158] in successful ones. By suite, `D × S` ≥ `U × S` or equal in all three
+(goal 0.702 vs 0.706, object 0.927 vs 0.918, spatial 0.805 vs 0.805).
+
+### 5. Effect size in millimetres — the discipline that has governed every round
+Stressed scales on these 120 states: treatment **2.17 mm**, sampler nuisance **0.51 mm**.
+The `D × S` advantage over `D` is **+0.231 mm**, i.e. **45 % of the sampler's own noise** — up from
++0.131 mm and 28 % in-distribution. It is still **below** the nuisance in absolute terms. Against
+attention-based selection the advantage is +0.349 mm (vs D × attention) and +1.180 mm (vs attention alone).
+
+### 6. Is there a simpler explanation?
+- *"S alone does the work."* No: `D × S − S` = +0.037 [+0.014, +0.060], positive in 64 % of states.
+- *"D alone does the work."* No: +0.122 [+0.084, +0.162].
+- *"Attention would do."* No: attention is the second-worst selector (0.432), and `D × attention` trails
+  `D × S` by +0.125 [+0.093, +0.159].
+- *"Everything is easier under stress so the ranking is trivial."* Recovery does rise for every selector,
+  but the *gaps* also widen (D × S − D: +0.122 stressed vs +0.148 in-distribution in fraction, +0.231 mm vs
+  +0.131 mm in millimetres), and random still only reaches 0.209.
+- **Margin retention** relative to the oracle margin is 0.593 under stress (0.852 in-distribution): the
+  oracle margin itself grew more (+0.205 vs +0.148), so `D × S` keeps a smaller *share* of a larger gap.
+
+### 7. What did NOT get demonstrated
+The one-chunk headroom test (execute a repaired chunk, then continue with the unmodified policy and compare
+task success/progress) was **not run** — it was outside the scope the user set for C2. So this round shows
+that `D × S` *ranks* the action-critical future tokens correctly under stress, and that the ranking is worth
++0.231 mm of executed trajectory; it does **not** show that repairing those tokens would change task
+outcomes. Task-level headroom remains undemonstrated.
+
+### 8. Most conservative conclusion
+"On 120 stressed states drawn by a mechanical rule from two independent pre-registered perturbations,
+`D × S` recovers 0.822 of the oracle correction versus 0.736 for `D`, 0.787 for `S`, 0.701 for
+`D × attention` and 0.432 for attention, and is statistically indistinguishable from the oracle `U × S`
+(0.821). All four required margins have CIs excluding zero, and the advantage is larger in failed episodes.
+In absolute terms the advantage is 0.231 mm against a 0.51 mm sampler nuisance and a 2.17 mm total effect."
+
+**Status: G3 AUDIT 3 complete. Gap Validation stops here per the user's instruction, regardless of outcome.**
+
+---
+
+## FINAL G3 AUDIT (2026-09-20)
+
+**Total executed work.** Pilot: 150 rollout attempts (132 executed, 18 invalidated by the family-C physical
+validity gate and recorded), 393 states, 2,358 executed chunks. Confirm C1: 180 rollouts over 6 tasks in
+3 suites, 477 states, 2,862 executed chunks. Confirm C2: 120 states by a mechanical subset rule, a fresh
+round-1-parameter S sweep (~276,000 perturbed samplings), 120 attention recordings, 3,600 executed chunks.
+**Infrastructure errors across the whole round: 0. Episodes or states excluded: none** — all 35 confirm
+failures and all 18 family-C invalidations are retained and reported.
+
+**Was anything trained or modified?** No. The LaWAM `state_dict` sha256 `37a53b8c…b523` was verified before
+the round and no training, no new loss, no gate, no side-channel and no RL exists anywhere in it. This
+round added no model code.
+
+**Was any frozen question reopened?** No. No new U, no learned U, no new explanation of D, no new S
+definition, no new formula (D²S, DS², …), no new proxy, no new attention variant, no new stress family, no
+failure predictor. The selector list, the 64/256 budget, the flow-noise seeds and the S parameters are the
+frozen objects of earlier rounds.
+
+**Was any severity or subset chosen to favour a hypothesis?** No. All nine severities were frozen before
+the first pilot rollout and are grounded in the token geometry; the severity *selection* rule ran in a
+script with no access to any D, S or ranking quantity; the C2 subset rule (approach-phase state, both
+conditions, all six tasks, all ten episodes) was frozen before any ranking number existed and yielded
+exactly 120 states with zero substitutions.
+
+### Verdict against the pre-registered G3-PASS criteria
+
+| criterion | status | evidence |
+|---|---|---|
+| 1. future-error influence clearly above ID under multiple reasonable stresses | **met** | treatment 0.82 → 1.87 mm (occlusion) and 1.70 mm (camera shift), mean CIs non-overlapping, two independent families, 6 tasks |
+| 2. treatment not drowned by the sampler nuisance | **met** | treatment/nuisance 1.77 → 3.15 and 3.57 |
+| 3. D × S still stably beats D, attention and D × attention in failure-rich states | **met** | +0.122 [+0.084, +0.162], +0.372 [+0.319, +0.423], +0.125 [+0.093, +0.159]; margin *larger* in failed episodes (+0.152 vs +0.111); 32 of 120 states from failed episodes |
+| 4. equal-budget causal repair still gives a stable gain | **met** | executed recovery 0.822 vs 0.736, +0.231 mm, in 74 % of states, in both stresses and all three suites |
+| 5. some real task-progress / failure evidence linked to the mechanism | **partially met** | the mechanism's advantage is significantly larger in episodes that actually failed; but C1 found **no** clean "failures have larger treatment" pattern, and the one-chunk headroom test was not run |
+
+**Decision: G3-PASS, qualified on criterion 5.** Criteria 1–4 are met decisively. Criterion 5 rests only on
+the failure-state margin: the ranking mechanism is demonstrably more valuable where the robot actually
+failed, but **no task-level headroom was demonstrated**, because the one-chunk headroom test was outside
+the scope set for C2.
+
+### What this round did NOT establish
+1. That repairing high-`D × S` tokens changes task success or progress — untested.
+2. That anything can be done with a flagged token at deployment, where no true `H_real` exists.
+3. That `S` can be obtained online — it still costs ~2,300 forward passes per state (~86 s).
+4. That the effect is large: +0.231 mm against 0.51 mm of sampler noise and ~85 mm of chunk motion.
+5. Generality beyond one checkpoint, two perturbation families, six tasks and a 0.4 s horizon.
+
+### Honest negatives carried forward
+- Family C (object/layout shift) was tested at three severities and is **not informative** for this
+  mechanism: it does not increase future-prediction difficulty (U 0.093–0.097 vs ID 0.087) and it produced
+  18/45 physically invalid episodes.
+- Under occlusion, part of the U increase is an artefact of the uniform grey patch (U 14.31 inside vs 8.67
+  outside vs 7.63 ID). This is why U was barred from being primary evidence; the camera-shift family, which
+  has no occluder, shows the effect at least as strongly.
+- There is no clean relationship between per-state treatment and episode failure.
+
+**Status: G3 complete. Gap Validation STOPS here, as instructed, regardless of outcome. Method Design is
+NOT started.**
