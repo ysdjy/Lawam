@@ -1,0 +1,22 @@
+# code_changes.patch — DS round (acr_change_sensitivity_20260920_124748)
+#
+# `git diff` is EMPTY for this round: no tracked file was modified.
+#
+# All code written for this round is new and lives in
+#   research/action_critical_reliability_probe/change_sensitivity/
+#     configs/PROTOCOL_DS.yaml
+#     scripts/ds_geometry.py
+#     scripts/ds_geometry_addendum.py
+#     scripts/ds_chunks.py
+#     scripts/ds_execute.py
+#     scripts/ds_analyze.py
+#
+# It reads the frozen artefacts of acr_20260919_203850 and reuses, unmodified:
+#   research/action_critical_reliability_probe/scripts/{probe_common,probe_model,model_common,sim_common}.py
+#   research/action_critical_reliability_probe/learned_u/scripts/g2_dataset.py  (metrics, frozen-S loaders)
+#   research/action_critical_reliability_probe/learned_u/scripts/g2_audit0.py   (weight-hash re-verification)
+#
+# The model diff carried by this branch against upstream main is unchanged from the previous rounds:
+# 4 files, +113/-9 lines, the default-off diagnostic hooks (latent_override / future_override /
+# initial_noise / return_diagnostics) introduced by the earlier branch_diagnostic round.
+# No LaWAM parameter was trained or modified; state_dict sha256 37a53b8c...b523 verified before the round.

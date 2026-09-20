@@ -1,0 +1,135 @@
+### PROTOCOL_DS.yaml — pre-registration for the "predicted change x sensitivity" (DS) round
+### Frozen after DS AUDIT 0 and BEFORE any geometry statistic or selection result was computed.
+### Amendments are append-only, each with a reason. Nothing is edited silently.
+
+run_id: acr_change_sensitivity_20260920_124748
+branch: research/action-critical-reliability-probe
+head_commit: b733f07
+prior_runs_READ_ONLY:
+  round1: results/action_critical_reliability_probe/acr_20260919_203850
+  g2:     results/action_critical_reliability_probe/acr_learned_u_20260920_120110
+lawam_state_dict_sha256: 37a53b8c799c39725a18900eeaa687d1d2cebc24fca28d8e1f2881ca2870b523
+
+# ---------------------------------------------------------------- symbols (must not be conflated)
+symbols:
+  U: {definition: "||H_pred_j - H_real_j||", nature: "oracle future-prediction ERROR; needs the real future; offline only"}
+  D: {definition: "||H_pred_j - h_t_j||",   nature: "PREDICTED CHANGE MAGNITUDE, available before execution.
+                                                     It is NOT uncertainty / confidence / reliability and must not be
+                                                     called any of those in this round unless new evidence is produced."}
+  G: {definition: "||H_real_j - h_t_j||",   nature: "REAL change magnitude; oracle, used only to explain D->U"}
+  theta: {definition: "angle between (H_pred_j - h_t_j) and (H_real_j - h_t_j)"}
+  S: {definition: "frozen finite-difference downstream action sensitivity of round 1",
+      source: "acr_20260919_203850/sensitivity/<state>.npz, S_norm[eps_idx=1].mean(dirs)[:, 'l2_norm_all7']",
+      rule: "READ ONLY. S is never recomputed, re-tuned, or re-parameterised in this round."}
+  identity: "U^2 = D^2 + G^2 - 2*D*G*cos(theta)"
+  candidates: {R_D: "D * S  (deployable, no H_real)", R_U: "U * S  (oracle reference)"}
+
+question:
+  Q1: "Why does D predict U so strongly? Decompose U into D, G and cos(theta) and decide between
+       (A) a largely geometric consequence (e.g. H_real ~ h_t, so U ~ D) and
+       (B) a model phenomenon (larger predicted change is genuinely harder to predict)."
+  Q2: "Without using H_real at selection time, does R_D = D x S select action-relevant future tokens better
+       than D alone, than S alone, than attention, and than D x attention — and how much of the oracle
+       U x S advantage does it retain?"
+  allowed_conclusions: [DS-A, DS-B, DS-C, DS-D, INSUFFICIENT EVIDENCE]
+  forbidden_this_round: [training any model, U predictor, S predictor, modifying LaWAM, new losses,
+                         side-channel, gate, RL, OOD/G3, recomputing or re-tuning S, renaming D to
+                         "uncertainty", claiming the research question is finally established]
+
+# ---------------------------------------------------------------- data
+data:
+  states: "the 90 frozen holdout-C states of round 1 (3 suites x 1 task x 10 episodes x 3 phases)"
+  read_only_inputs:
+    h_t:        "acr_20260919_203850/sensitivity/<s>.npz:h_t        [256,768] float16"
+    H_pred:     "acr_20260919_203850/sensitivity/<s>.npz:h_t1_pred  [256,768] float16"
+    H_real:     "acr_20260919_203850/uncertainty/<s>.npz:h_real     [256,768] float16"
+    U_authoritative: "acr_20260919_203850/uncertainty/<s>.npz:U_U_l2 (computed in float64 before storage)"
+    S:          "see symbols.S"
+    attention:  "acr_20260919_203850/attention/<s>.npz:attention_future [256]"
+  precision_note: >
+    h_t / H_pred / H_real are stored as float16. D, G and cos(theta) are therefore computed from float16
+    inputs while the authoritative U was computed in float64 before storage. Step 1 must first verify that
+    U recomputed from the stored float16 arrays agrees with the stored U; if it does not, the geometry
+    analysis is suspended.
+  nothing_recollected: "no rollouts, no new states, no new S, no new attention"
+
+# ---------------------------------------------------------------- Step 1: geometry of D -> U
+step1_geometry:
+  per_token_quantities: [D, G, U, cos_theta, "D/G ratio", "|D-G|", "1-cos_theta"]
+  correlations_per_state: ["Spearman(D,U)", "Spearman(G,U)", "Spearman(D,G)", "Spearman(cos_theta,U)",
+                           "Spearman(|D-G|,U)", "Spearman(1-cos_theta,U)"]
+  breakdowns: [per suite, per task, per phase]
+  hypotheses:
+    A_geometric: "G is small (H_real ~ h_t) so U ~ D almost by construction"
+    B_model: "G is comparable to D, yet D still predicts U, and/or mismatch grows with D"
+  counterfactual_baselines:
+    B0: "D  (the quantity under test)"
+    B1: "G  (oracle real change)"
+    B2: "|D - G|  (oracle magnitude mismatch)"
+    B3: "1 - cos(theta)  (oracle direction mismatch)"
+    B4a: "synthetic U from the identity with cos(theta) PERMUTED across tokens within the state
+          (keeps both magnitude distributions and the marginal cos distribution, destroys the pairing)"
+    B4b: "synthetic U from the identity with cos(theta) = 0 (orthogonal directions, the high-dimensional
+          random-direction expectation)"
+    purpose: "quantify how much of Spearman(D,U) is pure length geometry rather than a LaWAM-specific effect"
+  residual_analysis:
+    fit: "U ~ f(D) on log-log, fitted PER STATE (isotonic and linear both reported); analysis only"
+    residual: "U_j - f(D_j)"
+    questions: ["Spearman(S, residual)", "does S explain what D cannot",
+                "Spearman(residual, errdev) using the frozen per-token error deviation of round 1"]
+  audit1_wording: "SUPPORTED / PARTIALLY SUPPORTED / NOT SUPPORTED / INSUFFICIENT EVIDENCE only; terminology is not changed to fit the result"
+
+# ---------------------------------------------------------------- Step 2: equal-budget causal selection
+step2_causal:
+  states: "the same 90 frozen states"
+  token_budget: 64            # of 256; NOT changed for any reason, including nicer results
+  selectors:
+    A_random:          "seeded per state, fixed before running"
+    B_top_D:           "top-64 by D                      (deployable)"
+    C_top_S:           "top-64 by S                      (offline S, deployable only in principle)"
+    D_top_D_times_S:   "top-64 by D * S                  (the candidate)"
+    E_top_U_oracle:    "top-64 by U                      (oracle reference)"
+    F_top_U_times_S:   "top-64 by U * S                  (oracle reference, round 1's winner)"
+    G_top_attention:   "top-64 by frozen cross-attention mass on the future half"
+    H_top_D_times_att: "top-64 by D * attention          (mandatory: 'why not just attention?')"
+  repair: "selected tokens have H_pred_j replaced by H_real_j. This is an OFFLINE EVALUATION INSTRUMENT
+           for ranking quality, never a deployment proposal."
+  held_identical_across_selectors: [state snapshot, observation, instruction, h_vlm, h_t, z,
+                                    flow noise seeds [101, 202, 303], execution horizon, controller,
+                                    action post-processing]
+  measurements: [action-space deviation from pi(H_pred), executed end-effector final deviation,
+                 target-object final deviation, residual distance to the full oracle pi(H_real),
+                 fraction of the oracle correction recovered]
+  primary_quantities:
+    DS_margin: "Recovery(D x S) - Recovery(D)"
+    Oracle_margin: "Recovery(U x S) - Recovery(U)"
+    Margin_retention: "DS_margin / Oracle_margin  (descriptive only, no target is set)"
+    attention_check: "Recovery(D x S) - Recovery(D x attention)"
+  decision_requirement: "the 95% EPISODE-bootstrap CI of DS_margin must exclude 0; the fraction of states
+                         where D x S beats D is also reported"
+  effect_size_rule: >
+    Every improvement must be reported in MILLIMETRES of executed end-effector displacement next to the two
+    reference scales measured in round 1: flow-sampler nuisance 0.47 mm and chunk motion 85.0 mm. Reporting
+    a percentage without the millimetre figure is forbidden.
+
+# ---------------------------------------------------------------- decision tree
+decision:
+  DS-A: "D~U is mainly geometric (G small) or mainly length geometry, AND D x S is not stably better than D
+         -> the deployable proxy fails; stop the D x S line"
+  DS-B: "D approximates U well and D x S beats D, but is on par with D x attention
+         -> S is not necessary; prefer the simpler attention/relevance mechanism"
+  DS-C: "D approximates U well, and D x S stably beats D, S, attention and D x attention, retaining most of
+         the oracle U x S advantage -> a learned U is not needed; the candidate mechanism becomes
+         'predicted change x downstream action sensitivity'. NO formal name is coined this round."
+  DS-D: "D cannot explain the decisive part of U and D x S is clearly weaker than oracle U x S
+         -> a genuine reliability estimator is still required (contextual confidence, ensemble disagreement,
+         consistency uncertainty, distributional LaWM) — none of which is executed this round"
+  after_any_case: "the next gate is G3 (failure / OOD enrichment). It is NOT entered this round."
+
+engineering:
+  forbidden: [git reset --hard, git clean -fd, git checkout -- ., overwriting or editing prior runs,
+              editing prior REPORTs, deleting failed samples, retraining LaWAM, training any network,
+              recomputing or re-tuning S, automatic push, enlarging the token budget, changing the flow
+              noise seeds or the task selection after seeing results]
+  code_location: research/action_critical_reliability_probe/change_sensitivity/
+  amendments: "append-only, with reason, in this file and in AUDIT_DS.md"

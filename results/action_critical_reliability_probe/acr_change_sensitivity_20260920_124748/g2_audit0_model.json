@@ -1,0 +1,66 @@
+{
+  "run_id": "acr_change_sensitivity_20260920_124748",
+  "timestamp": "2026-09-20T12:50:22",
+  "prior_run": "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/results/action_critical_reliability_probe/acr_20260919_203850",
+  "lawam_state_dict_sha256": "37a53b8c799c39725a18900eeaa687d1d2cebc24fca28d8e1f2881ca2870b523",
+  "lawam_n_params": 2555179360,
+  "flow_head_state_dict_sha256": "7a03fdcf741f66118a0bca6be0b580fcce7bd615deff18fe13911c1d2f93676d",
+  "checkpoint": "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/results/Checkpoints/libero/lawam_libero_sft_release/final_model/pytorch_model.pt",
+  "checkpoint_size_bytes": 7174214645,
+  "checkpoint_mtime": "2026-09-14T01:24:55",
+  "per_state": [
+    {
+      "state_id": "libero_spatial_t02_ep000_s0024_approach",
+      "example_keys": [
+        "action_hz",
+        "embodiment_id",
+        "lang",
+        "primary_image",
+        "state",
+        "wrist_image"
+      ],
+      "forbidden_future_keys_in_example": [],
+      "h_t1_pred_maxabs_vs_stored": 0.0,
+      "h_t_maxabs_vs_stored": 0.0,
+      "baseline_action_maxabs_vs_stored": 0.0,
+      "sampled_S_maxabs_vs_stored": 4.3280181684628855e-12,
+      "future_token_permutation_action_maxabs": 3.5762786865234375e-07
+    },
+    {
+      "state_id": "libero_object_t00_ep004_s0048_pre_grasp",
+      "example_keys": [
+        "action_hz",
+        "embodiment_id",
+        "lang",
+        "primary_image",
+        "state",
+        "wrist_image"
+      ],
+      "forbidden_future_keys_in_example": [],
+      "h_t1_pred_maxabs_vs_stored": 0.0,
+      "h_t_maxabs_vs_stored": 0.0,
+      "baseline_action_maxabs_vs_stored": 0.0,
+      "sampled_S_maxabs_vs_stored": 2.6436209178779674e-12,
+      "future_token_permutation_action_maxabs": 4.76837158203125e-07
+    },
+    {
+      "state_id": "libero_goal_t08_ep007_s0056_manipulation",
+      "example_keys": [
+        "action_hz",
+        "embodiment_id",
+        "lang",
+        "primary_image",
+        "state",
+        "wrist_image"
+      ],
+      "forbidden_future_keys_in_example": [],
+      "h_t1_pred_maxabs_vs_stored": 0.0,
+      "h_t_maxabs_vs_stored": 0.0,
+      "baseline_action_maxabs_vs_stored": 0.0,
+      "sampled_S_maxabs_vs_stored": 7.74342527896715e-13,
+      "future_token_permutation_action_maxabs": 3.5762786865234375e-07
+    }
+  ],
+  "failures": [],
+  "passed": true
+}
