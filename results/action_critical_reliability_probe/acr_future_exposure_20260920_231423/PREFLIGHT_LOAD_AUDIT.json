@@ -1,0 +1,47 @@
+{
+  "aliases": {
+    "policy_action_head_is_flow": true,
+    "policy_vlm_adapter_model_is_vlm": true
+  },
+  "groups": {
+    "act_query": {
+      "parameters": 16384,
+      "state_sha256": "d53f1fad9115aff4d5adcb1c16cc7e17fa2585df17ea8d59dcfd2bcd2c691c7c",
+      "state_tensors": 1,
+      "trainable_parameters": 0
+    },
+    "flow": {
+      "parameters": 306405632,
+      "state_sha256": "9ea314de6e6f6c655c4ecfcd0efbf21d7aa10bfcbf479e8fa991315c26846c32",
+      "state_tensors": 245,
+      "trainable_parameters": 306405632
+    },
+    "flow_action_query": {
+      "parameters": 16384,
+      "state_sha256": "8f82ad7c38b4edf3cd198237ed432e738d24c10420d5b8a39f0de555420d9280",
+      "state_tensors": 1,
+      "trainable_parameters": 0
+    },
+    "lam": {
+      "parameters": 725095008,
+      "state_sha256": "31b6cb29064933e9b52da45fd5317573c57085fca89455d95d36b0adf2216074",
+      "state_tensors": 660,
+      "trainable_parameters": 0
+    },
+    "vlm": {
+      "parameters": 2127532032,
+      "state_sha256": "7a7d7c66f43de04e02a3c5bbf4f629d9edb225ad0b1f623d270007724b37448e",
+      "state_tensors": 625,
+      "trainable_parameters": 0
+    },
+    "vlm_to_lam": {
+      "parameters": 145920,
+      "state_sha256": "514ca6ebda0f6e68b6f0409ffd111d56fd908df433f47bdc6ba6669a8dbb0bc8",
+      "state_tensors": 19,
+      "trainable_parameters": 0
+    }
+  },
+  "hash_scheme": "SHA256 sorted relative state_dict key, NUL, dtype, NUL, shape tuple, NUL, raw tensor bytes",
+  "unique_frozen_parameters": 2852805728,
+  "unique_trainable_parameters": 306405632
+}

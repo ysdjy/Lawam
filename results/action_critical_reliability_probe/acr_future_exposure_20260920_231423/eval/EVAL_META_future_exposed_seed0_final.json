@@ -1,0 +1,24 @@
+{
+  "checkpoint": "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/results/action_critical_reliability_probe/acr_future_exposure_20260920_231423/train/flow_future_exposed_seed0_final.pt",
+  "flow_state_hash_after_load": "6a90c7a604d492230e7f233ad69d6272cdce5234a9dfc1c125c0b173f19209b5",
+  "determinism": {
+    "torch_deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false
+  },
+  "flow_mode": "eval (dropout off, deployment path)",
+  "R_repeats": 8,
+  "action_noise_seeds": [
+    101,
+    202,
+    303
+  ],
+  "splits": [
+    "test_seen_task",
+    "test_heldout_task"
+  ],
+  "n_flow_rows": 1380,
+  "n_action_rows": 0,
+  "seconds": 81.5,
+  "mm_per_normalized_unit_per_step": 46.875
+}

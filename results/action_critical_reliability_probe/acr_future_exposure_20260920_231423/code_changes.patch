@@ -1,0 +1,61 @@
+# code_changes.patch — Future Exposure round (acr_future_exposure_20260920_231423)
+#
+# `git diff` against tracked files is EMPTY: no repository file was modified this round.
+# Verified at the end of the round with `git status --porcelain --untracked-files=no` (no output).
+#
+# This round TRAINED, which every previous round did not, so the claim deserves detail about how
+# training happened without touching the repository:
+#
+#   * The Flow Head is trained by calling `backend.flow(...)` directly with the same arguments
+#     `LaWAM.forward()` passes it, in the same order, after repeating tensors by
+#     `repeated_diffusion_steps`. FE AUDIT 1 gate G1 proves this reproduces the OFFICIAL
+#     `backend.forward()` `loss_flow` BIT-FOR-BIT (max abs diff 0.0 on every tested sample).
+#
+#   * The 50/50 future condition is built research-side in `fe_flow.build_future_condition`,
+#     mirroring `_build_flow_future_condition` including its ordering (repeat first, then draw the
+#     per-row mask over the repeated batch). The model's own selector could not be used: in eval
+#     mode it returns H_pred unconditionally, and the release config has scheduled sampling off.
+#
+#   * Episode subsetting uses the dataset's OWN `_build_active_step_indexing()` after mirroring
+#     the five assignments `_build_mode_split_from_trajectories()` makes. Nothing in
+#     `starVLA/dataloader/` was edited.
+#
+#   * Sample addressing bypasses `LeRobotMixtureDataset.__getitem__` — which treats its argument
+#     as an RNG seed, not an address — by calling the dataset's own
+#     `_select_video_keys_for_sample` -> `get_step_data` -> `_get_transforms_for_selected_video_keys`
+#     -> `_build_output_sample`. Only the address selection is replaced; every transform,
+#     normalization and assembly step is the official one. (Amendment FE-A2.)
+#
+#   * Trained weights are written ONLY to this run directory. The released checkpoint
+#     results/Checkpoints/libero/lawam_libero_sft_release/final_model/pytorch_model.pt was never
+#     opened for writing; its file sha256 is
+#     df8e9c3e94900efbc21a8f347f1616bfc6f284c0de37bc13fb2f6384254905cc.
+#
+# All code written for this round is new and lives in
+#   research/action_critical_reliability_probe/future_exposure_test/
+#     PROTOCOL_FE.yaml                     (frozen; 7 append-only amendments)
+#     AUDIT_FE.md
+#     REPORT_FE.md
+#     PROTOCOL_FE_superseded_pretrain_variant.yaml      (retained, unmodified, unused)
+#     AUDIT_FUTURE_EXPOSURE_superseded_pretrain_variant.md
+#     scripts/fe_common.py       model/dataset loading, episode subsetting, hashing, determinism
+#     scripts/fe_cache.py        Stage A frozen-encoding cache + pre-registered sample sets
+#     scripts/fe_flow.py         the flow stage, shared by training / validation / evaluation
+#     scripts/fe0_facts.py       FE AUDIT 0
+#     scripts/fe1_build_cache.py Stage A driver
+#     scripts/fe1_audit.py       FE AUDIT 1 (seven gates)
+#     scripts/fe_train.py        Flow-Head-only training, one arm, one seed
+#     scripts/fe2_evaluate.py    the 2x2
+#     scripts/fe3_analyze.py     interaction, bootstrap, decision rule
+#     scripts/fe4_manifest.py    checkpoint manifest + anchor re-verification
+#     scripts/run_fe.sh, scripts/run_u300.sh
+#
+# It reuses, unmodified, the diagnostic hooks this branch already carried (4 files, +113/-9,
+# default-off) — though this round needed none of them: no `latent_override`, `future_override`,
+# `initial_noise` or `return_diagnostics` call was made. The 2x2 is produced by passing
+# `h_t1_star` explicitly to the Flow Head.
+#
+# NOT COMMITTED (size): the 31 GB Stage A encoding cache
+# (results/action_critical_reliability_probe/fe_cache/) and the 16 trained Flow-Head checkpoints
+# (~1.2 GB each) under train/. Their sha256 digests are in CHECKPOINT_MANIFEST.json, and the
+# cache is exactly reproducible from CACHE_MANIFEST.json and the released checkpoint.

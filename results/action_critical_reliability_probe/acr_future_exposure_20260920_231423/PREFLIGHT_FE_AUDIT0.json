@@ -1,0 +1,401 @@
+{
+  "generated_at": "2026-09-21T00:31:37",
+  "purpose": "FE AUDIT 0",
+  "git": {
+    "branch": "research/action-critical-reliability-probe",
+    "head": "866690eddf328f4961f69cffa9fd3ea528e32362",
+    "dirty_tracked_files": ""
+  },
+  "normalization": {
+    "path": "results/Checkpoints/libero/lawam_libero_sft_release/dataset_statistics.json",
+    "sha256": "f25770e2efe656c7bf695efb44247cf6217ab43efdc8632c77bcdfcf640bd2ed",
+    "embodiments": [
+      "franka"
+    ],
+    "num_trajectories": 1693,
+    "num_transitions": 273465,
+    "action_mask": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false
+    ],
+    "source_is_release_checkpoint": true,
+    "recomputed": false
+  },
+  "split": {
+    "manifest_sha256": "3483b2936e39352d5fdf973c4c18b04be3a3aa2ea017114038b4de7fb5097df3",
+    "counts": {
+      "train": 1181,
+      "validation": 167,
+      "test_seen_task": 167,
+      "test_heldout_task": 178
+    },
+    "total": 1693,
+    "pairwise_overlap": {
+      "test_heldout_task&test_seen_task": 0,
+      "test_heldout_task&train": 0,
+      "test_heldout_task&validation": 0,
+      "test_seen_task&train": 0,
+      "test_seen_task&validation": 0,
+      "train&validation": 0
+    },
+    "union_min": 0,
+    "union_max": 1692,
+    "union_size": 1693
+  },
+  "load_seconds": 40.6,
+  "precision_mode": {
+    "use_bf16_cast": false,
+    "reason": "official training configuration: fp32 weights + _cuda_autocast per stage",
+    "differs_from_previous_rounds": true
+  },
+  "checkpoint": {
+    "file": "results/Checkpoints/libero/lawam_libero_sft_release/final_model/pytorch_model.pt",
+    "runtime_state_dict_keys": 1419,
+    "runtime_total_params": 2555179360
+  },
+  "freeze_plan": {
+    "trainable_params": 306405632,
+    "frozen_params": 2248773728,
+    "flow_params": 306405632,
+    "trainable_equals_flow": true,
+    "non_flow_trainable_names": []
+  },
+  "module_modes": {
+    "backend_training": false,
+    "flow_training": true,
+    "vlm_training": false,
+    "lam_training": false
+  },
+  "frozen_module_hashes": {
+    "vlm": "ea9f55ad044e7656a8533325c73f4e7131e2dc6d0b0b38599980823b19126a82",
+    "lam": "fec680d5cb40778e63f429c8dbe4f15a1fcc40775980069de7ca15e26f9c4d35",
+    "vlm_to_lam": "082683df604e813e69dc643b401428c92cf6739685fa9cd5d661ae3e3c636e09",
+    "act_query": "6973cac5dbe7a0a9a5bbf9a3047650d70fb782c542068501219260f8dc62f85e",
+    "flow_action_query": "7c9e1de21bf4feac96cc562322e22629d5d551ae62d9bf0ccdf274b98374ed7c"
+  },
+  "frozen_module_params": {
+    "vlm": 1523500032,
+    "lam": 725095008,
+    "vlm_to_lam": 145920,
+    "act_query": 16384,
+    "flow_action_query": 16384
+  },
+  "flow_initial_hash": "477662833e3091d5974e9fa04d65cc47ac8d5463d44e8135b57834c461bd3658",
+  "flow_config": {
+    "action_dim": 32,
+    "state_dim": 32,
+    "use_state": false,
+    "vlm_dim": 2048,
+    "hidden_dim": 1024,
+    "attention_heads": 16,
+    "num_layers": 16,
+    "cfg_drop_prob": 0.0,
+    "cfg_guidance_scale": 1.0,
+    "num_inference_steps": 10,
+    "num_timestep_buckets": 1000,
+    "horizon_sec": 0.4,
+    "noise_beta_alpha": 1.5,
+    "noise_beta_beta": 1.0,
+    "noise_s": 0.999,
+    "token_independent_noise": false,
+    "use_action_positional_embeddings": true
+  },
+  "model_config": {
+    "detach_future_feature": true,
+    "enable_flow_h_t1_scheduled_sampling": false,
+    "flow_h_t1_pred_prob_start": 0.0,
+    "flow_h_t1_pred_prob_end": 1.0,
+    "flow_h_t1_pred_ramp_steps": 10000,
+    "flow_only_mode": false,
+    "future_prediction": true,
+    "enable_loss_distill": true,
+    "lam_encoder_distill_weight": 0.1,
+    "perceptual_weight": 0.1,
+    "repeated_diffusion_steps": 2
+  },
+  "eval_future_selector_returns_H_pred": true,
+  "train_config_dataset": {
+    "data_root_dir": "dataset",
+    "data_mix": "libero",
+    "image_resolution": 256,
+    "num_frames": 2,
+    "sec_chunk": 0.4,
+    "enable_primary_video_aug": false,
+    "enable_primary_random_resized_crop": false,
+    "train_split_all": true,
+    "video_backend": "pyav"
+  },
+  "dataset_build_seconds": 0.2,
+  "dataset": {
+    "n_leaves": 1,
+    "leaf_names": [
+      "libero_merged_no_noops_20hz"
+    ],
+    "total_steps_mode_all": 273465,
+    "total_episodes_mode_all": 1693
+  },
+  "restrict_train": {
+    "requested_episodes": 1181,
+    "leaves": [
+      {
+        "class": "LeRobotSingleDataset",
+        "dataset_name": "libero_merged_no_noops_20hz",
+        "n_all_episodes": 1693,
+        "n_active_episodes": 1181,
+        "n_active_steps": 190893,
+        "len_dunder": 190893
+      }
+    ],
+    "total_active_steps": 190893,
+    "total_active_episodes": 1181
+  },
+  "eligibility": {
+    "n_episodes": 1181,
+    "total_steps": 190893,
+    "total_eligible_starts": 182626,
+    "min_episode_length": 75,
+    "max_episode_length": 505,
+    "episodes_with_zero_eligible_starts": []
+  },
+  "collator": {
+    "class": "LatentWorldTrainCollator",
+    "training": true,
+    "enable_primary_video_aug": false,
+    "enable_primary_random_resized_crop": false,
+    "act_queries": 8,
+    "flow_queries": 8
+  },
+  "video_modality": {
+    "keys": [
+      "video.primary_view",
+      "video.wrist_view"
+    ],
+    "random_single_non_wrist_view": false,
+    "video_delta_indices": null
+  },
+  "sample_probe": {
+    "episode": 0,
+    "start": 5,
+    "local_index": 5,
+    "keys": [
+      "action",
+      "action_hz",
+      "embodiment_id",
+      "lang",
+      "primary_videos",
+      "state",
+      "wrist_images"
+    ],
+    "primary_videos_shape": [
+      1,
+      2,
+      3,
+      256,
+      256
+    ],
+    "wrist_images_shape": [
+      1,
+      3,
+      256,
+      256
+    ],
+    "action_shape": [
+      8,
+      7
+    ],
+    "state_shape": [
+      1,
+      7
+    ],
+    "lang": "put the white mug on the left plate and put the yellow and white mug on the right plate"
+  },
+  "sample_determinism": {
+    "primary_videos": true,
+    "wrist_images": true,
+    "action": true,
+    "state": true
+  },
+  "time_alignment": {
+    "video_time_axis": 1,
+    "frames_per_sample": 2,
+    "n_checks": 24,
+    "future_of_s_is_current_of_s_plus_7__all_true": true,
+    "two_frames_differ__all_true": true,
+    "action_chunk_matches_next_starts__all_true": true,
+    "meaning": "H_gt is built from frame s+7 of the SAME episode and A_gt is the action chunk of the SAME time window. Unlike the Headroom round's H_real, this future is the consistent counterfactual of the supervised actions by construction."
+  },
+  "collated_batch_shapes": {
+    "pixel_values": [
+      1024,
+      1536,
+      "torch.float32"
+    ],
+    "input_ids": [
+      2,
+      219,
+      "torch.int64"
+    ],
+    "attention_mask": [
+      2,
+      219,
+      "torch.int64"
+    ],
+    "act_placeholder_mask": [
+      2,
+      219,
+      "torch.bool"
+    ],
+    "flow_placeholder_mask": [
+      2,
+      219,
+      "torch.bool"
+    ],
+    "primary_video": [
+      2,
+      2,
+      3,
+      256,
+      256,
+      "torch.float32"
+    ],
+    "state": [
+      2,
+      32,
+      "torch.float32"
+    ],
+    "state_mask": [
+      2,
+      32,
+      "torch.bool"
+    ],
+    "embodiment_id": [
+      2,
+      "torch.int64"
+    ],
+    "action_hz": [
+      2,
+      "torch.float32"
+    ],
+    "image_grid_thw": [
+      4,
+      3,
+      "torch.int64"
+    ],
+    "actions": [
+      2,
+      50,
+      32,
+      "torch.float32"
+    ],
+    "actions_mask": [
+      2,
+      50,
+      32,
+      "torch.bool"
+    ]
+  },
+  "shared_encoding": {
+    "h_vlm": {
+      "shape": [
+        2,
+        219,
+        2048
+      ],
+      "dtype": "torch.bfloat16",
+      "bytes_per_sample": 897024
+    },
+    "h_t": {
+      "shape": [
+        2,
+        256,
+        768
+      ],
+      "dtype": "torch.float32",
+      "bytes_per_sample": 786432
+    },
+    "h_t1_pred": {
+      "shape": [
+        2,
+        256,
+        768
+      ],
+      "dtype": "torch.float32",
+      "bytes_per_sample": 786432
+    },
+    "h_t1_gt": {
+      "shape": [
+        2,
+        256,
+        768
+      ],
+      "dtype": "torch.float32",
+      "bytes_per_sample": 786432
+    },
+    "actions": {
+      "shape": [
+        2,
+        50,
+        32
+      ],
+      "dtype": "torch.float32",
+      "bytes_per_sample": 6400
+    },
+    "actions_mask": {
+      "shape": [
+        2,
+        50,
+        32
+      ],
+      "dtype": "torch.bool",
+      "bytes_per_sample": 1600
+    },
+    "attention_mask": {
+      "shape": [
+        2,
+        219
+      ],
+      "dtype": "torch.int64",
+      "bytes_per_sample": 1752
+    }
+  },
+  "cache_sizing": {
+    "bytes_per_sample": 3266072,
+    "mib_per_sample": 3.11,
+    "projected_gib_8000_train": 24.3,
+    "projected_gib_512_val": 1.6,
+    "projected_gib_1380_eval": 4.2,
+    "ceiling_gib": 100,
+    "encode_seconds_per_batch_of_2": 0.272
+  },
+  "future_feature_separation_2_samples": {
+    "mean_token_norm_Hpred_minus_Hgt": 5.0343,
+    "mean_token_norm_Hpred_minus_ht": 6.711,
+    "mean_token_norm_Hgt_minus_ht": 8.3892,
+    "note": "two samples only; descriptive sanity check that H_gt is not H_pred and not h_t"
+  },
+  "official_forward_losses": {
+    "loss_flow": 0.0006100760074332356,
+    "loss_perceptual": 0.03833690285682678,
+    "loss_distill": 0.006257756147533655,
+    "loss_vlm": 0.0,
+    "loss_total": 0.005069542210549116
+  },
+  "aux_loss_grad_wrt_flow": {
+    "aux_requires_grad": false,
+    "n_flow_params_with_non_none_grad": 0,
+    "n_flow_params": 245,
+    "gate_passed": true,
+    "meaning": "loss_perceptual + loss_distill do not depend on any Flow parameter, so back-propagating loss_flow alone is exact for the only trainable module"
+  },
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 5080",
+    "total_gib": 15.5,
+    "peak_allocated_gib": 7.2,
+    "peak_reserved_gib": 7.3
+  }
+}

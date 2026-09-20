@@ -1,0 +1,213 @@
+{
+  "generated_at": "2026-09-21T00:58:16",
+  "purpose": "FE AUDIT 1",
+  "determinism_settings": {
+    "torch_deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false
+  },
+  "cache_manifest_meta": {
+    "generated_at": "2026-09-21T00:39:38",
+    "split_manifest_sha256": "3483b2936e39352d5fdf973c4c18b04be3a3aa2ea017114038b4de7fb5097df3",
+    "checkpoint": "results/Checkpoints/libero/lawam_libero_sft_release/final_model/pytorch_model.pt",
+    "use_bf16_cast": false,
+    "n_train": 8000,
+    "n_val": 512,
+    "eval_per_episode": 4,
+    "cached_keys": [
+      "h_vlm",
+      "h_t",
+      "h_t1_pred",
+      "h_t1_gt",
+      "actions",
+      "actions_mask",
+      "attention_mask",
+      "action_hz",
+      "embodiment_id"
+    ],
+    "realised_pairwise_episode_overlap": {
+      "train&validation": 0,
+      "train&test_seen_task": 0,
+      "train&test_heldout_task": 0,
+      "validation&test_seen_task": 0,
+      "validation&test_heldout_task": 0,
+      "test_seen_task&test_heldout_task": 0
+    }
+  },
+  "cache_counts": {
+    "train": 8000,
+    "validation": 512,
+    "test_seen_task": 668,
+    "test_heldout_task": 712
+  },
+  "cache_unique_episodes": {
+    "train": 1181,
+    "validation": 167,
+    "test_seen_task": 167,
+    "test_heldout_task": 178
+  },
+  "freeze_plan": {
+    "trainable_params": 306405632,
+    "frozen_params": 2248773728,
+    "flow_params": 306405632,
+    "trainable_equals_flow": true,
+    "non_flow_trainable_names": []
+  },
+  "G1_cached_path_equivalence": {
+    "per_sample": [
+      {
+        "episode": 0,
+        "start": 96,
+        "official_loss_flow": 0.0006475899135693908,
+        "cached_loss_flow": 0.0006475899135693908,
+        "abs_diff": 0.0,
+        "rel_diff": 0.0
+      },
+      {
+        "episode": 5,
+        "start": 174,
+        "official_loss_flow": 0.00047183450078591704,
+        "cached_loss_flow": 0.00047183450078591704,
+        "abs_diff": 0.0,
+        "rel_diff": 0.0
+      },
+      {
+        "episode": 7,
+        "start": 29,
+        "official_loss_flow": 0.0014597981935366988,
+        "cached_loss_flow": 0.0014597981935366988,
+        "abs_diff": 0.0,
+        "rel_diff": 0.0
+      },
+      {
+        "episode": 8,
+        "start": 30,
+        "official_loss_flow": 0.0448489710688591,
+        "cached_loss_flow": 0.0448489710688591,
+        "abs_diff": 0.0,
+        "rel_diff": 0.0
+      }
+    ],
+    "max_abs_diff": 0.0,
+    "max_rel_diff": 0.0,
+    "tolerance_rel": 0.0001,
+    "passed": true,
+    "note": "compares OUR cached flow path against the OFFICIAL backend.forward() flow loss on the same sample with the same flow RNG"
+  },
+  "G2_padding_independence": {
+    "vlm_seq_lens": [
+      219,
+      218,
+      213,
+      212
+    ],
+    "batch_max": 219,
+    "loss_unpadded": [
+      0.0006649018032476306,
+      0.0004378626763354987,
+      0.0006112714181654155,
+      0.0006700422964058816
+    ],
+    "loss_right_padded": [
+      0.0006649018032476306,
+      0.0004378626763354987,
+      0.0006112714181654155,
+      0.0006700422964058816
+    ],
+    "max_abs_diff": 0.0,
+    "tolerance_abs": 1e-06,
+    "passed": true,
+    "note": "right padding marked by attention_mask==False must not change a sample's loss"
+  },
+  "G3_future_condition": {
+    "control_gt_fraction": 0.0,
+    "future_exposed_gt_fraction": 0.491,
+    "rows_drawn": {
+      "control": 4000,
+      "future_exposed": 4000
+    },
+    "repeated_diffusion_steps": 2,
+    "n_samples_whose_two_diffusion_repeats_got_different_futures": 481,
+    "passed": true,
+    "note": "the mask is drawn over the REPEATED batch, so one sample can receive H_pred in one diffusion repeat and H_gt in the other -- exactly as _build_flow_future_condition does"
+  },
+  "G4_paired_randomness": {
+    "n_updates": 20,
+    "max_abs_diff": 0.0,
+    "bitwise_identical": true,
+    "first_losses": [
+      0.010899693035753444,
+      0.017115069436840713,
+      0.010844789270777255,
+      0.026543889194726944,
+      0.07084253523498774
+    ],
+    "mask_generator_independence": {
+      "losses_after_0_1_17_mask_draws": [
+        0.0015973227564245462,
+        0.0015973227564245462,
+        0.0015973227564245462
+      ],
+      "identical": true
+    },
+    "passed": true,
+    "note": "Two independent 20-update runs, bitwise identical under deterministic kernels (amendment FE-A5; without them the floor was 1.4e-8 from CUDA reduction order in the backward pass). The second sub-check is the exact statement of the claim: the mask generator is a SEPARATE stream, so advancing it cannot move the flow time, noise or dropout masks."
+  },
+  "G5_determinism": {
+    "train_mode_same_seed_twice_identical": true,
+    "eval_mode_same_seed_twice_identical": true,
+    "different_flow_seed_changes_loss": true,
+    "Hgt_condition_changes_loss": true,
+    "loss_Hpred_train": 0.002486362587660551,
+    "loss_Hgt_train": 0.0033061860594898462,
+    "loss_Hpred_eval": 0.003989295568317175,
+    "dit_dropout": {
+      "n_dropout_modules": 64,
+      "p_values": [
+        0.2
+      ],
+      "train_minus_eval_abs_diff": 0.0015029329806566238,
+      "with_p_set_to_zero_train_equals_eval": true,
+      "explanation": "The AlternateVLDiT carries 64 nn.Dropout modules at p=0.2 (final_dropout=True), active in train mode. This is the official training regulariser the release checkpoint was trained with, NOT a defect. An earlier version of this gate wrongly asserted that cfg_drop_prob==0 implies train and eval agree; that conflated the Flow Head's CFG dropout with the DiT's activation dropout.",
+      "consequence_for_pairing": "The dropout masks are drawn INSIDE the flow forward, after torch.manual_seed(flow_seed), and their number does not depend on h_t1_star. Both arms therefore receive identical dropout masks as well as identical tau and epsilon.",
+      "mode_policy": "Training runs flow.train() (dropout on), matching the official trainer. Validation and the 2x2 evaluation run flow.eval() (dropout off), matching predict_action's deployment path."
+    },
+    "passed": true,
+    "note": "Determinism is required SEPARATELY in each mode; train and eval are not expected to agree, and the reason is verified rather than assumed."
+  },
+  "G6_freeze_after_steps": {
+    "optimizer_steps": 5,
+    "frozen_hashes_before": {
+      "vlm": "ea9f55ad044e7656a8533325c73f4e7131e2dc6d0b0b38599980823b19126a82",
+      "lam": "fec680d5cb40778e63f429c8dbe4f15a1fcc40775980069de7ca15e26f9c4d35",
+      "vlm_to_lam": "082683df604e813e69dc643b401428c92cf6739685fa9cd5d661ae3e3c636e09",
+      "act_query": "6973cac5dbe7a0a9a5bbf9a3047650d70fb782c542068501219260f8dc62f85e",
+      "flow_action_query": "7c9e1de21bf4feac96cc562322e22629d5d551ae62d9bf0ccdf274b98374ed7c"
+    },
+    "frozen_hashes_after": {
+      "vlm": "ea9f55ad044e7656a8533325c73f4e7131e2dc6d0b0b38599980823b19126a82",
+      "lam": "fec680d5cb40778e63f429c8dbe4f15a1fcc40775980069de7ca15e26f9c4d35",
+      "vlm_to_lam": "082683df604e813e69dc643b401428c92cf6739685fa9cd5d661ae3e3c636e09",
+      "act_query": "6973cac5dbe7a0a9a5bbf9a3047650d70fb782c542068501219260f8dc62f85e",
+      "flow_action_query": "7c9e1de21bf4feac96cc562322e22629d5d551ae62d9bf0ccdf274b98374ed7c"
+    },
+    "frozen_unchanged": true,
+    "flow_hash_changed": true,
+    "passed": true
+  },
+  "G7_aux_grad_gate": {
+    "aux_requires_grad": false,
+    "n_flow_params_with_non_none_grad": 0,
+    "passed": true
+  },
+  "ALL_GATES": {
+    "G1_cached_path_equivalence": true,
+    "G2_padding_independence": true,
+    "G3_future_condition": true,
+    "G4_paired_randomness": true,
+    "G5_determinism": true,
+    "G6_freeze_after_steps": true,
+    "G7_aux_grad_gate": true
+  },
+  "ALL_GATES_PASSED": true
+}

@@ -1,0 +1,150 @@
+name: future_exposure_last_direction_test
+status: audit0_complete_no_training_started
+research_question: >-
+  With a Flow Action Head exposed to matched real future features during training,
+  does H_gt improve held-out demonstration action-flow prediction over H_pred?
+scope:
+  offline_only: true
+  trainable_module: policy_backend.flow
+  excluded: [simulator_rollouts, token_ranking, U_D_S_variants, new_stress, method_design]
+source:
+  branch: research/action-critical-reliability-probe
+  head: 866690eddf328f4961f69cffa9fd3ea528e32362
+  checkpoint: results/Checkpoints/pretrain/lawam_pretrain/final_model/pytorch_model.pt
+  checkpoint_repo: jialei02/lawam_pretrain
+  checkpoint_revision: 62b14a8e8990050ec8aeb1e1b8c8694d2bf60e84
+  checkpoint_sha256: 9fe985abf0ef3d0868f9cc330f7248ade01aaf5891f94528a593eb17d6ba14cc
+  base_vlm_weights: results/Checkpoints/qwen3_weights/model.safetensors
+  base_vlm_sha256: 7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0
+  runtime_config: starVLA/config/training/train_libero.yaml
+  reference_sft_config: results/Checkpoints/libero/lawam_libero_sft_release/config.yaml
+  dataset: dataset/libero_merged_no_noops_20hz
+  split_manifest: results/action_critical_reliability_probe/acr_future_exposure_20260920_231423/SPLIT_MANIFEST.json
+  train_only_statistics: results/action_critical_reliability_probe/acr_future_exposure_20260920_231423/TRAIN_ONLY_DATASET_STATISTICS.json
+  train_only_statistics_sha256: cfcfe12610f588ad60efece50a7ce3cdc2c3be592ed295def8399ab350f59464
+  original_checkpoint_test_exposure: pre_LIBERO_SFT_initialization; exact broad-pretraining episode manifest unavailable
+  compatibility: >-
+    Official finetune loader succeeded with load_pretrained_policy_flow=true. All
+    1419 checkpoint keys exist in the LIBERO runtime model with matching shapes;
+    all 245 Flow tensors equal the pretrained tensors after loading. The runtime
+    Qwen base contributes 132 extra language-layer keys not stored in either
+    published checkpoint; both arms use the same hashed base VLM weights.
+  gate: >-
+    Both arms must initialize from the same complete, loadable official lawam_pretrain
+    checkpoint. Confirm full key and shape compatibility with the LIBERO SFT runtime
+    model before training. The released LIBERO SFT checkpoint and its full-dataset
+    normalization statistics must never initialize either arm. Use train-only
+    statistics for every train, validation, and test sample. Stop if these gates fail.
+data:
+  fps: 20
+  action_steps: 8
+  current_frame_offset: 0
+  matched_future_frame_offset: 7
+  eligible_starts: episode-local indices 0 through length-8 inclusive
+  split_unit: complete episode
+  heldout_task_indices: [9, 19, 29, 39]
+  split_algorithm: >-
+    Within every other task, order episodes by SHA256("FE2026|task_index|episode_index");
+    first ceil(10 percent) validation, next ceil(10 percent) seen-task test,
+    remaining episodes train. All episodes of held-out tasks are test only.
+  split_counts: {train: 1181, validation: 167, test_seen_task: 167, test_heldout_task: 178}
+  train_selection: >-
+    Select only the 1181 manifest train episode IDs from the official LeRobot
+    dataset. The stock build_dataloaders with train_split_all=true is forbidden
+    because it selects all episodes. Apply the train-only statistics override
+    explicitly to train, validation, and both test datasets.
+  evaluation_starts_per_episode: 4
+  evaluation_start_rule: >-
+    Four distinct evenly spaced eligible start indices, fixed before model evaluation.
+    No action padding or clipped future frames are allowed in evaluation.
+  preprocess: official LaWAM LeRobot loader and latent-world collator
+  normalization: train-only statistics override; never use released SFT statistics
+  augmentation: {primary_video_aug: false, primary_random_resized_crop: false}
+arms:
+  control:
+    enable_flow_h_t1_scheduled_sampling: false
+    effective_pred_probability: 1.0
+  future_exposed:
+    enable_flow_h_t1_scheduled_sampling: true
+    flow_h_t1_pred_prob_start: 0.5
+    flow_h_t1_pred_prob_end: 0.5
+    effective_pred_probability: 0.5
+  both:
+    detach_future_feature: true
+    initial_weights: same official lawam_pretrain checkpoint
+    base_vlm_weights: same hashed local Qwen3 weights
+    trainable_parameters: 306405632
+    frozen_parameters: 2852805728
+    frozen_modules: [vlm, lam, vlm_to_lam, act_query, flow_action_query]
+    frozen_modules_eval_mode: true
+    optimizer: AdamW
+    learning_rate: 0.0001
+    betas: [0.9, 0.95]
+    epsilon: 0.00000001
+    weight_decay: 0.00000001
+    batch_size_per_gpu: 1
+    gradient_accumulation_steps: 8
+    repeated_diffusion_steps: 2
+    max_optimizer_updates: 300
+    validation_every_updates: 50
+    early_stop_patience_validations: 3
+    max_wall_hours_per_arm_seed: 2
+    seeds: [0, 1]
+    reason_for_two_seeds: single RTX 5080 16 GB and 306405632 trainable Flow parameters
+fairness:
+  same_train_episodes: true
+  same_batch_order: true
+  same_optimizer_and_updates: true
+  same_flow_time_noise_and_initial_sampling_noise: true
+  separate_rng_for_future_mask: true
+  verify_rng_trace_before_training: true
+  compare_equal_update_count_if_early_stopping_differs: true
+  no_result_driven_budget_extension: true
+  initial_frozen_state_hashes: results/action_critical_reliability_probe/acr_future_exposure_20260920_231423/PREFLIGHT_LOAD_AUDIT.json
+preflight:
+  baseline_samples: 64
+  baseline_model: official lawam_pretrain checkpoint
+  check: paired H_pred versus matched H_gt under identical flow time and noise
+  note: characterization only; performed after initialization and normalization gates
+  dry_run_without_optimizer_step: [memory_capacity, one_batch_latency, freeze_assertion, matched_time_window]
+evaluation:
+  primary: matched_flow_loss
+  condition_injection: >-
+    Call the Flow Head explicitly with h_t1_star=H_pred or H_gt while all other
+    inputs are held fixed. The ordinary model.eval future selector always
+    returns H_pred and cannot implement this paired comparison by itself.
+  paired_randomness: identical flow time, epsilon, noisy action, and valid-action mask
+  primary_delta: L_Hpred_minus_L_Hgt
+  interaction: delta_future_exposed_minus_delta_control
+  deployment_cost: L_FutureExposed_Hpred_minus_L_Control_Hpred
+  action_errors: [normalized_total_l2, translation, rotation, gripper, whole_chunk_trajectory]
+  action_sampling_initial_noise: paired
+  action_noise_seeds: [101, 202, 303]
+  best_of_k: 3
+  statistics:
+    unit: episode
+    summaries: [mean, median, 95_percent_episode_bootstrap_CI]
+    bootstrap_replicates: 2000
+    task_and_phase: auxiliary_only
+decision:
+  material_flow_gain_relative: 0.02
+  material_interaction_relative: 0.01
+  deployment_noninferiority_margin_relative: 0.02
+  pass: >-
+    Both seeds show positive future-exposed paired DeltaFlowLoss; pooled episode-bootstrap
+    lower 95 percent bound is above zero; mean relative gain is at least 2 percent;
+    the interaction has a positive lower bound and is at least 1 percent of C-P loss;
+    action error points in the same direction; the upper 95 percent bound of
+    (F-P minus C-P)/C-P is below 2 percent.
+  tradeoff: >-
+    Future-exposed paired gain and interaction meet the pass conditions, but the
+    lower 95 percent bound of (F-P minus C-P)/C-P exceeds 2 percent.
+  fail: >-
+    A completed, valid experiment meeting neither PASS nor TRADEOFF is FE-FAIL.
+    Report uncertainty explicitly; no further variants or budget extensions.
+  infrastructure_block: >-
+    If source-data exposure, matched time windows, freeze/hash, paired randomness,
+    or hardware feasibility cannot be certified, stop without an FE verdict.
+  after_pass: write METHOD_HANDOFF_FE.md; do not start method training
+  after_fail: stop Action-Critical Future line
+  after_tradeoff: report and stop pending user direction

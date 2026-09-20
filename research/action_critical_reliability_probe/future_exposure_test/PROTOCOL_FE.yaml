@@ -1,0 +1,680 @@
+# PROTOCOL_FE.yaml — Future Exposure Test
+#
+# Pre-registered BEFORE any optimizer step and BEFORE any FE measurement exists.
+# Written 2026-09-21 to implement the user's locked decisions of this round. It SUPERSEDES
+# PROTOCOL_FE_superseded_pretrain_variant.yaml (which initialised from lawam_pretrain and
+# recomputed dataset statistics); that file is retained unmodified as a record, not deleted.
+#
+# AMENDMENTS ARE APPEND-ONLY. See section `amendments` at the end. Nothing above may be
+# edited once FE AUDIT 1 passes; changes are expressed as numbered amendments with reasons.
+
+name: future_exposure_test
+round: FE
+status: frozen_pending_audit1__no_training_started
+supersedes: PROTOCOL_FE_superseded_pretrain_variant.yaml
+
+research_question: >-
+  If the Flow Action Head is trained with matched ground-truth future features, does
+  conditioning on H_gt then beat conditioning on H_pred on held-out demonstrations?
+  Operationally: is there a Training Exposure x Future Quality INTERACTION?
+
+why_this_round_exists: >-
+  Rounds 1/G2/DS/G3 established that future-prediction error is real, that D x S ranks the
+  action-critical future tokens correctly, and that the ranking survives stress. The Headroom
+  round then found that repairing that information for one chunk does not change task outcome
+  (H-NO-HEADROOM). METHOD_HANDOFF.md named the single unresolved question: is the wall the
+  INTERVENTION (a one-chunk oracle future is an inconsistent counterfactual) or the CHANNEL
+  (this Flow Head, trained with scheduled sampling OFF, simply cannot use a better future)?
+  This round tests the CHANNEL, offline, by training the channel to use it.
+
+scope:
+  offline_only: true
+  simulator_required: false
+  trainable_module: policy_backend.flow
+  excluded:
+    - simulator_rollouts
+    - token_ranking_or_U_D_S_variants
+    - new_stress_families
+    - method_design
+    - any_change_to_prior_rounds
+
+# ---------------------------------------------------------------------------------------
+# 0. NAMING HONESTY — locked by user decision
+# ---------------------------------------------------------------------------------------
+naming:
+  round_is_called: adaptation-held-out
+  explicitly_not_claimed: >-
+    This round does NOT claim the lawam_libero_sft_release checkpoint has never seen these
+    demonstrations. It almost certainly has: the released SFT recipe used train_split_all=true
+    over all 1693 episodes. The held-out guarantee defined here is narrower and exact: no
+    episode in the evaluation splits is used by THIS ROUND's Flow-Head adaptation, in either arm.
+  why_this_is_still_a_valid_test: >-
+    The endpoint is an INTERACTION between two arms that share the same initialisation and the
+    same adaptation data. Any prior exposure of the release checkpoint is common to both arms and
+    cancels in the interaction. Absolute loss levels of either checkpoint are NOT the endpoint.
+  what_would_invalidate_it: >-
+    Only a difference between arms other than the future-condition sampling. Section `fairness`
+    enumerates every quantity that must be identical and how it is verified.
+
+# ---------------------------------------------------------------------------------------
+# 1. SOURCE — locked by user decision (SFT release, NOT pretrain)
+# ---------------------------------------------------------------------------------------
+source:
+  branch: research/action-critical-reliability-probe
+  head: 866690eddf328f4961f69cffa9fd3ea528e32362
+  checkpoint: results/Checkpoints/libero/lawam_libero_sft_release/final_model/pytorch_model.pt
+  checkpoint_state_dict_sha256: 37a53b8c799c39725a18900eeaa687d1d2cebc24fca28d8e1f2881ca2870b523
+  checkpoint_total_params: 2555179360
+  checkpoint_flow_params: 306405632
+  checkpoint_non_flow_params: 2248773728
+  base_vlm_weights: results/Checkpoints/qwen3_weights/model.safetensors
+  base_vlm_sha256: 7de1838c87a5349b016c26a1c3f7d2bc400a3d485f95ef39a7059ffd734977a0
+  deployment_config: results/Checkpoints/libero/lawam_libero_sft_release/config.yaml
+  training_config_reference: starVLA/config/training/train_libero.yaml
+  dataset: dataset/libero_merged_no_noops_20hz
+  dataset_facts: {format: LeRobot v3.0, episodes: 1693, frames: 273465, tasks: 40, fps: 20}
+  pretrain_checkpoint_status: >-
+    results/Checkpoints/pretrain/lawam_pretrain (sha256 9fe985ab...) is present and verified but
+    is NOT used by this round. User decision: initialising the Flow Head from pretrain would
+    change the model's adaptation state and could not answer whether the CURRENT mature LaWAM's
+    future channel is usable. Not to be revisited.
+  simulator_status: >-
+    /home/zbh/LIBERO has been deleted; `import libero` fails. This round is offline-only and does
+    not need it. The simulator must NOT be reinstalled for this round, and no raw HDF5 is processed.
+  gate_source: >-
+    STOP with `BLOCKED: ORIGINAL SFT TRAINING DATA UNAVAILABLE` if the processed dataset above is
+    absent or incomplete. Do NOT substitute G3/Headroom rollout data. Do NOT construct a new
+    training set. (Pre-verified present and complete; the gate is re-asserted at FE AUDIT 1.)
+
+# ---------------------------------------------------------------------------------------
+# 2. NORMALIZATION — locked by user decision (no recomputation)
+# ---------------------------------------------------------------------------------------
+normalization:
+  source: results/Checkpoints/libero/lawam_libero_sft_release/dataset_statistics.json
+  authority: >-
+    Both arms use the EXISTING release action normalization / mask / dataset_statistics.json
+    for train, validation, and every evaluation split. No statistics are recomputed.
+  reason: >-
+    User decision: recomputing statistics from a train-only subset would introduce a new
+    normalization confound between this round and every prior round, and between the arms and
+    the initialisation they start from.
+  action_mask: [true, true, true, true, true, true, false]
+  action_mask_note: >-
+    Dimension 7 (gripper) is passed through un-denormalized at deployment via
+    np.where(mask, denorm, normalized). Reported action errors keep this convention and report
+    the gripper dimension separately, never folded into a single scalar.
+  forbidden: >-
+    TRAIN_ONLY_DATASET_STATISTICS.json (sha256 cfcfe126...), produced under the superseded
+    pretrain protocol, must NOT be used. It is retained as a record only.
+
+# ---------------------------------------------------------------------------------------
+# 3. SPLITS
+# ---------------------------------------------------------------------------------------
+split:
+  manifest: results/action_critical_reliability_probe/acr_future_exposure_20260920_231423/SPLIT_MANIFEST.json
+  manifest_sha256: 3483b2936e39352d5fdf973c4c18b04be3a3aa2ea017114038b4de7fb5097df3
+  unit: complete_episode
+  counts: {train: 1181, validation: 167, test_seen_task: 167, test_heldout_task: 178}
+  total: 1693
+  heldout_task_indices: [9, 19, 29, 39]
+  verified:
+    pairwise_overlap: 0
+    union_covers: episodes 0..1692
+    train_transitions: 190893
+  algorithm: >-
+    Within every non-held-out task, episodes ordered by SHA256("FE2026|task|episode"); first
+    ceil(10%) validation, next ceil(10%) seen-task test, remainder train. All episodes of tasks
+    9/19/29/39 are evaluation-only.
+  primary_evaluation_split: test_seen_task
+  auxiliary_evaluation_split: test_heldout_task
+  enforcement: >-
+    The stock build_dataloaders(train_split_all=true) selects ALL episodes and is FORBIDDEN.
+    Episode subsetting is done explicitly by overriding the dataset's _active_episode_indices /
+    _trajectory_ids / _trajectory_lengths and re-calling the official _build_active_step_indexing().
+    No repository file is modified. FE AUDIT 1 verifies the realised episode id set.
+
+# ---------------------------------------------------------------------------------------
+# 4. SAMPLE CONSTRUCTION AND TIME ALIGNMENT
+# ---------------------------------------------------------------------------------------
+data:
+  fps: 20
+  horizon_sec: 0.4
+  action_steps: 8
+  num_frames: 2
+  sec_chunk: 0.4
+  video_frame_offsets: [0, 7]
+  alignment: >-
+    For an episode-local start index s: h_t and H_pred are built from frame s; the matched
+    ground-truth future H_gt is built from frame s+7; the supervised action chunk A_gt is
+    actions s..s+7. h_t, H_gt and A_gt therefore come from ONE trajectory and ONE time window
+    by construction. This removes the counterfactual-mismatch that limited the Headroom round,
+    where H_real was the future the BASELINE rollout reached.
+  eligible_starts: 0 .. (episode_length - 8)
+  eligibility_reason: >-
+    Excluding the last 7 starts guarantees no clipped future frame and no padded action.
+  augmentation: {enable_primary_video_aug: false, enable_primary_random_resized_crop: false}
+  augmentation_reason: >-
+    Both are already false in the official LIBERO training config, so this is the official
+    setting, not a change. It additionally makes the frozen encoding deterministic per sample,
+    which the cached design in section 5 requires and FE AUDIT 1 verifies bitwise.
+
+# ---------------------------------------------------------------------------------------
+# 5. TRAINING ARCHITECTURE — two stages
+# ---------------------------------------------------------------------------------------
+architecture:
+  rationale: >-
+    Every module except the Flow Head is frozen and in eval mode, and augmentation is off.
+    Therefore the shared encoding (h_vlm, h_t, H_pred, H_gt) is a deterministic function of the
+    sample and is IDENTICAL for both arms, both seeds, and every epoch. Computing it once is an
+    exact optimisation, not an approximation, and it is what makes 4 runs feasible on one 16 GB
+    RTX 5080. It also makes the fairness guarantee mechanical: both arms literally read the same
+    bytes.
+  stage_A_frozen_encoding_cache:
+    arm_independent: true
+    computed_under: torch.no_grad, backend._run_shared_encoding_train(lam_features_with_no_grad=True)
+    model_mode: full model .eval()
+    stored_per_sample:
+      - h_vlm            # [S, 2048]
+      - h_t              # [256, 768]
+      - h_t1_pred        # [256, 768]  == H_pred
+      - h_t1_gt          # [256, 768]  == H_gt (matched, from frame s+7)
+      - actions          # [8, 32] normalized
+      - actions_mask     # [8, 32]
+      - action_hz        # scalar
+      - embodiment_id    # scalar
+      - attention_mask   # [S] bool, == (prepared_batch["attention_mask"] == 1)
+      - provenance       # episode_index, task_index, start_index, split
+    dtype: as produced by the frozen model; no cast is applied
+    determinism_gate: >-
+      FE AUDIT 1 re-encodes a random 16 samples a second time and requires BITWISE equality of
+      every cached tensor. If any tensor differs, the cached design is abandoned and training
+      runs on the live encoder; this is an amendment, not a silent change.
+    cache_ceiling_bytes: 107374182400   # 100 GiB
+    cache_ceiling_rule: >-
+      Cache size is measured after the first 64 samples. If projected size exceeds the ceiling,
+      n_train_samples is reduced to the largest multiple of 1000 that fits. This decision uses
+      ONLY measured bytes-per-sample, contains no FE result, and is recorded before training.
+  stage_B_flow_only_training:
+    consumes: the Stage A cache, in a fixed order
+    forward: backend.flow(h_t=..., h_t1_star=<arm condition>, h_vlm=..., ...)
+    loss: loss_flow ONLY
+    loss_justification: >-
+      loss_total = loss_flow + 0.1*loss_perceptual + 0.1*loss_distill. loss_perceptual and
+      loss_distill are functions of the LaWM / LAM / VLM outputs only; neither depends on any
+      Flow-Head parameter, so d(loss_perceptual + loss_distill)/d(theta_flow) == 0 EXACTLY.
+      Back-propagating loss_flow alone is therefore mathematically identical for the only
+      trainable parameters, and avoids building graphs through 2.25 B frozen parameters.
+    justification_gate: >-
+      FE AUDIT 1 runs the OFFICIAL backend.forward() once on a live batch and asserts that
+      torch.autograd.grad(loss_perceptual + loss_distill, flow_parameters, allow_unused=True)
+      returns None for every Flow parameter. If any is non-None, this design is wrong and
+      training does not start.
+    equivalence_gate: >-
+      FE AUDIT 1 additionally asserts that the Stage A cached tensors for a sample are BITWISE
+      equal to the tensors the official backend.forward() computes internally for that same
+      sample (h_vlm, h_t, h_t1_pred, h_t1_gt, actions, actions_mask, attention_mask). The cached
+      path must be the official path, not a re-implementation of it.
+  no_repository_modification: >-
+    No file under starVLA/, deployment/, examples/ or latent_action_model/ is modified. All FE
+    code is new and lives in research/action_critical_reliability_probe/future_exposure_test/.
+    code_changes.patch records this at the end of the round.
+
+# ---------------------------------------------------------------------------------------
+# 6. ARMS — locked by user decision
+# ---------------------------------------------------------------------------------------
+arms:
+  control:
+    label: C
+    future_condition: 100% H_pred
+    p_pred: 1.0
+    matches: the released model's own training regime (enable_flow_h_t1_scheduled_sampling=false
+      makes _flow_h_t1_pred_prob() return 1.0)
+  future_exposed:
+    label: F
+    future_condition: fixed 50% H_pred / 50% matched H_gt
+    p_pred: 0.5
+    ramp: none (start == end == 0.5)
+  condition_selection_rule: >-
+    Replicates _build_flow_future_condition exactly, including ORDER: tensors are first repeated
+    repeated_diffusion_steps=2 times, and the per-row Bernoulli mask is then drawn over the
+    REPEATED batch. One sample can therefore receive H_pred in one diffusion repeat and H_gt in
+    the other, exactly as the official trainer would do.
+  detach_future_feature: true
+  detach_note: >-
+    detach_future_feature=true in both arms, matching the release config. With everything
+    upstream frozen and cached this is automatic, but it is asserted, not assumed.
+  everything_else_identical: true
+
+# ---------------------------------------------------------------------------------------
+# 7. BUDGET AND STOPPING — locked by user decision
+# ---------------------------------------------------------------------------------------
+budget:
+  max_optimizer_updates: 1500
+  validation_every_updates: 100
+  early_stop_patience_validations: 4
+  early_stop_rule: >-
+    Stop when the primary validation metric fails to improve on 4 CONSECUTIVE validations.
+    Improvement means a relative decrease of more than min_delta_relative against the best value
+    seen so far. The rule is byte-identical for both arms and both seeds and is NOT relaxed or
+    extended for either arm under any circumstance, including a result that looks close.
+  min_delta_relative: 0.0001
+  seeds: [0, 1]
+  runs: 4          # {control, future_exposed} x {seed 0, seed 1}
+  optimizer: AdamW
+  learning_rate: 0.0001            # official flow LR from train_libero.yaml
+  betas: [0.9, 0.95]               # official
+  eps: 0.00000001                  # official
+  weight_decay: 0.00000001         # official
+  gradient_clipping: 1.0           # official
+  lr_schedule: linear warmup 100 updates -> cosine to min_lr 5.0e-07 over 1500 updates
+  lr_schedule_deviation_note: >-
+    The official schedule is cosine_with_min_lr over 25000 updates with 1500 warmup. The shape
+    is kept and the length is set to this round's pre-registered 1500-update budget; warmup is
+    scaled to 100. This is a documented deviation, applied identically to both arms, and it
+    cannot produce an arm difference.
+  per_device_batch_size: 2
+  gradient_accumulation_steps: 4
+  samples_per_update: 8
+  repeated_diffusion_steps: 2      # official
+  flow_rows_per_update: 16
+  n_train_samples: 8000
+  n_train_samples_rule: >-
+    8000 unique (episode, start) samples drawn from the 1181 train episodes by the fixed rule in
+    section `sampling`. 1500 updates x 8 = 12000 draws ~ 1.5 epochs. Subject only to the Stage A
+    cache-ceiling rule.
+  n_validation_samples: 512
+  wall_clock_ceiling_hours_per_run: 3
+  no_result_driven_extension: >-
+    The budget is never extended, and no additional seed, variant, learning rate or sampling
+    ratio is added after any FE number is seen. If the budget proves insufficient, that is
+    reported as a limitation, not repaired.
+
+sampling:
+  train_sample_rule: >-
+    For each of the 1181 train episodes, eligible starts are ranked by
+    SHA256("FE2026-train|episode_index|start_index"); samples are taken round-robin across
+    episodes in episode-id order, taking the next-ranked start from each, until n_train_samples
+    is reached. This gives near-uniform episode coverage and is fixed before any training.
+  validation_sample_rule: >-
+    Same construction over the 167 validation episodes, n_validation_samples=512, fixed once and
+    reused for every validation of every run.
+  batch_order_rule: >-
+    The training order is a single permutation of the cached sample indices derived from
+    SHA256("FE2026-order|<seed>"). It depends on the SEED ONLY, never on the arm, so for a given
+    seed both arms see the identical samples in the identical order in the identical batches.
+  evaluation_starts_per_episode: 4
+  evaluation_start_rule: >-
+    Four evenly spaced eligible starts per evaluation episode, fixed before any model is trained:
+    indices round(k*(L-8)/3) for k=0..3, deduplicated. Gives 668 primary and 712 auxiliary samples.
+
+# ---------------------------------------------------------------------------------------
+# 8. FAIRNESS — every quantity that must be identical, and how it is checked
+# ---------------------------------------------------------------------------------------
+fairness:
+  identical_between_arms:
+    - initial checkpoint and every initial parameter value
+    - frozen module weights (asserted by hash before and after training)
+    - Stage A cache bytes
+    - training sample set, permutation, batch composition and order
+    - optimizer, learning rate schedule, gradient clipping, update count accounting
+    - flow time tau and flow noise epsilon per row
+    - validation sample set and validation RNG
+    - early stopping rule and min_delta
+  only_difference: the per-row future condition (p_pred 1.0 vs 0.5)
+  rng_separation:
+    flow_rng: >-
+      A dedicated torch.Generator whose stream depends on (seed, update_index) only. The flow's
+      internal sample_noise / sample_time draws are made reproducible by seeding immediately
+      before the flow call, so row r of update u receives the same (tau, epsilon) in BOTH arms.
+    future_mask_rng: >-
+      A SEPARATE generator seeded from SHA256("FE2026-mask|<seed>|<update>"). Control draws from
+      it too and discards the result, so the mask draw cannot perturb the flow stream in one arm
+      and not the other.
+    verification: >-
+      FE AUDIT 1 runs 20 updates of both arms with p_pred temporarily forced to 1.0 in BOTH and
+      requires the per-update losses to be bitwise identical. This proves the only source of
+      divergence is the mask.
+  measured_exposure_ratio: >-
+    The realised fraction of rows conditioned on H_gt is counted over the whole run and written
+    to the training log. Required: exactly 0.0 for Control; within 0.5 +/- 0.02 for Future-Exposed.
+  equal_update_comparison: >-
+    If the two arms early-stop at different update counts, the primary analysis additionally
+    reports the comparison at min(updates_C, updates_F) using the checkpoint saved at the
+    nearest common validation point, so a raw budget difference cannot masquerade as an effect.
+  frozen_hash_check: >-
+    Every frozen module's state_dict hash is recorded before training and re-computed after. Exact
+    equality is required. Any mismatch invalidates the run; it is reported, not silently re-run.
+  lawam_anchor: >-
+    The source checkpoint file is never overwritten. Its state_dict sha256 (37a53b8c...b523) is
+    re-verified after all training completes.
+
+# ---------------------------------------------------------------------------------------
+# 9. VALIDATION METRIC (used only for early stopping)
+# ---------------------------------------------------------------------------------------
+validation:
+  primary_metric: >-
+    Mean flow loss over the 512 validation samples under the ARM'S OWN future-condition
+    distribution, with a frozen validation RNG (identical tau/epsilon across arms, seeds and
+    validation points) and a frozen deterministic future mask for the Future-Exposed arm.
+  why_own_objective: >-
+    Each arm is stopped when IT stops improving on what IT optimises. Using an H_pred-only
+    validation metric for both would systematically favour Control and would not be a neutral
+    stopping rule. The rule's FORM is identical for both arms, which is what the user's decision
+    requires.
+  also_logged_every_validation:
+    - mean flow loss under H_pred only
+    - mean flow loss under H_gt only
+    - the paired difference L(H_pred) - L(H_gt)
+  logged_metrics_are_not_endpoints: >-
+    These are written to the training log for transparency and for the equal-update comparison.
+    They are NOT inspected to choose hyper-parameters, stop early, or alter the protocol. The FE
+    verdict is computed once, from the evaluation splits, after all four runs finish.
+
+# ---------------------------------------------------------------------------------------
+# 10. EVALUATION — the actual endpoint
+# ---------------------------------------------------------------------------------------
+evaluation:
+  design: 2x2
+  cells:
+    C-P: Control checkpoint,        conditioned on H_pred
+    C-G: Control checkpoint,        conditioned on H_gt
+    F-P: Future-Exposed checkpoint, conditioned on H_pred
+    F-G: Future-Exposed checkpoint, conditioned on H_gt
+  condition_injection: >-
+    The Flow Head is called explicitly with h_t1_star = H_pred or H_gt. The ordinary eval-mode
+    selector (_build_flow_future_condition when self.training is False) returns H_pred
+    unconditionally, so a config toggle CANNOT implement this comparison.
+  primary_metric: matched_flow_loss
+  matched_flow_loss_definition: >-
+    For each evaluation sample and each of R=8 repetitions, one (tau, epsilon) pair is drawn from
+    a frozen evaluation RNG and the SAME (tau, epsilon, x_t construction, action mask) is used for
+    all four cells. Only h_t1_star changes. The per-sample value is the mean over the R
+    repetitions. This removes the flow-sampler nuisance from the paired contrast by construction.
+  primary_contrasts:
+    delta_C: "(C-P) - (C-G)   # how much the Control checkpoint would gain from a perfect future"
+    delta_F: "(F-P) - (F-G)   # the same for the Future-Exposed checkpoint"
+    interaction: "delta_F - delta_C"
+    deployment_cost: "(F-P) - (C-P)   # what exposure costs when the real future is unavailable"
+  primary_endpoint: interaction
+  primary_endpoint_reason: >-
+    User decision: the conclusion rests on the Training Exposure x Future Quality interaction on
+    held-out adaptation samples, NOT on the absolute level of either checkpoint.
+  secondary_action_metrics:
+    sampler: backend.flow.sample_actions_cfg, 10 steps, cfg_guidance_scale 1.0 (release settings)
+    paired_initial_noise: true
+    noise_seeds: [101, 202, 303]
+    best_of_k: 3
+    reported:
+      - normalized whole-chunk L2 (all 7 controlled dims)
+      - translation error, in millimetres
+      - rotation error, in radians
+      - gripper dimension, reported separately (mask dim 7 is not denormalized)
+  units_discipline: >-
+    Every action effect size is reported in MILLIMETRES alongside the two reference scales
+    established in round 1: in-distribution chunk motion 85.0 mm, future-error treatment
+    0.904 mm, flow-sampler nuisance 0.474 mm. Bare percentages are never reported alone.
+  statistics:
+    unit: episode
+    bootstrap: episode-level, 2000 replicates, 95% CI
+    seed_handling: >-
+      Each seed is analysed separately and both are reported. A pooled estimate is reported only
+      as a secondary summary; a conclusion that holds in one seed and not the other is reported
+      as exactly that.
+    task_and_phase_breakdowns: auxiliary_only
+
+# ---------------------------------------------------------------------------------------
+# 11. DECISION RULE — fixed before data
+# ---------------------------------------------------------------------------------------
+decision:
+  thresholds:
+    material_flow_gain_relative: 0.02          # delta_F as a fraction of F-P
+    material_interaction_relative: 0.01        # interaction as a fraction of C-P
+    deployment_noninferiority_margin_relative: 0.02
+  FE-PASS: >-
+    ALL of: (a) delta_F > 0 in both seeds; (b) the pooled episode-bootstrap lower 95% bound of
+    delta_F is above zero; (c) mean delta_F is at least 2% of F-P; (d) the interaction has a
+    positive lower 95% bound and is at least 1% of C-P; (e) the secondary action metrics point
+    the same way; (f) the upper 95% bound of (F-P - C-P)/C-P is below 2%.
+  FE-TRADEOFF: >-
+    (a)-(e) hold, but the lower 95% bound of (F-P - C-P)/C-P exceeds 2%: exposure makes the model
+    able to use a real future at a measurable cost when it does not have one.
+  FE-FAIL: >-
+    A completed, valid experiment that meets neither FE-PASS nor FE-TRADEOFF. Reported with
+    explicit uncertainty. No further variants, ratios, seeds or budget are added to rescue it.
+  FE-BLOCKED: >-
+    If source data, split integrity, time alignment, freeze/hash, cached-encoding equivalence,
+    paired randomness, or hardware feasibility cannot be certified, the round stops with NO FE
+    verdict. A blocked round is reported as blocked, never downgraded into a weak verdict.
+  after_FE-PASS: write METHOD_HANDOFF_FE.md and STOP. Method Design is not started this round.
+  after_FE-FAIL: report and stop the Action-Critical Future line.
+  after_FE-TRADEOFF: report and stop, pending user direction.
+
+# ---------------------------------------------------------------------------------------
+# 12. SMOKE TEST — engineering only, excluded from scientific results
+# ---------------------------------------------------------------------------------------
+smoke:
+  updates: 20
+  purpose: [only_flow_head_updates, future_sampling_ratio_correct, validation_path_correct,
+            memory_headroom, throughput_measurement]
+  arms: both
+  excluded_from_results: true
+  excluded_from_results_enforcement: >-
+    Smoke artefacts are written under a `smoke/` subdirectory, are never read by the analysis
+    scripts, and any checkpoint it produces is deleted before formal training starts. Its ONLY
+    outputs that survive are engineering facts (bytes/sample, seconds/update, peak GPU memory).
+  budget_interaction: >-
+    The smoke run does not consume any part of the 1500-update budget; formal training starts
+    again from the released checkpoint.
+
+# ---------------------------------------------------------------------------------------
+# 13. HARD STOPS
+# ---------------------------------------------------------------------------------------
+hard_stops:
+  - Never modify results of prior rounds, prior REPORTs, or prior run directories.
+  - Never delete failure data.
+  - Never overwrite the LaWAM checkpoint; FE checkpoints live in the FE run directory only.
+  - Never train any parameter outside policy_backend.flow.
+  - Never merge to main automatically; never push before the user confirms.
+  - Never run: git reset --hard, git checkout -- ., git clean -fd, git pull, CUDA/torch
+    reinstall, re-download of an existing large model.
+  - Never reinstall the LIBERO simulator for this round.
+  - Never inspect FE results mid-run and then change a hyper-parameter, ratio, seed or budget.
+
+# ---------------------------------------------------------------------------------------
+# 14. REQUIRED ARTEFACTS
+# ---------------------------------------------------------------------------------------
+artefacts:
+  run_dir: results/action_critical_reliability_probe/acr_future_exposure_20260920_231423
+  required:
+    - PROTOCOL_FE.yaml (copy of this file, frozen)
+    - AUDIT_FE.md (FE AUDIT 0, 1, 2, FINAL)
+    - TRAIN_CONFIG_CONTROL.yaml
+    - TRAIN_CONFIG_FUTURE_EXPOSED.yaml
+    - TRAIN_LOG_CONTROL.jsonl
+    - TRAIN_LOG_FUTURE_EXPOSED.jsonl
+    - CHECKPOINT_MANIFEST.json
+    - OFFLINE_FLOW_METRICS.csv
+    - OFFLINE_ACTION_METRICS.csv
+    - SUMMARY_FE.json
+    - REPORT_FE.md
+    - code_changes.patch
+  not_committed: the Stage A encoding cache and trained Flow-Head checkpoints (size)
+
+# ---------------------------------------------------------------------------------------
+# 15. AMENDMENTS (append-only)
+# ---------------------------------------------------------------------------------------
+amendments:
+  - id: FE-A1
+    date: 2026-09-21
+    stage: after FE AUDIT 0, before FE AUDIT 1 and before any optimizer step
+    title: Precision mode is the TRAINING configuration, not the deployment bf16 cast
+    what_changed: >-
+      Stage A encoding and all FE flow computation load the checkpoint with use_bf16=False
+      (fp32 weights plus the model's own _cuda_autocast(bf16) per stage), which is what the
+      official trainer does. Every previous round in this research line loaded with
+      use_bf16=True, the deployment cast.
+    reason: >-
+      Two reasons, one decisive. (1) This round trains, so it must use the training precision
+      contract, not the inference one. (2) The deployment cast actually BREAKS the official
+      training path: backend.forward() raises `RuntimeError: expected scalar type Float but
+      found BFloat16` inside _compute_distill_loss -> lam.get_latent_action -> vq._encode,
+      because the LAM teacher's VQ runs in fp32. A configuration that cannot execute the
+      official training forward is not the training configuration.
+    effect_on_arms: none; both arms read the identical Stage A cache produced this way.
+    measured_consequence: >-
+      Encoder peak GPU use 7.2 GiB of 15.5 GiB, 0.136 s/sample. The cached design keeps the
+      fp32 encoder and the optimizer from ever being resident at the same time.
+
+  - id: FE-A2
+    date: 2026-09-21
+    stage: after FE AUDIT 0, before FE AUDIT 1 and before any optimizer step
+    title: Sample addressing must bypass LeRobotMixtureDataset.__getitem__
+    what_changed: >-
+      Samples are fetched by an explicit (episode, start) address through
+      fe_common.get_sample(), which calls the dataset's own _select_video_keys_for_sample ->
+      get_step_data -> _get_transforms_for_selected_video_keys -> _build_output_sample.
+    reason: >-
+      LeRobotMixtureDataset.__getitem__ treats its argument as an RNG SEED, not an address: it
+      calls sample_step(), which draws a random (dataset, trajectory, step) from the active
+      split. A pre-registered, reproducible, episode-disjoint sample set is impossible through
+      that entry point. Only the address selection is replaced; every transform, normalization
+      and assembly step is the official one.
+    verified: >-
+      FE AUDIT 0: sample_determinism true for primary_videos / wrist_images / action / state;
+      24 time-alignment checks over 8 episodes x 3 starts all true.
+
+  - id: FE-A7
+    date: 2026-09-21
+    stage: after training finished, before any 2x2 evaluation number had been computed
+    title: How the pre-registered equal-update comparison is realised
+    trigger: >-
+      The four runs stopped at very different points under the one identical patience=4 rule:
+      Control seed0 at 600 (best 200), Control seed1 at 500 (best 100), Future-Exposed seed0 at
+      600 (best 200), Future-Exposed seed1 at the full 1500 (best 1500 -- it was still improving
+      when the budget ran out). For seed 1 the `_best` comparison would therefore pit 100
+      updates of Control against 1500 updates of Future-Exposed.
+    clause_invoked: fairness.equal_update_comparison, pre-registered in section 8.
+    realisation: >-
+      The nearest validation-aligned snapshot common to all four runs is update 300, saved for
+      every run by the pre-registered SNAPSHOT_EVERY=300 rule. The equal-update comparison is
+      therefore evaluated at u300 in all four runs and reported as a third tag alongside `best`
+      (primary) and `final` (secondary). It covers the FLOW endpoint only; the action metrics
+      remain on the primary `best` checkpoints, since this is a fairness robustness check on the
+      primary endpoint rather than a separate experiment.
+    what_was_and_was_not_seen: >-
+      Only the stopping updates and the training-log validation curves -- both of which the
+      protocol pre-registered as logged for exactly this purpose -- were consulted. NO 2x2 cell,
+      no delta, no interaction and no evaluation-split number existed when this was written. The
+      budget, the learning rate, the arms and the stopping rule are unchanged.
+
+  - id: FE-A6
+    date: 2026-09-21
+    stage: during training, BEFORE any evaluation was run and before any 2x2 number existed
+    title: Which checkpoint the 2x2 evaluates
+    gap: >-
+      Section 7 pre-registered the early-stopping rule but section 10 never said WHICH saved
+      checkpoint the evaluation uses. Both `_best` (lowest primary validation metric) and
+      `_final` (the state after the patience tail) exist for every run.
+    decision: >-
+      PRIMARY evaluation uses `_best`, the checkpoint the stopping rule selected. Evaluating
+      `_final` as primary would evaluate a model the stopping rule explicitly rejected.
+      `_final` is ALSO evaluated and reported in full as a secondary, so the choice is visible
+      and cannot hide a different answer. The rule is identical for both arms and both seeds.
+    when_this_was_decided: >-
+      While the first run was still training, at update ~460 of 1500. No evaluation had been run,
+      no 2x2 cell existed, and no FE contrast had been computed. The only thing visible at the
+      time was that the Control arm's own validation metric had risen for two consecutive
+      validations, which is what surfaced the ambiguity.
+    observation_that_must_be_reported: >-
+      At the pre-registered learning rate (1e-4, the official flow LR) the validation loss of a
+      run RISES above its value at initialisation within a few hundred updates -- the budget is
+      being spent disturbing an already-converged checkpoint. The learning rate is NOT changed:
+      that would be result-driven tuning, which this round forbids. If both arms end below their
+      starting quality, REPORT_FE.md must say so plainly and treat it as a limitation on how far
+      the interaction generalises, not paper over it.
+
+  - id: FE-A5
+    date: 2026-09-21
+    stage: during FE AUDIT 1, before any pre-registered optimizer step
+    title: Deterministic CUDA kernels, and two mis-specified AUDIT 1 gates corrected
+    what_changed: >-
+      All FE training and evaluation run under torch.use_deterministic_algorithms(True) with
+      CUBLAS_WORKSPACE_CONFIG=:4096:8 and cudnn.benchmark=False.
+    reason: >-
+      The first FE AUDIT 1 run showed two identically-configured 20-update runs differing by
+      1.4e-8 -- CUDA reduction order in the backward pass, not an RNG leak. Rather than loosen
+      the gate's tolerance (the mistake made and corrected in round 1's E4 check), the
+      nondeterminism itself was removed: under deterministic kernels the two runs are bitwise
+      identical, so the future-condition mask is provably the ONLY difference between the arms.
+      Measured cost: none worth reporting, 0.266 s/update either way, ~7 minutes per 1500-update run.
+    two_gates_corrected:
+      G4: >-
+        Now requires bitwise equality, plus an exact forward-only sub-check that advancing the
+        mask generator by 0, 1 or 17 draws does not move the flow loss by one bit. That is the
+        precise claim the gate was always trying to make.
+      G5: >-
+        The original sub-check asserted that flow.train() and flow.eval() must agree numerically
+        because cfg_drop_prob == 0. That was WRONG, and it conflated two different dropouts. The
+        AlternateVLDiT carries 64 nn.Dropout modules at p=0.2 (final_dropout=True), active in
+        train mode -- the official training regulariser the release checkpoint was trained with.
+        The gate now (a) requires determinism SEPARATELY in each mode and (b) verifies the
+        explanation decisively by setting every Dropout p to 0 and requiring train == eval
+        exactly. Pairing is unaffected: the dropout masks are drawn inside the flow forward,
+        after torch.manual_seed(flow_seed), and their count does not depend on h_t1_star, so both
+        arms receive identical dropout masks as well as identical tau and epsilon.
+    mode_policy_now_explicit: >-
+      Training runs flow.train() (dropout ON), matching the official trainer. Validation and the
+      2x2 evaluation run flow.eval() (dropout OFF), matching predict_action's deployment path.
+
+  - id: FE-A4
+    date: 2026-09-21
+    stage: after FE AUDIT 0, BEFORE the cache finished building and before any optimizer step
+    title: Named threat to the primary endpoint's meaning, and the secondary quantity that must
+      always be reported beside it
+    threat: >-
+      The interaction (F-G - F-P) - (C-G - C-P) is partly EXPECTED BY CONSTRUCTION. The
+      Future-Exposed arm is trained with H_gt in the future slot half the time, so it will have
+      learned to condition on whatever occupies that slot; the Control arm never sees H_gt there,
+      so H_gt is out-of-distribution conditioning for it -- the same out-of-distribution problem
+      documented since round 1 and named again in the Headroom round. A positive interaction can
+      therefore arise from training-distribution familiarity ALONE, without the future channel
+      carrying any action-relevant information. Symmetrically, delta_C may well be NEGATIVE
+      (a real future HURTS the Control arm) for the same reason, which would inflate the
+      interaction without telling us anything about the channel.
+    what_does_NOT_change: >-
+      The research question and the primary endpoint are unchanged. The user's decision stands:
+      the main conclusion is read off the Training Exposure x Future Quality interaction on
+      held-out adaptation samples, not off the absolute level of either checkpoint.
+    what_is_added: >-
+      Two quantities become MANDATORY reporting alongside the interaction, with no new decision
+      threshold attached to either:
+        (i)  F-G - C-P : does a head trained to use a real future, given a real future, beat the
+             status-quo model in its own deployment condition? This is the comparison that
+             separates "the channel carries usable information" from "the head learned to trust
+             its future slot".
+        (ii) delta_C itself, reported with its sign, so an interaction inflated by Control's
+             out-of-distribution penalty is visible rather than hidden inside the contrast.
+    reporting_rule: >-
+      REPORT_FE.md must state the verdict and, in the same paragraph, F-G - C-P and delta_C. If
+      the interaction is positive while F-G >= C-P, the report must say plainly that exposure
+      taught the head to condition on the slot WITHOUT beating the status quo, and must not let
+      FE-PASS be read as evidence that the future channel carries usable action information.
+    why_pre_registered_now: >-
+      Written before the encoding cache finished building and before any model was trained, so it
+      cannot be a post-hoc reading of a result.
+    note_on_the_informative_null: >-
+      The FE-FAIL branch is the scientifically strong one here. If delta_F is ~0 even after the
+      head has been trained on matched H_gt half the time, that is direct evidence the future
+      channel cannot be used by this architecture -- answering the question METHOD_HANDOFF.md
+      left open (intervention vs channel) in favour of the channel being the wall.
+
+  - id: FE-A3
+    date: 2026-09-21
+    stage: after FE AUDIT 0, before any optimizer step
+    title: Cache sizing confirmed; n_train_samples stays at 8000
+    what_changed: nothing; the cache-ceiling rule in section 5 is discharged.
+    measurement: >-
+      3.11 MiB per sample (h_vlm [219,2048] bf16, h_t / h_t1_pred / h_t1_gt [256,768] fp32,
+      actions [50,32], actions_mask, attention_mask). Projected: 24.3 GiB train (8000),
+      1.6 GiB validation (512), 4.2 GiB evaluation (1380). Total ~30 GiB against a 100 GiB
+      ceiling and 193 GiB free. No reduction is triggered.
