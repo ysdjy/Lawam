@@ -1,0 +1,216 @@
+{
+  "conditions": {
+    "ID": {
+      "n_episodes": 60,
+      "n_states": 162,
+      "success_rate": 0.95,
+      "n_fail": 3,
+      "treatment_mm_median": 0.8179887405985946,
+      "treatment_mm_mean": 1.0008145103053245,
+      "treatment_mm_ci": [
+        0.8970358258856287,
+        1.1182670022196315
+      ],
+      "nuisance_mm_median": 0.43851874070260116,
+      "nuisance_mm_ci": [
+        0.4713462059140966,
+        0.6891078400717922
+      ],
+      "treatment_over_nuisance_median": 1.7692142851365882,
+      "treatment_over_nuisance_ci": [
+        1.9273444572579321,
+        2.3850214297166654
+      ],
+      "treatment_vs_ID_round1": 0.904854801547118,
+      "action_maxabs_median": 0.015220053493976593,
+      "obj_treatment_mm_median": 0.09896890594693303,
+      "chunk_motion_mm_median": 81.24412281930844,
+      "U_mean_all_median": 7.631935020908713,
+      "U_occluded_median": null,
+      "U_non_occluded_median": 7.631935020908713,
+      "D_median": 7.022189140319824,
+      "G_median": 2.7329912185668945
+    },
+    "A_occlusion_medium": {
+      "n_episodes": 60,
+      "n_states": 163,
+      "success_rate": 0.7833333333333333,
+      "n_fail": 13,
+      "treatment_mm_median": 1.8670004429967648,
+      "treatment_mm_mean": 2.228246656744741,
+      "treatment_mm_ci": [
+        2.006799378332299,
+        2.451444947402922
+      ],
+      "nuisance_mm_median": 0.6063028357848136,
+      "nuisance_mm_ci": [
+        0.6456216093657848,
+        0.7505981163013546
+      ],
+      "treatment_over_nuisance_median": 3.150019647701361,
+      "treatment_over_nuisance_ci": [
+        3.4342235905088465,
+        4.175805372900833
+      ],
+      "treatment_vs_ID_round1": 2.065265976766333,
+      "action_maxabs_median": 0.03532840311527252,
+      "obj_treatment_mm_median": 0.0,
+      "chunk_motion_mm_median": 65.39071902356699,
+      "U_mean_all_median": 9.15291503816843,
+      "U_occluded_median": 14.306589889526368,
+      "U_non_occluded_median": 8.671148428153167,
+      "D_median": 7.298426151275635,
+      "G_median": 2.564891815185547,
+      "treatment_minus_ID_mm": 1.2274321464394167,
+      "treatment_ratio_to_ID_confirm": 2.28242804617398,
+      "bootstrap_id_treatment_ci": [
+        0.8970358258856287,
+        1.1182670022196315
+      ],
+      "bootstrap_cond_treatment_ci": [
+        2.006799378332299,
+        2.451444947402922
+      ]
+    },
+    "B_camera_shift_strong": {
+      "n_episodes": 60,
+      "n_states": 152,
+      "success_rate": 0.6833333333333333,
+      "n_fail": 19,
+      "treatment_mm_median": 1.6982441612132275,
+      "treatment_mm_mean": 2.474843043526876,
+      "treatment_mm_ci": [
+        2.163582747156337,
+        2.807469433808364
+      ],
+      "nuisance_mm_median": 0.4913944427182481,
+      "nuisance_mm_ci": [
+        0.551868012432991,
+        0.8110752284843343
+      ],
+      "treatment_over_nuisance_median": 3.566889791703261,
+      "treatment_over_nuisance_ci": [
+        4.124800127541736,
+        5.670197059300838
+      ],
+      "treatment_vs_ID_round1": 1.8785886739084374,
+      "action_maxabs_median": 0.031234927475452423,
+      "obj_treatment_mm_median": 0.19154561210164728,
+      "chunk_motion_mm_median": 68.39472831968556,
+      "U_mean_all_median": 11.154655054211617,
+      "U_occluded_median": null,
+      "U_non_occluded_median": 11.154655054211617,
+      "D_median": 10.132233142852783,
+      "G_median": 2.9145607948303223,
+      "treatment_minus_ID_mm": 1.4740285332215513,
+      "treatment_ratio_to_ID_confirm": 2.076121683497101,
+      "bootstrap_id_treatment_ci": [
+        0.8970358258856287,
+        1.1182670022196315
+      ],
+      "bootstrap_cond_treatment_ci": [
+        2.163582747156337,
+        2.807469433808364
+      ]
+    }
+  },
+  "id_reference_round1_mm": {
+    "treatment": 0.904,
+    "nuisance": 0.474
+  },
+  "evidence_rule": "U is diagnostic only; the primary evidence is the executed consequence",
+  "not_computed_in_C1": [
+    "S",
+    "D x S",
+    "any selector",
+    "token repair"
+  ],
+  "treatment_by_suite": {
+    "ID": {
+      "libero_goal": 1.262597081509635,
+      "libero_object": 0.5972055845657491,
+      "libero_spatial": 0.7822811428598375
+    },
+    "A_occlusion_medium": {
+      "libero_goal": 1.4993184209205719,
+      "libero_object": 1.8883198691255978,
+      "libero_spatial": 2.142195258963255
+    },
+    "B_camera_shift_strong": {
+      "libero_goal": 1.2992973317168537,
+      "libero_object": 3.2056733081532727,
+      "libero_spatial": 1.6057397060402716
+    }
+  },
+  "treatment_by_task": {
+    "ID": {
+      "libero_goal_t5": 1.2906573501024006,
+      "libero_goal_t8": 1.252013512160584,
+      "libero_object_t0": 0.6673137898580943,
+      "libero_object_t6": 0.5269783472891761,
+      "libero_spatial_t2": 0.7822811428598375,
+      "libero_spatial_t7": 0.7603128436215247
+    },
+    "A_occlusion_medium": {
+      "libero_goal_t5": 1.1658768219255966,
+      "libero_goal_t8": 1.5311786585079825,
+      "libero_object_t0": 1.8639301205762138,
+      "libero_object_t6": 1.9900167511267735,
+      "libero_spatial_t2": 2.188297360570237,
+      "libero_spatial_t7": 2.0966119368871405
+    },
+    "B_camera_shift_strong": {
+      "libero_goal_t5": 1.3251998065923316,
+      "libero_goal_t8": 1.2992973317168537,
+      "libero_object_t0": 3.843530497838529,
+      "libero_object_t6": 2.0155837371972525,
+      "libero_spatial_t2": 1.7562919127679475,
+      "libero_spatial_t7": 1.4832946506252986
+    }
+  },
+  "treatment_by_phase": {
+    "ID": {
+      "approach": 1.0800210820526839,
+      "manipulation": 0.8014928616218003,
+      "pre_grasp": 0.5259599771524486
+    },
+    "A_occlusion_medium": {
+      "approach": 2.3153691699010226,
+      "manipulation": 1.9855085758012985,
+      "pre_grasp": 1.3628277159162236
+    },
+    "B_camera_shift_strong": {
+      "approach": 2.0577043693588215,
+      "manipulation": 2.6335287574876323,
+      "pre_grasp": 0.8285814987300981
+    }
+  },
+  "treatment_by_episode_outcome": {
+    "ID": {
+      "failure": 1.2684375020584935,
+      "success": 0.8014928616218003
+    },
+    "A_occlusion_medium": {
+      "failure": 1.5311786585079825,
+      "success": 1.94604601599779
+    },
+    "B_camera_shift_strong": {
+      "failure": 1.6711151824706298,
+      "success": 1.7088339038795322
+    }
+  },
+  "nuisance_by_episode_outcome": {
+    "ID": {
+      "failure": 0.971531579401165,
+      "success": 0.43591684558337035
+    },
+    "A_occlusion_medium": {
+      "failure": 0.5596109450351192,
+      "success": 0.6146481563156553
+    },
+    "B_camera_shift_strong": {
+      "failure": 0.48841671161272887,
+      "success": 0.49437217382376736
+    }
+  }
+}

@@ -1,0 +1,257 @@
+### PROTOCOL_G3.yaml — Practical Significance Validation (the final Gap-Validation gate)
+### Frozen after G3 AUDIT 0 and BEFORE any pilot rollout was executed.
+### Append-only amendments, each with a reason and a timestamp. Nothing is edited silently.
+
+run_id: acr_g3_practical_20260920_134247
+branch: research/action-critical-reliability-probe
+head_commit: ec7dd4b
+lawam_state_dict_sha256: 37a53b8c799c39725a18900eeaa687d1d2cebc24fca28d8e1f2881ca2870b523
+frozen_runs_READ_ONLY:
+  round1: results/action_critical_reliability_probe/acr_20260919_203850
+  g2:     results/action_critical_reliability_probe/acr_learned_u_20260920_120110
+  ds:     results/action_critical_reliability_probe/acr_change_sensitivity_20260920_124748
+
+# ---------------------------------------------------------------- what is settled and closed
+frozen_findings_not_reopened:
+  S: "real, highly non-uniform, not replaceable by attention (round 1)"
+  U_x_S: "oracle U x S beats U alone (round 1)"
+  D: "||H_pred - h_t||; predicts U without training; NOT uncertainty/confidence/reliability — the D->U link
+      is length geometry (DS round). The name and interpretation are frozen."
+  learned_U: "no advantage on held-out tasks (G2, Case G2-A). Line closed."
+  ranking: "D x S recovers 0.771 vs oracle U x S 0.742, beats D 0.580 / S 0.660 / attention 0.362 /
+            D x attention 0.578 (DS round). The ranking-formula question is CLOSED."
+  closed_topics: [new U, new uncertainty estimator, learned U, new explanation of D, new S definition,
+                  new formulas such as D^2*S or D*S^2, new attention variant, new proxy,
+                  new latent-semantics interpretation]
+
+question:
+  only_question: >
+    In genuinely difficult, failure-producing conditions, does LaWAM's future prediction error grow large
+    enough to matter for robot control, and does D x S still locate the action-relevant future information
+    better than simple alternatives?
+  allowed_conclusions: [G3-PASS, G3-FAIL-PRACTICAL, G3-FAIL-RANKING, G3-INCONCLUSIVE]
+  forbidden_this_round: [training anything, training U, training S, retraining LaWAM, modifying LaWM or the
+                         action head, new losses, gates, side-channels, RL, online-S optimisation, new
+                         uncertainty methods, new proxies, new D/S formulas, tuning perturbations to results,
+                         increasing noise until failure appears, choosing severity by D x S performance,
+                         starting Method Design, starting G4, claiming the contribution is established]
+
+# ---------------------------------------------------------------- reference scales (round 1 / DS, in-distribution)
+id_reference_mm:
+  chunk_motion: 84.99
+  future_error_treatment: 0.904          # executed eef displacement, pi(H_real) vs pi(H_pred)
+  sampler_nuisance: 0.474                # same H_pred, different flow-noise seed
+  DS_margin_over_D: 0.131
+  note: "Every G3 number is reported against these, in millimetres, never as a bare percentage."
+
+# ---------------------------------------------------------------- stress protocol (3 families x 3 severities)
+stress:
+  applied_to: "the primary image the policy consumes (after the [::-1,::-1] flip, 256x256) for families A/B;
+               the simulator initial state for family C. The wrist camera is NEVER perturbed."
+  onset: "from the first step of the episode, persistent for the whole episode (a genuine OOD condition,
+          not a mid-episode surprise)"
+  H_real_definition_under_stress: >
+    H_real = lam.extract_vision_features(PERTURBED o_{t+7}). The perturbation is part of the observation
+    process, so the quantity the model is trying to predict is the frame it will actually receive.
+  token_geometry: "256x256 image, 16x16 patch grid of 16 px => each 16x16 px block is one of the 256 future tokens"
+
+  family_A_occlusion:
+    description: "grey (value 128) axis-aligned rectangular cutout on the primary image only"
+    placement: >
+      centred on the target object's projected (row, col) at the FIRST policy query of the episode, computed
+      with the round-1-calibrated sim_common.world_to_model_pixels, then frozen in image coordinates for the
+      whole episode (it does not track the object). The rectangle is clamped to stay inside the image.
+      If the projection fails or falls outside the image, the centre falls back to (128, 128) — declared now.
+    severities: {mild: {size_px: 48, tokens_covered: 9}, medium: {size_px: 80, tokens_covered: 25},
+                 strong: {size_px: 112, tokens_covered: 49}}
+
+  family_B_camera_shift:
+    description: "translate the primary image by a fixed diagonal offset with edge-replication padding"
+    direction: "(+row, +col), identical for every episode and severity"
+    severities: {mild: {shift_px: 6}, medium: {shift_px: 12}, strong: {shift_px: 24}}
+
+  family_C_object_shift:
+    description: "translate obj_of_interest[0] in xy at episode initialisation"
+    direction: "(+1, +1)/sqrt(2) in world xy, identical for every episode and severity"
+    severities: {mild: {shift_m: 0.02}, medium: {shift_m: 0.04}, strong: {shift_m: 0.06}}
+    validity_checks_all_required:
+      - "after sim.forward(), the moved object has no contact with any body other than the table"
+      - "the object's xy stays within the xy bounding box of the original init-state object positions,
+         expanded by the shift magnitude"
+      - "the object stays within 0.75 m of the robot base"
+    on_validity_failure: "the episode is marked invalid and RECORDED; it is never silently replaced"
+    fallback_if_engineering_blocked:
+      option: "persistent visual distractor patch (40x40 px textured patch at a fixed offset from the
+               object's projection)"
+      rule: "may only be used if an AUDIT_G3 amendment is written BEFORE any result of this family exists"
+
+# ---------------------------------------------------------------- pilot
+pilot:
+  purpose: "find the critical-but-executable stress regime. NOT a statistical result."
+  tasks: [{suite: libero_spatial, task_id: 2}, {suite: libero_object, task_id: 0}, {suite: libero_goal, task_id: 8}]
+  reason_for_tasks: "the three round-1 tasks, known to succeed 30/30 in-distribution; a known-good baseline"
+  episodes_per_task: 5                    # independent resets, init_state indices 0-4
+  conditions: "9 perturbed (3 families x 3 severities) + 1 unperturbed ID reference = 10"
+  rollouts: 150
+  states_per_episode: "<= 3, using the frozen phase rule of s2_select_states.py"
+  measured_per_state: [H_pred, H_real, future-error treatment, sampler nuisance]
+  flow_noise_seeds: [101, 202, 303]       # frozen
+  not_measured_in_pilot: "S (no finite-difference sweep in the pilot)"
+
+severity_selection_rule:                  # fixed BEFORE any pilot data exists
+  primary: "per family, choose the LIGHTEST severity with 20% < baseline task success < 90%"
+  tie_break: "if several qualify, take the lightest"
+  fallback: "if none qualifies, take the severity maximising treatment/nuisance subject to success >= 20%"
+  family_disqualification:
+    NO_EFFECT: "every severity keeps success ~100% AND treatment stays near the ID value of 0.9 mm"
+    TOO_DESTRUCTIVE: "mild already gives success < 20% and the cause is plainly that vision is unusable"
+  forbidden_inputs_to_this_rule: ["D x S performance", "any ranking result", "any selector recovery"]
+  no_extra_severities: "a family is never given a 4th or 5th level"
+
+# ---------------------------------------------------------------- confirm
+confirm:
+  severities: "frozen by the pilot audit; not revisited"
+  tasks: ">= 3 suites, >= 1 task each (2 per suite if compute allows, decided before running)"
+  episodes_per_task: 10                   # independent resets
+  keep_all_episodes: "successes AND failures are retained; no failure is ever deleted"
+  never_add_tasks_because_results_are_weak: true
+  primary_questions_in_order:
+    1: "did the problem actually become important? (U, action deviation, executed eef/object treatment,
+        sampler nuisance, treatment/nuisance ratio, baseline success — all vs the ID reference)"
+    2: "only if 1 is positive: does D x S still win the equal-budget causal repair?"
+
+# ---------------------------------------------------------------- S (only if practical significance appears)
+S_recomputation:
+  precondition: "ONLY if the confirm stage shows future-error consequence clearly amplified vs ID"
+  procedure: "identical to round 1 m2_sensitivity.py: epsilon [0.271, 0.812, 2.706], 3 directions,
+              flow noise seed 101, metric l2_norm_all7, batch 32 with an in-batch baseline"
+  forbidden: "tuning any S parameter"
+
+# ---------------------------------------------------------------- ranking comparison
+ranking:
+  token_budget: 64                        # of 256, frozen
+  selectors: [A_random, B_top_D, C_top_S, D_top_D_times_S, E_top_attention,
+              F_top_D_times_attention, G_top_U_oracle, H_top_U_times_S_oracle]
+  no_new_formulas: "D^2*S, D*S^2 and any other combination are forbidden"
+  repair: "selected tokens get H_pred_j -> H_real_j; an OFFLINE evaluation instrument only, never a method"
+  held_identical: [snapshot, observation perturbation, instruction, h_vlm, h_t, flow noise seeds,
+                   controller, horizon, action post-processing]
+  measurements: [action deviation, eef deviation, object deviation, residual to the full oracle,
+                 fraction of oracle correction recovered]
+  primary_report: "Recovery(D x S) - Recovery(D), in recovered fraction AND in millimetres, next to the
+                   G3 sampler nuisance measured in the same conditions"
+  attention_control_mandatory: "D x S vs D x attention must be reported; it is the reviewer's first question"
+
+# ---------------------------------------------------------------- failure-level analysis
+failure_analysis:
+  primary: ["treatment in successful vs failed episodes",
+            "prediction error on high-(D x S) tokens in successful vs failed episodes",
+            "repair effect in failure / critical states",
+            "does D x S still beat D and attention there"]
+  auxiliary_only: ["state-level aggregates: top-k mean(D x S), sum top-k(D x S), max(D x S) vs failure"]
+  rule: "D x S is NOT required to be a state-level failure detector; if the auxiliary analysis is weak,
+         the research question is NOT rewritten"
+
+# ---------------------------------------------------------------- optional headroom test
+one_chunk_headroom:
+  precondition: "only if the G3 ranking comparison still holds"
+  variants: [A_pi_H_pred, B_top_D_repaired, C_top_D_times_S_repaired, D_full_H_real]
+  procedure: "execute the first full chunk from a critical snapshot, then continue with the UNMODIFIED
+              LaWAM policy under the same G3 perturbation until the episode ends"
+  measures: [task success, task progress]
+  interpretation: "if even full-oracle repair does not improve the outcome, the headroom for any future
+                   side-channel is weak — this is a stop criterion, not a method"
+
+# ---------------------------------------------------------------- decision
+decision:
+  G3-PASS: >
+    (1) future-error influence clearly above the ID condition under multiple reasonable stresses,
+    (2) treatment not drowned by sampler nuisance, (3) D x S still stably beats D, attention and
+    D x attention in failure-rich states, (4) equal-budget causal repair still gives a stable gain,
+    (5) some real task-progress / failure evidence links to the mechanism.
+    => Gap Validation is complete; the next stage is Method Design — which is NOT started this round.
+  G3-FAIL-PRACTICAL: >
+    future error still barely affects action/task under reasonable difficulty, or oracle correction shows no
+    real headroom => the research question lacks practical value; the main line STOPS. No new U/D/S variant.
+  G3-FAIL-RANKING: >
+    future error does matter under stress, but D x S no longer beats the simple baselines => the problem is
+    valuable, the current mechanism is not. Stop the D x S mechanism; invent nothing automatically.
+  G3-INCONCLUSIVE: >
+    engineering problems, insufficient statistics, or no constructible stress regime. State what evidence is
+    missing; do not launch a dozen more rounds.
+  hard_stop: "on any FAIL verdict, no G3.1 / G3.2 / new U / new D / new S / new proxy is created"
+
+engineering:
+  forbidden: [git reset --hard, git clean -fd, overwriting or editing prior runs, deleting failure data,
+              modifying the checkpoint, auto-merging main, pushing before the final audit]
+  code_location: research/action_critical_reliability_probe/practical_significance/
+  push_rule: "no push until the final audit is complete and the user has confirmed"
+
+# ================================================================ AMENDMENTS (append-only)
+amendments:
+  - id: G3-A1
+    date: 2026-09-20
+    stage: after G3 AUDIT 1, BEFORE any confirm rollout
+    decided_by: user
+    change: "Family C (object/layout shift) does NOT enter the confirm stage. Confirm keeps A + B only."
+    frozen_confirm_conditions:
+      A_occlusion: medium      # 80 px, 25 of 256 tokens
+      B_camera_shift: strong   # 24 px
+    reason: >
+      Not a post-hoc removal for being weak: the pilot showed family C does not increase future-prediction
+      difficulty at all (U 0.093-0.097 vs ID 0.087; D unchanged), while it produces large numbers of
+      simulator physical-validity problems (18 of 45 episodes invalid, ALL 15 libero_object episodes
+      invalid with contact:floor). It is therefore uninformative for the mechanism under test AND
+      structurally unreliable. C is neither repaired nor replaced by a new family.
+    reporting_requirement: >
+      The complete family-C pilot results are retained and must be reported honestly in REPORT_G3, labelled
+      "tested but not informative for the target mechanism".
+
+  - id: G3-A2
+    date: 2026-09-20
+    stage: BEFORE any confirm rollout
+    change: "Confirm scale and task list fixed."
+    scale: "3 suites x 2 tasks/suite x 10 independent resets x {ID, A, B} = 180 rollouts
+             (60 stressed episodes per family, plus 60 matched ID controls)"
+    tasks:
+      libero_spatial: [2, 7]
+      libero_object: [0, 6]
+      libero_goal: [8, 5]
+    selection_criteria_used: ["the simulator builds and resets",
+                              "the unmodified LaWAM executes the task online",
+                              "task type differs (table-centre pick / elevated-surface pick / different
+                               object geometry / non-prehensile push)"]
+    selection_criteria_explicitly_not_used: ["pilot treatment magnitude", "pilot success rate",
+                                             "D, S, D x S or any selector result"]
+    provenance: >
+      All six tasks were already verified runnable by the unmodified policy in earlier rounds
+      (spatial 2 and object 0 and goal 8 in round 1; spatial 7, object 6 and goal 5 in G2). goal t0 stays
+      excluded for its missing asset region.
+    fallback_order_if_a_task_fails_to_run: {libero_spatial: [0, 9], libero_object: [3, 2], libero_goal: [1, 9]}
+
+  - id: G3-A3
+    date: 2026-09-20
+    stage: BEFORE any confirm rollout
+    change: "Confirm is executed in two strictly separated stages."
+    stage_C1_practical_significance:
+      computes: [task success, U (diagnostic only), future treatment mm, sampler nuisance mm,
+                 treatment/nuisance, action deviation, executed eef and object consequence]
+      does_not_compute: [S, D x S, any selector, any token repair]
+      primary_question: "on new tasks and new resets, is the future-prediction error's effect on control
+                         still clearly above ID and not drowned by the sampler nuisance?"
+      on_completion: "write G3 AUDIT 2 and STOP; stage C2 requires explicit user confirmation"
+      failure_rule: "if C1 does not reproduce the pilot's amplification, the verdict is G3-FAIL-PRACTICAL
+                     immediately — no ranking, no additional stress family"
+    stage_C2_ranking: "only after C1 passes and the user confirms; frozen S definition, budget 64/256,
+                       selectors D / S / D x S / attention / D x attention / U oracle / U x S oracle"
+
+  - id: G3-A4
+    date: 2026-09-20
+    stage: BEFORE any confirm rollout
+    change: "Evidence rule for stage C1, and mandatory U decomposition."
+    rule: >
+      The grey occluder inflates U inside the occluded region by construction (pilot: U 13.8 inside vs 8.5
+      outside vs 7.68 ID). The RISE IN U IS THEREFORE NOT ADMISSIBLE AS PRIMARY EVIDENCE. The primary
+      evidence must be the executed consequence of pi(H_pred) vs pi(H_real) at fixed flow noise from the
+      identical snapshot. U is reported as a diagnostic, split into occluded-token U and non-occluded-token
+      U, and no new occluder is designed in response.
