@@ -1,0 +1,291 @@
+# PROTOCOL_HSU.yaml — Oracle Hidden-State Utilization Test (round HSU)
+#
+# Pre-registered BEFORE any teacher episode, any cache, any training step and any rollout of this
+# round. Amendments are append-only in `amendments`. Nothing in the previous rounds is modified:
+# research/physical_context_probe/ and results/physical_context_probe/ are read-only here.
+
+name: oracle_hidden_state_utilization_test
+round: HSU
+branch: research/action-critical-reliability-probe
+head_at_start: ff523d756e42b9be2f2ce1cabf7c1f40ce31c806
+
+question: >-
+  Assume the hidden physical state has already been obtained exactly and encoded. If that
+  information alone is handed to LaWAM, is it usable enough to improve action generation and task
+  success? If there is no clear gain, the direction stops.
+
+not_studied_this_round:
+  [hidden-state detection, system identification, interaction-history encoder, probe, belief,
+   uncertainty, U/S/D, physical parameter estimation]
+hidden_state_source: simulator oracle, read directly
+
+# ---------------------------------------------------------------------------------------
+task:
+  suite: libero_goal
+  id: 5
+  language: "push the plate to the front of the stove"
+  hidden_variable: plate-table effective sliding friction (data.contact[i].friction[0])
+  nominal_geom_friction: 0.95
+  effective_contact_friction: {LOW: 0.60, NOMINAL: 0.95, HIGH: 1.90}
+  levels_used_this_round: [NOMINAL, HIGH]     # LOW is not used; no new physics range
+  established_facts_not_re_derived:
+    - identical RGB / robot state / object pose across levels before the action
+    - maxabs(first LaWAM action across levels) = 0.0 with the flow noise pinned
+    - unmodified LaWAM: NOMINAL 20/20 success, HIGH 0/20 (results/physical_context_probe)
+
+# ---------------------------------------------------------------------------------------
+context:
+  value: c = log(mu_eff / 0.95)      # NOMINAL 0.0, HIGH log(2) = 0.693147
+  mu_eff_source: read back at runtime from the MuJoCo contact, not from the written geom value
+  forbidden_in_context: [task success label, future state, target progress, anything but the
+                         current hidden physical property]
+
+# ---------------------------------------------------------------------------------------
+# MATCHED-CAPACITY DESIGN (amendment HSU-A1; supersedes the frozen-head-only design of v1)
+# ---------------------------------------------------------------------------------------
+why_not_frozen_head_only: >-
+  A frozen Flow Head has never been trained to interpret a friction / damping / hidden-physics
+  token, so training only an input projector asks whether a vector happens to fall in a direction
+  the pretrained head already understands. That is a POSITIVE PROBE: a PASS is strong evidence, but
+  a FAIL cannot show the hidden state is worthless. The primary test therefore gives the head a
+  tiny, strictly matched amount of capacity to learn how to read the condition, and asks whether
+  the CORRECT hidden state buys anything beyond that extra capacity itself.
+
+arms:
+  C_control: >-
+    identical context token in the identical position, but its scalar input is ALWAYS 0.
+    ContextTokenProjector_C is trainable, plus the same Flow-Head LoRA.
+  H_hidden: >-
+    the same architecture with the true oracle scalar c = log(mu_eff / 0.95) as input.
+    ContextTokenProjector_H is trainable, plus the same Flow-Head LoRA.
+  matched_exactly: [base checkpoint, frozen backbone, projector architecture, context token
+                    position, LoRA rank, LoRA target modules, optimizer, lr, scheduler, batch size,
+                    gradient accumulation, training samples, batch order, training steps, seeds,
+                    teacher trajectories, train/val/test split]
+  only_allowed_difference: the scalar fed to the projector (0 vs c)
+  hard_requirement: >-
+    TRAINABLE_PARAMS_CONTROL == TRAINABLE_PARAMS_HIDDEN exactly. If they differ, training does not
+    start.
+
+context_projector:
+  structure: Linear(1,128) -> GELU -> Linear(128,2048), times a learnable scalar gate alpha
+  zero_init: alpha = 0 and the second Linear's weight/bias = 0, in BOTH arms
+
+context_token_position:
+  pre_registered: "[H_t ; H_future ; h_vlm ; e_c]"   # appended as the LAST token of the h_vlm block
+  rationale: >-
+    The Flow Head takes h_vlm and attention_mask as call arguments and computes
+    cond_vlm = enc_vlm(h_vlm); AlternateVLDiT derives its vlm_mask from cond_vlm's length, so a
+    token appended to h_vlm is automatically inside the VLM branch that the text-attending
+    cross-attention blocks read. No repository file is modified.
+  frozen: the position is never moved after seeing a result
+
+lora:
+  applies_to: the Flow Head's cross-attention projections only (q, k, v, out) in the DiT blocks
+              that read encoder_hidden_states = [H_t ; H_future ; cond_vlm ; e_c]
+  never: action encoder, action decoder, FFN, time encoder, whole-DiT LoRA, unfreezing the 306M head
+  rank: 4                       # frozen before any result; never raised to rescue the experiment
+  zero_init: B = 0 so the initial residual is exactly zero
+  budget: context projector + LoRA < 5M trainable parameters, reported before training
+
+forward_audit_required_before_training:
+  - >-
+    with H_t, H_future, h_vlm, flow noise and timestep all held fixed, changing ONLY the context
+    scalar must change the context token's K/V tensors inside the LoRA-adapted layers
+  - the context token must not be masked out of the attention
+  - if either fails, stop and fix the engineering; do not train
+
+zero_init_equivalence_required_before_training:
+  - >-
+    Original LaWAM vs Control@init vs Hidden@init, same pinned flow noise; the action maxabs
+    difference must sit at numerical-error level, otherwise initialisation itself changed the
+    policy and training does not start
+
+teacher:
+  purpose: oracle supervision generator only; NOT a contribution, NOT a method, NOT a controller line
+  form: scripted closed-loop EEF push controller through the normal robot action interface
+  legality_required:
+    - actions are 7-dim LaWAM EEF actions within the dataset action range (|world_vector| <= 0.9375)
+    - no teleport, no direct object state write, no external force on the plate
+  may_read: simulator physics (it is an oracle)
+  gate:
+    episodes: 5 NOMINAL + 5 HIGH (init states 0-4)
+    required: NOMINAL >= 4/5 AND HIGH >= 4/5
+    on_failure: report BLOCKED-TEACHER and stop; at most ONE small engineering correction
+
+dataset:
+  episodes: 30 NOMINAL + 30 HIGH (init states 0-29), max 60 trajectories
+  split_by_episode: {train: 20+20 (init 0-19), val: 5+5 (init 20-24), test: 5+5 (init 25-29)}
+  no_chunk_of_one_episode_may_cross_splits: true
+  sample: one policy-query boundary (every 8 env steps) -> observation + next 8 teacher actions
+  cached_per_sample: [h_t, h_pred, h_vlm, attention_mask, action_hz, embodiment_id,
+                      normalized teacher action chunk + mask, c, level, episode id, time index]
+
+training:
+  loss: the original LaWAM flow-matching action loss, teacher chunk as A_gt
+  forbidden_extra_losses: [future reconstruction, physics prediction, contrastive, KL, auxiliary
+                           classifier]
+  optimizer: AdamW, lr 1e-3, weight_decay 0.0, betas default
+  batch_size: 8 samples (x repeated_diffusion_steps = 2, the official setting)
+  max_updates: 2000
+  validate_every: 100 updates, on the full val split with a frozen noise/time seed
+  select: lowest validation flow loss
+  seed: 0, with torch deterministic algorithms enabled
+
+offline_conditions:
+  ORIGINAL: unmodified LaWAM (reference only, not the primary comparator)
+  C_P: Control arm, context input 0
+  H_CORRECT: Hidden arm, true physics context
+  H_WRONG: Hidden arm, swapped context (NOMINAL episodes get c_HIGH, HIGH episodes get c_NOMINAL)
+  H_SHUFFLED: Hidden arm, episode-level shuffled context (marginal distribution preserved,
+              sample-physics correspondence destroyed)
+primary_comparisons:
+  - "H_CORRECT vs C_P"          # does the information beat matched capacity?
+  - "H_CORRECT vs H_WRONG"      # is the gain physics-semantic?
+  - "H_CORRECT vs H_SHUFFLED"   # is it more than a context-token statistical bias?
+forbidden_this_round: [world-only, both/joint injection, FiLM variant, other adapters,
+                       multiple context encoders, new losses]
+
+gates:
+  offline:
+    on: test episodes (init 25-29), both levels, teacher-action prediction with pinned flow noise
+    metric: mean per-element L2 on the 7 embodiment dims + the mm-equivalent on the chunk
+    required: H_CORRECT better than C_P, H_WRONG and H_SHUFFLED, especially on HIGH
+    fail_verdict: HSU-NO-USE or HSU-CAPACITY-ONLY (stop; do not run the simulator)
+  context_sensitivity_monitor: >-
+    during training, on a frozen validation mini-set, maxabs(action(correct) - action(wrong));
+    diagnostic only, never used to tune anything
+  closed_loop:
+    conditions: [ORIGINAL, C_P, H_CORRECT, H_WRONG]
+    episodes: NOMINAL 10 (init 30-39), HIGH 20 (init 30-49), unseen in training
+    budget: 500 env steps for every condition and level (the teacher needs ~400 at HIGH)
+    paired: identical reset states, identical pinned flow-noise schedules across conditions
+    anchor: ORIGINAL is re-run here, never cited from the previous round
+    primary_endpoint: HIGH-friction task success
+    preliminary_pass_shape: "ORIGINAL ~0/20, C_P <= 5/20, H_CORRECT >= 10/20, H_WRONG <= 5/20"
+  anti_cheat_action_distribution:
+    required: >-
+      the Hidden arm's actions must differ systematically between correct NOMINAL and correct HIGH
+      context (translation, rotation, gripper, chunk path, contact duration are recorded); if the
+      actions are effectively identical, context use is not claimed
+  nominal_must_not_collapse: true
+
+verdicts:
+  HSU-PASS: >-
+    teacher legal and successful at both levels; capacity matched exactly; H_CORRECT beats
+            C_P offline; H_CORRECT beats H_WRONG and H_SHUFFLED; closed-loop HIGH success clearly
+            better than C_P; wrong context clearly drops the gain; NOMINAL not badly degraded;
+            actions change systematically with context
+  HSU-CAPACITY-ONLY: >-
+    C_P, H_CORRECT and H_WRONG all beat ORIGINAL, but H_CORRECT is not clearly
+            better than C_P / H_WRONG -> the gain is adaptation capacity, not hidden-state
+            information
+  HSU-NO-USE: >-
+    correct / wrong / zero are all alike and context sensitivity stays ~0 -> under THIS
+            minimal conditioning design the model does not use the hidden state
+  HSU-NO-TASK-GAIN: >-
+    offline H_CORRECT clearly better, but closed-loop success is not
+  HSU-TRADEOFF: >-
+    HIGH improves while NOMINAL degrades badly
+  BLOCKED-TEACHER: >-
+    no legal simple controller gives physics-specific successful supervision
+what_a_failure_may_NOT_conclude: >-
+  Even at HSU-NO-USE it may NOT be written that "the hidden state has no value for LaWAM". Only:
+  "under this minimum-capacity context-token + matched-LoRA conditioning, no usable gain was
+  observed." A stronger negative needs several reasonable conditioning mechanisms to fail.
+
+optional_auxiliary:
+  FROZEN-CONTEXT: >-
+    the v1 frozen-head probe may be reported as auxiliary evidence. A PASS is strong positive
+    evidence; a FAIL is NOT grounds to stop the direction, and it must never delay the matched-LoRA
+    primary test.
+
+after_verdict: report and stop. No world-only / both / coupled conditioning, no new loss, no method
+  design, no second task, no new physics variable, no friction-range change, no architecture change
+  chosen after seeing results, nothing pushed.
+
+artefacts:
+  code: research/hidden_state_utilization_probe/{PROTOCOL_HSU.yaml, AUDIT_HSU.md, REPORT_HSU.md, scripts/}
+  data: results/hidden_state_utilization_probe/<run_id>/{TEACHER_RESULTS.csv, SPLIT.json,
+        TRAIN_LOG.jsonl, OFFLINE_METRICS.csv, ROLLOUT_RESULTS.csv, SUMMARY_HSU.json}
+  audits: [HSU AUDIT 0 base checkpoint/hashes/trainable params, HSU AUDIT 1 teacher success+legality,
+           HSU AUDIT 2 zero-init equivalence, HSU AUDIT 3 episode split integrity,
+           HSU AUDIT 4 correct/zero/wrong context, FINAL HSU AUDIT verdict]
+
+amendments:
+  - id: HSU-A1
+    when: before any training, cache or rollout of this round (only the teacher gate had run)
+    what: >-
+      User override "Matched-Capacity Hidden-State Utilization Test". The frozen-head-only design
+      is demoted to an optional positive probe; the primary test becomes two capacity-matched
+      adaptation arms (Control c=0 vs Hidden c) with an identical context projector and identical
+      Flow-Head cross-attention LoRA (rank 4). Adds the forward audit that the context actually
+      reaches the adapted layers, the H_SHUFFLED condition, the anti-cheat action-distribution
+      check, and the verdicts HSU-CAPACITY-ONLY plus the restriction on what a failure may claim.
+    reason: >-
+      A frozen head was never trained to interpret a physics token, so a frozen-head FAIL cannot
+      distinguish "the hidden state is useless" from "the head never learned to read this kind of
+      condition".
+  - id: HSU-A2
+    when: after the teacher gate failed at 3/5 on HIGH, before any training data was generated
+    what: episode budget for the teacher (and, pre-registered here, for the closed-loop evaluation)
+           raised from 320 to 500 env steps, applied identically to NOMINAL and HIGH.
+    reason: >-
+      Both HIGH failures were still making progress when the budget ran out (195 mm and 138 mm of
+      260 mm). The brief explicitly allows a longer push duration at high friction; the budget is
+      raised symmetrically for both levels so no arm or level is advantaged.
+  - id: HSU-A3
+    when: during teacher engineering, before the gate passed
+    what: >-
+      Teacher strategy fixed as hook-drag (open gripper, descend to z = 0.908 at 4 cm past the
+      plate centre, drag along the goal direction, re-stroke on stall) after ONE geometric sweep.
+    reason: >-
+      Push-from-behind is geometrically impossible here: the robot's forearm collides with
+      `wooden_cabinet_1_base` before the gripper reaches any pose behind the plate. Recorded in
+      AUDIT_HSU.md as the single teacher engineering correction.
+  - id: HSU-A4
+    when: before any training step, while implementing the projector
+    what: >-
+      Zero-init of the context pathway is done with alpha = 0 ONLY; the second Linear keeps its
+      ordinary initialisation.
+    reason: >-
+      The v1 prescription (alpha = 0 AND W2 = 0) is a DEAD configuration: with both zero,
+      d e_c/d alpha = 0 and d e_c/d W2 = 0, so the pathway could never train. With alpha = 0 alone
+      the pathway still contributes exactly zero at initialisation while its gradient is non-zero.
+      Applied identically to both arms.
+  - id: HSU-A5
+    when: after the pre-training audit, before any training step
+    what: >-
+      Zero-init equivalence criterion restated as (i) the two arms must be identical at init and
+      (ii) the deviation from ORIGINAL must be <= 10% of the flow-sampler nuisance on the same
+      state, replacing the literal 1e-5 action threshold.
+    reason: >-
+      Measured: arms identical at init (0.0), deviation from ORIGINAL 9.97e-4 against a flow-sampler
+      nuisance of 3.52e-2 on the same state (2.8%). The residue is structural, not a training
+      artefact: `enc_vlm` carries a bias, so appending even a zero-valued token contributes
+      enc_vlm(0) = b and slightly redistributes attention over the VLM block. Adding a token is
+      never bitwise free, and both arms carry the identical extra token, so the primary
+      comparison (H_CORRECT vs C_P) is unaffected. The literal 1e-5 result is reported as FAIL
+      alongside the amended criterion rather than hidden.
+  - id: HSU-A6
+    when: before offline evaluation, with no test losses or rollout outcomes seen
+    what: >-
+      The episode-level H_SHUFFLED mapping uses seed 123 and redraws a marginal-preserving
+      permutation until at least 6 of 10 test episodes receive the opposite context. ORIGINAL
+      offline inference omits the context token, matching the unmodified policy.
+    reason: >-
+      The first seeded permutation left 8 of 10 test contexts correct, making the shuffle control
+      too weak to test correspondence. The original baseline also must not inherit the small
+      extra-token attention shift measured in AUDIT 2. Neither change affects training.
+  - id: HSU-A7
+    when: before any valid arm completed training or any offline evaluation
+    what: >-
+      The context-sensitivity diagnostic switches the Flow Head to eval mode for both paired
+      action samples, then restores train mode. The partial Control run with a stochastic
+      train-mode diagnostic is retained under invalid_dropout_probe/ and restarted from update 0.
+      Cache loading was also corrected to decompress each NPZ member once per episode; training
+      samples and all model hyperparameters are unchanged.
+    reason: >-
+      In train mode the DiT dropout made the constant-context Control arm report a false
+      non-zero paired action difference. Repeated NPZ decompression previously exhausted host
+      memory before the first update. The corrected diagnostic must report zero for Control.
