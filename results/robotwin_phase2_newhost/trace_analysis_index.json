@@ -1,0 +1,7669 @@
+[
+  {
+    "task": "hanging_mug",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "success": false,
+    "commands": 900,
+    "simulated_seconds": 330.584,
+    "command_duration_seconds": {
+      "mean": 0.36731555555555556,
+      "p50": 0.36199999999999477,
+      "p95": 0.48420000000000823,
+      "max": 0.6879999999999882
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0015038578717267526,
+      "p50": 0.0007887586420836819,
+      "p95": 0.004812454863101979,
+      "max": 0.022420826046574836
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.005086210891995678,
+      "p50": 0.0030989126182793154,
+      "p95": 0.01071578811490421,
+      "max": 0.10025366149660542
+    },
+    "planner_status_counts": {
+      "left:Success": 900,
+      "right:Success": 900
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.872
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.752
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.6
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.9
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 63.288
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 76.084
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 89.272
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 103.912
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 116.452
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 129.276
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 142.52
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 155.492
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 169.68
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 182.2
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 195.66
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 209.944
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 223.1
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 236.232
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 249.32
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 262.864
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 277.688
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 290.98
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 303.852
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 317.24
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_clean",
+    "seed": 100101,
+    "success": true,
+    "commands": 318,
+    "simulated_seconds": 112.416,
+    "command_duration_seconds": {
+      "mean": 0.35350943396226414,
+      "p50": 0.347999999999999,
+      "p95": 0.4680000000000035,
+      "max": 0.5
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009002506228993875,
+      "p50": 0.000700270134144325,
+      "p95": 0.0022416795444766885,
+      "max": 0.003345219381787294
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0031482138611524,
+      "p50": 0.002866510717377916,
+      "p95": 0.006234982349319247,
+      "max": 0.007938463615204026
+    },
+    "planner_status_counts": {
+      "left:Success": 318,
+      "right:Success": 318
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.4
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.256
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 37.688
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.548
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 62.912
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 74.596
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 87.684
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 101.848
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_clean",
+    "seed": 100102,
+    "success": false,
+    "commands": 900,
+    "simulated_seconds": 323.156,
+    "command_duration_seconds": {
+      "mean": 0.3590622222222222,
+      "p50": 0.35599999999999454,
+      "p95": 0.45999999999997954,
+      "max": 2.2239999999999895
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.001200632356961056,
+      "p50": 0.0006822787895675833,
+      "p95": 0.0021843253184866884,
+      "max": 0.04212798289570122
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.004677470389651906,
+      "p50": 0.0028808124564083195,
+      "p95": 0.005928370629128289,
+      "max": 0.20105546323077636
+    },
+    "planner_status_counts": {
+      "left:Success": 900,
+      "right:Success": 900
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.124
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.192
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 36.292
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.148
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 59.24
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 70.688
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 83.396
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 97.22
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 110.116
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 124.62
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 138.36
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 154.644
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 167.46
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 180.252
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 193.336
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 205.796
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 219.092
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 231.516
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 244.268
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 257.22
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 270.176
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 283.416
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 296.468
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 310.156
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_clean",
+    "seed": 100103,
+    "success": true,
+    "commands": 308,
+    "simulated_seconds": 111.28,
+    "command_duration_seconds": {
+      "mean": 0.3612987012987013,
+      "p50": 0.35999999999999943,
+      "p95": 0.48799999999999955,
+      "max": 0.5360000000000014
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009152807259965244,
+      "p50": 0.0006453373811186641,
+      "p95": 0.0022213667459503616,
+      "max": 0.0034335417296153413
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0031214502158575822,
+      "p50": 0.002842289868686373,
+      "p95": 0.006082077155723477,
+      "max": 0.009752364493825091
+    },
+    "planner_status_counts": {
+      "left:Success": 308,
+      "right:Success": 308
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.812
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.956
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.868
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.196
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 64.788
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 77.872
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.876
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 104.168
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_clean",
+    "seed": 100104,
+    "success": false,
+    "commands": 900,
+    "simulated_seconds": 437.84,
+    "command_duration_seconds": {
+      "mean": 0.48648888888888886,
+      "p50": 0.40399999999999636,
+      "p95": 0.9201999999999882,
+      "max": 4.564000000000021
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.011194070302967218,
+      "p50": 0.0009010061611691307,
+      "p95": 0.04576891120469167,
+      "max": 0.8046308773996864
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.033555089912935966,
+      "p50": 0.003754471195573714,
+      "p95": 0.10142655339298352,
+      "max": 1.9017725288418224
+    },
+    "planner_status_counts": {
+      "left:Success": 900,
+      "right:Success": 898,
+      "right:Fail": 2
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.944
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.512
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.336
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 49.524
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 64.668
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 77.072
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.576
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 104.248
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 117.112
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 137.052
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 164.248
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 180.144
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 196.04
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 211.736
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 227.4
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 243.552
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 262.164
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 281.06
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 319.604
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 341.816
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 381.196
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 396.872
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 410.052
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 423.712
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_randomized",
+    "seed": 100101,
+    "success": true,
+    "commands": 317,
+    "simulated_seconds": 114.1,
+    "command_duration_seconds": {
+      "mean": 0.35993690851735016,
+      "p50": 0.35599999999999987,
+      "p95": 0.480000000000004,
+      "max": 0.508
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009215026670540427,
+      "p50": 0.0006704296156583754,
+      "p95": 0.002279053095731099,
+      "max": 0.003054898732381431
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003210303884113015,
+      "p50": 0.0029894635970753175,
+      "p95": 0.006085369060097973,
+      "max": 0.009801729587643209
+    },
+    "planner_status_counts": {
+      "left:Success": 317,
+      "right:Success": 317
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.872
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.804
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.48
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 49.372
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 64.356
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 76.136
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.108
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 104.212
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_randomized",
+    "seed": 100103,
+    "success": true,
+    "commands": 325,
+    "simulated_seconds": 118.216,
+    "command_duration_seconds": {
+      "mean": 0.3637415384615385,
+      "p50": 0.35200000000000387,
+      "p95": 0.5071999999999974,
+      "max": 0.6399999999999864
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008890620790267844,
+      "p50": 0.0006428454100063789,
+      "p95": 0.002276496867072701,
+      "max": 0.0032100966414768378
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003213634706997673,
+      "p50": 0.0028638139081687154,
+      "p95": 0.006581626587816335,
+      "max": 0.0115405077199347
+    },
+    "planner_status_counts": {
+      "left:Success": 325,
+      "right:Success": 325
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.456
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 24.732
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 36.888
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.236
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 62.168
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 74.748
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 88.404
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 103.68
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 117.78
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_randomized",
+    "seed": 100107,
+    "success": true,
+    "commands": 312,
+    "simulated_seconds": 113.968,
+    "command_duration_seconds": {
+      "mean": 0.36528205128205127,
+      "p50": 0.35999999999999943,
+      "p95": 0.4897999999999985,
+      "max": 0.5199999999999996
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008738791086735978,
+      "p50": 0.0006212530812325942,
+      "p95": 0.0021427597771279897,
+      "max": 0.0032451179035363556
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0030957547705146434,
+      "p50": 0.0028876620816228344,
+      "p95": 0.005828025038851068,
+      "max": 0.008485056063373667
+    },
+    "planner_status_counts": {
+      "left:Success": 312,
+      "right:Success": 312
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.744
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.844
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.692
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.008
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 64.972
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 77.612
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 91.56
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 105.636
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_randomized",
+    "seed": 100108,
+    "success": true,
+    "commands": 315,
+    "simulated_seconds": 111.9,
+    "command_duration_seconds": {
+      "mean": 0.35523809523809524,
+      "p50": 0.35599999999999454,
+      "p95": 0.4680000000000035,
+      "max": 0.4959999999999951
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009238475193770687,
+      "p50": 0.0006680857819649974,
+      "p95": 0.0024920256273826616,
+      "max": 0.0034893588242360107
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0030564581129330667,
+      "p50": 0.002817244451507726,
+      "p95": 0.006070945097195922,
+      "max": 0.012110411599727231
+    },
+    "planner_status_counts": {
+      "left:Success": 315,
+      "right:Success": 315
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.324
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.58
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.044
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.572
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 62.808
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 75.98
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 89.276
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 102.724
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_randomized",
+    "seed": 100116,
+    "success": false,
+    "commands": 900,
+    "simulated_seconds": 316.556,
+    "command_duration_seconds": {
+      "mean": 0.35172888888888887,
+      "p50": 0.3400000000000034,
+      "p95": 0.4642000000000047,
+      "max": 1.4239999999999782
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007509864971829777,
+      "p50": 0.0006300207026779326,
+      "p95": 0.0018061734869407263,
+      "max": 0.0031217151425231324
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0028472057069207084,
+      "p50": 0.0026731517205499356,
+      "p95": 0.005268913237348113,
+      "max": 0.008882706665353774
+    },
+    "planner_status_counts": {
+      "left:Success": 900,
+      "right:Success": 900
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.552
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.284
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.44
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 49.344
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 63.452
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 76.088
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 89.892
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 103.668
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 115.656
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 127.936
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 139.264
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 150.928
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 163.148
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 175.008
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 188.148
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 201.012
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 213.464
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 225.64
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 238.204
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 250.96
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 263.904
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 277.648
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 290.78
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 302.812
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "lift_pot",
+    "condition": "demo_clean",
+    "seed": 100000,
+    "success": true,
+    "commands": 100,
+    "simulated_seconds": 34.724,
+    "command_duration_seconds": {
+      "mean": 0.34724,
+      "p50": 0.3239999999999994,
+      "p95": 0.4888000000000013,
+      "max": 0.5759999999999987
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0010299132360206747,
+      "p50": 0.0008998588479764344,
+      "p95": 0.0021392049315753134,
+      "max": 0.00761938825032519
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003149723846009047,
+      "p50": 0.0030213324027062653,
+      "p95": 0.005943560519895419,
+      "max": 0.007593790035738314
+    },
+    "planner_status_counts": {
+      "left:Success": 100,
+      "right:Success": 100
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 13.04
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.328
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "lift_pot",
+    "condition": "demo_clean",
+    "seed": 100002,
+    "success": true,
+    "commands": 106,
+    "simulated_seconds": 36.444,
+    "command_duration_seconds": {
+      "mean": 0.343811320754717,
+      "p50": 0.3320000000000005,
+      "p95": 0.4800000000000004,
+      "max": 0.5520000000000014
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0011576329088404714,
+      "p50": 0.0009099858837468917,
+      "p95": 0.0022934657482493828,
+      "max": 0.011506066542348824
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0031275311143604185,
+      "p50": 0.0029550599190913992,
+      "p95": 0.005383712778938005,
+      "max": 0.013251049544475469
+    },
+    "planner_status_counts": {
+      "left:Success": 106,
+      "right:Success": 106
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 13.184
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.884
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "lift_pot",
+    "condition": "demo_clean",
+    "seed": 100003,
+    "success": true,
+    "commands": 104,
+    "simulated_seconds": 37.064,
+    "command_duration_seconds": {
+      "mean": 0.3563846153846154,
+      "p50": 0.3460000000000001,
+      "p95": 0.5033999999999996,
+      "max": 0.5279999999999987
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0010864043834882058,
+      "p50": 0.0009523727013705735,
+      "p95": 0.0019123462273807328,
+      "max": 0.012622455276125488
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0033240839468806765,
+      "p50": 0.003126634826740089,
+      "p95": 0.005922476601667123,
+      "max": 0.009400155290750205
+    },
+    "planner_status_counts": {
+      "left:Success": 104,
+      "right:Success": 104
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 13.552
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 27.764
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_clean",
+    "seed": 100102,
+    "success": true,
+    "commands": 97,
+    "simulated_seconds": 39.98,
+    "command_duration_seconds": {
+      "mean": 0.41216494845360824,
+      "p50": 0.3880000000000017,
+      "p95": 0.5519999999999996,
+      "max": 0.8120000000000012
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.013070869153755642,
+      "p50": 0.0007420973313118414,
+      "p95": 0.05530586397954035,
+      "max": 0.058362206010351914
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.03749202101729281,
+      "p50": 0.004005784952863368,
+      "p95": 0.15970496277728988,
+      "max": 0.16704480833370333
+    },
+    "planner_status_counts": {
+      "left:Success": 97,
+      "right:Success": 97
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 16.088
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 29.58
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_clean",
+    "seed": 100103,
+    "success": false,
+    "commands": 1500,
+    "simulated_seconds": 404.448,
+    "command_duration_seconds": {
+      "mean": 0.269632,
+      "p50": 0.26400000000001,
+      "p95": 0.3359999999999987,
+      "max": 0.476
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007513842992943254,
+      "p50": 0.000571089876604029,
+      "p95": 0.0020922704013299825,
+      "max": 0.004748598750788617
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0025465116186541544,
+      "p50": 0.002159810114433531,
+      "p95": 0.005510762309663833,
+      "max": 0.015965148000571087
+    },
+    "planner_status_counts": {
+      "left:Success": 1500,
+      "right:Success": 1500
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 13.812
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 24.236
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 34.236
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 44.604
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 54.644
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 64.56
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 74.04
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 83.36
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 93.044
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 102.656
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 111.952
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 121.628
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 131.212
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 140.916
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 150.596
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 160.204
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 169.352
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 178.78
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 188.744
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 198.132
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 207.612
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 217.14
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 226.92
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 236.72
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 246.104
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 255.396
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 264.772
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 274.516
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 283.884
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 292.94
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 302.832
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 312.36
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 321.72
+      },
+      {
+        "query": 34,
+        "command_index": 1224,
+        "sim_seconds": 331.432
+      },
+      {
+        "query": 35,
+        "command_index": 1260,
+        "sim_seconds": 340.84
+      },
+      {
+        "query": 36,
+        "command_index": 1296,
+        "sim_seconds": 350.62
+      },
+      {
+        "query": 37,
+        "command_index": 1332,
+        "sim_seconds": 360.264
+      },
+      {
+        "query": 38,
+        "command_index": 1368,
+        "sim_seconds": 369.928
+      },
+      {
+        "query": 39,
+        "command_index": 1404,
+        "sim_seconds": 379.568
+      },
+      {
+        "query": 40,
+        "command_index": 1440,
+        "sim_seconds": 388.812
+      },
+      {
+        "query": 41,
+        "command_index": 1476,
+        "sim_seconds": 398.248
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_clean",
+    "seed": 100108,
+    "success": false,
+    "commands": 1500,
+    "simulated_seconds": 395.492,
+    "command_duration_seconds": {
+      "mean": 0.26366133333333336,
+      "p50": 0.2560000000000002,
+      "p95": 0.3439999999999948,
+      "max": 0.524
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007871446181765062,
+      "p50": 0.0005433373589904572,
+      "p95": 0.0017822419797106637,
+      "max": 0.011957150958867591
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0024925456533496427,
+      "p50": 0.002100537662813642,
+      "p95": 0.004129072282957087,
+      "max": 0.03612217790758417
+    },
+    "planner_status_counts": {
+      "left:Success": 1500,
+      "right:Success": 1500
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.168
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 24.756
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 37.252
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 47.444
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 57.96
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 67.9
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 77.428
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 87.072
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 96.936
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 106.544
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 115.936
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 125.356
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 134.512
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 143.72
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 153.168
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 162.448
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 171.128
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 180.032
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 188.72
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 197.808
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 206.552
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 215.712
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 225.18
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 234.044
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 242.884
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 251.848
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 261.004
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 270.256
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 279.488
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 288.916
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 298.08
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 306.832
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 315.996
+      },
+      {
+        "query": 34,
+        "command_index": 1224,
+        "sim_seconds": 325.676
+      },
+      {
+        "query": 35,
+        "command_index": 1260,
+        "sim_seconds": 334.756
+      },
+      {
+        "query": 36,
+        "command_index": 1296,
+        "sim_seconds": 344.06
+      },
+      {
+        "query": 37,
+        "command_index": 1332,
+        "sim_seconds": 352.976
+      },
+      {
+        "query": 38,
+        "command_index": 1368,
+        "sim_seconds": 362.008
+      },
+      {
+        "query": 39,
+        "command_index": 1404,
+        "sim_seconds": 370.964
+      },
+      {
+        "query": 40,
+        "command_index": 1440,
+        "sim_seconds": 380.276
+      },
+      {
+        "query": 41,
+        "command_index": 1476,
+        "sim_seconds": 389.448
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_clean",
+    "seed": 100111,
+    "success": false,
+    "commands": 1500,
+    "simulated_seconds": 411.988,
+    "command_duration_seconds": {
+      "mean": 0.27465866666666666,
+      "p50": 0.26400000000001,
+      "p95": 0.3680000000000021,
+      "max": 0.5679999999999996
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007889450787854431,
+      "p50": 0.000539354163884886,
+      "p95": 0.0018222983144390546,
+      "max": 0.012258980112283558
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0026361280853716314,
+      "p50": 0.002137749529006952,
+      "p95": 0.0042812185291042654,
+      "max": 0.048269153023157145
+    },
+    "planner_status_counts": {
+      "left:Success": 1500,
+      "right:Success": 1500
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.296
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.98
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.464
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.328
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 61.916
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 72.668
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 83.524
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 93.544
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 103.488
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 113.148
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 122.66
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 132.36
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 142.18
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 151.772
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 161.3
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 170.808
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 180.076
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 189.4
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 199.112
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 208.72
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 218.156
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 227.172
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 236.368
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 245.34
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 255.24
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 264.64
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 273.792
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 282.908
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 292.476
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 301.964
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 311.504
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 321.0
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 330.66
+      },
+      {
+        "query": 34,
+        "command_index": 1224,
+        "sim_seconds": 340.136
+      },
+      {
+        "query": 35,
+        "command_index": 1260,
+        "sim_seconds": 349.596
+      },
+      {
+        "query": 36,
+        "command_index": 1296,
+        "sim_seconds": 358.956
+      },
+      {
+        "query": 37,
+        "command_index": 1332,
+        "sim_seconds": 368.184
+      },
+      {
+        "query": 38,
+        "command_index": 1368,
+        "sim_seconds": 377.696
+      },
+      {
+        "query": 39,
+        "command_index": 1404,
+        "sim_seconds": 386.956
+      },
+      {
+        "query": 40,
+        "command_index": 1440,
+        "sim_seconds": 396.192
+      },
+      {
+        "query": 41,
+        "command_index": 1476,
+        "sim_seconds": 405.576
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_clean",
+    "seed": 100112,
+    "success": true,
+    "commands": 1331,
+    "simulated_seconds": 374.656,
+    "command_duration_seconds": {
+      "mean": 0.28148459804658155,
+      "p50": 0.27199999999999847,
+      "p95": 0.3819999999999766,
+      "max": 0.5520000000000209
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009241896183293637,
+      "p50": 0.0006061922606710291,
+      "p95": 0.002745885230588167,
+      "max": 0.006913214314311446
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003273171870509367,
+      "p50": 0.002578937144037359,
+      "p95": 0.00834847879291504,
+      "max": 0.028904527695035733
+    },
+    "planner_status_counts": {
+      "left:Success": 1331,
+      "right:Success": 1331
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.192
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.16
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 35.86
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 45.936
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 56.004
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 66.008
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 76.072
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 86.252
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 95.932
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 105.688
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 115.192
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 124.708
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 134.104
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 143.608
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 152.532
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 161.832
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 171.644
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 181.688
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 191.548
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 201.044
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 210.308
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 220.22
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 229.784
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 239.456
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 248.796
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 258.268
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 267.756
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 277.3
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 286.572
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 295.776
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 305.472
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 315.264
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 329.668
+      },
+      {
+        "query": 34,
+        "command_index": 1224,
+        "sim_seconds": 341.392
+      },
+      {
+        "query": 35,
+        "command_index": 1260,
+        "sim_seconds": 352.972
+      },
+      {
+        "query": 36,
+        "command_index": 1296,
+        "sim_seconds": 364.688
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_randomized",
+    "seed": 100100,
+    "success": true,
+    "commands": 360,
+    "simulated_seconds": 101.42,
+    "command_duration_seconds": {
+      "mean": 0.2817222222222222,
+      "p50": 0.2680000000000007,
+      "p95": 0.4242,
+      "max": 0.508
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009894489118517863,
+      "p50": 0.0006670115789205622,
+      "p95": 0.002800825205878981,
+      "max": 0.004940403150997809
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003378796270829806,
+      "p50": 0.002978714432180932,
+      "p95": 0.006929962485039949,
+      "max": 0.013139339670544549
+    },
+    "planner_status_counts": {
+      "left:Success": 360,
+      "right:Success": 360
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.62
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 24.84
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 35.004
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 44.684
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 54.408
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 63.756
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 72.804
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 82.084
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 91.58
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_randomized",
+    "seed": 100102,
+    "success": false,
+    "commands": 1500,
+    "simulated_seconds": 407.556,
+    "command_duration_seconds": {
+      "mean": 0.271704,
+      "p50": 0.2680000000000007,
+      "p95": 0.33620000000001066,
+      "max": 0.45199999999999996
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007281181852646255,
+      "p50": 0.0005612702875612283,
+      "p95": 0.0017172239200724092,
+      "max": 0.004523918912900383
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0024294877418193023,
+      "p50": 0.0022768198392764767,
+      "p95": 0.004370073505342762,
+      "max": 0.01069393138635956
+    },
+    "planner_status_counts": {
+      "left:Success": 1500,
+      "right:Success": 1500
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 13.592
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 24.252
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 34.192
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 43.932
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 53.736
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 63.52
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 73.088
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 82.608
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 92.032
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 101.532
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 111.112
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 120.76
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 130.456
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 139.756
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 149.296
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 158.86
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 168.688
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 178.304
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 188.012
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 198.008
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 207.656
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 217.82
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 226.972
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 236.584
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 245.824
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 255.28
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 265.064
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 274.792
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 284.472
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 294.0
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 303.54
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 313.34
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 323.236
+      },
+      {
+        "query": 34,
+        "command_index": 1224,
+        "sim_seconds": 333.044
+      },
+      {
+        "query": 35,
+        "command_index": 1260,
+        "sim_seconds": 342.788
+      },
+      {
+        "query": 36,
+        "command_index": 1296,
+        "sim_seconds": 352.36
+      },
+      {
+        "query": 37,
+        "command_index": 1332,
+        "sim_seconds": 362.132
+      },
+      {
+        "query": 38,
+        "command_index": 1368,
+        "sim_seconds": 371.82
+      },
+      {
+        "query": 39,
+        "command_index": 1404,
+        "sim_seconds": 381.48
+      },
+      {
+        "query": 40,
+        "command_index": 1440,
+        "sim_seconds": 391.168
+      },
+      {
+        "query": 41,
+        "command_index": 1476,
+        "sim_seconds": 401.028
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_randomized",
+    "seed": 100106,
+    "success": false,
+    "commands": 1500,
+    "simulated_seconds": 398.532,
+    "command_duration_seconds": {
+      "mean": 0.265688,
+      "p50": 0.2599999999999909,
+      "p95": 0.3240000000000123,
+      "max": 0.5280000000000005
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007125542372730497,
+      "p50": 0.0005725293939355201,
+      "p95": 0.00174398239758565,
+      "max": 0.0035882913388432967
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0024474428600995317,
+      "p50": 0.0022706727126358787,
+      "p95": 0.004709139459245177,
+      "max": 0.010105417241454175
+    },
+    "planner_status_counts": {
+      "left:Success": 1500,
+      "right:Success": 1500
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.476
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.32
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 36.068
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 45.524
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 54.732
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 63.768
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 73.092
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 82.072
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 91.3
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 100.6
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 110.176
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 119.048
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 128.272
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 137.3
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 146.736
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 156.108
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 165.428
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 174.912
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 184.308
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 194.08
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 203.644
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 213.288
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 222.584
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 231.964
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 241.1
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 250.7
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 259.992
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 269.52
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 278.624
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 288.044
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 297.26
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 306.708
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 316.144
+      },
+      {
+        "query": 34,
+        "command_index": 1224,
+        "sim_seconds": 325.864
+      },
+      {
+        "query": 35,
+        "command_index": 1260,
+        "sim_seconds": 335.148
+      },
+      {
+        "query": 36,
+        "command_index": 1296,
+        "sim_seconds": 344.58
+      },
+      {
+        "query": 37,
+        "command_index": 1332,
+        "sim_seconds": 353.924
+      },
+      {
+        "query": 38,
+        "command_index": 1368,
+        "sim_seconds": 363.284
+      },
+      {
+        "query": 39,
+        "command_index": 1404,
+        "sim_seconds": 372.872
+      },
+      {
+        "query": 40,
+        "command_index": 1440,
+        "sim_seconds": 382.596
+      },
+      {
+        "query": 41,
+        "command_index": 1476,
+        "sim_seconds": 392.32
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_randomized",
+    "seed": 100108,
+    "success": true,
+    "commands": 374,
+    "simulated_seconds": 108.724,
+    "command_duration_seconds": {
+      "mean": 0.2907058823529412,
+      "p50": 0.2680000000000007,
+      "p95": 0.46139999999999937,
+      "max": 0.632000000000005
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0011824251412147718,
+      "p50": 0.0007081008573403083,
+      "p95": 0.0034048258326943,
+      "max": 0.005357800549652931
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.004264686087291275,
+      "p50": 0.0031764045674346287,
+      "p95": 0.01021377102441649,
+      "max": 0.024577344090334897
+    },
+    "planner_status_counts": {
+      "left:Success": 374,
+      "right:Success": 374
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.044
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 23.644
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 36.248
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.724
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 59.648
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 68.872
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 78.036
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 86.816
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 96.148
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 105.12
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_randomized",
+    "seed": 100109,
+    "success": true,
+    "commands": 408,
+    "simulated_seconds": 115.54,
+    "command_duration_seconds": {
+      "mean": 0.28318627450980394,
+      "p50": 0.2680000000000007,
+      "p95": 0.43599999999999994,
+      "max": 0.6319999999999979
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0010363936582434027,
+      "p50": 0.0006822288925573958,
+      "p95": 0.003206618546751746,
+      "max": 0.00586848569092856
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003976339196606472,
+      "p50": 0.003078412069867539,
+      "p95": 0.009487528728366303,
+      "max": 0.020092439528165057
+    },
+    "planner_status_counts": {
+      "left:Success": 408,
+      "right:Success": 408
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.304
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 24.104
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 35.82
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 46.768
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 57.268
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 66.924
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 76.168
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 85.544
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 94.476
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 103.524
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 112.64
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "success": true,
+    "commands": 238,
+    "simulated_seconds": 84.948,
+    "command_duration_seconds": {
+      "mean": 0.35692436974789915,
+      "p50": 0.34000000000000163,
+      "p95": 0.508,
+      "max": 0.5520000000000067
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.000938919870486541,
+      "p50": 0.0006656757168312179,
+      "p95": 0.002532234728264769,
+      "max": 0.0057858589026423815
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003236868738156867,
+      "p50": 0.0027312950836433656,
+      "p95": 0.007315695188485416,
+      "max": 0.009080270883389174
+    },
+    "planner_status_counts": {
+      "left:Success": 238,
+      "right:Success": 238
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.428
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.232
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.872
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 53.192
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 68.828
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 78.648
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_clean",
+    "seed": 100101,
+    "success": false,
+    "commands": 700,
+    "simulated_seconds": 229.0,
+    "command_duration_seconds": {
+      "mean": 0.3271428571428571,
+      "p50": 0.3160000000000025,
+      "p95": 0.47219999999999934,
+      "max": 0.5439999999999969
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.001079653811679212,
+      "p50": 0.0008292163921205047,
+      "p95": 0.0026898359636922807,
+      "max": 0.0033728226771302166
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003323049892159518,
+      "p50": 0.003013402051200282,
+      "p95": 0.006453281968644203,
+      "max": 0.008398622837549047
+    },
+    "planner_status_counts": {
+      "left:Success": 700,
+      "right:Success": 700
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.248
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.036
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.5
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.744
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 67.412
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 77.464
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 88.632
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 99.968
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 111.312
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 122.464
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 133.712
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 144.608
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 155.652
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 166.62
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 177.796
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 189.14
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 201.14
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 212.188
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 223.688
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_clean",
+    "seed": 100102,
+    "success": true,
+    "commands": 219,
+    "simulated_seconds": 78.972,
+    "command_duration_seconds": {
+      "mean": 0.36060273972602735,
+      "p50": 0.3400000000000034,
+      "p95": 0.5044000000000046,
+      "max": 0.544000000000004
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009616715354963959,
+      "p50": 0.0006445150335019469,
+      "p95": 0.0028389333303586377,
+      "max": 0.012964209000034494
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0033968772733650662,
+      "p50": 0.002869900268789435,
+      "p95": 0.007380800605457003,
+      "max": 0.02627657591920307
+    },
+    "planner_status_counts": {
+      "left:Success": 219,
+      "right:Success": 219
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.132
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.452
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.592
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.236
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.54
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 78.088
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_clean",
+    "seed": 100103,
+    "success": true,
+    "commands": 252,
+    "simulated_seconds": 89.52,
+    "command_duration_seconds": {
+      "mean": 0.35523809523809524,
+      "p50": 0.33999999999999986,
+      "p95": 0.4996000000000024,
+      "max": 0.5439999999999969
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009621427756667844,
+      "p50": 0.0007062441982839526,
+      "p95": 0.002563018021938249,
+      "max": 0.011580139811339365
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.00320650219474808,
+      "p50": 0.00269542120511982,
+      "p95": 0.007205276246958768,
+      "max": 0.009974767413745488
+    },
+    "planner_status_counts": {
+      "left:Success": 252,
+      "right:Success": 252
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.348
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.124
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.444
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 52.516
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 67.604
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.632
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_clean",
+    "seed": 100104,
+    "success": false,
+    "commands": 700,
+    "simulated_seconds": 234.752,
+    "command_duration_seconds": {
+      "mean": 0.33536,
+      "p50": 0.3240000000000123,
+      "p95": 0.4719999999999996,
+      "max": 0.568000000000005
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.001070914358192988,
+      "p50": 0.0008112216723064026,
+      "p95": 0.002689667212130792,
+      "max": 0.0035579994968533966
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0033325766202011785,
+      "p50": 0.002985022128619744,
+      "p95": 0.006466066537231471,
+      "max": 0.00902608327200927
+    },
+    "planner_status_counts": {
+      "left:Success": 700,
+      "right:Success": 700
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.88
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.308
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.012
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 52.06
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 68.36
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.756
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.972
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 102.372
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 114.108
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 125.924
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 137.332
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 148.856
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 160.2
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 171.684
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 182.932
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 194.876
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 206.672
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 217.888
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 229.764
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_randomized",
+    "seed": 100101,
+    "success": true,
+    "commands": 249,
+    "simulated_seconds": 95.264,
+    "command_duration_seconds": {
+      "mean": 0.3825863453815261,
+      "p50": 0.35199999999999676,
+      "p95": 0.536000000000001,
+      "max": 2.5
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.000961982411511272,
+      "p50": 0.0006995390027229858,
+      "p95": 0.0024298991883551007,
+      "max": 0.004852058261269692
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003298745657881881,
+      "p50": 0.0028915365155575065,
+      "p95": 0.006890923673655007,
+      "max": 0.010906133955251291
+    },
+    "planner_status_counts": {
+      "left:Success": 249,
+      "right:Success": 249
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.288
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.968
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 46.372
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 58.868
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 74.688
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 85.532
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_randomized",
+    "seed": 100102,
+    "success": true,
+    "commands": 279,
+    "simulated_seconds": 105.752,
+    "command_duration_seconds": {
+      "mean": 0.3790394265232975,
+      "p50": 0.347999999999999,
+      "p95": 0.5320000000000004,
+      "max": 2.4639999999999986
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009253046820776333,
+      "p50": 0.0007008476094882909,
+      "p95": 0.002374434523847448,
+      "max": 0.0035713049538803297
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003179473303562433,
+      "p50": 0.0027173539472777467,
+      "p95": 0.00671948152180957,
+      "max": 0.009229375474240051
+    },
+    "planner_status_counts": {
+      "left:Success": 279,
+      "right:Success": 279
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.788
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.272
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 45.548
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 59.404
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 71.992
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 87.8
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 98.172
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_randomized",
+    "seed": 100103,
+    "success": true,
+    "commands": 274,
+    "simulated_seconds": 109.724,
+    "command_duration_seconds": {
+      "mean": 0.40045255474452557,
+      "p50": 0.35599999999999726,
+      "p95": 0.5908000000000017,
+      "max": 2.5400000000000063
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0012265135983976828,
+      "p50": 0.00075744546271537,
+      "p95": 0.002535509991696212,
+      "max": 0.06736659363539522
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.004269256141074065,
+      "p50": 0.002940140701092285,
+      "p95": 0.007757200372105149,
+      "max": 0.2392729790068233
+    },
+    "planner_status_counts": {
+      "left:Success": 274,
+      "right:Success": 274
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.672
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.528
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 42.912
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 59.24
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 71.944
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 93.764
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 103.592
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_randomized",
+    "seed": 100104,
+    "success": false,
+    "commands": 700,
+    "simulated_seconds": 235.892,
+    "command_duration_seconds": {
+      "mean": 0.3369885714285714,
+      "p50": 0.32799999999998164,
+      "p95": 0.46819999999999984,
+      "max": 0.5399999999999991
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0010108061934450375,
+      "p50": 0.0007859202820218114,
+      "p95": 0.0024283161491795474,
+      "max": 0.003349678787694992
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0032259500320274454,
+      "p50": 0.0029328186423819604,
+      "p95": 0.006176408505606878,
+      "max": 0.008945482503267143
+    },
+    "planner_status_counts": {
+      "left:Success": 700,
+      "right:Success": 700
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.288
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.076
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.312
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 52.68
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 67.76
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 80.104
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 91.116
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 102.604
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 114.552
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 126.172
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 137.94
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 149.404
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 161.044
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 172.648
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 183.82
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 195.596
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 207.404
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 218.984
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 230.912
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_randomized",
+    "seed": 100105,
+    "success": false,
+    "commands": 700,
+    "simulated_seconds": 223.32,
+    "command_duration_seconds": {
+      "mean": 0.31902857142857144,
+      "p50": 0.29999999999999716,
+      "p95": 0.492,
+      "max": 2.7520000000000024
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009096947049555935,
+      "p50": 0.0007199947620006505,
+      "p95": 0.0021304564106408115,
+      "max": 0.009596793377881732
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0030378728281418863,
+      "p50": 0.0027893183914773655,
+      "p95": 0.006042317534895552,
+      "max": 0.01865955772445277
+    },
+    "planner_status_counts": {
+      "left:Success": 700,
+      "right:Success": 700
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.024
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.196
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 45.204
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 58.296
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 73.764
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 84.7
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 95.084
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 105.488
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 115.648
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 126.256
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 137.0
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 147.556
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 157.56
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 167.628
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 178.284
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 188.16
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 198.232
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 208.68
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 218.94
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "put_object_cabinet",
+    "condition": "demo_clean",
+    "seed": 100105,
+    "success": true,
+    "commands": 268,
+    "simulated_seconds": 94.044,
+    "command_duration_seconds": {
+      "mean": 0.350910447761194,
+      "p50": 0.3379999999999974,
+      "p95": 0.4665999999999994,
+      "max": 0.5040000000000013
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0011800824407781356,
+      "p50": 0.0009953448153190044,
+      "p95": 0.00283631771179353,
+      "max": 0.006814410339252736
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0037959551449867485,
+      "p50": 0.0034200310743834677,
+      "p95": 0.008112459132027803,
+      "max": 0.015858702281883783
+    },
+    "planner_status_counts": {
+      "left:Success": 268,
+      "right:Success": 268
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.28
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.412
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.128
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.788
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 61.888
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 75.208
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 88.88
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "put_object_cabinet",
+    "condition": "demo_clean",
+    "seed": 100110,
+    "success": true,
+    "commands": 253,
+    "simulated_seconds": 87.98,
+    "command_duration_seconds": {
+      "mean": 0.34774703557312253,
+      "p50": 0.3359999999999985,
+      "p95": 0.46799999999999786,
+      "max": 0.516
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0015554711693567078,
+      "p50": 0.0009478955991754814,
+      "p95": 0.005938672515665653,
+      "max": 0.011896987161011974
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.004080380245148527,
+      "p50": 0.0031476309831565824,
+      "p95": 0.01136185225961455,
+      "max": 0.03573262945052328
+    },
+    "planner_status_counts": {
+      "left:Success": 253,
+      "right:Success": 253
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.112
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.396
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.176
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.788
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 61.984
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 74.968
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 87.72
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "put_object_cabinet",
+    "condition": "demo_clean",
+    "seed": 100111,
+    "success": true,
+    "commands": 255,
+    "simulated_seconds": 89.908,
+    "command_duration_seconds": {
+      "mean": 0.35258039215686277,
+      "p50": 0.3400000000000034,
+      "p95": 0.45720000000000205,
+      "max": 0.5
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.001079440055951806,
+      "p50": 0.0009715490780311251,
+      "p95": 0.002261628157474074,
+      "max": 0.0048541281200141645
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003244440682223393,
+      "p50": 0.0032036828249701913,
+      "p95": 0.005882610971506187,
+      "max": 0.007603005057864916
+    },
+    "planner_status_counts": {
+      "left:Success": 255,
+      "right:Success": 255
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.008
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.696
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.26
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.268
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 61.908
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 75.508
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 88.956
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "put_object_cabinet",
+    "condition": "demo_randomized",
+    "seed": 100102,
+    "success": true,
+    "commands": 253,
+    "simulated_seconds": 93.404,
+    "command_duration_seconds": {
+      "mean": 0.36918577075098813,
+      "p50": 0.3480000000000061,
+      "p95": 0.5559999999999974,
+      "max": 0.6360000000000028
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0012862566298817095,
+      "p50": 0.0010646973505963916,
+      "p95": 0.0030404460915364868,
+      "max": 0.00610349163166861
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0034339877634883397,
+      "p50": 0.003313443964731322,
+      "p95": 0.00625495224370246,
+      "max": 0.0111572538857716
+    },
+    "planner_status_counts": {
+      "left:Success": 253,
+      "right:Success": 253
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.528
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.752
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 43.556
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 55.512
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.932
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 80.668
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 93.196
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "put_object_cabinet",
+    "condition": "demo_randomized",
+    "seed": 100115,
+    "success": true,
+    "commands": 269,
+    "simulated_seconds": 100.988,
+    "command_duration_seconds": {
+      "mean": 0.37542007434944236,
+      "p50": 0.35999999999999943,
+      "p95": 0.5463999999999984,
+      "max": 0.6359999999999957
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0015543722123585266,
+      "p50": 0.0012765206300424062,
+      "p95": 0.0036982294378325466,
+      "max": 0.008392563261517084
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0038826283136859244,
+      "p50": 0.0034015520064981626,
+      "p95": 0.009336177472208544,
+      "max": 0.01787686272368092
+    },
+    "planner_status_counts": {
+      "left:Success": 269,
+      "right:Success": 269
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.86
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.488
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 43.744
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 55.148
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.664
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.852
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 95.136
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "success": true,
+    "commands": 423,
+    "simulated_seconds": 143.24,
+    "command_duration_seconds": {
+      "mean": 0.338628841607565,
+      "p50": 0.33199999999999363,
+      "p95": 0.46400000000000025,
+      "max": 0.5480000000000018
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0011101739417431029,
+      "p50": 0.0006260254431467009,
+      "p95": 0.002535065964014816,
+      "max": 0.009788729793824372
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0036036352048212576,
+      "p50": 0.002720611790718811,
+      "p95": 0.006437295455172557,
+      "max": 0.029047579586211784
+    },
+    "planner_status_counts": {
+      "left:Success": 423,
+      "right:Success": 423
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.06
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.916
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.128
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.6
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 60.952
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 71.444
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 84.544
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 95.456
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 110.132
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 122.348
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 134.768
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_clean",
+    "seed": 100101,
+    "success": true,
+    "commands": 438,
+    "simulated_seconds": 164.208,
+    "command_duration_seconds": {
+      "mean": 0.3749041095890411,
+      "p50": 0.367999999999995,
+      "p95": 0.5,
+      "max": 0.5359999999999943
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0010175893461831606,
+      "p50": 0.0007228339208339453,
+      "p95": 0.0025031957166044474,
+      "max": 0.005179149356723825
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003196916958288823,
+      "p50": 0.002855290099333383,
+      "p95": 0.005854409176127225,
+      "max": 0.015244171317991743
+    },
+    "planner_status_counts": {
+      "left:Success": 438,
+      "right:Success": 438
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.504
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 27.812
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 42.04
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 54.092
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 69.98
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 82.668
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 95.42
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 107.832
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 122.368
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 135.22
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 149.176
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 162.48
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_clean",
+    "seed": 100102,
+    "success": true,
+    "commands": 465,
+    "simulated_seconds": 170.372,
+    "command_duration_seconds": {
+      "mean": 0.3663913978494624,
+      "p50": 0.3599999999999852,
+      "p95": 0.4871999999999993,
+      "max": 0.6080000000000041
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0010307820992088595,
+      "p50": 0.0006474254159185362,
+      "p95": 0.0024375526346936964,
+      "max": 0.007852385257870853
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0033282879346592143,
+      "p50": 0.0028551334889153077,
+      "p95": 0.005908646924066615,
+      "max": 0.023466154212490323
+    },
+    "planner_status_counts": {
+      "left:Success": 465,
+      "right:Success": 465
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.668
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.396
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.844
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 52.568
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 64.948
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.92
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 91.992
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 105.564
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 117.056
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 131.788
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 144.292
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 159.436
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_clean",
+    "seed": 100103,
+    "success": true,
+    "commands": 420,
+    "simulated_seconds": 148.12,
+    "command_duration_seconds": {
+      "mean": 0.3526666666666667,
+      "p50": 0.347999999999999,
+      "p95": 0.49200000000000443,
+      "max": 0.5359999999999943
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.000934096548112356,
+      "p50": 0.0006539755048023682,
+      "p95": 0.0022999472033763935,
+      "max": 0.00470682186865898
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003042481344973659,
+      "p50": 0.0027844053215948434,
+      "p95": 0.005551482692894866,
+      "max": 0.013240626463186515
+    },
+    "planner_status_counts": {
+      "left:Success": 420,
+      "right:Success": 420
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.056
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.284
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.732
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.872
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 65.872
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 78.184
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.9
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 101.684
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 116.584
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 128.668
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 140.832
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_clean",
+    "seed": 100104,
+    "success": true,
+    "commands": 414,
+    "simulated_seconds": 153.092,
+    "command_duration_seconds": {
+      "mean": 0.3697874396135266,
+      "p50": 0.3639999999999972,
+      "p95": 0.49600000000000105,
+      "max": 0.5519999999999996
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009430054068406369,
+      "p50": 0.0006535587277727135,
+      "p95": 0.0023759960579233055,
+      "max": 0.004049425195636178
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.002964334208721911,
+      "p50": 0.002674524386206346,
+      "p95": 0.005518151041317955,
+      "max": 0.009504938109172145
+    },
+    "planner_status_counts": {
+      "left:Success": 414,
+      "right:Success": 414
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.724
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 28.096
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 41.676
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 54.328
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 70.408
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 83.036
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 97.072
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 108.928
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 122.216
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 134.216
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 147.44
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_randomized",
+    "seed": 100100,
+    "success": false,
+    "commands": 1200,
+    "simulated_seconds": 406.888,
+    "command_duration_seconds": {
+      "mean": 0.33907333333333334,
+      "p50": 0.32800000000000296,
+      "p95": 0.4560000000000014,
+      "max": 0.5640000000000072
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007221668326646641,
+      "p50": 0.0005386008898764277,
+      "p95": 0.0021454801333607126,
+      "max": 0.0031641963725975272
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0023439847566256787,
+      "p50": 0.0021817497506237096,
+      "p95": 0.0047518718191951834,
+      "max": 0.008012945697260593
+    },
+    "planner_status_counts": {
+      "left:Success": 1200,
+      "right:Success": 1200
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.744
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 28.216
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 42.744
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 55.48
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 71.468
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 84.244
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 97.86
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 109.62
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 122.828
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 135.184
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 148.924
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 161.216
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 173.212
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 184.7
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 196.208
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 207.708
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 219.124
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 230.892
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 242.512
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 254.136
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 265.844
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 277.452
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 288.828
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 300.108
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 311.424
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 322.54
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 333.768
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 345.264
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 356.912
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 368.34
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 380.16
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 391.316
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 402.968
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_randomized",
+    "seed": 100101,
+    "success": true,
+    "commands": 433,
+    "simulated_seconds": 162.768,
+    "command_duration_seconds": {
+      "mean": 0.3759076212471132,
+      "p50": 0.3639999999999901,
+      "p95": 0.5080000000000027,
+      "max": 0.5559999999999974
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009528727761882513,
+      "p50": 0.000643893854303234,
+      "p95": 0.002438654880363033,
+      "max": 0.003655038100657901
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0029871624475705603,
+      "p50": 0.0027326062127677963,
+      "p95": 0.005569087454341251,
+      "max": 0.011302944169120114
+    },
+    "planner_status_counts": {
+      "left:Success": 433,
+      "right:Success": 433
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.44
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 27.656
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 42.672
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 54.1
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 70.572
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 82.548
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 96.484
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 109.5
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 122.388
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 135.7
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 148.552
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 162.42
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_randomized",
+    "seed": 100102,
+    "success": true,
+    "commands": 435,
+    "simulated_seconds": 158.752,
+    "command_duration_seconds": {
+      "mean": 0.3649471264367816,
+      "p50": 0.35599999999999454,
+      "p95": 0.49200000000000443,
+      "max": 0.5400000000000063
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009603728950636277,
+      "p50": 0.0006660587802510625,
+      "p95": 0.0024096590835365277,
+      "max": 0.003422158155385329
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.00313506151735434,
+      "p50": 0.002909937877761594,
+      "p95": 0.005868100213142971,
+      "max": 0.009436596216817411
+    },
+    "planner_status_counts": {
+      "left:Success": 435,
+      "right:Success": 435
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.124
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.88
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.696
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 52.004
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.792
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.988
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 93.216
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 105.272
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 119.396
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 132.932
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 144.936
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 157.948
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_randomized",
+    "seed": 100103,
+    "success": true,
+    "commands": 427,
+    "simulated_seconds": 153.008,
+    "command_duration_seconds": {
+      "mean": 0.35833255269320846,
+      "p50": 0.35199999999998965,
+      "p95": 0.4880000000000003,
+      "max": 0.5240000000000009
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009407280431748256,
+      "p50": 0.0006606087080696138,
+      "p95": 0.0023873086900439095,
+      "max": 0.0036892283158651245
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003013845274636792,
+      "p50": 0.002770318764008374,
+      "p95": 0.005686183940398252,
+      "max": 0.008189353839116923
+    },
+    "planner_status_counts": {
+      "left:Success": 427,
+      "right:Success": 427
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.676
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.428
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.044
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.544
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 65.648
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 78.148
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.88
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 101.572
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 116.856
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 129.164
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 142.984
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_randomized",
+    "seed": 100104,
+    "success": false,
+    "commands": 1200,
+    "simulated_seconds": 434.116,
+    "command_duration_seconds": {
+      "mean": 0.3617633333333333,
+      "p50": 0.35200000000000387,
+      "p95": 0.4759999999999991,
+      "max": 0.5600000000000023
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0015258705783857637,
+      "p50": 0.000694698942994582,
+      "p95": 0.002763285956446975,
+      "max": 0.0391633871205806
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.004735396141848331,
+      "p50": 0.0029384709215492483,
+      "p95": 0.006772138489701739,
+      "max": 0.12732748998209453
+    },
+    "planner_status_counts": {
+      "left:Success": 1200,
+      "right:Success": 1200
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.74
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 28.048
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 41.444
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 53.868
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 67.728
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 82.24
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 95.064
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 108.052
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 120.424
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 136.328
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 148.508
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 163.196
+      },
+      {
+        "query": 13,
+        "command_index": 468,
+        "sim_seconds": 174.46
+      },
+      {
+        "query": 14,
+        "command_index": 504,
+        "sim_seconds": 186.848
+      },
+      {
+        "query": 15,
+        "command_index": 540,
+        "sim_seconds": 199.636
+      },
+      {
+        "query": 16,
+        "command_index": 576,
+        "sim_seconds": 212.068
+      },
+      {
+        "query": 17,
+        "command_index": 612,
+        "sim_seconds": 225.852
+      },
+      {
+        "query": 18,
+        "command_index": 648,
+        "sim_seconds": 237.572
+      },
+      {
+        "query": 19,
+        "command_index": 684,
+        "sim_seconds": 250.696
+      },
+      {
+        "query": 20,
+        "command_index": 720,
+        "sim_seconds": 263.556
+      },
+      {
+        "query": 21,
+        "command_index": 756,
+        "sim_seconds": 276.796
+      },
+      {
+        "query": 22,
+        "command_index": 792,
+        "sim_seconds": 290.12
+      },
+      {
+        "query": 23,
+        "command_index": 828,
+        "sim_seconds": 302.1
+      },
+      {
+        "query": 24,
+        "command_index": 864,
+        "sim_seconds": 315.088
+      },
+      {
+        "query": 25,
+        "command_index": 900,
+        "sim_seconds": 327.9
+      },
+      {
+        "query": 26,
+        "command_index": 936,
+        "sim_seconds": 340.924
+      },
+      {
+        "query": 27,
+        "command_index": 972,
+        "sim_seconds": 353.308
+      },
+      {
+        "query": 28,
+        "command_index": 1008,
+        "sim_seconds": 367.36
+      },
+      {
+        "query": 29,
+        "command_index": 1044,
+        "sim_seconds": 379.416
+      },
+      {
+        "query": 30,
+        "command_index": 1080,
+        "sim_seconds": 392.316
+      },
+      {
+        "query": 31,
+        "command_index": 1116,
+        "sim_seconds": 404.328
+      },
+      {
+        "query": 32,
+        "command_index": 1152,
+        "sim_seconds": 417.608
+      },
+      {
+        "query": 33,
+        "command_index": 1188,
+        "sim_seconds": 430.076
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "success": true,
+    "commands": 462,
+    "simulated_seconds": 174.176,
+    "command_duration_seconds": {
+      "mean": 0.37700432900432895,
+      "p50": 0.36999999999999744,
+      "p95": 0.5077999999999967,
+      "max": 0.5560000000000116
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009446648857137776,
+      "p50": 0.0006924099843587748,
+      "p95": 0.0025100075080080743,
+      "max": 0.0037947253324285618
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0029740722523890636,
+      "p50": 0.002793681735438464,
+      "p95": 0.00571344353693109,
+      "max": 0.008027406256456917
+    },
+    "planner_status_counts": {
+      "left:Success": 462,
+      "right:Success": 462
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.94
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 27.432
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 40.712
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 52.38
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 68.244
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 81.836
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 94.752
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 107.616
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 121.036
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 136.852
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 149.248
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 164.264
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_clean",
+    "seed": 100101,
+    "success": true,
+    "commands": 454,
+    "simulated_seconds": 162.332,
+    "command_duration_seconds": {
+      "mean": 0.35755947136563876,
+      "p50": 0.34800000000000963,
+      "p95": 0.48400000000000426,
+      "max": 0.5200000000000031
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008516042422132385,
+      "p50": 0.0006349236883310663,
+      "p95": 0.002246973045942114,
+      "max": 0.0029023779100396598
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0029678600234532213,
+      "p50": 0.0027592884554166184,
+      "p95": 0.005578853933698526,
+      "max": 0.0070841294171334656
+    },
+    "planner_status_counts": {
+      "left:Success": 454,
+      "right:Success": 454
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.468
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.476
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.208
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.568
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 65.636
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 77.7
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.216
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 102.58
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 115.368
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 130.884
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 142.376
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 155.56
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_clean",
+    "seed": 100103,
+    "success": true,
+    "commands": 449,
+    "simulated_seconds": 167.22,
+    "command_duration_seconds": {
+      "mean": 0.37242761692650334,
+      "p50": 0.3680000000000021,
+      "p95": 0.48400000000000887,
+      "max": 0.5480000000000018
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008865041525235222,
+      "p50": 0.0006618058697527289,
+      "p95": 0.002372750851076253,
+      "max": 0.003828220664915399
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0029667319851530193,
+      "p50": 0.00277355941762911,
+      "p95": 0.005662387852602796,
+      "max": 0.008857032559993277
+    },
+    "planner_status_counts": {
+      "left:Success": 449,
+      "right:Success": 449
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.076
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.264
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.164
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.472
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.68
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.508
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 92.592
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 104.016
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 119.436
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 133.932
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 147.512
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 161.616
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_clean",
+    "seed": 100105,
+    "success": true,
+    "commands": 424,
+    "simulated_seconds": 151.748,
+    "command_duration_seconds": {
+      "mean": 0.35789622641509433,
+      "p50": 0.35999999999999943,
+      "p95": 0.4519999999999997,
+      "max": 0.5120000000000005
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008958256546860891,
+      "p50": 0.0006465765676194155,
+      "p95": 0.0022434047117816584,
+      "max": 0.00291227432951274
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0029279839012311764,
+      "p50": 0.0027567153632413414,
+      "p95": 0.005449620157388708,
+      "max": 0.008448362040730198
+    },
+    "planner_status_counts": {
+      "left:Success": 424,
+      "right:Success": 424
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.616
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.74
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.924
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.636
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 64.64
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 76.872
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 89.376
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 101.548
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 116.832
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 129.484
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 142.244
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_clean",
+    "seed": 100107,
+    "success": true,
+    "commands": 446,
+    "simulated_seconds": 158.388,
+    "command_duration_seconds": {
+      "mean": 0.35513004484304933,
+      "p50": 0.3520000000000003,
+      "p95": 0.4719999999999982,
+      "max": 0.5200000000000005
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009050634568870944,
+      "p50": 0.0006509973149147205,
+      "p95": 0.002309267545391184,
+      "max": 0.0041271879902451585
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0029404218695526503,
+      "p50": 0.0027506464009076346,
+      "p95": 0.005445183819127362,
+      "max": 0.009616262473677879
+    },
+    "planner_status_counts": {
+      "left:Success": 446,
+      "right:Success": 446
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.612
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.648
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.372
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.192
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 65.704
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 77.632
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 89.632
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 100.78
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 115.44
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 128.488
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 140.904
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 153.908
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_randomized",
+    "seed": 100100,
+    "success": true,
+    "commands": 418,
+    "simulated_seconds": 151.504,
+    "command_duration_seconds": {
+      "mean": 0.36244976076555024,
+      "p50": 0.3599999999999923,
+      "p95": 0.4680000000000035,
+      "max": 0.5079999999999956
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009274776684015986,
+      "p50": 0.0006740188240544699,
+      "p95": 0.0023242453418188445,
+      "max": 0.002981403486286052
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003052493481345627,
+      "p50": 0.002853757087465346,
+      "p95": 0.005760790706332732,
+      "max": 0.007218094311667945
+    },
+    "planner_status_counts": {
+      "left:Success": 418,
+      "right:Success": 418
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.548
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.576
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.576
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.12
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.496
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.392
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 92.144
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 104.872
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 118.08
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 130.76
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 143.992
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_randomized",
+    "seed": 100101,
+    "success": true,
+    "commands": 425,
+    "simulated_seconds": 157.86,
+    "command_duration_seconds": {
+      "mean": 0.3714352941176471,
+      "p50": 0.367999999999995,
+      "p95": 0.4759999999999998,
+      "max": 0.5240000000000009
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008985574821107316,
+      "p50": 0.0006579364238931777,
+      "p95": 0.002348561006196015,
+      "max": 0.003059246895934552
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003096204518108364,
+      "p50": 0.0028996477010537125,
+      "p95": 0.005577075444824859,
+      "max": 0.007657853788227194
+    },
+    "planner_status_counts": {
+      "left:Success": 425,
+      "right:Success": 425
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.336
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.664
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.36
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.176
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.82
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.52
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 92.676
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 105.472
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 120.756
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 133.78
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 147.572
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_randomized",
+    "seed": 100102,
+    "success": true,
+    "commands": 441,
+    "simulated_seconds": 158.812,
+    "command_duration_seconds": {
+      "mean": 0.3601179138321996,
+      "p50": 0.3480000000000132,
+      "p95": 0.4720000000000013,
+      "max": 0.5319999999999823
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009874513394489502,
+      "p50": 0.0006753953011856394,
+      "p95": 0.002602566031928052,
+      "max": 0.004500821149254342
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003099681396380265,
+      "p50": 0.002839820159957181,
+      "p95": 0.0058202646174947146,
+      "max": 0.008130091154595637
+    },
+    "planner_status_counts": {
+      "left:Success": 441,
+      "right:Success": 441
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.428
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.416
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.612
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 51.252
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 66.136
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 79.296
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 91.544
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 103.992
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 117.3
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 130.224
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 142.956
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 155.804
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_randomized",
+    "seed": 100104,
+    "success": true,
+    "commands": 427,
+    "simulated_seconds": 149.384,
+    "command_duration_seconds": {
+      "mean": 0.3498454332552693,
+      "p50": 0.3480000000000132,
+      "p95": 0.4519999999999982,
+      "max": 0.49600000000000044
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009304921706654798,
+      "p50": 0.0006525700022178726,
+      "p95": 0.0024406246800174943,
+      "max": 0.0028660557654704424
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.002979114688306274,
+      "p50": 0.0027400793507441857,
+      "p95": 0.005609249907143868,
+      "max": 0.0073269663096531545
+    },
+    "planner_status_counts": {
+      "left:Success": 427,
+      "right:Success": 427
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.696
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.576
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.66
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.456
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 65.48
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 77.436
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 90.008
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 101.696
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 114.328
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 126.076
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 138.892
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stack_bowls_three",
+    "condition": "demo_randomized",
+    "seed": 100107,
+    "success": true,
+    "commands": 433,
+    "simulated_seconds": 149.42,
+    "command_duration_seconds": {
+      "mean": 0.34508083140877593,
+      "p50": 0.3359999999999985,
+      "p95": 0.48000000000000187,
+      "max": 0.5480000000000018
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009079061168720046,
+      "p50": 0.0006275798297552954,
+      "p95": 0.002428230525949881,
+      "max": 0.003686100170790351
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.002957301316523452,
+      "p50": 0.002713037528659482,
+      "p95": 0.0055380197282457475,
+      "max": 0.007266726561843425
+    },
+    "planner_status_counts": {
+      "left:Success": 433,
+      "right:Success": 433
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.268
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.724
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.376
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 49.94
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 62.224
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 73.036
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 84.788
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 96.136
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 112.232
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 123.44
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 136.956
+      },
+      {
+        "query": 12,
+        "command_index": 432,
+        "sim_seconds": 149.136
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "success": true,
+    "commands": 139,
+    "simulated_seconds": 45.944,
+    "command_duration_seconds": {
+      "mean": 0.33053237410071945,
+      "p50": 0.31200000000000117,
+      "p95": 0.4480000000000004,
+      "max": 0.5919999999999987
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008375595382140223,
+      "p50": 0.0005998328334458323,
+      "p95": 0.0022957867160355973,
+      "max": 0.0026309855118221777
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0028255000676209487,
+      "p50": 0.0027180163619468295,
+      "p95": 0.005041538656148029,
+      "max": 0.006351086950780963
+    },
+    "planner_status_counts": {
+      "left:Success": 139,
+      "right:Success": 139
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.88
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.86
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 37.04
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_clean",
+    "seed": 100102,
+    "success": true,
+    "commands": 146,
+    "simulated_seconds": 51.672,
+    "command_duration_seconds": {
+      "mean": 0.35391780821917806,
+      "p50": 0.3420000000000005,
+      "p95": 0.4830000000000001,
+      "max": 0.671999999999997
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0027473462004156436,
+      "p50": 0.0006873502490686225,
+      "p95": 0.02102066218906712,
+      "max": 0.04497401327222504
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.00438585427947067,
+      "p50": 0.0031347917548315827,
+      "p95": 0.019041649328449373,
+      "max": 0.02969307563114563
+    },
+    "planner_status_counts": {
+      "left:Success": 146,
+      "right:Success": 123,
+      "right:Fail": 23
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.58
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 27.276
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 39.516
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 50.82
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_clean",
+    "seed": 100104,
+    "success": true,
+    "commands": 130,
+    "simulated_seconds": 44.932,
+    "command_duration_seconds": {
+      "mean": 0.34563076923076924,
+      "p50": 0.33999999999999997,
+      "p95": 0.46799999999999997,
+      "max": 0.5
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008826794764886604,
+      "p50": 0.0006352736751920162,
+      "p95": 0.002244476963486752,
+      "max": 0.003379065380273255
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0031278219988575494,
+      "p50": 0.003043176886191108,
+      "p95": 0.005494949965717336,
+      "max": 0.00736606579834237
+    },
+    "planner_status_counts": {
+      "left:Success": 130,
+      "right:Success": 130
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.976
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.02
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.308
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_clean",
+    "seed": 100105,
+    "success": true,
+    "commands": 147,
+    "simulated_seconds": 49.508,
+    "command_duration_seconds": {
+      "mean": 0.3367891156462585,
+      "p50": 0.32800000000000296,
+      "p95": 0.43879999999999975,
+      "max": 0.4560000000000004
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008862152499322251,
+      "p50": 0.0006184841544000274,
+      "p95": 0.0023938022514448346,
+      "max": 0.002907642607888037
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0031751573596882653,
+      "p50": 0.0028845774018020727,
+      "p95": 0.005846925586942206,
+      "max": 0.006978075415437159
+    },
+    "planner_status_counts": {
+      "left:Success": 147,
+      "right:Success": 147
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.292
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 24.86
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 36.456
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.616
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_clean",
+    "seed": 100108,
+    "success": true,
+    "commands": 136,
+    "simulated_seconds": 44.572,
+    "command_duration_seconds": {
+      "mean": 0.32773529411764707,
+      "p50": 0.30799999999999983,
+      "p95": 0.4580000000000011,
+      "max": 0.48800000000000043
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007807434298926728,
+      "p50": 0.0005359314032991102,
+      "p95": 0.002069052699479813,
+      "max": 0.0025651873951384515
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.002839344870183932,
+      "p50": 0.0027778845223866847,
+      "p95": 0.005123244646464203,
+      "max": 0.006511281522848354
+    },
+    "planner_status_counts": {
+      "left:Success": 136,
+      "right:Success": 136
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.82
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.492
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 36.376
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_randomized",
+    "seed": 100101,
+    "success": true,
+    "commands": 134,
+    "simulated_seconds": 45.1,
+    "command_duration_seconds": {
+      "mean": 0.3365671641791045,
+      "p50": 0.33199999999999896,
+      "p95": 0.47199999999999953,
+      "max": 0.5
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.000881003491827694,
+      "p50": 0.0006041706421638043,
+      "p95": 0.0024853800383194064,
+      "max": 0.002813766687536849
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0030485016362050434,
+      "p50": 0.0027986538181161797,
+      "p95": 0.005582489174073299,
+      "max": 0.006415326290972786
+    },
+    "planner_status_counts": {
+      "left:Success": 134,
+      "right:Success": 134
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.24
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.344
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 37.732
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_randomized",
+    "seed": 100103,
+    "success": true,
+    "commands": 126,
+    "simulated_seconds": 42.008,
+    "command_duration_seconds": {
+      "mean": 0.3333968253968254,
+      "p50": 0.32399999999999984,
+      "p95": 0.4670000000000001,
+      "max": 0.49599999999999955
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008949307171492705,
+      "p50": 0.0006103390441917053,
+      "p95": 0.0023682062381825252,
+      "max": 0.0029223577934462137
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003256160300453123,
+      "p50": 0.003155602564014196,
+      "p95": 0.006068481593154279,
+      "max": 0.007297381073074427
+    },
+    "planner_status_counts": {
+      "left:Success": 126,
+      "right:Success": 126
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.5
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.184
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 36.82
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_randomized",
+    "seed": 100104,
+    "success": true,
+    "commands": 138,
+    "simulated_seconds": 46.892,
+    "command_duration_seconds": {
+      "mean": 0.3397971014492754,
+      "p50": 0.3280000000000012,
+      "p95": 0.4766000000000008,
+      "max": 0.5
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008875489420775546,
+      "p50": 0.00059508904175716,
+      "p95": 0.0022858056792909335,
+      "max": 0.0026562084749587557
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003005260062504143,
+      "p50": 0.002901133003133175,
+      "p95": 0.005305565569924345,
+      "max": 0.006296490429084907
+    },
+    "planner_status_counts": {
+      "left:Success": 138,
+      "right:Success": 138
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.124
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.052
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 37.58
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_randomized",
+    "seed": 100106,
+    "success": true,
+    "commands": 139,
+    "simulated_seconds": 48.028,
+    "command_duration_seconds": {
+      "mean": 0.34552517985611503,
+      "p50": 0.33200000000000074,
+      "p95": 0.4724000000000004,
+      "max": 0.48799999999999955
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008660668177840604,
+      "p50": 0.0005707703837651384,
+      "p95": 0.002325301380612235,
+      "max": 0.002743604727931783
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0032666337373896256,
+      "p50": 0.0030926266980464525,
+      "p95": 0.006414755005133368,
+      "max": 0.007090051622377487
+    },
+    "planner_status_counts": {
+      "left:Success": 139,
+      "right:Success": 139
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.524
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.48
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.568
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "stamp_seal",
+    "condition": "demo_randomized",
+    "seed": 100107,
+    "success": true,
+    "commands": 133,
+    "simulated_seconds": 45.324,
+    "command_duration_seconds": {
+      "mean": 0.340781954887218,
+      "p50": 0.33200000000000074,
+      "p95": 0.4760000000000003,
+      "max": 0.48800000000000043
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008326737730939848,
+      "p50": 0.0005558678935041237,
+      "p95": 0.0024362230211152913,
+      "max": 0.0030560380822175805
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.002916791843432121,
+      "p50": 0.0027484668769746498,
+      "p95": 0.005271981539542326,
+      "max": 0.007036093953867635
+    },
+    "planner_status_counts": {
+      "left:Success": 133,
+      "right:Success": 133
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 15.38
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.78
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.068
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "success": false,
+    "commands": 400,
+    "simulated_seconds": 111.364,
+    "command_duration_seconds": {
+      "mean": 0.27841,
+      "p50": 0.26400000000000645,
+      "p95": 0.4199999999999983,
+      "max": 0.4919999999999991
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0006784304162740437,
+      "p50": 0.0005818240919209549,
+      "p95": 0.0014837137878744998,
+      "max": 0.002518609663905649
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0024505968262312754,
+      "p50": 0.002311267107115125,
+      "p95": 0.004484500992929944,
+      "max": 0.007029330842403698
+    },
+    "planner_status_counts": {
+      "left:Success": 400,
+      "right:Success": 400
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 12.252
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.792
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 35.564
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 44.692
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 54.06
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 63.26
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 72.556
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 81.668
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 90.916
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 100.512
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 110.148
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_clean",
+    "seed": 100101,
+    "success": true,
+    "commands": 64,
+    "simulated_seconds": 23.408,
+    "command_duration_seconds": {
+      "mean": 0.36575,
+      "p50": 0.3660000000000003,
+      "p95": 0.48280000000000134,
+      "max": 0.5360000000000014
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0008468460879026279,
+      "p50": 0.0006086714069796817,
+      "p95": 0.002200094026137999,
+      "max": 0.0027225439550031334
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.00318808900246169,
+      "p50": 0.003264278794885184,
+      "p95": 0.0051161002599680455,
+      "max": 0.008529443465781564
+    },
+    "planner_status_counts": {
+      "left:Success": 64,
+      "right:Success": 64
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 12.944
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_clean",
+    "seed": 100103,
+    "success": false,
+    "commands": 400,
+    "simulated_seconds": 125.592,
+    "command_duration_seconds": {
+      "mean": 0.31398,
+      "p50": 0.3120000000000003,
+      "p95": 0.41600000000000054,
+      "max": 0.5839999999999996
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0015369405832529914,
+      "p50": 0.00068851962928996,
+      "p95": 0.0019182609366222038,
+      "max": 0.06526719152138434
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.004443999267369079,
+      "p50": 0.002615085777509115,
+      "p95": 0.004847587320166419,
+      "max": 0.15411285367795663
+    },
+    "planner_status_counts": {
+      "left:Success": 400,
+      "right:Success": 400
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 11.456
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 26.032
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 38.12
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 48.752
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 59.624
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 70.568
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 80.82
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 90.74
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 102.672
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 113.968
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 124.304
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_clean",
+    "seed": 100104,
+    "success": false,
+    "commands": 400,
+    "simulated_seconds": 114.02,
+    "command_duration_seconds": {
+      "mean": 0.28504999999999997,
+      "p50": 0.27599999999999625,
+      "p95": 0.4202000000000016,
+      "max": 0.5640000000000001
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0017183986695882114,
+      "p50": 0.0006805774633688628,
+      "p95": 0.005515056357853253,
+      "max": 0.007492702760866087
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.006699662785898539,
+      "p50": 0.003086076979491971,
+      "p95": 0.020839728439835503,
+      "max": 0.03203034058246577
+    },
+    "planner_status_counts": {
+      "left:Success": 400,
+      "right:Success": 400
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 12.696
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.528
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 35.304
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 45.06
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 54.608
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 64.48
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 74.388
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 83.848
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 93.636
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 103.104
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 112.876
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_clean",
+    "seed": 100106,
+    "success": false,
+    "commands": 400,
+    "simulated_seconds": 114.184,
+    "command_duration_seconds": {
+      "mean": 0.28546,
+      "p50": 0.27199999999999847,
+      "p95": 0.41599999999999715,
+      "max": 0.6039999999999992
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007379889971468507,
+      "p50": 0.0006498573149406682,
+      "p95": 0.0015822279191805432,
+      "max": 0.0023990104536575564
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.0024265697079792954,
+      "p50": 0.0022752415383918883,
+      "p95": 0.004388043601518648,
+      "max": 0.00621904933924459
+    },
+    "planner_status_counts": {
+      "left:Success": 400,
+      "right:Success": 400
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 12.5
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.684
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 35.8
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 45.752
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 55.028
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 64.648
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 74.536
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 83.844
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 93.284
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 102.776
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 112.92
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_randomized",
+    "seed": 100100,
+    "success": true,
+    "commands": 86,
+    "simulated_seconds": 102.836,
+    "command_duration_seconds": {
+      "mean": 1.1957674418604651,
+      "p50": 0.40999999999999837,
+      "p95": 3.5510000000000055,
+      "max": 4.152000000000001
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0030974725110044826,
+      "p50": 0.0005540561784004178,
+      "p95": 0.023965685431614116,
+      "max": 0.03183770204799053
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.013719153003511871,
+      "p50": 0.0032134294568422032,
+      "p95": 0.08544715848679012,
+      "max": 0.32128947223404214
+    },
+    "planner_status_counts": {
+      "left:Success": 83,
+      "right:Success": 86,
+      "left:Fail": 3
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 11.888
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 54.192
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_randomized",
+    "seed": 100103,
+    "success": true,
+    "commands": 72,
+    "simulated_seconds": 25.36,
+    "command_duration_seconds": {
+      "mean": 0.3522222222222222,
+      "p50": 0.3340000000000001,
+      "p95": 0.5138000000000003,
+      "max": 0.6319999999999997
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0007406029339180084,
+      "p50": 0.0005453074197274536,
+      "p95": 0.0018339270611752285,
+      "max": 0.0018968095183504881
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003238468357751459,
+      "p50": 0.0030490920480967503,
+      "p95": 0.0061701949584416155,
+      "max": 0.006619188378961306
+    },
+    "planner_status_counts": {
+      "left:Success": 72,
+      "right:Success": 72
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 12.352
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_randomized",
+    "seed": 100104,
+    "success": true,
+    "commands": 57,
+    "simulated_seconds": 20.908,
+    "command_duration_seconds": {
+      "mean": 0.3668070175438596,
+      "p50": 0.35599999999999987,
+      "p95": 0.4672000000000018,
+      "max": 0.5120000000000005
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0009177124245202668,
+      "p50": 0.0004847362427281226,
+      "p95": 0.002304617926382669,
+      "max": 0.008818411294701765
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.003956974945620465,
+      "p50": 0.0029808786069662396,
+      "p95": 0.006110898919995004,
+      "max": 0.041420023793358594
+    },
+    "planner_status_counts": {
+      "left:Success": 57,
+      "right:Success": 57
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 12.304
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_randomized",
+    "seed": 100107,
+    "success": true,
+    "commands": 53,
+    "simulated_seconds": 25.112,
+    "command_duration_seconds": {
+      "mean": 0.47381132075471694,
+      "p50": 0.4599999999999991,
+      "p95": 0.6879999999999995,
+      "max": 0.791999999999998
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0012740545998269604,
+      "p50": 0.0005248848062371183,
+      "p95": 0.0016674373872979657,
+      "max": 0.041113672844088484
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.008249458281225952,
+      "p50": 0.0034821863061364586,
+      "p95": 0.006576096890487252,
+      "max": 0.3736937158291372
+    },
+    "planner_status_counts": {
+      "left:Success": 53,
+      "right:Success": 53
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 14.628
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_randomized",
+    "seed": 100108,
+    "success": false,
+    "commands": 400,
+    "simulated_seconds": 115.584,
+    "command_duration_seconds": {
+      "mean": 0.28896,
+      "p50": 0.28000000000000114,
+      "p95": 0.41619999999999857,
+      "max": 0.5120000000000005
+    },
+    "eef_target_vs_realized_position_m": {
+      "mean": 0.0010530179979942433,
+      "p50": 0.0006619902067896001,
+      "p95": 0.003402718700655508,
+      "max": 0.008298833083596935
+    },
+    "eef_target_vs_realized_orientation_rad": {
+      "mean": 0.004258268184205677,
+      "p50": 0.0025116523404744504,
+      "p95": 0.02035472417500195,
+      "max": 0.04947110665394606
+    },
+    "planner_status_counts": {
+      "left:Success": 400,
+      "right:Success": 400
+    },
+    "query_times": [
+      {
+        "query": 0,
+        "command_index": 0,
+        "sim_seconds": 0.0
+      },
+      {
+        "query": 1,
+        "command_index": 36,
+        "sim_seconds": 12.628
+      },
+      {
+        "query": 2,
+        "command_index": 72,
+        "sim_seconds": 25.696
+      },
+      {
+        "query": 3,
+        "command_index": 108,
+        "sim_seconds": 35.572
+      },
+      {
+        "query": 4,
+        "command_index": 144,
+        "sim_seconds": 46.5
+      },
+      {
+        "query": 5,
+        "command_index": 180,
+        "sim_seconds": 56.488
+      },
+      {
+        "query": 6,
+        "command_index": 216,
+        "sim_seconds": 66.452
+      },
+      {
+        "query": 7,
+        "command_index": 252,
+        "sim_seconds": 75.796
+      },
+      {
+        "query": 8,
+        "command_index": 288,
+        "sim_seconds": 85.492
+      },
+      {
+        "query": 9,
+        "command_index": 324,
+        "sim_seconds": 95.236
+      },
+      {
+        "query": 10,
+        "command_index": 360,
+        "sim_seconds": 104.82
+      },
+      {
+        "query": 11,
+        "command_index": 396,
+        "sim_seconds": 114.468
+      }
+    ],
+    "interpretation": "Descriptive end-of-planner tracking/progress; not a causal attribution or future-state target."
+  }
+]

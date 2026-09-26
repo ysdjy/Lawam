@@ -1,0 +1,1 @@
+v1/v2 template/keyword matching assigned generic instruction phrases to wrong tasks (e.g. switch arms). Excluded from conclusions. Replaced by explicit manually inspected episode manifest; task_index is not a canonical environment ID.

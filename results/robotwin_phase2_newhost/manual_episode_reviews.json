@@ -1,0 +1,458 @@
+[
+  {
+    "task": "open_microwave",
+    "condition": "demo_clean",
+    "seed": 100103,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png",
+      "query_rgb/0028_head.png (archived first attempt, nonterminal only)"
+    ],
+    "video": "episodes/open_microwave__demo_clean__100103/video.mp4",
+    "trace": "episodes/open_microwave__demo_clean__100103/physical_trace.jsonl.zst",
+    "evidence": {
+      "commands": 1500,
+      "final_qpos_rad": 0.31177785992622375,
+      "success_threshold_rad": 0.942477822303772,
+      "left_planner_success": 1500,
+      "right_planner_success": 1500,
+      "mean_eef_target_error_m": 0.0007513842992943254,
+      "object_link_left_robot_contacts_at_action_ends": "commands45..352, 308 sampled endpoints; no such contacts at later command endpoints"
+    },
+    "interpretation": "Door initially moves, then articulation stalls and gripper is visibly clear of handle at terminal. Low endpoint tracking error with all planners Success argues against gross target execution failure in this episode. Contact maintenance, geometry/orientation relative to hinge and progress awareness are relevant hypotheses.",
+    "limits": "One completed failure; contact events at intermediate physics ticks need separate analysis. Does not establish causal benefit of TCP information; visual noise/version differences remain. Archived aborted attempt excluded from policy SR.",
+    "time_unix": 1790337654.127758
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_clean",
+    "seed": 100108,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png"
+    ],
+    "video": "episodes/open_microwave__demo_clean__100108/video.mp4",
+    "trace": "episodes/open_microwave__demo_clean__100108/physical_trace.jsonl.zst",
+    "evidence": {
+      "commands": 1500,
+      "final_qpos_rad": 9.221934305969626e-06,
+      "peak_qpos_rad": 0.054825980216264725,
+      "success_threshold_rad": 0.942477822303772,
+      "planner_status_counts": {
+        "left:Success": 1500,
+        "right:Success": 1500
+      },
+      "eef_target_tracking": {
+        "mean": 0.0007871446181765062,
+        "p50": 0.0005433373589904572,
+        "p95": 0.0017822419797106637,
+        "max": 0.011957150958867591
+      }
+    },
+    "interpretation": "Very little hinge progress and closed door at terminal, gripper visibly clear of handle. All planner calls Success and small endpoint position errors. Grasp acquisition/maintenance and object-relative geometry plausible; precise cause requires early video/contact review.",
+    "limits": "Not evidence that adding TCP position alone improves success; orientation/contact/visual perception remain alternatives.",
+    "time_unix": 1790338123.72788
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png",
+      "query_rgb/0007_head.png"
+    ],
+    "evidence": {
+      "final_predicate_details": {
+        "mug_functional_point": [
+          0.2682520777911043,
+          0.2151454999410719,
+          0.7670457567633451,
+          0.8755685267320602,
+          0.08245186944891532,
+          0.13857717217644128,
+          -0.45538753998348397
+        ],
+        "rack_functional_point": [
+          0.24695365282703347,
+          0.12216635444999606,
+          0.9355460249836451,
+          0.1285150528487531,
+          -0.8694969742886101,
+          -0.3672743001213657,
+          -0.30425068835517105
+        ],
+        "rack_middle": [
+          0.2696847401698873,
+          0.14553982962787584,
+          0.8382730108228925
+        ]
+      },
+      "planner_status_counts": {
+        "left:Success": 900,
+        "right:Success": 900
+      },
+      "eef_target_tracking": {
+        "mean": 0.0015038578717267526,
+        "p50": 0.0007887586420836819,
+        "p95": 0.004812454863101979,
+        "max": 0.022420826046574836
+      }
+    },
+    "interpretation": "Left grasp/reorient and right pickup occur; right hand carries mug above table then releases near rack, terminal mug lies on table beside rack. Hanging geometry/orientation/release timing plausible.",
+    "limits": "Stage hypothesis from query RGB and action-end physical trace; not causal proof of missing TCP. Native predicate lacks stable-hang requirement.",
+    "trace": "episodes/hanging_mug__demo_clean__100100/physical_trace.jsonl.zst",
+    "video": "episodes/hanging_mug__demo_clean__100100/video.mp4",
+    "unix": 1790345203.9107277
+  },
+  {
+    "task": "hanging_mug",
+    "condition": "demo_clean",
+    "seed": 100102,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png",
+      "query_rgb/0004_head.png"
+    ],
+    "evidence": {
+      "final_predicate_details": {
+        "mug_functional_point": [
+          -0.24326085721337337,
+          -1.620895346920366,
+          0.01601368812195312,
+          0.16954454206874767,
+          -0.6528612169503349,
+          0.7223001891407285,
+          0.1526738891366006
+        ],
+        "rack_functional_point": [
+          0.16671288623896893,
+          0.10043619484544508,
+          0.935546001791954,
+          0.11194114464615859,
+          -0.8880167379888099,
+          -0.3199088717107674,
+          -0.31073102031783856
+        ],
+        "rack_middle": [
+          0.1918262795333448,
+          0.12122894034207221,
+          0.838272999227047
+        ]
+      },
+      "planner_status_counts": {
+        "left:Success": 900,
+        "right:Success": 900
+      },
+      "eef_target_tracking": {
+        "mean": 0.001200632356961056,
+        "p50": 0.0006822787895675833,
+        "p95": 0.0021843253184866884,
+        "max": 0.04212798289570122
+      }
+    },
+    "interpretation": "Both arms pick up mug at different phases; after right pickup near rack, terminal mug is outside table on ground (z about0.016). Failed final placement/release, not simple inability to approach mug.",
+    "limits": "Stage hypothesis from query RGB and action-end physical trace; not causal proof of missing TCP. Native predicate lacks stable-hang requirement.",
+    "trace": "episodes/hanging_mug__demo_clean__100102/physical_trace.jsonl.zst",
+    "video": "episodes/hanging_mug__demo_clean__100102/video.mp4",
+    "unix": 1790345203.914147
+  },
+  {
+    "task": "turn_switch",
+    "condition": "demo_clean",
+    "seed": 100100,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png"
+    ],
+    "evidence": {
+      "articulation": {
+        "pose_world": [
+          -0.16625086963176727,
+          0.09018795192241669,
+          0.8128769397735596,
+          0.7123441100120544,
+          0.0,
+          0.0,
+          0.7018303871154785
+        ],
+        "qpos": [
+          0.0678137019276619
+        ],
+        "qlimits": [
+          [
+            0.0,
+            0.22689279913902283
+          ]
+        ]
+      },
+      "planner_status_counts": {
+        "left:Success": 400,
+        "right:Success": 400
+      },
+      "eef_target_tracking": {
+        "mean": 0.0006784304162740437,
+        "p50": 0.0005818240919209549,
+        "p95": 0.0014837137878744998,
+        "max": 0.002518609663905649
+      }
+    },
+    "interpretation": "Switch remains below its own joint-limit-based success threshold despite accurate EEF target tracking. Contact location/direction, tool orientation and achieved articulation progress are plausible diagnosis variables.",
+    "limits": "One reviewed episode; low endpoint error does not prove correct contact geometry. Need per-asset qlimit, not a universal qpos threshold.",
+    "trace": "episodes/turn_switch__demo_clean__100100/physical_trace.jsonl.zst",
+    "video": "episodes/turn_switch__demo_clean__100100/video.mp4",
+    "unix": 1790348676.6402926
+  },
+  {
+    "task": "place_can_basket",
+    "condition": "demo_clean",
+    "seed": 100101,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png"
+    ],
+    "evidence": {
+      "final_predicate_details": {
+        "can_contact_table": false,
+        "can_contact_basket": false,
+        "basket_axis": [
+          -0.07536011934280396,
+          -0.037320852279663086,
+          0.9964576959609985
+        ],
+        "can_basket_l1_distance": 2.192497968673706
+      },
+      "can_pose": [
+        -0.4838593602180481,
+        -1.0141658782958984,
+        0.09566839784383774,
+        0.2172040492296219,
+        -0.225866436958313,
+        -0.6754891276359558,
+        0.6674739122390747
+      ],
+      "basket_pose": [
+        0.06246393173933029,
+        -0.06738180667161942,
+        0.7950590252876282,
+        0.46529456973075867,
+        0.4413350224494934,
+        0.5146267414093018,
+        0.5691080093383789
+      ],
+      "planner_status_counts": {
+        "left:Success": 700,
+        "right:Success": 700
+      },
+      "eef_target_tracking": {
+        "mean": 0.001079653811679212,
+        "p50": 0.0008292163921205047,
+        "p95": 0.0026898359636922807,
+        "max": 0.0033728226771302166
+      }
+    },
+    "interpretation": "Can rises above basket by query3, then drops outside table by query4 after gripper opens. Policy still grasps/lifts basket. Future object state, contact and release geometry plausibly relevant.",
+    "limits": "Not a causal attribution to TCP position alone; video plus measured object trajectory indicate object-outcome mismatch.",
+    "trace": "episodes/place_can_basket__demo_clean__100101/physical_trace.jsonl.zst",
+    "video": "episodes/place_can_basket__demo_clean__100101/video.mp4",
+    "unix": 1790352166.2238033
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_randomized",
+    "seed": 100100,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "query_rgb/0030_head.png",
+      "final_head.png"
+    ],
+    "evidence": {
+      "final_predicate_details": {
+        "layer2_delta": [
+          0.08377999812364578,
+          0.009266108274459839,
+          -2.384185791015625e-07
+        ],
+        "layer3_delta": [
+          0.08676766604185104,
+          0.01042291522026062,
+          5.960464477539063e-08
+        ]
+      },
+      "planner_status_counts": {
+        "left:Success": 1200,
+        "right:Success": 1200
+      },
+      "eef_target_tracking": {
+        "mean": 0.0007221668326646641,
+        "p50": 0.0005386008898764277,
+        "p95": 0.0021454801333607126,
+        "max": 0.0031641963725975272
+      }
+    },
+    "interpretation": "All blocks transported but placed in a horizontal row. Green approaches red with >6cm XY offset while above it; final adjacent offsets about8-9cm and height differences approximately0, versus target5cm. Clear object-relative geometric goal error.",
+    "limits": "Perception, language interpretation and frame alignment remain alternatives; does not show simple action execution error or prove TCP-token benefit.",
+    "trace": "episodes/stack_blocks_three__demo_randomized__100100/physical_trace.jsonl.gz",
+    "video": "episodes/stack_blocks_three__demo_randomized__100100/video.mp4",
+    "unix": 1790355028.1394188
+  },
+  {
+    "task": "stack_blocks_three",
+    "condition": "demo_randomized",
+    "seed": 100104,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png"
+    ],
+    "evidence": {
+      "final_predicate_details": {
+        "layer2_delta": [
+          -0.10039936751127243,
+          -0.08488239347934723,
+          0.0
+        ],
+        "layer3_delta": [
+          0.23415005207061768,
+          -0.9689310789108276,
+          -0.7126471400260925
+        ]
+      },
+      "object_positions": {
+        "block1": [
+          0.09418892860412598,
+          -0.17659614980220795,
+          0.737646758556366
+        ],
+        "block2": [
+          -0.0062104398384690285,
+          -0.2614785432815552,
+          0.737646758556366
+        ],
+        "block3": [
+          0.22793960571289062,
+          -1.2304096221923828,
+          0.024999625980854034
+        ]
+      },
+      "planner_status_counts": {
+        "left:Success": 1200,
+        "right:Success": 1200
+      },
+      "eef_target_tracking": {
+        "mean": 0.0015258705783857637,
+        "p50": 0.000694698942994582,
+        "p95": 0.002763285956446975,
+        "max": 0.0391633871205806
+      }
+    },
+    "interpretation": "Final red/green blocks remain on table with about10cm horizontal displacement, blue block has fallen off table. Target tracking usually small but occasional3.9cm error; inspect stage-specific contact and release before assigning cause.",
+    "limits": "Mixture of placement error and object loss; not proof of solely TCP insufficiency.",
+    "trace": "episodes/stack_blocks_three__demo_randomized__100104/physical_trace.jsonl.gz",
+    "video": "episodes/stack_blocks_three__demo_randomized__100104/video.mp4",
+    "unix": 1790356682.4165845
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_randomized",
+    "seed": 100102,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png"
+    ],
+    "evidence": {
+      "articulation": {
+        "pose_world": [
+          -0.09179041534662247,
+          0.19034060835838318,
+          0.8382147550582886,
+          0.707064688205719,
+          1.4730228940607049e-05,
+          1.3945243154012132e-05,
+          0.7071488499641418
+        ],
+        "qpos": [
+          0.08417240530252457
+        ],
+        "qlimits": [
+          [
+            0.0,
+            1.5707963705062866
+          ]
+        ]
+      },
+      "peak_qpos": 0.11346256732940674,
+      "planner_status_counts": {
+        "left:Success": 1500,
+        "right:Success": 1500
+      },
+      "eef_target_tracking": {
+        "mean": 0.0007281181852646255,
+        "p50": 0.0005612702875612283,
+        "p95": 0.0017172239200724092,
+        "max": 0.004523918912900383
+      }
+    },
+    "interpretation": "Door remains partly closed; terminal gripper clear of handle. Achieved hinge progress stalls well below native60percent threshold despite small commanded-to-realized EEF error.",
+    "limits": "Contact acquisition/maintenance and hinge-relative pose plausible; not proof that position-only TCP input solves failure.",
+    "trace": "episodes/open_microwave__demo_randomized__100102/physical_trace.jsonl.zst",
+    "video": "episodes/open_microwave__demo_randomized__100102/video.mp4",
+    "unix": 1790358871.6595764
+  },
+  {
+    "task": "open_microwave",
+    "condition": "demo_randomized",
+    "seed": 100106,
+    "outcome": "completed_failure",
+    "reviewed_images": [
+      "final_head.png"
+    ],
+    "evidence": {
+      "articulation": {
+        "pose_world": [
+          -0.06017271429300308,
+          0.1636822521686554,
+          0.8451859951019287,
+          0.706953227519989,
+          1.9488498992359382e-07,
+          3.8576208893914554e-09,
+          0.7072603702545166
+        ],
+        "qpos": [
+          0.48387718200683594,
+          2.7505478783496073e-07,
+          0.12369296699762344
+        ],
+        "qlimits": [
+          [
+            0.0,
+            1.5707963705062866
+          ],
+          [
+            -Infinity,
+            Infinity
+          ],
+          [
+            -Infinity,
+            Infinity
+          ]
+        ]
+      },
+      "peak_qpos": 0.5175102353096008,
+      "planner_status_counts": {
+        "left:Success": 1500,
+        "right:Success": 1500
+      },
+      "eef_target_tracking": {
+        "mean": 0.0007125542372730497,
+        "p50": 0.0005725293939355201,
+        "p95": 0.00174398239758565,
+        "max": 0.0035882913388432967
+      }
+    },
+    "interpretation": "Door remains partly closed; terminal gripper clear of handle. Achieved hinge progress stalls well below native60percent threshold despite small commanded-to-realized EEF error.",
+    "limits": "Contact acquisition/maintenance and hinge-relative pose plausible; not proof that position-only TCP input solves failure.",
+    "trace": "episodes/open_microwave__demo_randomized__100106/physical_trace.jsonl.zst",
+    "video": "episodes/open_microwave__demo_randomized__100106/video.mp4",
+    "unix": 1790358871.6634915
+  }
+]

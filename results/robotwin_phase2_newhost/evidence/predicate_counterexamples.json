@@ -1,0 +1,20 @@
+[
+  {
+    "task": "stack_bowls_three",
+    "predicate_result": true,
+    "case": "Aligned bowl origins below tabletop; signed height errors pass without lower bound.",
+    "evidence_type": "counterfactual predicate unit check; not a physical rollout or success-rate observation"
+  },
+  {
+    "task": "stamp_seal",
+    "predicate_result": true,
+    "case": "Seal 45.9 cm above target, XY equal and both gripper commands open; no contact requirement.",
+    "evidence_type": "counterfactual predicate unit check; not a physical rollout or success-rate observation"
+  },
+  {
+    "task": "hanging_mug",
+    "predicate_result": true,
+    "case": "Mug functional point 60 cm above rack functional point; XY aligned, right command open.",
+    "evidence_type": "counterfactual predicate unit check; not a physical rollout or success-rate observation"
+  }
+]

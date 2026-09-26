@@ -1,0 +1,52 @@
+HTTP_RANGE 3737778527 3737778548
+RANGE_ATTEMPT 3737778527 3737778548 0 EXIT 0
+HTTP_RANGE 3737778507 3737778526
+RANGE_ATTEMPT 3737778507 3737778526 0 EXIT 0
+HTTP_RANGE 3736521413 3737778526
+RANGE_ATTEMPT 3736521413 3737778526 0 EXIT 0
+{"url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/objects.zip", "compressed_archive_bytes": 3737778549, "total_uncompressed_bytes": 4636111726, "selected_uncompressed_bytes": 1430607264}
+HTTP_RANGE 3648 65008129
+RANGE_ATTEMPT 3648 65008129 0 EXIT 0
+HTTP_RANGE 65007890 69714660
+RANGE_ATTEMPT 65007890 69714660 0 EXIT 0
+HTTP_RANGE 89357538 98213816
+RANGE_ATTEMPT 89357538 98213816 0 EXIT 0
+HTTP_RANGE 148235819 211774671
+RANGE_ATTEMPT 148235819 211774671 0 EXIT 0
+HTTP_RANGE 211774432 275710664
+RANGE_ATTEMPT 211774432 275710664 0 EXIT 0
+HTTP_RANGE 275710425 338699932
+RANGE_ATTEMPT 275710425 338699932 0 EXIT 0
+HTTP_RANGE 338699677 402510077
+RANGE_ATTEMPT 338699677 402510077 0 EXIT 0
+HTTP_RANGE 402509822 467765905
+RANGE_ATTEMPT 402509822 467765905 0 EXIT 0
+HTTP_RANGE 467765666 531673455
+RANGE_ATTEMPT 467765666 531673455 0 EXIT 0
+HTTP_RANGE 531673216 596468303
+RANGE_ATTEMPT 531673216 596468303 0 EXIT 0
+HTTP_RANGE 596468064 663264479
+RANGE_ATTEMPT 596468064 663264479 0 EXIT 0
+HTTP_RANGE 663264240 729001334
+RANGE_ATTEMPT 663264240 729001334 0 EXIT 0
+HTTP_RANGE 729001095 792104910
+RANGE_ATTEMPT 729001095 792104910 0 EXIT 0
+HTTP_RANGE 792104671 824330110
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to huggingface.co:443 
+RANGE_ATTEMPT 792104671 824330110 0 EXIT 35
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to huggingface.co:443 
+RANGE_ATTEMPT 792104671 824330110 1 EXIT 35
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to huggingface.co:443 
+RANGE_ATTEMPT 792104671 824330110 2 EXIT 35
+Traceback (most recent call last):
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/experiments/physics_poc/asset_zip.py", line 79, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/experiments/physics_poc/asset_zip.py", line 63, in main
+    remote.seek(low);remote.cache.append((low,remote.read(min(high,remote.size)-low)))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/experiments/physics_poc/asset_zip.py", line 34, in read
+    result.check_returncode()
+  File "/home/zbh/anaconda3/lib/python3.11/subprocess.py", line 502, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['curl', '--fail', '--silent', '--show-error', '--location', '--max-time', '60', '--max-filesize', '32225440', '--range', '792104671-824330110', '--dump-header', '/tmp/robotwin_zip_v9fce5bc/headers', '--output', '/tmp/robotwin_zip_v9fce5bc/range', 'https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/objects.zip?range_start=792104671']' returned non-zero exit status 35.

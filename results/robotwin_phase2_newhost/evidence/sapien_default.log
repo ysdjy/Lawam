@@ -1,0 +1,46 @@
+/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/sapien_gate.py:17: DeprecationWarning: Engine is deprecated. use sapien.Scene() directly.
+  engine = sapien.Engine()
+/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/sapien_gate.py:18: DeprecationWarning: SapienRenderer is no no longer needed.
+  renderer = sapien.SapienRenderer()
+/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/sapien_gate.py:34: DeprecationWarning: component.set_pose can be ambiguous thus deprecated. It is equivalent to component.set_entity_pose, which should be used instead
+  camera.set_pose(sapien.Pose([-1, 0, 0.3]))
+{"frame": 0, "mean": 0.776050329208374, "std": 0.10571953654289246}
+{"frame": 1, "mean": 0.7761829495429993, "std": 0.10547781735658646}
+{"frame": 2, "mean": 0.7767369151115417, "std": 0.10446054488420486}
+{"frame": 3, "mean": 0.7767369151115417, "std": 0.10446055978536606}
+{"frame": 4, "mean": 0.7761666178703308, "std": 0.10550744086503983}
+{"frame": 5, "mean": 0.7767369151115417, "std": 0.10446057468652725}
+{"frame": 6, "mean": 0.7767369151115417, "std": 0.10446059703826904}
+{"frame": 7, "mean": 0.7767369151115417, "std": 0.10446061193943024}
+{"frame": 8, "mean": 0.776759684085846, "std": 0.10441846400499344}
+{"frame": 9, "mean": 0.7767369151115417, "std": 0.10446061939001083}
+{"frame": 10, "mean": 0.7767369151115417, "std": 0.10446062684059143}
+{"frame": 11, "mean": 0.776759684085846, "std": 0.10441848635673523}
+{"frame": 12, "mean": 0.7767369151115417, "std": 0.10446064174175262}
+{"frame": 13, "mean": 0.7767369151115417, "std": 0.10446064174175262}
+{"frame": 14, "mean": 0.7767369151115417, "std": 0.10446064174175262}
+{"frame": 15, "mean": 0.776759684085846, "std": 0.10441850870847702}
+{"frame": 16, "mean": 0.7767369151115417, "std": 0.10446065664291382}
+{"frame": 17, "mean": 0.7767369151115417, "std": 0.10446065664291382}
+{"frame": 18, "mean": 0.776759684085846, "std": 0.10441850870847702}
+{"frame": 19, "mean": 0.7767369151115417, "std": 0.10446066409349442}
+{"frame": 20, "mean": 0.7767369151115417, "std": 0.10446066409349442}
+{"frame": 21, "mean": 0.7767369151115417, "std": 0.10446066409349442}
+{"frame": 22, "mean": 0.776759684085846, "std": 0.10441850870847702}
+{"frame": 23, "mean": 0.7767369151115417, "std": 0.10446065664291382}
+{"frame": 24, "mean": 0.7767369151115417, "std": 0.10446065664291382}
+{"frame": 25, "mean": 0.776759684085846, "std": 0.10441850870847702}
+{"frame": 26, "mean": 0.7767369151115417, "std": 0.10446064174175262}
+{"frame": 27, "mean": 0.7767369151115417, "std": 0.10446064174175262}
+{"frame": 28, "mean": 0.7767369151115417, "std": 0.10446064174175262}
+{"frame": 29, "mean": 0.776759684085846, "std": 0.10441848635673523}
+{"frame": 30, "mean": 0.7767369151115417, "std": 0.10446062684059143}
+{"frame": 31, "mean": 0.7767369747161865, "std": 0.10446061939001083}
+{"frame": 32, "mean": 0.7767598032951355, "std": 0.10441846400499344}
+{"frame": 33, "mean": 0.7767369747161865, "std": 0.10446061193943024}
+{"frame": 34, "mean": 0.7767369747161865, "std": 0.10446059703826904}
+{"frame": 35, "mean": 0.7767369747161865, "std": 0.10446057468652725}
+{"frame": 36, "mean": 0.7761666178703308, "std": 0.10550744086503983}
+{"frame": 37, "mean": 0.7767369747161865, "std": 0.10446056723594666}
+{"frame": 38, "mean": 0.7767369151115417, "std": 0.10446054488420486}
+{"frame": 39, "mean": 0.7761828899383545, "std": 0.10547781735658646}

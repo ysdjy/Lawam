@@ -1,0 +1,4 @@
+  File "<string>", line 1
+    import importlib.metadata as m; print("\n".join(sorted(f"{x.metadata["Name"]}=={x.version}" for x in m.distributions())))
+                                                                          ^^^^
+SyntaxError: f-string: unmatched '['

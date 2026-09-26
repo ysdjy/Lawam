@@ -1,0 +1,58 @@
+HTTP_RANGE 10970687005 10970687026
+RANGE_ATTEMPT 10970687005 10970687026 0 EXIT 0
+HTTP_RANGE 10970686985 10970687004
+RANGE_ATTEMPT 10970686985 10970687004 0 EXIT 0
+HTTP_RANGE 10970686929 10970686984
+RANGE_ATTEMPT 10970686929 10970686984 0 EXIT 0
+HTTP_RANGE 10969484758 10970686928
+RANGE_ATTEMPT 10969484758 10970686928 0 EXIT 0
+{"url": "https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/background_texture.zip", "compressed_archive_bytes": 10970687027, "total_uncompressed_bytes": 11025457080, "selected_uncompressed_bytes": 1014785866}
+HTTP_RANGE 9959841288 10026917254
+RANGE_ATTEMPT 9959841288 10026917254 0 EXIT 0
+HTTP_RANGE 10026916991 10093990197
+RANGE_ATTEMPT 10026916991 10093990197 0 EXIT 0
+HTTP_RANGE 10093989934 10160068738
+RANGE_ATTEMPT 10093989934 10160068738 0 EXIT 0
+HTTP_RANGE 10160068475 10226494672
+RANGE_ATTEMPT 10160068475 10226494672 0 EXIT 0
+HTTP_RANGE 10226494409 10293085403
+RANGE_ATTEMPT 10226494409 10293085403 0 EXIT 0
+HTTP_RANGE 10293085140 10359812266
+RANGE_ATTEMPT 10293085140 10359812266 0 EXIT 0
+HTTP_RANGE 10359812003 10426508103
+RANGE_ATTEMPT 10359812003 10426508103 0 EXIT 0
+HTTP_RANGE 10426507840 10492318500
+RANGE_ATTEMPT 10426507840 10492318500 0 EXIT 0
+HTTP_RANGE 10492318237 10558954587
+RANGE_ATTEMPT 10492318237 10558954587 0 EXIT 0
+HTTP_RANGE 10558954324 10625242782
+RANGE_ATTEMPT 10558954324 10625242782 0 EXIT 0
+HTTP_RANGE 10625242519 10691378822
+RANGE_ATTEMPT 10625242519 10691378822 0 EXIT 0
+HTTP_RANGE 10691378559 10757871112
+RANGE_ATTEMPT 10691378559 10757871112 0 EXIT 0
+HTTP_RANGE 10757870849 10824322127
+RANGE_ATTEMPT 10757870849 10824322127 0 EXIT 0
+HTTP_RANGE 10824321864 10891193864
+RANGE_ATTEMPT 10824321864 10891193864 0 EXIT 0
+HTTP_RANGE 10891193601 10957852236
+RANGE_ATTEMPT 10891193601 10957852236 0 EXIT 0
+HTTP_RANGE 10957851973 10969485021
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to huggingface.co:443 
+RANGE_ATTEMPT 10957851973 10969485021 0 EXIT 35
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to huggingface.co:443 
+RANGE_ATTEMPT 10957851973 10969485021 1 EXIT 35
+curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to huggingface.co:443 
+RANGE_ATTEMPT 10957851973 10969485021 2 EXIT 35
+Traceback (most recent call last):
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/experiments/physics_poc/asset_zip.py", line 79, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/experiments/physics_poc/asset_zip.py", line 63, in main
+    remote.seek(low);remote.cache.append((low,remote.read(min(high,remote.size)-low)))
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/experiments/physics_poc/asset_zip.py", line 34, in read
+    result.check_returncode()
+  File "/home/zbh/anaconda3/lib/python3.11/subprocess.py", line 502, in check_returncode
+    raise CalledProcessError(self.returncode, self.args, self.stdout,
+subprocess.CalledProcessError: Command '['curl', '--fail', '--silent', '--show-error', '--location', '--max-time', '60', '--max-filesize', '11633049', '--range', '10957851973-10969485021', '--dump-header', '/tmp/robotwin_zip_o6qrt0bm/headers', '--output', '/tmp/robotwin_zip_o6qrt0bm/range', 'https://huggingface.co/datasets/TianxingChen/RoboTwin2.0/resolve/3dc3b798668feb99ac61cc9086d84cbcc3d79186/background_texture.zip?range_start=10957851973']' returned non-zero exit status 35.

@@ -1,0 +1,83 @@
+{
+  "status": "stage_B_screening_running",
+  "vulkan": "passed_nvidia",
+  "sapien_rgb": "40-frame gates and 1800x3-camera RT-none stress gate passed",
+  "closed_loop": "passed: official checkpoint lift_pot seed100000 success, 100 actions, 3 queries, 8681 physics ticks",
+  "screening": "completed: 78 completed policy episodes passed integrity checks; Cabinet remains fixed-pool under-sampled (Clean3/5, Randomized2/5)",
+  "new_method": "not_started",
+  "final_selection": {
+    "primary_1": "open_microwave",
+    "primary_2": "stack_blocks_three",
+    "control": "lift_pot",
+    "paper_published_separate": true,
+    "new_method_started": false
+  },
+  "robotwin_reset": "lift_pot_seed100000_real_rgb_and_physical_trace_passed",
+  "data_semantics": "50 episodes 9 tasks action[k]==state[k+1]",
+  "blockers": [],
+  "training_steps": 0,
+  "assets": {
+    "unseen_textures": "1000 files CRC verified",
+    "objects": "9368 files CRC verified"
+  },
+  "checkpoint": "downloaded_sha256_verified",
+  "policy_server": "ready_127.0.0.1:10097",
+  "weight_load": {
+    "canonical_keys": 1419,
+    "aliases_verified_shared_storage": 738,
+    "genuine_missing": 0,
+    "unexpected": 0,
+    "all_canonical_tensors_equal": true
+  },
+  "stage": "B_complete_selection_locked",
+  "last_episode": {
+    "source": "local_baseline",
+    "checkpoint": "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/results/Checkpoints/robotwin/lawam_robotwin_sft_release/final_model/pytorch_model.pt",
+    "task": "stamp_seal",
+    "condition": "demo_randomized",
+    "seed": 100107,
+    "episode_id": "stamp_seal__demo_randomized__100107",
+    "status": "completed",
+    "success": true,
+    "episode_length": 133,
+    "instruction": "With the left arm, take the seal with carved light letters and mark Indigo.",
+    "renderer_denoiser": "none",
+    "replan_steps": 36,
+    "action_execution": "unmodified native take_action ee",
+    "flow_seed_rule": "seed*10000+query_index",
+    "expert_filter": "fixed seed; rejection recorded without replacement",
+    "reset_only": false,
+    "video_views": "head_camera; all three raw RGB views saved at every policy query",
+    "instrumentation_version": "head_capture_matrix_diagnostics_v4",
+    "cpu_affinity": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "serial_camera_readback": true,
+    "expert_seed_valid": true,
+    "physics_ticks": 11331,
+    "simulated_seconds": 45.324,
+    "policy_queries": 4,
+    "elapsed_seconds": 105.02200372103835
+  },
+  "updated_unix": 1790365716.9355571,
+  "stage_A": {
+    "completed": 3,
+    "successes": 3,
+    "system_errors": 0,
+    "expert_rejected": 1,
+    "policy_seeds": [
+      100000,
+      100002,
+      100003
+    ]
+  },
+  "blocker": null,
+  "completed_episodes": 78
+}

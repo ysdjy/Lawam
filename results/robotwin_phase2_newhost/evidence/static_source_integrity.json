@@ -1,0 +1,18 @@
+[
+  {
+    "path": "RoboTwin_poc/env_cfg/task_config/demo_clean.yml",
+    "unchanged": true
+  },
+  {
+    "path": "RoboTwin_poc/env_cfg/task_config/demo_randomized.yml",
+    "unchanged": true
+  },
+  {
+    "path": "RoboTwin_poc/envs/_base_task.py",
+    "unchanged": true
+  },
+  {
+    "path": "RoboTwin_poc/envs/robot/robot.py",
+    "unchanged": true
+  }
+]

@@ -1,0 +1,86 @@
+/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/sapien_gate.py:17: DeprecationWarning: Engine is deprecated. use sapien.Scene() directly.
+  engine = sapien.Engine()
+/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/sapien_gate.py:18: DeprecationWarning: SapienRenderer is no no longer needed.
+  renderer = sapien.SapienRenderer()
+/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/sapien_gate.py:34: DeprecationWarning: component.set_pose can be ambiguous thus deprecated. It is equivalent to component.set_entity_pose, which should be used instead
+  camera.set_pose(sapien.Pose([-1, 0, 0.3]))
+[2026-09-25 18:50:48.408] [svulkan2] [error] OIDN Error: unsupported device type: CUDA
+{"frame": 0, "mean": 0.7749750018119812, "std": 0.10414538532495499}
+[2026-09-25 18:50:48.416] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 1, "mean": 0.7750344276428223, "std": 0.10412906855344772}
+[2026-09-25 18:50:48.418] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 2, "mean": 0.7750176787376404, "std": 0.10451947152614594}
+[2026-09-25 18:50:48.421] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 3, "mean": 0.7751997113227844, "std": 0.1037912666797638}
+[2026-09-25 18:50:48.425] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 4, "mean": 0.7752771377563477, "std": 0.10351461917161942}
+[2026-09-25 18:50:48.428] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 5, "mean": 0.7752272486686707, "std": 0.10367526859045029}
+[2026-09-25 18:50:48.431] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 6, "mean": 0.7751238942146301, "std": 0.10428241640329361}
+[2026-09-25 18:50:48.434] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 7, "mean": 0.7752044200897217, "std": 0.10383041203022003}
+[2026-09-25 18:50:48.436] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 8, "mean": 0.7752400040626526, "std": 0.10361846536397934}
+[2026-09-25 18:50:48.439] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 9, "mean": 0.7752251029014587, "std": 0.10368572175502777}
+[2026-09-25 18:50:48.443] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 10, "mean": 0.7751714587211609, "std": 0.10398485511541367}
+[2026-09-25 18:50:48.446] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 11, "mean": 0.7751002311706543, "std": 0.10430078953504562}
+[2026-09-25 18:50:48.449] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 12, "mean": 0.7751779556274414, "std": 0.10370480269193649}
+[2026-09-25 18:50:48.452] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 13, "mean": 0.7752370834350586, "std": 0.10350024700164795}
+[2026-09-25 18:50:48.455] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 14, "mean": 0.7752172350883484, "std": 0.10367675870656967}
+[2026-09-25 18:50:48.458] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 15, "mean": 0.7751662135124207, "std": 0.10413205623626709}
+[2026-09-25 18:50:48.461] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 16, "mean": 0.77518230676651, "std": 0.1039811298251152}
+[2026-09-25 18:50:48.464] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 17, "mean": 0.7752577662467957, "std": 0.10357443243265152}
+[2026-09-25 18:50:48.467] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 18, "mean": 0.7752606868743896, "std": 0.10350964963436127}
+[2026-09-25 18:50:48.469] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 19, "mean": 0.7752134799957275, "std": 0.10374916344881058}
+[2026-09-25 18:50:48.473] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 20, "mean": 0.775098979473114, "std": 0.10438808798789978}
+[2026-09-25 18:50:48.476] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 21, "mean": 0.7751920819282532, "std": 0.10376153141260147}
+[2026-09-25 18:50:48.479] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 22, "mean": 0.7752248644828796, "std": 0.10355543345212936}
+[2026-09-25 18:50:48.482] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 23, "mean": 0.7752054333686829, "std": 0.10367777943611145}
+[2026-09-25 18:50:48.484] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 24, "mean": 0.7751360535621643, "std": 0.10407426953315735}
+[2026-09-25 18:50:48.487] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 25, "mean": 0.7751556038856506, "std": 0.1039905771613121}
+[2026-09-25 18:50:48.491] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 26, "mean": 0.7752070426940918, "std": 0.10355713218450546}
+[2026-09-25 18:50:48.494] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 27, "mean": 0.7752240300178528, "std": 0.1034964993596077}
+[2026-09-25 18:50:48.496] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 28, "mean": 0.7751922011375427, "std": 0.10372567176818848}
+[2026-09-25 18:50:48.499] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 29, "mean": 0.7750649452209473, "std": 0.10442675650119781}
+[2026-09-25 18:50:48.502] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 30, "mean": 0.7752058506011963, "std": 0.1037130281329155}
+[2026-09-25 18:50:48.504] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 31, "mean": 0.7752375602722168, "std": 0.1034872829914093}
+[2026-09-25 18:50:48.507] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 32, "mean": 0.7752266526222229, "std": 0.10356446355581284}
+[2026-09-25 18:50:48.510] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 33, "mean": 0.7751880288124084, "std": 0.10393400490283966}
+[2026-09-25 18:50:48.514] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 34, "mean": 0.7751638889312744, "std": 0.10409774631261826}
+[2026-09-25 18:50:48.516] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 35, "mean": 0.7752237915992737, "std": 0.10361875593662262}
+[2026-09-25 18:50:48.519] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 36, "mean": 0.7752220034599304, "std": 0.10352885723114014}
+[2026-09-25 18:50:48.522] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 37, "mean": 0.7751791477203369, "std": 0.10376761108636856}
+[2026-09-25 18:50:48.526] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 38, "mean": 0.7750346660614014, "std": 0.10434930771589279}
+[2026-09-25 18:50:48.529] [svulkan2] [error] OIDN Error: invalid handle
+{"frame": 39, "mean": 0.7750582098960876, "std": 0.10384088009595871}

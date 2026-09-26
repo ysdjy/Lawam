@@ -1,0 +1,1 @@
+{"samples": 50, "tasks": 9, "shift1_exact": 50, "counts": {"put_object_cabinet": 6, "lift_pot": 6, "hanging_mug": 6, "open_microwave": 6, "turn_switch": 5, "place_can_basket": 6, "stack_blocks_three": 6, "stack_bowls_three": 3, "stamp_seal": 6}}

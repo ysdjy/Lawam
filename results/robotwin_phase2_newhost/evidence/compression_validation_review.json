@@ -1,0 +1,7 @@
+{
+  "unix": 1790340782.907096,
+  "error": "One in-process Python gzip CRC check failed during streaming into Python zstandard after three successful files; original retained",
+  "rechecks": "System gzip -t exit0; fresh Python3.11 and isolated Python3.10 gzip reads both pass and same uncompressed SHA256 3d1a257114168ae85f07d3eecb255e66ddb95a22577d8eb3d7dcf6122bdc5966",
+  "resolution": "Use separate gzip/zstd CLI processes and SHA256 round trip; no unverified replacement",
+  "root_cause": "unknown; no evidence yet of persistent original-file corruption"
+}

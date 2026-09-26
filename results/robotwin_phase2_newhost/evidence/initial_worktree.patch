@@ -1,0 +1,504 @@
+diff --git a/examples/Robotwin/eval_files/model2robotwin_interface.py b/examples/Robotwin/eval_files/model2robotwin_interface.py
+index 340baca..f9354cb 100644
+--- a/examples/Robotwin/eval_files/model2robotwin_interface.py
++++ b/examples/Robotwin/eval_files/model2robotwin_interface.py
+@@ -138,6 +138,7 @@ def build_robotwin_example(
+         "lang": str(task_description),
+         "image": [head_img, left_img, right_img],
+         "state": state,
++        **({"physics_current": observation["physics_current"]} if "physics_current" in observation else {}),
+     }
+ 
+ 
+@@ -392,6 +393,7 @@ class ModelClient:
+             "lang": str(example.get("lang", "")),
+             "image": resized_images,
+             "state": self._prepare_state(example.get("state", None)),
++            **({"physics_current": example["physics_current"]} if "physics_current" in example else {}),
+         }
+ 
+     def _build_infer_example(self, example: dict[str, Any]) -> dict[str, Any]:
+@@ -407,6 +409,8 @@ class ModelClient:
+             infer_example["wrist_image"] = wrist_images
+         if example.get("state", None) is not None:
+             infer_example["state"] = np.asarray(example["state"], dtype=np.float32)
++        if "physics_current" in example:
++            infer_example["physics_current"] = np.asarray(example["physics_current"], dtype=np.float32)
+         return infer_example
+ 
+     def _prepare_state(self, state: Any) -> Optional[np.ndarray]:
+diff --git a/examples/Robotwin/eval_files/robotwin_batch_bridge.py b/examples/Robotwin/eval_files/robotwin_batch_bridge.py
+index b474e53..ee0318a 100644
+--- a/examples/Robotwin/eval_files/robotwin_batch_bridge.py
++++ b/examples/Robotwin/eval_files/robotwin_batch_bridge.py
+@@ -180,11 +180,23 @@ def prepare_task_args(
+     ensure_runtime_paths(robotwin_path, STARVLA_ROOT)
+ 
+     from envs import CONFIGS_PATH  # type: ignore
+-    from script.eval_policy import get_camera_config, get_embodiment_config  # type: ignore
+     import yaml
+ 
++    if Path(robotwin_path, "script/eval_policy.py").is_file():
++        from script.eval_policy import get_camera_config, get_embodiment_config  # type: ignore
++    else:
++        # RoboTwin 6dde571 moved configuration under env_cfg. Read the same YAML
++        # values without importing its unrelated XPolicyLab evaluation stack.
++        def get_camera_config(camera_type):
++            with open(Path(CONFIGS_PATH) / "_camera_config.yml", encoding="utf-8") as f:
++                return yaml.safe_load(f)[camera_type]
++
++        def get_embodiment_config(robot_file):
++            with open(Path(robot_file) / "config.yml", encoding="utf-8") as f:
++                return yaml.safe_load(f)
++
+     task_config = str(usr_args["task_config"])
+-    with open(f"./task_config/{task_config}.yml", "r", encoding="utf-8") as f:
++    with open(Path(CONFIGS_PATH) / f"{task_config}.yml", "r", encoding="utf-8") as f:
+         task_args = yaml.load(f.read(), Loader=yaml.FullLoader)
+ 
+     task_args["task_name"] = str(usr_args["task_name"])
+diff --git a/examples/Robotwin/starvla_policy/deploy_policy.py b/examples/Robotwin/starvla_policy/deploy_policy.py
+index dd72890..d4f66c9 100644
+--- a/examples/Robotwin/starvla_policy/deploy_policy.py
++++ b/examples/Robotwin/starvla_policy/deploy_policy.py
+@@ -148,6 +148,7 @@ def build_robotwin_example(
+         "lang": str(task_description),
+         "image": [head_img, left_img, right_img],
+         "state": state,
++        **({"physics_current": observation["physics_current"]} if "physics_current" in observation else {}),
+     }
+ 
+ 
+@@ -551,6 +552,7 @@ class LocalStarVLARobotwinPolicy:
+             "lang": str(example.get("lang", "")),
+             "image": [self._resize_image(np.asarray(image)) for image in images],
+             "state": self._prepare_state(example.get("state", None)),
++            **({"physics_current": example["physics_current"]} if "physics_current" in example else {}),
+         }
+ 
+     def _build_infer_example(self, example: dict[str, Any]) -> dict[str, Any]:
+@@ -566,6 +568,8 @@ class LocalStarVLARobotwinPolicy:
+             infer_example["wrist_image"] = wrist_images
+         if example.get("state", None) is not None:
+             infer_example["state"] = np.asarray(example["state"], dtype=np.float32)
++        if "physics_current" in example:
++            infer_example["physics_current"] = np.asarray(example["physics_current"], dtype=np.float32)
+         return infer_example
+ 
+     def _truncate_action_chunk(self, raw_actions: np.ndarray) -> np.ndarray:
+diff --git a/latent_action_model/core/utils/lam_decoder.py b/latent_action_model/core/utils/lam_decoder.py
+index 728d8dd..05118e9 100644
+--- a/latent_action_model/core/utils/lam_decoder.py
++++ b/latent_action_model/core/utils/lam_decoder.py
+@@ -116,11 +116,16 @@ class LAMDecoder_v2(nn.Module):
+         if not train_in_latent:
+             self.to_pixel = nn.ConvTranspose2d(input_dim, 3, kernel_size=16, stride=16)
+ 
+-    def forward(self, features, actions):
++    def forward(self, features, actions, physics_current=None, return_physics=False):
+         c = self.action_in_proj(actions)           # [B, 1, context_dim]
+         if c.dim() == 3:
+             c = c.squeeze(1)                       # [B, context_dim]
+ 
++        if physics_current is not None:
++            if not hasattr(self, "physics_condition_encoder"):
++                raise ValueError("Physics decoder extension is not installed")
++            c = c + self.physics_condition_encoder(physics_current.to(c))
++
+         features_tokens = self.project_input(features)
+         if features_tokens.dim() == 4:
+             features_tokens = features_tokens.squeeze(1)   # [B, K, context_dim]
+@@ -137,6 +142,8 @@ class LAMDecoder_v2(nn.Module):
+         for layer in self.dec_layers:
+             x = layer(x, c)
+ 
++        physics_future = self.physics_future_head(x) if return_physics else None
++
+         reconstructed_features = self.project_output(x)   # [B, K, input_dim]
+         reconstructed_features = self.last_ln(reconstructed_features)
+ 
+@@ -147,7 +154,8 @@ class LAMDecoder_v2(nn.Module):
+             )
+             return rec_img.unsqueeze(1)            # [B, 1, 3, H, W]
+         else:
+-            return reconstructed_features.unsqueeze(1)     # [B, 1, K, input_dim]
++            visual = reconstructed_features.unsqueeze(1)
++            return (visual, physics_future) if return_physics else visual
+ 
+ 
+ class StatePredictor(nn.Module):
+diff --git a/starVLA/dataloader/latent_world_train_collator.py b/starVLA/dataloader/latent_world_train_collator.py
+index 5dd0b0c..9f8b610 100644
+--- a/starVLA/dataloader/latent_world_train_collator.py
++++ b/starVLA/dataloader/latent_world_train_collator.py
+@@ -230,4 +230,11 @@ class LatentWorldTrainCollator:
+         }
+         if not torch.is_tensor(batch["image_grid_thw"]):
+             batch["image_grid_thw"] = None
++        if any("physics_current" in sample for sample in features):
++            for key, dim in (("physics_current", 28), ("physics_future_target", 18)):
++                values = [torch.as_tensor(sample[key], dtype=torch.float32) for sample in features]
++                if any(v.shape != (dim,) for v in values):
++                    raise ValueError(f"{key} must be a current-index vector of length {dim}")
++                batch[key] = torch.stack(values)
++            batch["physics_future_valid"] = torch.tensor([bool(s["physics_future_valid"]) for s in features])
+         return batch
+diff --git a/starVLA/model/framework/latent_world/batch_builder.py b/starVLA/model/framework/latent_world/batch_builder.py
+index 5eb9135..5884c40 100644
+--- a/starVLA/model/framework/latent_world/batch_builder.py
++++ b/starVLA/model/framework/latent_world/batch_builder.py
+@@ -18,6 +18,7 @@ from .types import LatentWorldPolicyInferBatch, LatentWorldPolicyInferExample
+ class LatentWorldPolicyInferBatchBuilder:
+     DEFAULT_INFER_IMAGE_HW = (256, 256)
+     _ALLOWED_INFER_KEYS = {
++        "physics_current",
+         "lang",
+         "primary_image",
+         "action_hz",
+@@ -186,6 +187,11 @@ class LatentWorldPolicyInferBatchBuilder:
+         }
+         if not torch.is_tensor(batch["image_grid_thw"]):
+             batch["image_grid_thw"] = None
++        if any("physics_current" in ex for ex in examples):
++            physics = [torch.as_tensor(ex["physics_current"], dtype=torch.float32) for ex in examples]
++            if any(x.shape != (28,) or not torch.isfinite(x).all() for x in physics):
++                raise ValueError("physics_current must be finite [28]; no legacy state truncation")
++            batch["physics_current"] = torch.stack(physics)
+         return self._move_batch_to_device(batch, self._target_device())
+ 
+     @staticmethod
+diff --git a/starVLA/model/framework/latent_world/runtime/output_mapper.py b/starVLA/model/framework/latent_world/runtime/output_mapper.py
+index 393607b..9e35142 100644
+--- a/starVLA/model/framework/latent_world/runtime/output_mapper.py
++++ b/starVLA/model/framework/latent_world/runtime/output_mapper.py
+@@ -8,6 +8,7 @@ import torch
+ def map_policy_train_output(policy_output: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
+     return {
+         "total_loss": policy_output["loss_total"],
++        **{k:v for k,v in policy_output.items() if k.startswith("loss_physics_")},
+         "loss_flow": policy_output["loss_flow"],
+         "loss_perceptual": policy_output["loss_perceptual"],
+         "loss_distill": policy_output["loss_distill"],
+diff --git a/starVLA/model/framework/latent_world/runtime/runner.py b/starVLA/model/framework/latent_world/runtime/runner.py
+index bc1f80d..9f4a939 100644
+--- a/starVLA/model/framework/latent_world/runtime/runner.py
++++ b/starVLA/model/framework/latent_world/runtime/runner.py
+@@ -132,6 +132,9 @@ class LatentWorldPolicyRunner:
+             "image_grid_thw": train_batch["image_grid_thw"],
+         }
+ 
++        if "physics_current" in train_batch:
++            infer_batch["physics_current"] = train_batch["physics_current"]
++
+         pred_actions = self.policy_backend.predict_action(
+             batch=infer_batch,
+             return_padded=True,
+diff --git a/starVLA/model/framework/latent_world/types.py b/starVLA/model/framework/latent_world/types.py
+index 632be8a..8f059c2 100644
+--- a/starVLA/model/framework/latent_world/types.py
++++ b/starVLA/model/framework/latent_world/types.py
+@@ -13,6 +13,10 @@ VideoViews = Sequence[Sequence[FrameArray]]
+ 
+ 
+ class LatentWorldPolicyTrainRawSample(TypedDict):
++    physics_current: NotRequired[torch.Tensor]
++    physics_future_target: NotRequired[torch.Tensor]
++    physics_future_valid: NotRequired[torch.Tensor]
++
+     primary_videos: torch.Tensor
+     wrist_images: torch.Tensor
+     lang: str
+@@ -23,6 +27,7 @@ class LatentWorldPolicyTrainRawSample(TypedDict):
+ 
+ 
+ class LatentWorldPolicyInferExample(TypedDict, total=False):
++    physics_current: NotRequired[TensorLike2D]
+     primary_image: Required[ImageViews]
+     lang: Required[str]
+     embodiment_id: Required[int]
+@@ -33,6 +38,8 @@ class LatentWorldPolicyInferExample(TypedDict, total=False):
+ 
+ 
+ class LatentWorldPolicyInferBatch(TypedDict):
++    physics_current: NotRequired[torch.Tensor]
++
+     pixel_values: torch.Tensor
+     input_ids: torch.Tensor
+     attention_mask: torch.Tensor
+@@ -47,6 +54,10 @@ class LatentWorldPolicyInferBatch(TypedDict):
+ 
+ 
+ class LatentWorldPolicyTrainBatch(TypedDict):
++    physics_current: NotRequired[torch.Tensor]
++    physics_future_target: NotRequired[torch.Tensor]
++    physics_future_valid: NotRequired[torch.Tensor]
++
+     pixel_values: torch.Tensor
+     input_ids: torch.Tensor
+     attention_mask: torch.Tensor
+diff --git a/starVLA/model/framework/vlas/flowmatching_expert.py b/starVLA/model/framework/vlas/flowmatching_expert.py
+index 195ccac..e56b600 100644
+--- a/starVLA/model/framework/vlas/flowmatching_expert.py
++++ b/starVLA/model/framework/vlas/flowmatching_expert.py
+@@ -261,6 +261,25 @@ class ConditionalFlowMatchingHead(nn.Module):
+             concentration0=self.config.noise_beta_beta,
+         )
+ 
++    def enable_physics(self):
++        if hasattr(self, "physics_current_encoder"):
++            raise ValueError("Physics flow extension already installed")
++        self.physics_current_encoder = VectorMLP(28, self.config.hidden_dim).to(next(self.parameters()))
++        self.physics_future_encoder = VectorMLP(18, self.config.hidden_dim).to(next(self.parameters()))
++
++    def _append_physics_tokens(self, tokens, valid, current, future):
++        if current is None and future is None:
++            return tokens, valid
++        if not hasattr(self, "physics_current_encoder") or current is None or future is None:
++            raise ValueError("Both physics conditions and installed encoders are required")
++        if current.ndim != 2 or current.shape[-1] != 28 or future.shape != (current.shape[0],18):
++            raise ValueError("Physics dimensions must be [B,28] and [B,18]")
++        dtype = self._compute_dtype()
++        physics = torch.cat((self.physics_current_encoder(current.to(dtype)),
++                               self.physics_future_encoder(future.detach().to(dtype))), 1)
++        mask = torch.ones(physics.shape[:2], device=physics.device, dtype=torch.bool)
++        return (physics, mask) if tokens is None else (torch.cat((tokens,physics),1),torch.cat((valid,mask),1))
++
+     def _compute_dtype(self) -> torch.dtype:
+         return self.action_encoder.W1.W.dtype
+ 
+@@ -380,6 +399,9 @@ class ConditionalFlowMatchingHead(nn.Module):
+         state_mask: torch.Tensor,  # [B, D]
+         actions_mask: torch.Tensor,  # [B, T, K]
+         attention_mask: Optional[torch.Tensor] = None,
++        allow_partial_actions: bool = False,
++        physics_current: Optional[torch.Tensor] = None,
++        physics_future: Optional[torch.Tensor] = None,
+     ) -> torch.Tensor:
+         model_dtype = self._compute_dtype()
+         h_t = self._cast_if_needed(h_t, model_dtype)
+@@ -428,7 +450,10 @@ class ConditionalFlowMatchingHead(nn.Module):
+         )
+         expected_total = int(hz_token_valid.sum().item())
+         actual_total = int(data_token_valid.sum().item())
+-        if actual_total != expected_total:
++        if allow_partial_actions:
++            if (data_token_valid & ~hz_token_valid).any() or ((~data_token_valid[:,:-1]) & data_token_valid[:,1:]).any():
++                raise ValueError("Partial actions must be a contiguous prefix inside the time horizon")
++        elif not torch.equal(data_token_valid, hz_token_valid):
+             raise ValueError(
+                 "Action mask/time-grid mismatch in training (batch-level count): "
+                 f"data_total={actual_total}, hz_total={expected_total}, "
+@@ -472,6 +497,8 @@ class ConditionalFlowMatchingHead(nn.Module):
+             device=device,
+             dtype=noisy_trajectory_emb.dtype,
+         )
++        future_tokens, future_token_valid = self._append_physics_tokens(
++            future_tokens, future_token_valid, physics_current, physics_future)
+         future_token_count = 0 if future_tokens is None else int(future_tokens.shape[1])
+         hidden_positional_embeddings = None
+         if self.config.use_action_positional_embeddings:
+@@ -579,6 +606,8 @@ class ConditionalFlowMatchingHead(nn.Module):
+         cfg_scale: Optional[float] = None,
+         num_inference_steps: Optional[int] = None,
+         attention_mask: Optional[torch.Tensor] = None,
++        physics_current: Optional[torch.Tensor] = None,
++        physics_future: Optional[torch.Tensor] = None,
+         return_padded: bool = False,
+         initial_noise: Optional[torch.Tensor] = None,
+         return_noise: bool = False,
+@@ -661,6 +690,9 @@ class ConditionalFlowMatchingHead(nn.Module):
+             dtype=model_dtype,
+         )
+ 
++        future_tokens, future_token_valid = self._append_physics_tokens(
++            future_tokens, future_token_valid, physics_current, physics_future)
++
+         num_vision = h_t.shape[1] + h_t1_star.shape[1]  # 256 + 256 = 512
+         if attention_mask is not None:
+             vlm_mask_bool = attention_mask.to(device=device, dtype=torch.bool)
+diff --git a/starVLA/model/framework/vlas/lawam.py b/starVLA/model/framework/vlas/lawam.py
+index ed21d20..eac4eec 100644
+--- a/starVLA/model/framework/vlas/lawam.py
++++ b/starVLA/model/framework/vlas/lawam.py
+@@ -69,6 +69,13 @@ class LatentWorldPolicyConfig:
+     flow_h_t1_pred_ramp_steps: int = 20000
+     detach_future_feature: bool = False
+ 
++    # Physics PoC: default off preserves old parameter keys and behavior.
++    physics_enabled: bool = False
++    physics_group: str = "A"
++    physics_position_weight: float = 1.0
++    physics_rotation_weight: float = 1.0
++    physics_position_scale: float = 0.1
++
+     # Independent additions
+     num_action_queries: int = 8
+     flow_action_num_queries: int = 8
+@@ -242,6 +249,8 @@ class PolicyEncodingState:
+     h_t1_pred: torch.Tensor
+     h_t1_gt: torch.Tensor
+     h_t_original: torch.Tensor
++    physics_future_pred: Optional[torch.Tensor] = None
++    physics_current: Optional[torch.Tensor] = None
+ 
+ 
+ # ============================================================================
+@@ -321,8 +330,33 @@ class LatentWorldPolicyBackend(nn.Module):
+                 "[LatentWorldPolicyBackend][warn] enable_flow_h_t1_scheduled_sampling=true and "
+                 "detach_future_feature=false: flow gradients through GT-conditioned branch can increase loss_perceptual."
+             )
++        if self.model_cfg.physics_enabled:
++            self.enable_physics()
+         self.sync_training_modes(mode=self.training)
+ 
++    def enable_physics(self):
++        from experiments.physics_poc.model import PhysicsNormalizer, install_decoder
++        if self.model_cfg.physics_group not in ("B", "C", "D"):
++            raise ValueError("physics_enabled requires group B, C or D")
++        if not self.model_cfg.future_prediction or self.model_cfg.enable_flow_h_t1_scheduled_sampling:
++            raise ValueError("Physics PoC requires online predicted visual futures, no teacher forcing")
++        install_decoder(self.lam.decoder)
++        self.flow.enable_physics()
++        self.physics_normalizer = PhysicsNormalizer().to(next(self.lam.decoder.parameters()).device)
++
++    def _physics_flow_kwargs(self, shared, repeats=1):
++        if not self.model_cfg.physics_enabled:
++            return {}
++        # C and D have identical modules. C gets a sample-independent zero in
++        # normalized space; D gets the detached prediction in the same space.
++        current = shared.physics_current
++        if self.model_cfg.physics_group == "D":
++            future = self.physics_normalizer.normalize(shared.physics_future_pred.detach(), "future")
++        else:
++            future = current.new_zeros((current.shape[0], 18))
++        return {"physics_current": current.repeat(repeats,1),
++                "physics_future": future.repeat(repeats,1)}
++
+     def _inject_queries(
+         self,
+         *,
+@@ -571,6 +605,8 @@ class LatentWorldPolicyBackend(nn.Module):
+                 f"[LatentWorldPolicyBackend] h_t1 shape mismatch: pred={tuple(h_t1_pred.shape)}, gt={tuple(h_t1_gt.shape)}"
+             )
+ 
++        if self.model_cfg.physics_enabled:
++            return h_t1_pred.detach()
+         if not self.training:
+             return h_t1_pred
+ 
+@@ -662,7 +698,14 @@ class LatentWorldPolicyBackend(nn.Module):
+             h_t = h_t_original
+             h_t1_gt = features[:, -1, :, :]
+ 
+-            if self.model_cfg.future_prediction:
++            physics_current = None
++            physics_future_pred = None
++            if self.model_cfg.physics_enabled:
++                physics_current = self.physics_normalizer.normalize(prepared_batch["physics_current"], "current")
++                decoded, physics_future_pred = self.lam.decoder(
++                    h_t, pred_action_emb, physics_current=physics_current, return_physics=True)
++                h_t1_pred = decoded[:, 0]
++            elif self.model_cfg.future_prediction:
+                 h_t1_pred = self._decode_future_tokens_strict_single_query(
+                     h_t=h_t,
+                     pred_action_emb=pred_action_emb,
+@@ -678,6 +721,8 @@ class LatentWorldPolicyBackend(nn.Module):
+             h_t1_pred=h_t1_pred,
+             h_t1_gt=h_t1_gt,
+             h_t_original=h_t_original,
++            physics_future_pred=physics_future_pred,
++            physics_current=physics_current,
+         )
+ 
+     def _run_shared_encoding_train(
+@@ -733,15 +778,21 @@ class LatentWorldPolicyBackend(nn.Module):
+ 
+         with _cuda_autocast(lam_stage_dtype):
+             loss_distill = torch.tensor(0.0, device=device, dtype=lam_stage_dtype)
+-            if bool(self.model_cfg.enable_loss_distill):
++            distill_valid = prepared_batch.get("physics_future_valid", torch.ones(shared.pred_action_emb.shape[0], device=device, dtype=torch.bool)).bool()
++            if bool(self.model_cfg.enable_loss_distill) and distill_valid.any():
+                 loss_distill = self._compute_distill_loss(
+-                    pred_latent=shared.pred_action_emb,
+-                    primary_video=prepared_batch["primary_video"],
+-                    embodiment_id=prepared_batch["embodiment_id"],
++                    pred_latent=shared.pred_action_emb[distill_valid],
++                    primary_video=prepared_batch["primary_video"][distill_valid],
++                    embodiment_id=prepared_batch["embodiment_id"][distill_valid],
+                 )
+ 
+             if self.model_cfg.future_prediction:
+-                loss_perceptual = F.mse_loss(shared.h_t1_pred, shared.h_t1_gt)
++                if "physics_future_valid" in prepared_batch:
++                    valid = prepared_batch["physics_future_valid"].bool()
++                    loss_perceptual = (F.mse_loss(shared.h_t1_pred[valid].float(), shared.h_t1_gt[valid].float())
++                                       if valid.any() else shared.h_t1_pred.sum()*0)
++                else:
++                    loss_perceptual = F.mse_loss(shared.h_t1_pred, shared.h_t1_gt)
+             else:
+                 loss_perceptual = torch.tensor(0.0, device=device, dtype=lam_stage_dtype)
+ 
+@@ -787,9 +838,21 @@ class LatentWorldPolicyBackend(nn.Module):
+                 state_mask=state_mask_rep,
+                 actions_mask=actions_mask_rep,
+                 attention_mask=attn_rep,
++                **self._physics_flow_kwargs(shared, repeat_steps),
++                allow_partial_actions="physics_future_valid" in prepared_batch,
+             )
+ 
++            loss_physics_position = loss_flow.new_zeros(())
++            loss_physics_rotation = loss_flow.new_zeros(())
++            if self.model_cfg.physics_enabled and self.model_cfg.physics_group in ("C", "D"):
++                from experiments.physics_poc.geometry import pose_loss
++                loss_physics_position, loss_physics_rotation = pose_loss(
++                    shared.physics_future_pred, prepared_batch["physics_future_target"],
++                    prepared_batch["physics_future_valid"], self.model_cfg.physics_position_scale)
+             loss_total = (
++                self.model_cfg.physics_position_weight * loss_physics_position
++                + self.model_cfg.physics_rotation_weight * loss_physics_rotation
++                +
+                 loss_flow
+                 + self.model_cfg.perceptual_weight * loss_perceptual
+                 + self.model_cfg.lam_encoder_distill_weight * loss_distill
+@@ -798,6 +861,8 @@ class LatentWorldPolicyBackend(nn.Module):
+         zero = torch.tensor(0.0, device=device, dtype=loss_total.dtype)
+         return {
+             "loss_flow": loss_flow,
++            "loss_physics_position": loss_physics_position,
++            "loss_physics_rotation": loss_physics_rotation,
+             "loss_perceptual": loss_perceptual,
+             "loss_distill": loss_distill,
+             "loss_vlm": zero,
+@@ -847,6 +912,8 @@ class LatentWorldPolicyBackend(nn.Module):
+         # ---- [branch_diagnostic] optional interventions (no-ops when None)
+         latent_used = shared.pred_action_emb
+         h_t1_pred_used = shared.h_t1_pred
++        if self.model_cfg.physics_enabled and (latent_override is not None or future_override is not None):
++            raise ValueError("Legacy visual-only overrides are incompatible with paired physics predictions")
+         if latent_override is not None:
+             latent_used = self._validate_override_tensor(
+                 latent_override, name="latent_override", reference=shared.pred_action_emb
+@@ -878,6 +945,7 @@ class LatentWorldPolicyBackend(nn.Module):
+                 return_padded=bool(return_padded),
+                 initial_noise=initial_noise,
+                 return_noise=bool(return_diagnostics),
++                **self._physics_flow_kwargs(shared),
+             )
+         noise_used = None
+         if bool(return_diagnostics):
+@@ -899,6 +967,8 @@ class LatentWorldPolicyBackend(nn.Module):
+                 "latent_override_applied": latent_override is not None,
+                 "future_override_applied": future_override is not None,
+             }
++            if shared.physics_future_pred is not None:
++                diagnostics["physics_future_pred"] = shared.physics_future_pred.detach().float().cpu()
+             return actions, diagnostics
+ 
+         if not return_intermediates:
+@@ -913,4 +983,6 @@ class LatentWorldPolicyBackend(nn.Module):
+             "h_t1_pred": shared.h_t1_pred.detach().cpu(),
+             "vision_tokens_hw": (hw, hw),
+         }
++        if shared.physics_future_pred is not None:
++            intermediates["physics_future_pred"] = shared.physics_future_pred.detach().float().cpu()
+         return actions, intermediates

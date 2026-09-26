@@ -1,0 +1,10 @@
+{
+  "LaWAM/scripts/robotwin_phase2_newhost/server.py": "7b50097e27a6c588abb1a7150320933f832f6db6a8fe87a1961fabd341db0bbe",
+  "LaWAM/scripts/robotwin_phase2_newhost/fetch_assets.py": "d6b222d88cbd49c614b2f277583d6a189a21859817efdfabf38efa35b6359154",
+  "LaWAM/scripts/robotwin_phase2_newhost/predicate_audit.py": "e427ad997d014b6b3565cd846aa5ee0ff205e98c7f3010b0a98371e529fbf7b6",
+  "LaWAM/scripts/robotwin_phase2_newhost/data_semantics.py": "c1c91df42deef60d4fa3eeff47c6382fc9d0e7031ce42049ca7822a1f4018155",
+  "LaWAM/scripts/robotwin_phase2_newhost/sapien_gate.py": "c33951691808752ec278e6b2386e622652720386be2b44135c9e948c8c868493",
+  "LaWAM/scripts/robotwin_phase2_newhost/check_audit.py": "6dc0ad5a830207794931ee33c0299e458a1d6aabdfa1ab6218ec8656d27ee18d",
+  "LaWAM/scripts/robotwin_phase2_newhost/screen.py": "6b7da8ff3706baa44fe7c34f93aa95db84d3b9cb548e945b3bc6e45aff1d7384",
+  "LaWAM/scripts/robotwin_phase2_newhost/episode.py": "e938ab0cfce6a9b74a2650271f3de0b5dd17c8ac23b2312712fe17b43f28f205"
+}

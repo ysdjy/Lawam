@@ -1,0 +1,8 @@
+{"event": "start", "task": "lift_pot", "condition": "demo_clean", "seed": 100000}
+{"event": "end", "task": "lift_pot", "condition": "demo_clean", "seed": 100000, "status": "completed", "success": true}
+{"event": "start", "task": "lift_pot", "condition": "demo_clean", "seed": 100001}
+{"event": "end", "task": "lift_pot", "condition": "demo_clean", "seed": 100001, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "lift_pot", "condition": "demo_clean", "seed": 100002}
+{"event": "end", "task": "lift_pot", "condition": "demo_clean", "seed": 100002, "status": "completed", "success": true}
+{"event": "start", "task": "lift_pot", "condition": "demo_clean", "seed": 100003}
+{"event": "end", "task": "lift_pot", "condition": "demo_clean", "seed": 100003, "status": "completed", "success": true}

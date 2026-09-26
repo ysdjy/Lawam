@@ -1,0 +1,59 @@
+framework:
+  name: LaWAM
+  qwenvl:
+    base_vlm: results/Checkpoints/qwen3_weights
+  action_model:
+    action_horizon: 50
+    detach_future_feature: true
+    enable_flow_h_t1_scheduled_sampling: false
+    enable_loss_distill: true
+    flow_action_num_queries: 8
+    flow_cfg:
+      action_dim: 32
+      attend_text_every_n_blocks: 2
+      attention_heads: 16
+      cfg_drop_prob: 0.0
+      cfg_guidance_scale: 1.0
+      hidden_dim: 1024
+      horizon_sec: 1.2
+      interleave_self_attention: true
+      noise_beta_alpha: 1.5
+      noise_beta_beta: 1.0
+      noise_s: 0.999
+      num_inference_steps: 10
+      num_layers: 16
+      num_timestep_buckets: 1000
+      state_dim: 32
+      use_action_positional_embeddings: true
+      use_alternate_vldit: true
+      use_state: false
+      vlm_dim: 2048
+    flow_h_t1_pred_prob_end: 1.0
+    flow_h_t1_pred_prob_start: 0.0
+    flow_h_t1_pred_ramp_steps: 20000
+    flow_only_mode: false
+    future_action_window_size: 49
+    future_prediction: true
+    lam_ckpt_path: latent_action_model/logs/dino_large_vae/lam_release/checkpoints/pytorch_model.pt
+    lam_encoder_distill_weight: 0.1
+    lam_yaml_path: latent_action_model/logs/dino_large_vae/lam_release/dino_large_vae.yaml
+    latent_action_placeholder_token: <ACT_PH>
+    num_action_queries: 8
+    past_action_window_size: 0
+    perceptual_weight: 0.1
+    repeated_diffusion_steps: 2
+datasets:
+  vla_data:
+    data_mix: robotwin_eef_30hz
+    sec_chunk: 1.2
+    enable_primary_random_resized_crop: false
+trainer:
+  freeze:
+    freeze_embedding: true
+    freeze_last_llm_layer: true
+    freeze_llm_backbone: false
+    freeze_vision_backbone: false
+    keep_llm_first_n_layers: 16
+    unfreeze_lam_decoder: true
+    unfreeze_llm_last_n_layers: -1
+    unfreeze_vision_merger: true

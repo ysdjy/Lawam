@@ -1,0 +1,3 @@
+missing pytorch3d
+Warp DeprecationWarning: The symbol `warp.torch.device_from_torch` will soon be removed from the public API. Use `warp.device_from_torch` instead.
+{"source": "local_baseline", "checkpoint": "None", "task": "lift_pot", "condition": "demo_clean", "seed": 100000, "episode_id": "lift_pot_reset", "status": "reset_rgb_passed", "success": null, "episode_length": 0, "instruction": null, "renderer_denoiser": "none", "replan_steps": 36, "action_execution": "unmodified native take_action ee", "flow_seed_rule": "seed*10000+query_index", "expert_filter": "fixed seed; rejection recorded without replacement", "reset_only": true, "physics_ticks": 25, "simulated_seconds": 0.1, "policy_queries": 0, "elapsed_seconds": 19.337567762006074}

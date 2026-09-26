@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/data_semantics.py", line 74, in <module>
+    assert all(len(selected[t])>=2 for t in targets), dict(selected)
+AssertionError: {'put_object_cabinet': [1500, 1501, 1502, 1503, 1504, 1505], 'turn_switch': [2000, 2001, 2015, 2019, 2022, 2024], 'stamp_seal': [3225, 3339, 3391, 4003, 4086, 4114], 'lift_pot': [3517, 3526, 3552, 3723, 3872, 3963], 'hanging_mug': [5000, 5001, 5002, 5003, 5004, 5005], 'open_microwave': [8026, 8039, 8049, 8070, 8086, 8115], 'place_can_basket': [12500, 12502, 12505, 12506, 12507, 12508], 'stack_blocks_three': [], 'stack_bowls_three': [23000, 23001, 23002, 23003, 23004, 23005]}

@@ -1,0 +1,252 @@
+[
+  {
+    "task": "Adjust Bottle",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Beat Block Hammer",
+    "clean": 90,
+    "randomized": 93
+  },
+  {
+    "task": "Blocks Ranking RGB",
+    "clean": 97,
+    "randomized": 100
+  },
+  {
+    "task": "Blocks Ranking Size",
+    "clean": 93,
+    "randomized": 89
+  },
+  {
+    "task": "Click Alarmclock",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Click Bell",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Dump Bin Bigbin",
+    "clean": 97,
+    "randomized": 95
+  },
+  {
+    "task": "Grab Roller",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Handover Block",
+    "clean": 96,
+    "randomized": 87
+  },
+  {
+    "task": "Handover Mic",
+    "clean": 93,
+    "randomized": 98
+  },
+  {
+    "task": "Hanging Mug",
+    "clean": 51,
+    "randomized": 43
+  },
+  {
+    "task": "Lift Pot",
+    "clean": 100,
+    "randomized": 99
+  },
+  {
+    "task": "Move Can Pot",
+    "clean": 98,
+    "randomized": 93
+  },
+  {
+    "task": "Move Pillbottle Pad",
+    "clean": 97,
+    "randomized": 90
+  },
+  {
+    "task": "Move Playingcard Away",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Move Stapler Pad",
+    "clean": 94,
+    "randomized": 87
+  },
+  {
+    "task": "Open Laptop",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Open Microwave",
+    "clean": 41,
+    "randomized": 43
+  },
+  {
+    "task": "Pick Diverse Bottles",
+    "clean": 91,
+    "randomized": 88
+  },
+  {
+    "task": "Pick Dual Bottles",
+    "clean": 100,
+    "randomized": 95
+  },
+  {
+    "task": "Place A2B Left",
+    "clean": 98,
+    "randomized": 91
+  },
+  {
+    "task": "Place A2B Right",
+    "clean": 89,
+    "randomized": 94
+  },
+  {
+    "task": "Place Bread Basket",
+    "clean": 92,
+    "randomized": 85
+  },
+  {
+    "task": "Place Bread Skillet",
+    "clean": 90,
+    "randomized": 83
+  },
+  {
+    "task": "Place Burger Fries",
+    "clean": 93,
+    "randomized": 96
+  },
+  {
+    "task": "Place Can Basket",
+    "clean": 92,
+    "randomized": 65
+  },
+  {
+    "task": "Place Cans Plasticbox",
+    "clean": 100,
+    "randomized": 95
+  },
+  {
+    "task": "Place Container Plate",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Place Dual Shoes",
+    "clean": 98,
+    "randomized": 94
+  },
+  {
+    "task": "Place Empty Cup",
+    "clean": 99,
+    "randomized": 100
+  },
+  {
+    "task": "Place Fan",
+    "clean": 92,
+    "randomized": 93
+  },
+  {
+    "task": "Place Mouse Pad",
+    "clean": 91,
+    "randomized": 84
+  },
+  {
+    "task": "Place Object Basket",
+    "clean": 92,
+    "randomized": 90
+  },
+  {
+    "task": "Place Object Scale",
+    "clean": 95,
+    "randomized": 88
+  },
+  {
+    "task": "Place Object Stand",
+    "clean": 92,
+    "randomized": 93
+  },
+  {
+    "task": "Place Phone Stand",
+    "clean": 93,
+    "randomized": 94
+  },
+  {
+    "task": "Place Shoe",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Press Stapler",
+    "clean": 98,
+    "randomized": 97
+  },
+  {
+    "task": "Put Bottles Dustbin",
+    "clean": 94,
+    "randomized": 92
+  },
+  {
+    "task": "Put Object Cabinet",
+    "clean": 90,
+    "randomized": 82
+  },
+  {
+    "task": "Rotate QRcode",
+    "clean": 94,
+    "randomized": 89
+  },
+  {
+    "task": "Scan Object",
+    "clean": 96,
+    "randomized": 90
+  },
+  {
+    "task": "Shake Bottle",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Shake Bottle Horizontally",
+    "clean": 100,
+    "randomized": 100
+  },
+  {
+    "task": "Stack Blocks Three",
+    "clean": 90,
+    "randomized": 75
+  },
+  {
+    "task": "Stack Blocks Two",
+    "clean": 100,
+    "randomized": 97
+  },
+  {
+    "task": "Stack Bowls Three",
+    "clean": 90,
+    "randomized": 80
+  },
+  {
+    "task": "Stack Bowls Two",
+    "clean": 100,
+    "randomized": 99
+  },
+  {
+    "task": "Stamp Seal",
+    "clean": 89,
+    "randomized": 88
+  },
+  {
+    "task": "Turn Switch",
+    "clean": 47,
+    "randomized": 56
+  }
+]

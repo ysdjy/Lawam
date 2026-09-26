@@ -1,0 +1,20 @@
+{"episode": "lift_pot__demo_clean__100000", "uncompressed_sha256": "989ce4df7d64c11cbffeaaf50873a16fca25c34979a8113f46d29580484b1818", "uncompressed_bytes": 304789241, "original_gzip_bytes": 58062627, "zstd_bytes": 36275527, "codec": "zstandard", "level": 3, "version": "0.19.0", "verified_lossless": true, "unix": 1790340284.8230984}
+{"episode": "lift_pot__demo_clean__100002", "uncompressed_sha256": "62c92fee6357778d07fa6a172076bcca76b6d81e6e37dc722ee18a8ee456d902", "uncompressed_bytes": 309784150, "original_gzip_bytes": 58413450, "zstd_bytes": 35723641, "codec": "zstandard", "level": 3, "version": "0.19.0", "verified_lossless": true, "unix": 1790340285.9812403}
+{"episode": "lift_pot__demo_clean__100003", "uncompressed_sha256": "c4b76e508a9e34bb2ac62753172fe30b0ffcbf42615169e393d516108c4ce017", "uncompressed_bytes": 317586229, "original_gzip_bytes": 60178617, "zstd_bytes": 37320460, "codec": "zstandard", "level": 3, "version": "0.19.0", "verified_lossless": true, "unix": 1790340287.1655993}
+Traceback (most recent call last):
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/compress_traces.py", line 24, in <module>
+    for block in iter(lambda:reader.read(1024**2),b''):
+  File "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/scripts/robotwin_phase2_newhost/compress_traces.py", line 24, in <lambda>
+    for block in iter(lambda:reader.read(1024**2),b''):
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zbh/anaconda3/lib/python3.11/gzip.py", line 301, in read
+    return self._buffer.read(size)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zbh/anaconda3/lib/python3.11/_compression.py", line 68, in readinto
+    data = self.read(len(byte_view))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zbh/anaconda3/lib/python3.11/gzip.py", line 490, in read
+    self._read_eof()
+  File "/home/zbh/anaconda3/lib/python3.11/gzip.py", line 536, in _read_eof
+    raise BadGzipFile("CRC check failed %s != %s" % (hex(crc32),
+gzip.BadGzipFile: CRC check failed 0x67a50e6c != 0x55739400

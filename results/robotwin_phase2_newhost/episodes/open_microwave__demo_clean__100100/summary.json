@@ -1,0 +1,23 @@
+{
+  "source": "local_baseline",
+  "checkpoint": "/home/zbh/Downloads/IsaacLab/Lawam_paper/LaWAM/results/Checkpoints/robotwin/lawam_robotwin_sft_release/final_model/pytorch_model.pt",
+  "task": "open_microwave",
+  "condition": "demo_clean",
+  "seed": 100100,
+  "episode_id": "open_microwave__demo_clean__100100",
+  "status": "seed_rejected",
+  "success": null,
+  "episode_length": 0,
+  "instruction": null,
+  "renderer_denoiser": "none",
+  "replan_steps": 36,
+  "action_execution": "unmodified native take_action ee",
+  "flow_seed_rule": "seed*10000+query_index",
+  "expert_filter": "fixed seed; rejection recorded without replacement",
+  "reset_only": false,
+  "expert_seed_valid": false,
+  "physics_ticks": 0,
+  "simulated_seconds": 0.0,
+  "policy_queries": 0,
+  "elapsed_seconds": 21.75525678601116
+}

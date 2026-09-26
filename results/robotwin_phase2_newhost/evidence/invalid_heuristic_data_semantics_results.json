@@ -1,0 +1,2143 @@
+{
+  "dataset_revision": "560f9e9fecc7dbf826afd6042b418d632e319df1",
+  "mapping_warning": "task_index labels instructions, not 50 environment IDs; wildcard template matches retain ambiguity",
+  "mapping_counts": {
+    "put_object_cabinet": 550,
+    "stamp_seal": 1022,
+    "turn_switch": 1003,
+    "lift_pot": 384,
+    "hanging_mug": 545,
+    "open_microwave": 435,
+    "place_can_basket": 432,
+    "stack_bowls_three": 368
+  },
+  "sampled_episodes": {
+    "stack_blocks_three": [
+      1003,
+      1006,
+      1011,
+      1015,
+      1038,
+      1045
+    ],
+    "put_object_cabinet": [
+      1500,
+      1501,
+      1502,
+      1503,
+      1504,
+      1505
+    ],
+    "lift_pot": [
+      5500,
+      5501,
+      5502,
+      5503,
+      5504,
+      5506
+    ],
+    "turn_switch": [
+      4008,
+      4069,
+      4075,
+      4109,
+      4119,
+      4138
+    ],
+    "hanging_mug": [
+      5000,
+      5001,
+      5002,
+      5003,
+      5004,
+      5005
+    ],
+    "stamp_seal": [
+      6004,
+      6128,
+      6131,
+      6155,
+      6203,
+      6206
+    ],
+    "open_microwave": [
+      8500,
+      8501,
+      8502,
+      8503,
+      8504,
+      8505
+    ],
+    "place_can_basket": [
+      12500,
+      12501,
+      12502,
+      12503,
+      12504,
+      12505
+    ],
+    "stack_bowls_three": [
+      23000,
+      23004,
+      23005,
+      23014,
+      23015,
+      23018
+    ]
+  },
+  "records": [
+    {
+      "task": "stack_blocks_three",
+      "task_index": 809,
+      "episode": 1003,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 441,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.007159334282760863,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004772051358739811,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.004545454545454545
+        },
+        "0": {
+          "mean_abs": 0.002384003486412208,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05668934240362812
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0023947787922811584,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05694760820045558
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_blocks_three",
+      "task_index": 812,
+      "episode": 1006,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 444,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0068843450555093385,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004586133755823426,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.002257336343115124
+        },
+        "0": {
+          "mean_abs": 0.002290776816337409,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05405405405405406
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0023010636464093053,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05429864253393665
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_blocks_three",
+      "task_index": 817,
+      "episode": 1011,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 469,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.011688023296879867,
+          "max_abs": 1.4326738119125366,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.007791175847006553,
+          "max_abs": 1.4333459734916687,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0038946317934640436,
+          "max_abs": 1.4328664541244507,
+          "exact_fraction": 0.04904051172707889
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.003911276386275158,
+          "max_abs": 1.4328664541244507,
+          "exact_fraction": 0.04925053533190578
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_blocks_three",
+      "task_index": 821,
+      "episode": 1015,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 436,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.013286734277111915,
+          "max_abs": 1.4279689192771912,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.00885309719859258,
+          "max_abs": 1.4278721809387207,
+          "exact_fraction": 0.0022988505747126436
+        },
+        "0": {
+          "mean_abs": 0.004424140365432902,
+          "max_abs": 1.4272024035453796,
+          "exact_fraction": 0.05504587155963303
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.004444399873015582,
+          "max_abs": 1.4272024035453796,
+          "exact_fraction": 0.055299539170506916
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_blocks_three",
+      "task_index": 838,
+      "episode": 1038,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 445,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.012233688004777475,
+          "max_abs": 1.4536744952201843,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.008154568454791756,
+          "max_abs": 1.4434877634048462,
+          "exact_fraction": 0.0022522522522522522
+        },
+        "0": {
+          "mean_abs": 0.004076147047041972,
+          "max_abs": 1.4362198114395142,
+          "exact_fraction": 0.05393258426966292
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.004094527987862277,
+          "max_abs": 1.4362198114395142,
+          "exact_fraction": 0.05417607223476298
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_blocks_three",
+      "task_index": 843,
+      "episode": 1045,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 464,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.009166762991342132,
+          "max_abs": 1.4521992802619934,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.006113783271484942,
+          "max_abs": 1.44385427236557,
+          "exact_fraction": 0.0064794816414686825
+        },
+        "0": {
+          "mean_abs": 0.003056977248188909,
+          "max_abs": 1.4371981024742126,
+          "exact_fraction": 0.05603448275862069
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0030699868269554085,
+          "max_abs": 1.4371981024742126,
+          "exact_fraction": 0.05627705627705628
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "put_object_cabinet",
+      "task_index": 938,
+      "episode": 1500,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 276,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006190535176050769,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.00412991772393295,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0020676031912146633,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04710144927536232
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0020826463253968684,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04744525547445255
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "put_object_cabinet",
+      "task_index": 939,
+      "episode": 1501,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 264,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.005956410859840727,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.003965772376411001,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0038022813688212928
+        },
+        "0": {
+          "mean_abs": 0.0019800311811358404,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05303030303030303
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.001995134687009653,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05343511450381679
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "put_object_cabinet",
+      "task_index": 940,
+      "episode": 1502,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 267,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.005924298026387234,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.003946577212840384,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0037593984962406013
+        },
+        "0": {
+          "mean_abs": 0.001971916543230615,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.052434456928838954
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.001986691411868637,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.052830188679245285
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "put_object_cabinet",
+      "task_index": 941,
+      "episode": 1503,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 263,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00611349502685404,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004075398297306277,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0020365510685380387,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.049429657794676805
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0020521045650812807,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04980842911877394
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "put_object_cabinet",
+      "task_index": 942,
+      "episode": 1504,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 289,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.005379952776671768,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0035883710935076868,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.003472222222222222
+        },
+        "0": {
+          "mean_abs": 0.0017948341663550727,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04844290657439446
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0018073315687467386,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04878048780487805
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "put_object_cabinet",
+      "task_index": 943,
+      "episode": 1505,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-000.parquet",
+      "frames": 271,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.005782524483611225,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0038528045883867153,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.007407407407407408
+        },
+        "0": {
+          "mean_abs": 0.0019252081578740525,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.055350553505535055
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0019395106208413945,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.055762081784386616
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "turn_switch",
+      "task_index": 3116,
+      "episode": 4008,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 290,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00639288402503511,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0042556831419576875,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0034602076124567475
+        },
+        "0": {
+          "mean_abs": 0.0021232318317893693,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04827586206896552
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002137945344466516,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04861111111111111
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "turn_switch",
+      "task_index": 3116,
+      "episode": 4069,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 275,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006488149646475848,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0043177791110478704,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.002153353863139051,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04727272727272727
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002169094011402466,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.047619047619047616
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "turn_switch",
+      "task_index": 3148,
+      "episode": 4075,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 276,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006568728354178925,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004370774552263661,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0036363636363636364
+        },
+        "0": {
+          "mean_abs": 0.002180042545750504,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.050724637681159424
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0021957847555987317,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.051094890510948905
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "turn_switch",
+      "task_index": 3116,
+      "episode": 4109,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 299,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006784525482845017,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004517214979651514,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0022551604876107595,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.043478260869565216
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0022702282843705896,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04377104377104377
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "turn_switch",
+      "task_index": 3152,
+      "episode": 4119,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 281,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006591842221447616,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004387292322065355,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0035714285714285713
+        },
+        "0": {
+          "mean_abs": 0.002189505934464956,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0498220640569395
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0022050277303712895,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05017921146953405
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "turn_switch",
+      "task_index": 3148,
+      "episode": 4138,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 276,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006514767658516045,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004336821779262359,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0036363636363636364
+        },
+        "0": {
+          "mean_abs": 0.0021642597693495385,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.050724637681159424
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0021786116220720918,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.051094890510948905
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "hanging_mug",
+      "task_index": 3588,
+      "episode": 5000,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 337,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008360199003960908,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005567200875843614,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0027785503220931597,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04451038575667656
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0027951145627081735,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04477611940298507
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "hanging_mug",
+      "task_index": 3589,
+      "episode": 5001,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 337,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00823501156662409,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0054844983109135085,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.002737147838905187,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04451038575667656
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002753455897267861,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04477611940298507
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "hanging_mug",
+      "task_index": 3590,
+      "episode": 5002,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 336,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008494056266511554,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0056570136722261756,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0029850746268656717
+        },
+        "0": {
+          "mean_abs": 0.002824515763239483,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.047619047619047616
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0028412386984190694,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04790419161676647
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "hanging_mug",
+      "task_index": 3591,
+      "episode": 5003,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 354,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008693061772295906,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005791274046095396,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0056657223796034
+        },
+        "0": {
+          "mean_abs": 0.0028911506981676442,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0480225988700565
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0029074982474837693,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.048295454545454544
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "hanging_mug",
+      "task_index": 3592,
+      "episode": 5004,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 342,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008411079856676697,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005608295170650762,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.005865102639296188
+        },
+        "0": {
+          "mean_abs": 0.0028004202371312253,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.049707602339181284
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002815093445940545,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "hanging_mug",
+      "task_index": 3593,
+      "episode": 5005,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 336,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008386416324871962,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005586094431665516,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0029850746268656717
+        },
+        "0": {
+          "mean_abs": 0.002789050990192718,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.047619047619047616
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0028057147005015825,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04790419161676647
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "lift_pot",
+      "task_index": 4085,
+      "episode": 5500,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 113,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.011781130351653877,
+          "max_abs": 0.11306536197662354,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.007826749856682715,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.003883688429101087,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.035398230088495575
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.003953555491071959,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.036036036036036036
+        }
+      },
+      "timestamp_dt_max_error": 2.0489096641540527e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "lift_pot",
+      "task_index": 4086,
+      "episode": 5501,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 115,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.012181570793494434,
+          "max_abs": 0.11306536197662354,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.008092005636020878,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.004015243996396679,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.034782608695652174
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.004085991986966014,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.035398230088495575
+        }
+      },
+      "timestamp_dt_max_error": 2.0489096641540527e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "lift_pot",
+      "task_index": 4087,
+      "episode": 5502,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 116,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.011231839302631884,
+          "max_abs": 0.11306536197662354,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.007469612129970123,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0037085374379250587,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.034482758620689655
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0037728739331087803,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.03508771929824561
+        }
+      },
+      "timestamp_dt_max_error": 2.0489096641540527e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "lift_pot",
+      "task_index": 4088,
+      "episode": 5503,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 117,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.01177828932273144,
+          "max_abs": 0.11306536197662354,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.00782716972622776,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0038861886290834442,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.03418803418803419
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.003953109844499018,
+          "max_abs": 0.037688493728637695,
+          "exact_fraction": 0.034782608695652174
+        }
+      },
+      "timestamp_dt_max_error": 2.0489096641540527e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "lift_pot",
+      "task_index": 4089,
+      "episode": 5504,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 108,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.012049011595203938,
+          "max_abs": 0.11501047015190125,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.00800124111733232,
+          "max_abs": 0.07683461904525757,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.00396849786030918,
+          "max_abs": 0.03852128982543945,
+          "exact_fraction": 0.037037037037037035
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0040432832883005474,
+          "max_abs": 0.03852128982543945,
+          "exact_fraction": 0.03773584905660377
+        }
+      },
+      "timestamp_dt_max_error": 2.0489096641540527e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "lift_pot",
+      "task_index": 4091,
+      "episode": 5506,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 108,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.012173341905804082,
+          "max_abs": 0.11448988318443298,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.008089479052170622,
+          "max_abs": 0.07665923237800598,
+          "exact_fraction": 0.009345794392523364
+        },
+        "0": {
+          "mean_abs": 0.004013220051726202,
+          "max_abs": 0.03836217522621155,
+          "exact_fraction": 0.046296296296296294
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.004088514358433878,
+          "max_abs": 0.03836217522621155,
+          "exact_fraction": 0.04716981132075472
+        }
+      },
+      "timestamp_dt_max_error": 2.0489096641540527e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stamp_seal",
+      "task_index": 4435,
+      "episode": 6004,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 158,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.005808730877058648,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0038557229843518286,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0019193690671181253,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0379746835443038
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0019439260040826777,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.038461538461538464
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stamp_seal",
+      "task_index": 4559,
+      "episode": 6128,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 148,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0064792978834937575,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0042959626750823056,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.02040816326530612
+        },
+        "0": {
+          "mean_abs": 0.002135932242296258,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.060810810810810814
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002165127824876571,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.06164383561643835
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stamp_seal",
+      "task_index": 4562,
+      "episode": 6131,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 157,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006111466144164062,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004054846230596663,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.002017119502415703,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.03821656050955414
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0020430845540848775,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.03870967741935484
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stamp_seal",
+      "task_index": 4586,
+      "episode": 6155,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 150,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00661264044291804,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004383086193286853,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.002177895119823319,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.00220725552277037,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04054054054054054
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stamp_seal",
+      "task_index": 4634,
+      "episode": 6203,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 173,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00610614713734093,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004057915287860003,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.005813953488372093
+        },
+        "0": {
+          "mean_abs": 0.002020360604775628,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04046242774566474
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0020439025130909788,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04093567251461988
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stamp_seal",
+      "task_index": 4637,
+      "episode": 6206,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-001.parquet",
+      "frames": 150,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006732214170920898,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004465248383781056,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.006711409395973154
+        },
+        "0": {
+          "mean_abs": 0.002220722072044386,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04666666666666667
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0022506699705655492,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0472972972972973
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "open_microwave",
+      "task_index": 6829,
+      "episode": 8500,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-002.parquet",
+      "frames": 422,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0019718998250942052,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0013140066735202035,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0006566362669221335,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.052132701421800945
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0006597371354855244,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05238095238095238
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "open_microwave",
+      "task_index": 6830,
+      "episode": 8501,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-002.parquet",
+      "frames": 487,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0018360292187425283,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0012246915099732433,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0006122624397178898,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.053388090349075976
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0006147652021043121,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05360824742268041
+        }
+      },
+      "timestamp_dt_max_error": 1.3969838619232178e-06,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "open_microwave",
+      "task_index": 6831,
+      "episode": 8502,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-002.parquet",
+      "frames": 899,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0017929612304293074,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0011961747492461045,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0022271714922048997
+        },
+        "0": {
+          "mean_abs": 0.0005982312162836264,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.060066740823136816
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0005995570085797419,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.06020066889632107
+        }
+      },
+      "timestamp_dt_max_error": 1.3969838619232178e-06,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "open_microwave",
+      "task_index": 6832,
+      "episode": 8503,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-002.parquet",
+      "frames": 465,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0017877612527599368,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0011919326691984427,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0005960446870975706,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05161290322580645
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0005985962541725427,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05183585313174946
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "open_microwave",
+      "task_index": 6833,
+      "episode": 8504,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-002.parquet",
+      "frames": 569,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0013513679051381769,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0009010234721855035,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.00045063131803014546,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.056239015817223195
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.00045220586273848516,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0564373897707231
+        }
+      },
+      "timestamp_dt_max_error": 1.3969838619232178e-06,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "open_microwave",
+      "task_index": 6834,
+      "episode": 8505,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-002.parquet",
+      "frames": 786,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.0009826357046993776,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.0006555409718931655,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.006369426751592357
+        },
+        "0": {
+          "mean_abs": 0.0003283189233273612,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0648854961832061
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0003291469864623133,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.06505102040816327
+        }
+      },
+      "timestamp_dt_max_error": 1.3969838619232178e-06,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "place_can_basket",
+      "task_index": 10671,
+      "episode": 12500,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-003.parquet",
+      "frames": 253,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00864991473656044,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005750758487358895,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.002866434104453208,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.039525691699604744
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002889237734375925,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.0398406374501992
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "place_can_basket",
+      "task_index": 10672,
+      "episode": 12501,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-003.parquet",
+      "frames": 244,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008827361861016956,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005867438581781603,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.00292394030914103,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.040983606557377046
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0029479225286357363,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04132231404958678
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "place_can_basket",
+      "task_index": 10673,
+      "episode": 12502,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-003.parquet",
+      "frames": 242,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.011445121273091333,
+          "max_abs": 1.4773209691047668,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.007625514478793705,
+          "max_abs": 1.4692599177360535,
+          "exact_fraction": 0.004149377593360996
+        },
+        "0": {
+          "mean_abs": 0.0038130469215669443,
+          "max_abs": 1.4611611366271973,
+          "exact_fraction": 0.045454545454545456
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.00384475516349602,
+          "max_abs": 1.4611611366271973,
+          "exact_fraction": 0.04583333333333333
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "place_can_basket",
+      "task_index": 10674,
+      "episode": 12503,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-003.parquet",
+      "frames": 250,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008782671975794817,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005839653198006648,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0029107583035526546,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002934208583392794,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04032258064516129
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "place_can_basket",
+      "task_index": 10675,
+      "episode": 12504,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-003.parquet",
+      "frames": 274,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.02341819355115755,
+          "max_abs": 1.9625921845436096,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.01582157365561654,
+          "max_abs": 1.9591337442398071,
+          "exact_fraction": 0.003663003663003663
+        },
+        "0": {
+          "mean_abs": 0.008006239039430076,
+          "max_abs": 1.9502712488174438,
+          "exact_fraction": 0.040145985401459854
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.008064906942531943,
+          "max_abs": 1.9502712488174438,
+          "exact_fraction": 0.04044117647058824
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "place_can_basket",
+      "task_index": 10676,
+      "episode": 12505,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-003.parquet",
+      "frames": 241,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.008995960572863719,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005980609201560227,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.002980729316315903,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04149377593360996
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0030052553757387267,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.04184100418410042
+        }
+      },
+      "timestamp_dt_max_error": 4.4330954551696777e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_bowls_three",
+      "task_index": 19796,
+      "episode": 23000,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-007.parquet",
+      "frames": 462,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.007603770217891423,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005067745736214352,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.004338394793926247
+        },
+        "0": {
+          "mean_abs": 0.002531638707789323,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05411255411255411
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0025425911856091043,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05434782608695652
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_bowls_three",
+      "task_index": 19800,
+      "episode": 23004,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-007.parquet",
+      "frames": 464,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00778314062337446,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005189091213813207,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0021598272138228943
+        },
+        "0": {
+          "mean_abs": 0.002592407582160869,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05172413793103448
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0026035483349402437,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05194805194805195
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_bowls_three",
+      "task_index": 19801,
+      "episode": 23005,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-007.parquet",
+      "frames": 454,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006359011722950903,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004238433429967619,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.002207505518763797
+        },
+        "0": {
+          "mean_abs": 0.0021172326600411356,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05286343612334802
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0021265565005420864,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05309734513274336
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_bowls_three",
+      "task_index": 19810,
+      "episode": 23014,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-007.parquet",
+      "frames": 462,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.00781242889624293,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.005207753482673913,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.006507592190889371
+        },
+        "0": {
+          "mean_abs": 0.002601455535659431,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05627705627705628
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.0026127369823550164,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05652173913043478
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_bowls_three",
+      "task_index": 19811,
+      "episode": 23015,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-007.parquet",
+      "frames": 457,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006643954631576977,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004431641963278808,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0
+        },
+        "0": {
+          "mean_abs": 0.0022143559532304033,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05032822757111598
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.00222406327966423,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05054945054945055
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    },
+    {
+      "task": "stack_bowls_three",
+      "task_index": 19814,
+      "episode": 23018,
+      "file": "LaWAM/dataset/robotwin_merged/data/chunk-000/file-007.parquet",
+      "frames": 446,
+      "shifts": {
+        "-2": {
+          "mean_abs": 0.006551219256006734,
+          "max_abs": 0.2261306643486023,
+          "exact_fraction": 0.0
+        },
+        "-1": {
+          "mean_abs": 0.004367139518207033,
+          "max_abs": 0.15075379610061646,
+          "exact_fraction": 0.0044943820224719105
+        },
+        "0": {
+          "mean_abs": 0.002182157723549047,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05605381165919283
+        },
+        "1": {
+          "mean_abs": 0.0,
+          "max_abs": 0.0,
+          "exact_fraction": 1.0
+        },
+        "2": {
+          "mean_abs": 0.002191916806240175,
+          "max_abs": 0.07537692785263062,
+          "exact_fraction": 0.05630630630630631
+        }
+      },
+      "timestamp_dt_max_error": 5.103647708892822e-07,
+      "action_t36_equals_state_t37": true,
+      "future_shift_max_abs": 0.0,
+      "last_action_equals_last_state": false
+    }
+  ],
+  "raw_simulator_conversion_provenance": "unavailable; numeric equality alone does not prove realized-state provenance"
+}

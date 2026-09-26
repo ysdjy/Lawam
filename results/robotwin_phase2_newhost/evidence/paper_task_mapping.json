@@ -1,0 +1,352 @@
+[
+  {
+    "paper_task": "Adjust Bottle",
+    "environment_module": "adjust_bottle",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "4f76b35e718a4c5a364dae564d35d68268755818d9062e3ed4ff393d158d0548"
+  },
+  {
+    "paper_task": "Beat Block Hammer",
+    "environment_module": "beat_block_hammer",
+    "paper_clean": 90,
+    "paper_randomized": 93,
+    "source_sha256": "90269f15f9ce274fb5bcad703c47b0b552ff5a2f0a3ff62d12dbe9a553018014"
+  },
+  {
+    "paper_task": "Blocks Ranking RGB",
+    "environment_module": "blocks_ranking_rgb",
+    "paper_clean": 97,
+    "paper_randomized": 100,
+    "source_sha256": "0e632df38d9024e7952c0df7a1f59e3d011b537724e6e6588455dee4d4e6074b"
+  },
+  {
+    "paper_task": "Blocks Ranking Size",
+    "environment_module": "blocks_ranking_size",
+    "paper_clean": 93,
+    "paper_randomized": 89,
+    "source_sha256": "18ddb8ca5465f450ef03db292bcfc22e8e795fcb397f104fc24213a5fa063696"
+  },
+  {
+    "paper_task": "Click Alarmclock",
+    "environment_module": "click_alarmclock",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "f69a1ad4f1b483ab0dd82d8bad872e12047ed8d898f1fa4058de9e382ddeef49"
+  },
+  {
+    "paper_task": "Click Bell",
+    "environment_module": "click_bell",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "a0b7673e6ef842738999acbccaaa3d01f86d62a147bb8387cb92163218db48ac"
+  },
+  {
+    "paper_task": "Dump Bin Bigbin",
+    "environment_module": "dump_bin_bigbin",
+    "paper_clean": 97,
+    "paper_randomized": 95,
+    "source_sha256": "3bd57fe9172d59731db1ccf1bc9605dfe3ef08a0f7224edc720ea4812c214611"
+  },
+  {
+    "paper_task": "Grab Roller",
+    "environment_module": "grab_roller",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "f0e1864199605acf59cf8982dded05129d873bb3934f200e47abafd918d41c89"
+  },
+  {
+    "paper_task": "Handover Block",
+    "environment_module": "handover_block",
+    "paper_clean": 96,
+    "paper_randomized": 87,
+    "source_sha256": "5439712296d7e143d41f8e78b4ab86cd4fad7fb98f40f5f5abb067a462d17650"
+  },
+  {
+    "paper_task": "Handover Mic",
+    "environment_module": "handover_mic",
+    "paper_clean": 93,
+    "paper_randomized": 98,
+    "source_sha256": "41ed0f2561cc8f1ae2449ba405decd4f5d7e3b80243b60921598657551891b17"
+  },
+  {
+    "paper_task": "Hanging Mug",
+    "environment_module": "hanging_mug",
+    "paper_clean": 51,
+    "paper_randomized": 43,
+    "source_sha256": "8793ed6be6a80b18a10690767a1910c3c49a7a9e4887ecbdd48a191ca3e03034"
+  },
+  {
+    "paper_task": "Lift Pot",
+    "environment_module": "lift_pot",
+    "paper_clean": 100,
+    "paper_randomized": 99,
+    "source_sha256": "347e06f3f9f82b1bc35882671bbbdea50b6e3c77fff0f7fb4449b024875402eb"
+  },
+  {
+    "paper_task": "Move Can Pot",
+    "environment_module": "move_can_pot",
+    "paper_clean": 98,
+    "paper_randomized": 93,
+    "source_sha256": "ea838bb2502199610eea6cc058a4ba5fc7abb01c3d8ee0705c44854ddca20186"
+  },
+  {
+    "paper_task": "Move Pillbottle Pad",
+    "environment_module": "move_pillbottle_pad",
+    "paper_clean": 97,
+    "paper_randomized": 90,
+    "source_sha256": "a5db7c65db15c2273d1f9e99fab8fc00533a27b740a45161c9402d43b8aa6824"
+  },
+  {
+    "paper_task": "Move Playingcard Away",
+    "environment_module": "move_playingcard_away",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "edf557d5a29ab724860651e24398e03c400a71e4c82bdbf2cedd3958fbfb6cc2"
+  },
+  {
+    "paper_task": "Move Stapler Pad",
+    "environment_module": "move_stapler_pad",
+    "paper_clean": 94,
+    "paper_randomized": 87,
+    "source_sha256": "c2b7aa7bf4e896afc392a8cf1ac107b6982088a459c716de005a3412fcdedd6d"
+  },
+  {
+    "paper_task": "Open Laptop",
+    "environment_module": "open_laptop",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "ec9d157a7d7f09a096807dff113b41c095317d9910b05037bf3e8c8865be313a"
+  },
+  {
+    "paper_task": "Open Microwave",
+    "environment_module": "open_microwave",
+    "paper_clean": 41,
+    "paper_randomized": 43,
+    "source_sha256": "ad679b7753fc50487ba8034570e3b94aa7bfc84756048b94580fa3d2516a1bd0"
+  },
+  {
+    "paper_task": "Pick Diverse Bottles",
+    "environment_module": "pick_diverse_bottles",
+    "paper_clean": 91,
+    "paper_randomized": 88,
+    "source_sha256": "95ebb80fa96eafd0b7ff5518251c2a7aa42f22ef9b7cfdda4e80eac511f06151"
+  },
+  {
+    "paper_task": "Pick Dual Bottles",
+    "environment_module": "pick_dual_bottles",
+    "paper_clean": 100,
+    "paper_randomized": 95,
+    "source_sha256": "422f23510f3662405dcb5518d1ebe8a0270935849a4b02a2585615ff7bffc4ef"
+  },
+  {
+    "paper_task": "Place A2B Left",
+    "environment_module": "place_a2b_left",
+    "paper_clean": 98,
+    "paper_randomized": 91,
+    "source_sha256": "8603f48febcb5b5b534dc7d973ac4651264ebb9c6fb60f199d4d2adc9e14d7cd"
+  },
+  {
+    "paper_task": "Place A2B Right",
+    "environment_module": "place_a2b_right",
+    "paper_clean": 89,
+    "paper_randomized": 94,
+    "source_sha256": "1225e32207912e15855deff8aa9d4fd2cf425b4c5eeaeaf1eb795daaba4ac6ae"
+  },
+  {
+    "paper_task": "Place Bread Basket",
+    "environment_module": "place_bread_basket",
+    "paper_clean": 92,
+    "paper_randomized": 85,
+    "source_sha256": "50c433166301a7f0ac8615d041cc51aa673746b5b7d6fcc0b6f29790c560c053"
+  },
+  {
+    "paper_task": "Place Bread Skillet",
+    "environment_module": "place_bread_skillet",
+    "paper_clean": 90,
+    "paper_randomized": 83,
+    "source_sha256": "b1fa08d7f23d8bcd933ea7d64904fea17f67dbe58101c66e42c6addbfdbbcd73"
+  },
+  {
+    "paper_task": "Place Burger Fries",
+    "environment_module": "place_burger_fries",
+    "paper_clean": 93,
+    "paper_randomized": 96,
+    "source_sha256": "19e8a3428e677839e7e51ae6488752acc940a7d2bc8ee54587c354b422ba6d2c"
+  },
+  {
+    "paper_task": "Place Can Basket",
+    "environment_module": "place_can_basket",
+    "paper_clean": 92,
+    "paper_randomized": 65,
+    "source_sha256": "9f24e5ac98146babe93c68cb46baaf1d7bf21e38dbfc7c0b29e7020ae764e7f0"
+  },
+  {
+    "paper_task": "Place Cans Plasticbox",
+    "environment_module": "place_cans_plasticbox",
+    "paper_clean": 100,
+    "paper_randomized": 95,
+    "source_sha256": "5d004110de53d95c7a6fc7721f9136d96b9792a61b97686f7b5489ff7ec48a5f"
+  },
+  {
+    "paper_task": "Place Container Plate",
+    "environment_module": "place_container_plate",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "7a288f27f61e96fe905d5cfb80eb0a4fd8e490c829f2f02149951266012a3aee"
+  },
+  {
+    "paper_task": "Place Dual Shoes",
+    "environment_module": "place_dual_shoes",
+    "paper_clean": 98,
+    "paper_randomized": 94,
+    "source_sha256": "f35c4a133e1de567b274cbd15f158f585eb05e32aeb05be88839d249d0d7ab9e"
+  },
+  {
+    "paper_task": "Place Empty Cup",
+    "environment_module": "place_empty_cup",
+    "paper_clean": 99,
+    "paper_randomized": 100,
+    "source_sha256": "424bbd61f990ebfffb283eb152d17103c2a990edd20f68229203a96a2fd4d581"
+  },
+  {
+    "paper_task": "Place Fan",
+    "environment_module": "place_fan",
+    "paper_clean": 92,
+    "paper_randomized": 93,
+    "source_sha256": "7e8be55f1f26ce6128c254b50464edc438a96f272581ccb19827521bc679c237"
+  },
+  {
+    "paper_task": "Place Mouse Pad",
+    "environment_module": "place_mouse_pad",
+    "paper_clean": 91,
+    "paper_randomized": 84,
+    "source_sha256": "369bf399d0fd6a2687abb7d80b8feb6101c8b5405d33f9de63bbbdaaea7b73d0"
+  },
+  {
+    "paper_task": "Place Object Basket",
+    "environment_module": "place_object_basket",
+    "paper_clean": 92,
+    "paper_randomized": 90,
+    "source_sha256": "e809bd3eabac48cb34589f164291b04b9e2fbf6cc1ebd8c4024c0af8e265ed48"
+  },
+  {
+    "paper_task": "Place Object Scale",
+    "environment_module": "place_object_scale",
+    "paper_clean": 95,
+    "paper_randomized": 88,
+    "source_sha256": "2c058c9a8a26e0792a86e224b10c8f457cbf71100a40d4d24ee9faaf948f37fe"
+  },
+  {
+    "paper_task": "Place Object Stand",
+    "environment_module": "place_object_stand",
+    "paper_clean": 92,
+    "paper_randomized": 93,
+    "source_sha256": "0b4db3a679230ff3732b9bfdfcfaba3437bd5f942043de9921240118849e3fe8"
+  },
+  {
+    "paper_task": "Place Phone Stand",
+    "environment_module": "place_phone_stand",
+    "paper_clean": 93,
+    "paper_randomized": 94,
+    "source_sha256": "719cf84ebf997b8d15d0ef9f997d439da62d64067a292b6008433da3536a0216"
+  },
+  {
+    "paper_task": "Place Shoe",
+    "environment_module": "place_shoe",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "9e9b29eaca488f41617127070add87f33900c37db0d286a4c4b08e2138cbfc6f"
+  },
+  {
+    "paper_task": "Press Stapler",
+    "environment_module": "press_stapler",
+    "paper_clean": 98,
+    "paper_randomized": 97,
+    "source_sha256": "69274cf09aa1d4ba51469621461683b5225b8f98cf7837f821e848196ce51f9c"
+  },
+  {
+    "paper_task": "Put Bottles Dustbin",
+    "environment_module": "put_bottles_dustbin",
+    "paper_clean": 94,
+    "paper_randomized": 92,
+    "source_sha256": "1c03a4b227daa7d285fa366944f1f75773e32dc6a7b73ab693217a13fcd42795"
+  },
+  {
+    "paper_task": "Put Object Cabinet",
+    "environment_module": "put_object_cabinet",
+    "paper_clean": 90,
+    "paper_randomized": 82,
+    "source_sha256": "23d006a607b39bf8ec1c5e9522a5ac6d248abaa0487d4c56f0540e183391c37e"
+  },
+  {
+    "paper_task": "Rotate QRcode",
+    "environment_module": "rotate_qrcode",
+    "paper_clean": 94,
+    "paper_randomized": 89,
+    "source_sha256": "382165e22a2a52a73958ff69c662e57a4d1f0bc8cb7cecf3e9dd1f5ba11defa9"
+  },
+  {
+    "paper_task": "Scan Object",
+    "environment_module": "scan_object",
+    "paper_clean": 96,
+    "paper_randomized": 90,
+    "source_sha256": "860dfe2cc86d180096089bc87502c7904f7ce2efb64fb32620c1720ca0178c2b"
+  },
+  {
+    "paper_task": "Shake Bottle",
+    "environment_module": "shake_bottle",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "2e37395b302eb37ecac39b2a676ea119c4bf7a1dcc9e6df75cd683a5cf37b026"
+  },
+  {
+    "paper_task": "Shake Bottle Horizontally",
+    "environment_module": "shake_bottle_horizontally",
+    "paper_clean": 100,
+    "paper_randomized": 100,
+    "source_sha256": "def5f373a3a289c946bb32c6d01145672432dbe1d2b71a10992e5280d5f8dead"
+  },
+  {
+    "paper_task": "Stack Blocks Three",
+    "environment_module": "stack_blocks_three",
+    "paper_clean": 90,
+    "paper_randomized": 75,
+    "source_sha256": "b19f1f1c5a3a2c7c7312a4e1b2e577ccd269ebb0c444c287fecbc16ff5b47fb9"
+  },
+  {
+    "paper_task": "Stack Blocks Two",
+    "environment_module": "stack_blocks_two",
+    "paper_clean": 100,
+    "paper_randomized": 97,
+    "source_sha256": "4e92a679cb5be4ef87a1b842432c930560a2c9b539a4cbcee0161e2b2112f526"
+  },
+  {
+    "paper_task": "Stack Bowls Three",
+    "environment_module": "stack_bowls_three",
+    "paper_clean": 90,
+    "paper_randomized": 80,
+    "source_sha256": "95848e9c2987e64fef2cfd928128d7a19967ba600c57dc7a6b7f1c9ea5b358e6"
+  },
+  {
+    "paper_task": "Stack Bowls Two",
+    "environment_module": "stack_bowls_two",
+    "paper_clean": 100,
+    "paper_randomized": 99,
+    "source_sha256": "3e3217c277d84a0838739d55a0061a9acb3315240b5a99c6607d9637ea719637"
+  },
+  {
+    "paper_task": "Stamp Seal",
+    "environment_module": "stamp_seal",
+    "paper_clean": 89,
+    "paper_randomized": 88,
+    "source_sha256": "28a159e27aa76459355fa1f81e962815c62ee6435727039d73664b7eb6731b82"
+  },
+  {
+    "paper_task": "Turn Switch",
+    "environment_module": "turn_switch",
+    "paper_clean": 47,
+    "paper_randomized": 56,
+    "source_sha256": "035e108a861f94f61369ba2221431e123b7ac231e8de683d8bf38090bf021f9a"
+  }
+]

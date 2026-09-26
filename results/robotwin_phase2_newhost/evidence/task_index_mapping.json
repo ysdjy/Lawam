@@ -1,0 +1,352 @@
+[
+  {
+    "task": "put_object_cabinet",
+    "episode": 1500,
+    "task_index": 938,
+    "instruction": "Open the drawer of the smooth-surface cabinet and move the rectangular soap with slight groove pattern into it.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "put_object_cabinet",
+    "episode": 1501,
+    "task_index": 939,
+    "instruction": "Open the drawer of the wooden cabinet before placing the stapler in bright red color inside it.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "put_object_cabinet",
+    "episode": 1502,
+    "task_index": 940,
+    "instruction": "Open the drawer of the storage cabinet before placing the toycar with shiny plastic finish inside it.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "put_object_cabinet",
+    "episode": 1503,
+    "task_index": 941,
+    "instruction": "Pull the light wood top cabinet's drawer open and transfer the plastic toycar with smooth finish into it.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "put_object_cabinet",
+    "episode": 1504,
+    "task_index": 942,
+    "instruction": "Pull open the drawer of the wooden cabinet and move the glossy blue toycar into it.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "put_object_cabinet",
+    "episode": 1505,
+    "task_index": 943,
+    "instruction": "Put the pink toycar into the gray and wood cabinet's drawer once it is opened.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "hanging_mug",
+    "episode": 5000,
+    "task_index": 3588,
+    "instruction": "Use the left arm to grab the black mug with rounded sturdy handle, rotate it, place it in the middle, then use the right arm to hang it onto the rack with angular body.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "hanging_mug",
+    "episode": 5001,
+    "task_index": 3589,
+    "instruction": "Grab the smooth ceramic mug from the table, rotate it, place it, and hang it onto the medium rack with protruding rods.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "hanging_mug",
+    "episode": 5002,
+    "task_index": 3590,
+    "instruction": "Use the left arm to lift the mug for hot drinks, rotate it, put it down, then hook onto the medium rack with protruding rods.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "hanging_mug",
+    "episode": 5003,
+    "task_index": 3591,
+    "instruction": "Pick the medium mug with smooth texture from the table, rotate it, place it, and then hang it onto the smooth rack.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "hanging_mug",
+    "episode": 5004,
+    "task_index": 3592,
+    "instruction": "Take the ceramic mug smooth outside from the table, turn it, set it down, and attach it to the smooth dark gray rack.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "hanging_mug",
+    "episode": 5005,
+    "task_index": 3593,
+    "instruction": "Lift the mug with rounded handle, turn it around, set it in the middle, and place it on the metal rack.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "lift_pot",
+    "episode": 5500,
+    "task_index": 4085,
+    "instruction": "Hold and raise the cylindrical kitchenpot together",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "lift_pot",
+    "episode": 5501,
+    "task_index": 4086,
+    "instruction": "Securely lift the kitchenpot for boiling and cooking together",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "lift_pot",
+    "episode": 5502,
+    "task_index": 4087,
+    "instruction": "Engage arms to grip and lift the medium kitchenpot made of metal.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "lift_pot",
+    "episode": 5503,
+    "task_index": 4088,
+    "instruction": "Both arms lift the kitchenpot for boiling and cooking upright",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "lift_pot",
+    "episode": 5504,
+    "task_index": 4089,
+    "instruction": "Use both arms to raise the gray kitchenpot",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "lift_pot",
+    "episode": 5505,
+    "task_index": 4090,
+    "instruction": "Carry the medium kitchenpot made of metal securely using arms",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "open_microwave",
+    "episode": 8500,
+    "task_index": 6829,
+    "instruction": "Pull the handle to open the rectangular microwave.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "open_microwave",
+    "episode": 8501,
+    "task_index": 6830,
+    "instruction": "Use the left arm to grab and open the microwave.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "open_microwave",
+    "episode": 8502,
+    "task_index": 6831,
+    "instruction": "Pull the handle of the medium microwave with slanted sides to open it.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "open_microwave",
+    "episode": 8503,
+    "task_index": 6832,
+    "instruction": "Engage the medium microwave using the left arm to open.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "open_microwave",
+    "episode": 8504,
+    "task_index": 6833,
+    "instruction": "Pull the handle of the dark gray kitchen microwave with the left arm.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "open_microwave",
+    "episode": 8505,
+    "task_index": 6834,
+    "instruction": "Grasp the rectangular gray microwave's handle and pull to open.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "place_can_basket",
+    "episode": 12500,
+    "task_index": 10671,
+    "instruction": "Pick the small soda can with lime graphics with the right arm, set it in the handheld basket, and lift the handheld basket using another arm.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "place_can_basket",
+    "episode": 12501,
+    "task_index": 10672,
+    "instruction": "Use the right arm to grab the smooth light brown can, place it in the medium yellow basket with slots, and lift the medium yellow basket with slots.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "place_can_basket",
+    "episode": 12502,
+    "task_index": 10673,
+    "instruction": "Grab the red-orange text on white can, place it in the basket with black handle, and lift the basket with black handle upwards.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "place_can_basket",
+    "episode": 12503,
+    "task_index": 10674,
+    "instruction": "Use the right arm to hold the red-orange text on white can, drop the red-orange text on white can into the woven basket, and lift the woven basket.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "place_can_basket",
+    "episode": 12504,
+    "task_index": 10675,
+    "instruction": "Use the right arm to grab the medium-sized soda can, place it in the rectangular yellow basket, and lift the rectangular yellow basket.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "place_can_basket",
+    "episode": 12505,
+    "task_index": 10676,
+    "instruction": "Pick the red shiny can with green label with the right arm, drop it in the rectangular yellow basket, lift the rectangular yellow basket with another arm.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_blocks_three",
+    "episode": 22000,
+    "task_index": 19581,
+    "instruction": "Use the left arm, the right arm, and the left arm to centralize red block, green block, and blue block and build a stack with them.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_blocks_three",
+    "episode": 22001,
+    "task_index": 19582,
+    "instruction": "Gather red block, green block, and blue block at the table's center and stack blue block on green block, then green block on red block.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_blocks_three",
+    "episode": 22002,
+    "task_index": 19583,
+    "instruction": "Position red block, green block, and blue block centrally. Place green block on red block, then set blue block on green block.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_blocks_three",
+    "episode": 22003,
+    "task_index": 19584,
+    "instruction": "Arrange red block, green block, and blue block in the table's center and stack blue block atop green block, then green block atop red block.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_blocks_three",
+    "episode": 22004,
+    "task_index": 19585,
+    "instruction": "Use arms the left arm, the right arm, and the left arm to centralize red block, green block, blue block and stack blue block above green block, then green block above red block.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_blocks_three",
+    "episode": 22005,
+    "task_index": 19586,
+    "instruction": "Place red block, green block, and blue block in the center, then arrange green block on red block and blue block on green block.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_bowls_three",
+    "episode": 23000,
+    "task_index": 19796,
+    "instruction": "Place the first the medium-sized bowl for holding food down, then stack the next two above it.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_bowls_three",
+    "episode": 23004,
+    "task_index": 19800,
+    "instruction": "Arrange the three the ceramic bowl by stacking them one over the other.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stack_bowls_three",
+    "episode": 23005,
+    "task_index": 19801,
+    "instruction": "Arrange all three the ceramic bowl with earthy brown trim into a vertical stack.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stamp_seal",
+    "episode": 24000,
+    "task_index": 20623,
+    "instruction": "Hold the stamp with red top and press Blue",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stamp_seal",
+    "episode": 24001,
+    "task_index": 20624,
+    "instruction": "the left arm picks the reddish-brown seal, stamps Orange",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stamp_seal",
+    "episode": 24002,
+    "task_index": 20625,
+    "instruction": "the right arm grabs the stamp with black rectangular base, stamps Indigo",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stamp_seal",
+    "episode": 24003,
+    "task_index": 20626,
+    "instruction": "Take the plastic red and black seal and stamp Brown",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stamp_seal",
+    "episode": 24004,
+    "task_index": 20627,
+    "instruction": "With the right arm, take the smooth textured reddish-brown seal and mark Indigo.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "stamp_seal",
+    "episode": 24005,
+    "task_index": 20628,
+    "instruction": "Use the right arm to grab the yellow stamping tool, press Brown",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "turn_switch",
+    "episode": 24500,
+    "task_index": 21121,
+    "instruction": "Set the right arm to press the switch with a smooth top",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "turn_switch",
+    "episode": 24501,
+    "task_index": 21122,
+    "instruction": "Engage the switch with trapezoidal base using the robotic arm",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "turn_switch",
+    "episode": 24503,
+    "task_index": 21124,
+    "instruction": "Trigger the compact rectangular black switch without referencing the left arm",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "turn_switch",
+    "episode": 24504,
+    "task_index": 21125,
+    "instruction": "Command the right arm to engage the switch with brown button",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  },
+  {
+    "task": "turn_switch",
+    "episode": 24505,
+    "task_index": 21126,
+    "instruction": "Interact with the switch with rectangular dark button.",
+    "provenance": "manually reviewed instruction and task source; no canonical environment ID in metadata"
+  }
+]

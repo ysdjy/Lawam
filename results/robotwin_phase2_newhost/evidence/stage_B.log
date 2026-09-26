@@ -1,0 +1,334 @@
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100100, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100101, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100103, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100103, "status": "completed", "success": false}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100104, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100105}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100106}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100107}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100107, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100108}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100108, "status": "completed", "success": false}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100109}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100109, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100110}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100110, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100111}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100111, "status": "completed", "success": false}
+{"event": "start", "task": "open_microwave", "condition": "demo_clean", "seed": 100112}
+{"event": "end", "task": "open_microwave", "condition": "demo_clean", "seed": 100112, "status": "completed", "success": true}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100100, "status": "completed", "success": true}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100101, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100102, "status": "completed", "success": false}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100103, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100104, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100105}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100106}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100106, "status": "completed", "success": false}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100107}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100107, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100108}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100108, "status": "completed", "success": true}
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100109}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100109, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100109}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100109, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "open_microwave", "condition": "demo_randomized", "seed": 100109}
+{"event": "end", "task": "open_microwave", "condition": "demo_randomized", "seed": 100109, "status": "completed", "success": true}
+{"event": "start", "task": "hanging_mug", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "hanging_mug", "condition": "demo_clean", "seed": 100100, "status": "completed", "success": false}
+{"event": "start", "task": "hanging_mug", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "hanging_mug", "condition": "demo_clean", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "hanging_mug", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "hanging_mug", "condition": "demo_clean", "seed": 100102, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "hanging_mug", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "hanging_mug", "condition": "demo_clean", "seed": 100102, "status": "completed", "success": false}
+{"event": "start", "task": "hanging_mug", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "hanging_mug", "condition": "demo_clean", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "hanging_mug", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "hanging_mug", "condition": "demo_clean", "seed": 100104, "status": "completed", "success": false}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100100, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100102, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100104, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100105}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100106}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100107}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100107, "status": "completed", "success": true}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100108}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100108, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100108}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100108, "status": "completed", "success": true}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100109}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100109, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100110}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100110, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100111}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100111, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100112}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100112, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100113}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100113, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100114}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100114, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100115}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100115, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100116}
+{"event": "end", "task": "hanging_mug", "condition": "demo_randomized", "seed": 100116, "status": "completed", "success": false}
+{"event": "start", "task": "turn_switch", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "turn_switch", "condition": "demo_clean", "seed": 100100, "status": "completed", "success": false}
+{"event": "start", "task": "turn_switch", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "turn_switch", "condition": "demo_clean", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "turn_switch", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "turn_switch", "condition": "demo_clean", "seed": 100102, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "turn_switch", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "turn_switch", "condition": "demo_clean", "seed": 100103, "status": "completed", "success": false}
+{"event": "start", "task": "turn_switch", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "turn_switch", "condition": "demo_clean", "seed": 100104, "status": "completed", "success": false}
+{"event": "start", "task": "turn_switch", "condition": "demo_clean", "seed": 100105}
+{"event": "end", "task": "turn_switch", "condition": "demo_clean", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "turn_switch", "condition": "demo_clean", "seed": 100106}
+{"event": "end", "task": "turn_switch", "condition": "demo_clean", "seed": 100106, "status": "completed", "success": false}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100100, "status": "completed", "success": true}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100101, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100102, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100104, "status": "completed", "success": true}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100105}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100106}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100107}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100107, "status": "completed", "success": true}
+{"event": "start", "task": "turn_switch", "condition": "demo_randomized", "seed": 100108}
+{"event": "end", "task": "turn_switch", "condition": "demo_randomized", "seed": 100108, "status": "completed", "success": false}
+{"event": "start", "task": "place_can_basket", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "place_can_basket", "condition": "demo_clean", "seed": 100100, "status": "completed", "success": true}
+{"event": "start", "task": "place_can_basket", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "place_can_basket", "condition": "demo_clean", "seed": 100101, "status": "completed", "success": false}
+{"event": "start", "task": "place_can_basket", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "place_can_basket", "condition": "demo_clean", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "place_can_basket", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "place_can_basket", "condition": "demo_clean", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "place_can_basket", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "place_can_basket", "condition": "demo_clean", "seed": 100104, "status": "completed", "success": false}
+{"event": "start", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100100, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100102, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100104, "status": "completed", "success": false}
+{"event": "start", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100105}
+{"event": "end", "task": "place_can_basket", "condition": "demo_randomized", "seed": 100105, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100100, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_clean", "seed": 100104, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100100, "status": "completed", "success": false}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "stack_blocks_three", "condition": "demo_randomized", "seed": 100104, "status": "completed", "success": false}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100100, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100102, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100104, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100105}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100105, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100106}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100107}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_clean", "seed": 100107, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100100, "status": "system_error", "success": null}
+System error: stop batch, retain seed, investigate before further episodes
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100100, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100103, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100104, "status": "completed", "success": true}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100105}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100106}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100107}
+{"event": "end", "task": "stack_bowls_three", "condition": "demo_randomized", "seed": 100107, "status": "completed", "success": true}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100100, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100101, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100102, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100103, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100104, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100105}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100105, "status": "completed", "success": true}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100106}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100107}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100107, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100108}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100108, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100109}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100109, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100110}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100110, "status": "completed", "success": true}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100111}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100111, "status": "completed", "success": true}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100112}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100112, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100113}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100113, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100114}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100114, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100115}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100115, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100116}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100116, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100117}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100117, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100118}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100118, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100119}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_clean", "seed": 100119, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100100, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100101, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100103, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100104, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100105}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100106}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100107}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100107, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100108}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100108, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100109}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100109, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100110}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100110, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100111}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100111, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100112}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100112, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100113}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100113, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100114}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100114, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100115}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100115, "status": "completed", "success": true}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100116}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100116, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100117}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100117, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100118}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100118, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100119}
+{"event": "end", "task": "put_object_cabinet", "condition": "demo_randomized", "seed": 100119, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100100}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100100, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100101}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100101, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100102}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100102, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100103}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100103, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100104}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100104, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100105}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100105, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100106}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100106, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100107}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100107, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_clean", "seed": 100108}
+{"event": "end", "task": "stamp_seal", "condition": "demo_clean", "seed": 100108, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100100}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100100, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100101}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100101, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100102}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100102, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100103}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100103, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100104}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100104, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100105}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100105, "status": "seed_rejected", "success": null}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100106}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100106, "status": "completed", "success": true}
+{"event": "start", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100107}
+{"event": "end", "task": "stamp_seal", "condition": "demo_randomized", "seed": 100107, "status": "completed", "success": true}

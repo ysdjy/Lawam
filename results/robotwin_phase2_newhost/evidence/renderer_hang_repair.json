@@ -1,0 +1,10 @@
+{
+  "time_unix": 1790337096.814196,
+  "type": "instrumentation_repair",
+  "seed": 100103,
+  "original_attempt": "LaWAM/results/robotwin_phase2_newhost/attempts/open_microwave__demo_clean__100103__attempt1_renderer_hang",
+  "change": "Explicit camera pose synchronization and scene.update_render before diagnostic-only frame capture; no extra randomized lighting/RNG update. Per-command 120s fatal hang watchdog. Same-seed full replay.",
+  "causality": "Readback synchronization is a candidate workaround, not yet a proven root cause.",
+  "long_gate": "1800 frames x3 cameras RT none passed",
+  "preserved": "checkpoint,flow seeds,instruction selection,replan36,native actions/physics/predicate,condition,ordered seed pool"
+}

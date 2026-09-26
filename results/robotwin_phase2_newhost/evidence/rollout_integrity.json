@@ -1,0 +1,470 @@
+[
+  {
+    "episode": "hanging_mug__demo_clean__100100",
+    "commands": 900,
+    "queries": 25,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_clean__100101",
+    "commands": 318,
+    "queries": 9,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_clean__100102",
+    "commands": 900,
+    "queries": 25,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_clean__100103",
+    "commands": 308,
+    "queries": 9,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_clean__100104",
+    "commands": 900,
+    "queries": 25,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_randomized__100101",
+    "commands": 317,
+    "queries": 9,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_randomized__100103",
+    "commands": 325,
+    "queries": 10,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_randomized__100107",
+    "commands": 312,
+    "queries": 9,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_randomized__100108",
+    "commands": 315,
+    "queries": 9,
+    "status": "passed"
+  },
+  {
+    "episode": "hanging_mug__demo_randomized__100116",
+    "commands": 900,
+    "queries": 25,
+    "status": "passed"
+  },
+  {
+    "episode": "lift_pot__demo_clean__100000",
+    "commands": 100,
+    "queries": 3,
+    "status": "passed"
+  },
+  {
+    "episode": "lift_pot__demo_clean__100002",
+    "commands": 106,
+    "queries": 3,
+    "status": "passed"
+  },
+  {
+    "episode": "lift_pot__demo_clean__100003",
+    "commands": 104,
+    "queries": 3,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_clean__100102",
+    "commands": 97,
+    "queries": 3,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_clean__100103",
+    "commands": 1500,
+    "queries": 42,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_clean__100108",
+    "commands": 1500,
+    "queries": 42,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_clean__100111",
+    "commands": 1500,
+    "queries": 42,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_clean__100112",
+    "commands": 1331,
+    "queries": 37,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_randomized__100100",
+    "commands": 360,
+    "queries": 10,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_randomized__100102",
+    "commands": 1500,
+    "queries": 42,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_randomized__100106",
+    "commands": 1500,
+    "queries": 42,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_randomized__100108",
+    "commands": 374,
+    "queries": 11,
+    "status": "passed"
+  },
+  {
+    "episode": "open_microwave__demo_randomized__100109",
+    "commands": 408,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_clean__100100",
+    "commands": 238,
+    "queries": 7,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_clean__100101",
+    "commands": 700,
+    "queries": 20,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_clean__100102",
+    "commands": 219,
+    "queries": 7,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_clean__100103",
+    "commands": 252,
+    "queries": 7,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_clean__100104",
+    "commands": 700,
+    "queries": 20,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_randomized__100101",
+    "commands": 249,
+    "queries": 7,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_randomized__100102",
+    "commands": 279,
+    "queries": 8,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_randomized__100103",
+    "commands": 274,
+    "queries": 8,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_randomized__100104",
+    "commands": 700,
+    "queries": 20,
+    "status": "passed"
+  },
+  {
+    "episode": "place_can_basket__demo_randomized__100105",
+    "commands": 700,
+    "queries": 20,
+    "status": "passed"
+  },
+  {
+    "episode": "put_object_cabinet__demo_clean__100105",
+    "commands": 268,
+    "queries": 8,
+    "status": "passed"
+  },
+  {
+    "episode": "put_object_cabinet__demo_clean__100110",
+    "commands": 253,
+    "queries": 8,
+    "status": "passed"
+  },
+  {
+    "episode": "put_object_cabinet__demo_clean__100111",
+    "commands": 255,
+    "queries": 8,
+    "status": "passed"
+  },
+  {
+    "episode": "put_object_cabinet__demo_randomized__100102",
+    "commands": 253,
+    "queries": 8,
+    "status": "passed"
+  },
+  {
+    "episode": "put_object_cabinet__demo_randomized__100115",
+    "commands": 269,
+    "queries": 8,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_clean__100100",
+    "commands": 423,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_clean__100101",
+    "commands": 438,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_clean__100102",
+    "commands": 465,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_clean__100103",
+    "commands": 420,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_clean__100104",
+    "commands": 414,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_randomized__100100",
+    "commands": 1200,
+    "queries": 34,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_randomized__100101",
+    "commands": 433,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_randomized__100102",
+    "commands": 435,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_randomized__100103",
+    "commands": 427,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_blocks_three__demo_randomized__100104",
+    "commands": 1200,
+    "queries": 34,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_clean__100100",
+    "commands": 462,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_clean__100101",
+    "commands": 454,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_clean__100103",
+    "commands": 449,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_clean__100105",
+    "commands": 424,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_clean__100107",
+    "commands": 446,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_randomized__100100",
+    "commands": 418,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_randomized__100101",
+    "commands": 425,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_randomized__100102",
+    "commands": 441,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_randomized__100104",
+    "commands": 427,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "stack_bowls_three__demo_randomized__100107",
+    "commands": 433,
+    "queries": 13,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_clean__100100",
+    "commands": 139,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_clean__100102",
+    "commands": 146,
+    "queries": 5,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_clean__100104",
+    "commands": 130,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_clean__100105",
+    "commands": 147,
+    "queries": 5,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_clean__100108",
+    "commands": 136,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_randomized__100101",
+    "commands": 134,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_randomized__100103",
+    "commands": 126,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_randomized__100104",
+    "commands": 138,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_randomized__100106",
+    "commands": 139,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "stamp_seal__demo_randomized__100107",
+    "commands": 133,
+    "queries": 4,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_clean__100100",
+    "commands": 400,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_clean__100101",
+    "commands": 64,
+    "queries": 2,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_clean__100103",
+    "commands": 400,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_clean__100104",
+    "commands": 400,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_clean__100106",
+    "commands": 400,
+    "queries": 12,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_randomized__100100",
+    "commands": 86,
+    "queries": 3,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_randomized__100103",
+    "commands": 72,
+    "queries": 2,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_randomized__100104",
+    "commands": 57,
+    "queries": 2,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_randomized__100107",
+    "commands": 53,
+    "queries": 2,
+    "status": "passed"
+  },
+  {
+    "episode": "turn_switch__demo_randomized__100108",
+    "commands": 400,
+    "queries": 12,
+    "status": "passed"
+  }
+]
